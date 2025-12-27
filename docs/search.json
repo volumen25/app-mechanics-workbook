@@ -4,17 +4,7 @@
     "href": "index.html",
     "title": "Applied Mechanics Tutorial",
     "section": "",
-    "text": "Preface\nA Concise Introduction to Computational Tools provides a series of tutorials derived from lecture notes, offering clear and focused guidance on essential topics. No prior programming experience is required.\nStudents are expected to be comfortable with college-level mathematics and science and are strongly encouraged to consult reliable reference texts. The tutorials also assume working familiarity with either macOS or Microsoft Windows.\nFor best results, these materials should be used on a laptop or desktop computer rather than a tablet or smartphone.",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "index.html#recommended-books",
-    "href": "index.html#recommended-books",
-    "title": "Applied Mechanics Tutorial",
-    "section": "Recommended Books",
-    "text": "Recommended Books\nHannah & Hillier (1995)\nRussell et al. (2021)\nBolton (2021)\nShaw (2017)\nSweigart (2021)\nSweigart (2020)\n\n\n\n\nBolton, W. (2021). Engineering science (Seventh edition). Routledge.\n\n\nHannah, J., & Hillier, M. J. (1995). Applied mechanics (3rd edition). Longman Pub Group.\n\n\nRussell, P. A., Jackson, L., & Embleton, W. (2021). Applied mechanics for marine engineers (7th edition). Reeds.\n\n\nShaw, Z. (2017). Learn python 3 the hard way: A very simple introduction to the terrifyingly beautiful world of computers and code (4th edition). Addison-Wesley Professional.\n\n\nSweigart, A. (2020). Automate the boring stuff with python, 2nd edition: Practical programming for total beginners. No Starch Press.\n\n\nSweigart, A. (2021). Beyond the basic stuff with python: Best practices for writing clean code. No Starch Press.",
+    "text": "Preface\nA Concise Introduction to Computational Tools provides a series of tutorials derived from lecture notes, offering clear and focused guidance on essential topics. No prior programming experience is required.\nStudents are expected to be comfortable with college-level mathematics and science and are strongly encouraged to consult reliable reference texts. For example, students may consult foundational and practical texts in applied mechanics and computational tools, including Hannah & Hillier (1995), Russell et al. (2021), Bolton (2021), Shaw (2017), Sweigart (2021), and Sweigart (2020).\nThe tutorials also assume working familiarity with either macOS or Microsoft Windows. For best results, these materials should be used on a laptop or desktop computer rather than a tablet or smartphone.\n\n\n\n\nBolton, W. (2021). Engineering science (Seventh edition). Routledge.\n\n\nHannah, J., & Hillier, M. J. (1995). Applied mechanics (3rd edition). Longman Pub Group.\n\n\nRussell, P. A., Jackson, L., & Embleton, W. (2021). Applied mechanics for marine engineers (7th edition). Reeds.\n\n\nShaw, Z. (2017). Learn python 3 the hard way: A very simple introduction to the terrifyingly beautiful world of computers and code (4th edition). Addison-Wesley Professional.\n\n\nSweigart, A. (2020). Automate the boring stuff with python, 2nd edition: Practical programming for total beginners. No Starch Press.\n\n\nSweigart, A. (2021). Beyond the basic stuff with python: Best practices for writing clean code. No Starch Press.",
     "crumbs": [
       "Preface"
     ]
@@ -544,7 +534,7 @@
     "href": "colophon.html",
     "title": "Colophon",
     "section": "",
-    "text": "This booklet was typeset with Quarto v.1.8.26.",
+    "text": "This book was typeset with Quarto v.1.8.26 using Pandoc for document conversion.",
     "crumbs": [
       "Colophon"
     ]
