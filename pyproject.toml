@@ -1,5 +1,5 @@
 [project]
-name = "computational-mechanics-workbook"
+name = "applied-mechanics-tutorial"
 version = "0.1.0"
 description = "A Concise Introduction to Computational Tools for Applied Mechanics"
 requires-python = ">=3.14"
@@ -8,9 +8,10 @@ dependencies = [
     "matplotlib>=3.9",
     "scipy>=1.14",
     "sympy>=1.13",
+    "pandas>=2.0",
 ]
 
-[dependency-groups]
-dev = [
-    "black>=25.12.0",
+[tool.uv]
+dev-dependencies = [
+    "black>=24.0",
 ]

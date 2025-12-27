@@ -8,7 +8,7 @@ website:
   favicon: favicon.ico
   
 book:
-  title: "Tutorial"
+  title: "Applied Mechanics Tutorial"
   subtitle: "A Concise Introduction to Computational Tools"
   #author: "Serhat Beyenir"
   #date: today #today or last-modified
@@ -20,21 +20,26 @@ book:
     collapse-level: 2
     pinned: false
   page-footer:
-    #left: © 2025 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    left: © 2026 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
     right: |
       Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
   chapters:    
-    - index.qmd    
+    - dedication.qmd         
+    - attributions.qmd     
+    - index.qmd            
+    - acknowledgements.qmd    
     - study_guide.qmd        
     - tutorial_basic.qmd
     - 01statics.qmd
-    - kinematics.qmd
+    - 02kinematics.qmd
     - 02dynamics.qmd
     - 03hydrostatics.qmd
     - 04hydrodynamics.qmd
+    - references.qmd
     - colophon.qmd
   appendices:
     - greek_letters.qmd
+    - revision_history.qmd  
 
 
 bibliography: references.bib

@@ -2,11 +2,51 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Tutorial",
+    "title": "Applied Mechanics Tutorial",
     "section": "",
     "text": "Preface\nA Concise Introduction to Computational Tools provides a series of tutorials derived from lecture notes, offering clear and focused guidance on essential topics. No prior programming experience is required.\nStudents are expected to be comfortable with college-level mathematics and science and are strongly encouraged to consult reliable reference texts. The tutorials also assume working familiarity with either macOS or Microsoft Windows.\nFor best results, these materials should be used on a laptop or desktop computer rather than a tablet or smartphone.",
     "crumbs": [
       "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#recommended-books",
+    "href": "index.html#recommended-books",
+    "title": "Applied Mechanics Tutorial",
+    "section": "Recommended Books",
+    "text": "Recommended Books\nHannah & Hillier (1995)\nRussell et al. (2021)\nBolton (2021)\nShaw (2017)\nSweigart (2021)\nSweigart (2020)\n\n\n\n\nBolton, W. (2021). Engineering science (Seventh edition). Routledge.\n\n\nHannah, J., & Hillier, M. J. (1995). Applied mechanics (3rd edition). Longman Pub Group.\n\n\nRussell, P. A., Jackson, L., & Embleton, W. (2021). Applied mechanics for marine engineers (7th edition). Reeds.\n\n\nShaw, Z. (2017). Learn python 3 the hard way: A very simple introduction to the terrifyingly beautiful world of computers and code (4th edition). Addison-Wesley Professional.\n\n\nSweigart, A. (2020). Automate the boring stuff with python, 2nd edition: Practical programming for total beginners. No Starch Press.\n\n\nSweigart, A. (2021). Beyond the basic stuff with python: Best practices for writing clean code. No Starch Press.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "dedication.html",
+    "href": "dedication.html",
+    "title": "Dedication",
+    "section": "",
+    "text": "To my students, whose inspiration and encouragement made this work possible.",
+    "crumbs": [
+      "Dedication"
+    ]
+  },
+  {
+    "objectID": "attributions.html",
+    "href": "attributions.html",
+    "title": "Attributions",
+    "section": "",
+    "text": "This book incorporates figures, data, and other resources from the following sources:\n\nFigures in the formulae, the centroids and second moments of area, are adapted from the Wikipedia pages on Centroids and Second moments of area.",
+    "crumbs": [
+      "Attributions"
+    ]
+  },
+  {
+    "objectID": "acknowledgements.html",
+    "href": "acknowledgements.html",
+    "title": "Acknowledgements",
+    "section": "",
+    "text": "I would like to thank the colleagues and friends who helped shape this project.\nSpecial thanks to their valuable feedback and support.\nAny errors or omissions are my own.",
+    "crumbs": [
+      "Acknowledgements"
     ]
   },
   {
@@ -200,8 +240,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html",
-    "href": "kinematics.html",
+    "objectID": "02kinematics.html",
+    "href": "02kinematics.html",
     "title": "2  Kinematics",
     "section": "",
     "text": "2.1 Linear Motion Definitions",
@@ -210,8 +250,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html#linear-motion-definitions",
-    "href": "kinematics.html#linear-motion-definitions",
+    "objectID": "02kinematics.html#linear-motion-definitions",
+    "href": "02kinematics.html#linear-motion-definitions",
     "title": "2  Kinematics",
     "section": "",
     "text": "\\(\\textbf{Speed} (v)\\): The scalar measure of the rate of change of distance. Mathematically, \\[\n  v = \\frac{d}{t}\n  \\] where (d) is distance and (t) is time.\n\\(\\textbf{Velocity} (\\vec{v})\\): The vector measure of the rate of change of displacement. It is given by: \\[\n  \\vec{v} = \\frac{\\Delta \\vec{x}}{\\Delta t}\n  \\] where \\(\\Delta \\vec{x}\\) is the displacement vector and \\(\\Delta t\\) is the time interval.\n\\(\\textbf{Acceleration} (\\vec{a})\\): The rate of change of velocity with respect to time. It is defined as: \\[\n  \\vec{a} = \\frac{\\Delta \\vec{v}}{\\Delta t}\n  \\]\n\n\nExample 2.1 A ship’s engines are stopped when travelling at a speed of 18 knots, and the ship comes to rest after 20 min. Assuming uniform deceleration, find the deceleration (m/s²) and the distance travelled in nautical miles in that time.\nimport math\n\n# Given\n\nv_knots = 18           # initial speed in knots\nt_minutes = 20         # time to stop in minutes\nkn_to_ms = 0.5144      # conversion factor (m/s per knot)\nnmi_in_m = 1852        # meters in a nautical mile\n\n# Convert units\n\nvi = v_knots * kn_to_ms      # initial speed in m/s\nvf = 0                       # final speed\nt = t_minutes * 60           # seconds\n\n# Deceleration (positive magnitude)\n\ndeceleration = (vi - vf) / t     # m/s^2\n\n# Average velocity for uniform deceleration\n\nv_avg = (vi + vf) / 2            # m/s\n\n# Distance travelled\n\ns = v_avg * t                    # meters\ns_nmi = s / nmi_in_m             # nautical miles\n\nprint(f\"Deceleration: {deceleration:.6f} m/s^2\")\nprint(f\"Distance travelled: {s_nmi:.3f} nautical miles\")",
@@ -220,8 +260,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html#equations-of-motion-constant-acceleration",
-    "href": "kinematics.html#equations-of-motion-constant-acceleration",
+    "objectID": "02kinematics.html#equations-of-motion-constant-acceleration",
+    "href": "02kinematics.html#equations-of-motion-constant-acceleration",
     "title": "2  Kinematics",
     "section": "2.2 Equations of Motion (Constant Acceleration)",
     "text": "2.2 Equations of Motion (Constant Acceleration)\n\\[\n\\vec{v} = \\vec{u} + \\vec{a}t\n\\]\n\\[\n\\vec{s} = \\frac{\\vec{u}+\\vec{v}}{2}t\n\\]\n\\[\n\\vec{s} = \\vec{u}t + \\frac{1}{2}\\vec{a}t^2\n\\]\n\\[\n\\vec{v}^2 = \\vec{u}^2 + 2\\vec{a} \\cdot \\vec{s}\n\\]\nwhere:\n\n\\(\\vec{u}\\): Initial velocity\n\\(\\vec{v}\\): Final velocity\n\\(\\vec{s}\\): Displacement\n\\(\\vec{a}\\): Acceleration\n\\(t\\): Time\n\n\nExample 2.2 A ship’s propellers are stopped when travelling at 25 knots. From that point, it travels 4 kilometres before coming to a complete stop. Calculate the time it takes to stop in minutes and the average deceleration in m/s².\n# Given\n\nu_knots = 25          # initial speed in knots\nv_knots = 0           # final speed in knots\ns_m = 4000            # stopping distance in meters\nkn_to_ms = 0.5144     # conversion factor knots to m/s\n\n# Convert to m/s\n\nu = u_knots * kn_to_ms\nv = v_knots * kn_to_ms\n\n# Average deceleration (from s = 1/2*(u+v)*t)\n\nt = (2 * s_m) / (u + v)\n\n# Deceleration using v = u - a*t\n\na = (u - v) / t        \n\n# Convert time to minutes\n\nt_minutes = t / 60\n\nprint(f\"Average deceleration: {a:.5f} m/s²\")\nprint(f\"Time to stop: {t_minutes:.2f} minutes\")\n\n\nExample 2.3 A boat is rowed at 6 km/h perpendicular to a river flowing at 4 km/h. The river is 50 meters wide. How far downstream will the boat reach the opposite bank? What is the boat’s actual velocity (magnitude and direction)?\nWe treat this as vector addition: the boat’s rowing velocity across the river and the river’s current velocity downstream.\nGiven\n\nBoat speed across: \\(v_b = 6\\ \\text{km/h}\\)\nRiver current speed: \\(v_c = 4\\ \\text{km/h}\\)\nRiver width: \\(w = 50\\ \\text{m}\\)\n\nConvert speeds to m/s:\n\\[\n1\\ \\text{km/h} = \\frac{1000}{3600} = 0.277777\\ \\text{m/s}\n\\]\n\\[\nv_b = 6 \\times 0.277777 = 1.6666667\\ \\text{m/s}\n\\]\n\\[\nv_c = 4 \\times 0.277777 = 1.1111111\\ \\text{m/s}\n\\]\nTime to cross the river\n\\[\nt = \\frac{w}{v_b} = \\frac{50}{1.6666667} = 30\\ \\text{s}\n\\]\nDownstream drift\n\\[\n\\text{drift} = v_c \\times t = 1.1111111 \\times 30 = 33.3333\\ \\text{m}\n\\]\nActual velocity magnitude \\[\nv = \\sqrt{v_b^2 + v_c^2} = 2.00308\\ \\text{m/s}\n\\]\nDirection (downstream from perpendicular)\n\\[\n\\theta = \\tan^{-1}\\!\\left( \\frac{v_c}{v_b} \\right) = 33.69\n\\]\nimport math\n\n# Given\nboat_speed_kmh = 6      # km/h (perpendicular to river)\ncurrent_speed_kmh = 4   # km/h (downstream)\nwidth = 50              # meters (river width)\n\n# Convert speeds to m/s\n\nboat_speed = boat_speed_kmh * 1000 / 3600\ncurrent_speed = current_speed_kmh * 1000 / 3600\n\n# Time to cross\n\nt = width / boat_speed\n\n# Downstream drift\n\ndrift = current_speed * t\n\n# Actual velocity (magnitude)\n\nv_actual = math.sqrt(boat_speed**2 + current_speed**2)\n\n# Convert to km/h\n\nv_actual_kmh = v_actual * 3.6\n\n# Direction (downstream from perpendicular)\n\ntheta_deg = math.degrees(math.atan(current_speed / boat_speed))\n\nprint(f\"Time to cross: {t:.2f} s\")\nprint(f\"Downstream drift: {drift:.2f} m\")\nprint(f\"Actual speed: {v_actual:.2f} m/s ({v_actual_kmh:.2f} km/h)\")\nprint(f\"Direction: {theta_deg:.2f} degrees downstream\")\n\n\nExample 2.4 Two ships are moving toward each other in still water. Ship 1 is 310 meters long and travelling at 22 knots, while Ship 2 is 350 meters long and travelling at 19 knots. Calculate the time it takes for the ships to completely pass each other..\nimport math\n\n# Given\n\nlength1 = 310   # meters (Ship 1)\nlength2 = 350   # meters (Ship 2)\nspeed1 = 22     # knots\nspeed2 = 19     # knots\n\n# Total distance to be closed (sum of lengths)\n\ndistance_m = length1 + length2  # meters\n\n# Convert meters to nautical miles\n\ndistance_nm = distance_m / 1852\n\n# Relative (closing) speed in knots\n\nspeed_rel = speed1 + speed2\n\n# Time in hours\n\ntime_hours = distance_nm / speed_rel\n\n# Convert to seconds\ntime_seconds = time_hours * 3600\n\nprint(f\"Time for the ships to pass each other: {time_seconds:.2f} seconds\")",
@@ -230,8 +270,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html#angular-motion-definitions",
-    "href": "kinematics.html#angular-motion-definitions",
+    "objectID": "02kinematics.html#angular-motion-definitions",
+    "href": "02kinematics.html#angular-motion-definitions",
     "title": "2  Kinematics",
     "section": "2.3 Angular Motion Definitions",
     "text": "2.3 Angular Motion Definitions\n\n\\(\\textbf{Angular Displacement} (\\theta)\\): The angle through which an object rotates, measured in radians.\n\n\\(\\textbf{Angular Velocity} (\\omega)\\): The rate of change of angular displacement. Mathematically: \\[\n    \\omega = \\frac{\\Delta \\theta}{\\Delta t}\n    \\] \\[\n\\omega (rad/s) =2\\pi n \\:where\\:n=speed\\:in\\:rev/s\n\\]\n\\(\\textbf{Angular Acceleration} (\\alpha)\\): The rate of change of angular velocity with respect to time: \\[\n     \\alpha = \\frac{\\Delta \\omega}{\\Delta t}\n     \\]",
@@ -240,8 +280,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html#equations-of-angular-motion-constant-angular-acceleration",
-    "href": "kinematics.html#equations-of-angular-motion-constant-angular-acceleration",
+    "objectID": "02kinematics.html#equations-of-angular-motion-constant-angular-acceleration",
+    "href": "02kinematics.html#equations-of-angular-motion-constant-angular-acceleration",
     "title": "2  Kinematics",
     "section": "2.4 Equations of Angular Motion (Constant Angular Acceleration)",
     "text": "2.4 Equations of Angular Motion (Constant Angular Acceleration)\n\\[\n\\omega_2 = \\omega_1 \\mp \\alpha t\n\\]\n\\[\n\\theta = \\frac{\\omega_1+\\omega_2}{2}t\n\\]\n\\[\n\\theta = \\omega_1 t \\mp \\frac{1}{2}\\alpha t^2\n\\]\n\\[\n\\omega_2^2 = \\omega_1^2 \\mp 2\\alpha \\theta\n\\]\nwhere:\n\n\\(\\omega_1\\): Initial angular velocity (rad/s)\n\\(\\omega_2\\): Final angular velocity (rad/s)\n\\(\\theta\\) Angular displacement (rad)\n\\(\\alpha\\): Angular acceleration (rad/s2)\n\\(t\\): Time (s)\n\n\nExample 2.5 A shaft is rotating at 40 revolutions per minute (rev/min). It is uniformly decelerated at a rate of 0.017 rad/s² for 15 seconds. Calculate: 1. The angular velocity of the shaft at the end of 15 seconds (in rad/s and rev/min). 2. The total number of revolutions completed by the shaft during these 15 seconds.\nimport math\n\n# Given\n\nomega1_rpm = 40 # initial angular speed in rev/min\nalpha = -0.017  # angular acceleration (rad/s^2), (-) for deceleration\nt = 15          # time in seconds\n\n# Convert initial speed to rad/s\n\nomega1 = omega1_rpm * 2 * math.pi / 60  \n\n# Angular velocity after time t\n\nomega2 = omega1 + alpha * t              \n\n# Angular displacement during time t\n\ntheta = omega1 * t + 0.5 * alpha * t**2  \n\n# Convert angular displacement to revolutions\n\nrevolutions = theta / (2 * math.pi)\n\n# Convert omega2 to rpm\n\nomega2_rpm = omega2 * 60 / (2 * math.pi)\n\nprint(f\"Final angular velocity: {omega2:.4f} rad/s\")\nprint(f\"Final angular velocity: {omega2_rpm:.4f} rpm\")\nprint(f\"Angular displacement: {revolutions:.4f} revolutions\")",
@@ -250,8 +290,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html#relation-between-linear-and-angular-motion",
-    "href": "kinematics.html#relation-between-linear-and-angular-motion",
+    "objectID": "02kinematics.html#relation-between-linear-and-angular-motion",
+    "href": "02kinematics.html#relation-between-linear-and-angular-motion",
     "title": "2  Kinematics",
     "section": "2.5 Relation Between Linear and Angular Motion",
     "text": "2.5 Relation Between Linear and Angular Motion\nThe relationship between linear and angular motion is described by the following equations:\n\\(s = r \\theta\\) (linear displacement \\(s\\) and angular displacement \\(\\theta\\)).\n\\(v = r \\omega\\) (linear velocity \\(v\\) and angular velocity \\(\\omega\\)).\n\\(a = r \\alpha\\) (linear acceleration \\(a\\) and angular acceleration \\(\\alpha\\)).\n\n2.5.1 Variables\n\n\\(v\\): Linear velocity, the rate of change of linear displacement \\((v = \\frac{ds}{dt})\\).\n\\(a\\): Linear acceleration, the rate of change of linear velocity \\((a = \\frac{dv}{dt})\\).\n\\(s\\): Linear displacement, the distance moved along the circular path.\n\\(r\\): Radius of the circular path.\n\\(\\omega\\): Angular velocity, the rate of change of angular displacement \\((\\omega = \\frac{d\\theta}{dt})\\).\n\\(\\alpha\\): Angular acceleration, the rate of change of angular velocity \\((\\alpha = \\frac{d\\omega}{dt})\\).\n\\(\\theta\\): Angular displacement, the angle swept by the radius in radians.",
@@ -260,8 +300,8 @@
     ]
   },
   {
-    "objectID": "kinematics.html#summary",
-    "href": "kinematics.html#summary",
+    "objectID": "02kinematics.html#summary",
+    "href": "02kinematics.html#summary",
     "title": "2  Kinematics",
     "section": "2.6 Summary",
     "text": "2.6 Summary\n\nLinear motion is directly proportional to angular motion, with the radius (\\(r\\)) acting as the proportionality constant.\nUnits for the variables:\n\n\\(v\\): meters per second \\((m/s)\\),\n\\(a\\): meters per second squared \\((m/s^2)\\),\n\\(s\\): meters \\((m)\\),\n\\(r\\): meters \\((m)\\),\n\\(\\omega\\): radians per second \\((rad/s)\\),\n\\(\\alpha\\): radians per second squared \\((rad/s^2)\\),\n\\(\\theta\\): radians (\\(rad\\)).",
@@ -490,6 +530,16 @@
     ]
   },
   {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Bolton, W. (2021). Engineering science (Seventh edition).\nRoutledge.\n\n\nHannah, J., & Hillier, M. J. (1995). Applied mechanics (3rd\nedition). Longman Pub Group.\n\n\nRussell, P. A., Jackson, L., & Embleton, W. (2021). Applied\nmechanics for marine engineers (7th edition). Reeds.\n\n\nShaw, Z. (2017). Learn python 3 the hard way: A very simple\nintroduction to the terrifyingly beautiful world of computers and\ncode (4th edition). Addison-Wesley Professional.\n\n\nSweigart, A. (2020). Automate the boring stuff with python, 2nd\nedition: Practical programming for total beginners. No Starch\nPress.\n\n\nSweigart, A. (2021). Beyond the basic stuff with python: Best\npractices for writing clean code. No Starch Press.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
     "objectID": "colophon.html",
     "href": "colophon.html",
     "title": "Colophon",
@@ -508,6 +558,17 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Greek Letters</span>"
+    ]
+  },
+  {
+    "objectID": "revision_history.html",
+    "href": "revision_history.html",
+    "title": "Appendix B — Revision History",
+    "section": "",
+    "text": "Changelog.\n\n\nVersion\nDate\nDescription\n\n\n\n\n2.0\n2026-01-\nMajor revision with new chapters\n\n\n1.0\n2025-09-\nUpdated SI units section\n\n\n0.2\n2025-09-03\nAdded formulae section\n\n\n0.1\n2025-09-01\nInitial development",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Revision History</span>"
     ]
   }
 ]

@@ -5,3 +5,17 @@ A Concise Introduction to Computational Tools provides a series of tutorials der
 Students are expected to be comfortable with college-level mathematics and science and are strongly encouraged to consult reliable reference texts. The tutorials also assume working familiarity with either macOS or Microsoft Windows.
 
 For best results, these materials should be used on a laptop or desktop computer rather than a tablet or smartphone.
+
+## Recommended Books
+
+@hannah1995
+
+@russell2021
+
+@bolton2021
+
+@shaw2017
+
+@sweigart2021
+
+@sweigart2020

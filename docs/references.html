@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Guide – Applied Mechanics Tutorial</title>
+<title>References – Applied Mechanics Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tutorial_basic.html" rel="next">
-<link href="./acknowledgements.html" rel="prev">
+<link href="./colophon.html" rel="next">
+<link href="./04hydrodynamics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -249,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./study_guide.html">Study Guide</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -303,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./study_guide.html" class="sidebar-item-text sidebar-link active">
+  <a href="./study_guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Guide</span></a>
   </div>
 </li>
@@ -345,7 +364,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -392,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Study Guide</h1>
+<h1 class="title">References</h1>
 </div>
 
 
@@ -409,25 +428,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><p>First and foremost, solve the problem sets using only pen, paper, and a calculator. After completing a problem by hand, slightly modify the conditions or variables and solve it again. Then, input the new values into the Python script and compare the results with your hand-calculated solution.</p></li>
-<li><p>Buddy system: Study with a classmate. Teaching and helping one another significantly deepens understanding of the material. Students are strongly encouraged to work through problem sets collaboratively. For example, one student solves the odd-numbered problems while the other solves the even-numbered ones; then each explains their solutions to the other.</p></li>
-<li><p>Practice, practice, practice: As the saying goes, “practice makes perfect.” More accurately in this context, “good practice makes perfect.” That means pen-and-paper-first practice. Use Python as a verification tool, not a crutch. Always derive the solution analytically on paper first. Only after obtaining a complete hand-calculated result should you run the corresponding Python script. This approach echoes a proverb commonly attributed to Confucius:</p>
-<blockquote class="blockquote">
-<p>I hear and I forget</p>
-<p>I see and I remember</p>
-<p>I do and I understand</p>
-</blockquote></li>
-<li><p>Maintain a solution notebook: For each major problem, keep a single document (physical or digital) containing:</p>
-<ul>
-<li>The full hand derivation<br>
-</li>
-<li>Key numerical results with units<br>
-</li>
-<li>A brief paragraph summarizing insights or reconciling any intermediate discrepancies</li>
-</ul>
-<p>This record becomes an invaluable review resource before exams.</p></li>
-</ul>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-bolton2021" class="csl-entry" role="listitem">
+Bolton, W. (2021). <em>Engineering science</em> (Seventh edition).
+Routledge.
+</div>
+<div id="ref-hannah1995" class="csl-entry" role="listitem">
+Hannah, J., &amp; Hillier, M. J. (1995). <em>Applied mechanics</em> (3rd
+edition). Longman Pub Group.
+</div>
+<div id="ref-russell2021" class="csl-entry" role="listitem">
+Russell, P. A., Jackson, L., &amp; Embleton, W. (2021). <em>Applied
+mechanics for marine engineers</em> (7th edition). Reeds.
+</div>
+<div id="ref-shaw2017" class="csl-entry" role="listitem">
+Shaw, Z. (2017). <em>Learn python 3 the hard way: A very simple
+introduction to the terrifyingly beautiful world of computers and
+code</em> (4th edition). Addison-Wesley Professional.
+</div>
+<div id="ref-sweigart2020" class="csl-entry" role="listitem">
+Sweigart, A. (2020). <em>Automate the boring stuff with python, 2nd
+edition: Practical programming for total beginners</em>. No Starch
+Press.
+</div>
+<div id="ref-sweigart2021" class="csl-entry" role="listitem">
+Sweigart, A. (2021). <em>Beyond the basic stuff with python: Best
+practices for writing clean code</em>. No Starch Press.
+</div>
+</div>
 
 
 
@@ -847,13 +875,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./acknowledgements.html" class="pagination-link" aria-label="Acknowledgements">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Acknowledgements</span>
+      <a href="./04hydrodynamics.html" class="pagination-link" aria-label="Hydrodynamics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Hydrodynamics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tutorial_basic.html" class="pagination-link" aria-label="Python Tutorial">
-        <span class="nav-page-text">Python Tutorial</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./colophon.html" class="pagination-link" aria-label="Colophon">
+        <span class="nav-page-text">Colophon</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
