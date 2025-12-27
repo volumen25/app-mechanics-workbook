@@ -1,9 +1,4 @@
----
-#title: "Applied Mechanics 1 Formulae"
-format: pdf
----
-
-# Applied Mechanics 1 Formulae
+# Applied Mechanics Formulae
 
 ## Rules of Cosine and Sine
 

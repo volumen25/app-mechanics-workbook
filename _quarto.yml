@@ -38,6 +38,7 @@ book:
     - references.qmd
     - colophon.qmd
   appendices:
+    - formulae.qmd
     - greek_letters.qmd
     - revision_history.qmd  
 
