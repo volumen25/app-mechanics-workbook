@@ -1,0 +1,3 @@
+# Colophon {.unnumbered}
+
+This booklet was typeset with [Quarto](https://quarto.org) v.{{< version >}}.

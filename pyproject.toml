@@ -1,0 +1,11 @@
+[project]
+name = "computational-mechanics-workbook"
+version = "0.1.0"
+description = "A Concise Introduction to Computational Tools for Applied Mechanics"
+requires-python = ">=3.14"
+dependencies = [
+    "numpy>=2.0",
+    "matplotlib>=3.9",
+    "scipy>=1.14",
+    "sympy>=1.13",
+]

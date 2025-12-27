@@ -1,0 +1,79 @@
+project:
+  type: book
+  output-dir: docs
+  resources:
+    - CNAME
+
+website:
+  favicon: favicon.ico
+  
+book:
+  title: "Tutorial"
+  subtitle: "A Concise Introduction to Computational Tools"
+  #author: "Serhat Beyenir"
+  #date: today #today or last-modified
+  date-format: "D MMMM YYYY"
+  cover-image: cover_qr.png
+  sidebar:
+    align: left
+    style: floating
+    collapse-level: 2
+    pinned: false
+  page-footer:
+    #left: © 2025 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    right: |
+      Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
+  chapters:    
+    - index.qmd    
+    - study_guide.qmd        
+    - tutorial_basic.qmd
+    - 01statics.qmd
+    - kinematics.qmd
+    - 02dynamics.qmd
+    - 03hydrostatics.qmd
+    - 04hydrodynamics.qmd
+    - colophon.qmd
+  appendices:
+    - greek_letters.qmd
+
+
+bibliography: references.bib
+csl: apa.csl
+
+format:
+  html:
+    toc: true
+    collapse: true
+    theme:
+      light: cosmo
+      dark: solar
+  pdf:
+    pdf-engine: xelatex
+    documentclass: book
+    code-overflow: wrap
+    toc: true
+    toc-title: Contents
+    number-sections: true
+    top-level-division: chapter
+    lot: true
+    lof: true
+    include-in-header:
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+    include-before-body:
+      text: |
+        \clearpage
+        \vfill
+        \begin{center}
+        {\small
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).\\[0.5em]
+        Full text available at \href{https://creativecommons.org/licenses/by-sa/4.0/}{https://creativecommons.org/licenses/by-sa/4.0/}.
+        }
+        \end{center}
+        \vfill
+        \clearpage
+    include-after-body:
+      text: |
+        \clearpage
+        \printindex

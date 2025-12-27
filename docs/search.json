@@ -1,0 +1,513 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tutorial",
+    "section": "",
+    "text": "Preface\nA Concise Introduction to Computational Tools provides a series of tutorials derived from lecture notes, offering clear and focused guidance on essential topics. No prior programming experience is required.\nStudents are expected to be comfortable with college-level mathematics and science and are strongly encouraged to consult reliable reference texts. The tutorials also assume working familiarity with either macOS or Microsoft Windows.\nFor best results, these materials should be used on a laptop or desktop computer rather than a tablet or smartphone.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "study_guide.html",
+    "href": "study_guide.html",
+    "title": "Study Guide",
+    "section": "",
+    "text": "First and foremost, solve the problem sets using only pen, paper, and a calculator. After completing a problem by hand, slightly modify the conditions or variables and solve it again. Then, input the new values into the Python script and compare the results with your hand-calculated solution.\nBuddy system: Study with a classmate. Teaching and helping one another significantly deepens understanding of the material. Students are strongly encouraged to work through problem sets collaboratively. For example, one student solves the odd-numbered problems while the other solves the even-numbered ones; then each explains their solutions to the other.\nPractice, practice, practice: As the saying goes, “practice makes perfect.” More accurately in this context, “good practice makes perfect.” That means pen-and-paper-first practice. Use Python as a verification tool, not a crutch. Always derive the solution analytically on paper first. Only after obtaining a complete hand-calculated result should you run the corresponding Python script. This approach echoes a proverb commonly attributed to Confucius:\n\nI hear and I forget\nI see and I remember\nI do and I understand\n\nMaintain a solution notebook: For each major problem, keep a single document (physical or digital) containing:\n\nThe full hand derivation\n\nKey numerical results with units\n\nA brief paragraph summarizing insights or reconciling any intermediate discrepancies\n\nThis record becomes an invaluable review resource before exams.",
+    "crumbs": [
+      "Study Guide"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html",
+    "href": "tutorial_basic.html",
+    "title": "Python Tutorial",
+    "section": "",
+    "text": "Requirements\nThis tutorial introduces Python programming, covering basic concepts with examples to illustrate key points. We will start by using Python as a calculator, then explore variables, functions, and control flow.\nTo follow this tutorial, the easiest way to get started is by using a web-based Python environment. This lets you write and run Python code right in your browser; no downloads or setup needed. I recommend python-fiddle.com, an easy-to-use online editor that lets you experiment with Python instantly and solve your problem sets effortlessly.\nIf you prefer working on your own computer, make sure you have Python (version 3.10 or later) installed. Python works on Windows, macOS, and Linux. You’ll also need a text editor or an Integrated Development Environment (IDE) to write your code. I recommend Positron, a beginner-friendly IDE with a built-in terminal, though other editors like VS Code or PyCharm are also good options.",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#basic-syntax",
+    "href": "tutorial_basic.html#basic-syntax",
+    "title": "Python Tutorial",
+    "section": "Basic Syntax",
+    "text": "Basic Syntax\nPython uses indentation (typically four spaces) to define code blocks. A colon (:) introduces a block, and statements within the block must be indented consistently. Python is case-sensitive, so Variable and variable are distinct identifiers. Statements typically end with a newline, but you can use a backslash (\\) to continue a statement across multiple lines.\ntotal = 1 + 2 + 3 + 4 + 5\nprint(total)  # Output: 15\nBasic syntax rules:\n\nComments start with # and extend to the end of the line.\nStrings can be enclosed in single quotes ('), double quotes (\"), or triple quotes (''' or \"\"\") for multi-line strings.\nPython is case-sensitive, so Variable and variable are different identifiers.",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#the-print-function",
+    "href": "tutorial_basic.html#the-print-function",
+    "title": "Python Tutorial",
+    "section": "The print() Function",
+    "text": "The print() Function\nThe print() function displays output in Python.\nname = \"Rudolf Diesel\"\nyear = 1858\nprint(f\"{name} was born in {year}.\")\nOutput: Rudolf Diesel was born in 1858.",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#formatting-in-print",
+    "href": "tutorial_basic.html#formatting-in-print",
+    "title": "Python Tutorial",
+    "section": "Formatting in print()",
+    "text": "Formatting in print()\nThe following table illustrates common f-string formatting options for the print() function:\n\n\n\n\n\n\n\n\n\nFormat\nCode\nExample\nOutput\n\n\n\n\nRound to 2 decimals\nf\"{x:.2f}\"\nprint(f\"{3.14159:.2f}\")\n3.14\n\n\nRound to whole number\nf\"{x:.0f}\"\nprint(f\"{3.9:.0f}\")\n4\n\n\nThousands separator\nf\"{x:,.2f}\"\nprint(f\"{1234567.89:,.2f}\")\n1,234,567.89\n\n\nPercentage\nf\"{x:.1%}\"\nprint(f\"{0.756:.1%}\")\n75.6%\n\n\nCurrency (CDN)\nf\"${x:,.2f}\"\nprint(f\"${1234.5:,.2f}\")\n$1,234.50\n\n\nCurrency (EUR)\nf\"€{x:,.2f}\"\nprint(f\"€{1234.5:,.2f}\")\n€1,234.50\n\n\nCurrency (JPY)\nf\"¥{x:,.0f}\"\nprint(f\"¥{1234567:,.0f}\")\n¥1,234,567",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#variables-and-data-types",
+    "href": "tutorial_basic.html#variables-and-data-types",
+    "title": "Python Tutorial",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nVariables store data and are assigned values using the = operator.\nx = 10\ny = 3.14\nname = \"Rudolph\"\nPython has several built-in data types, including:\n\nIntegers (int): Whole numbers, e.g., 10, -5\nFloating-point numbers (float): Decimal numbers, e.g., 3.14, -0.001\nStrings (str): Text, e.g., \"Hello\", 'World'\nBooleans (bool): True or False\n\n\nArithmetic Operations\na = 10\nb = 3\nprint(a + b)  # Addition: 13\nprint(a - b)  # Subtraction: 7\nprint(a * b)  # Multiplication: 30\nprint(a / b)  # Division: 3.3333...\nprint(a // b) # Integer Division: 3\nprint(a ** b) # Exponentiation: 1000\n\n\nString Operations\nfirst_name = \"Rudolph\"\nlast_name = \"Diesel\"\nfull_name = first_name + \" \" + last_name  # Concatenation using +\nprint(full_name)  # Output: Rudolph Diesel\nprint(f\"{first_name} {last_name}\")  # Concatenation using f-string\nprint(full_name * 2)  # Repetition: Rudolph DieselRudolph Diesel\nprint(full_name.upper())  # Uppercase: RUDOLPH DIESEL\nNote: String repetition (*) concatenates the string multiple times without spaces. For example, full_name * 2 produces Rudolph DieselRudolph Diesel.",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#python-as-a-calculator-in-interactive-mode",
+    "href": "tutorial_basic.html#python-as-a-calculator-in-interactive-mode",
+    "title": "Python Tutorial",
+    "section": "Python as a Calculator in Interactive Mode",
+    "text": "Python as a Calculator in Interactive Mode\nPython’s interactive mode allows you to enter commands and see results immediately, ideal for quick calculations. To start, open a terminal (on macOS, Linux, or Windows) and type:\npython3  # Use 'python' on Windows if 'python3' is not recognized\nYou should see the Python prompt:\n&gt;&gt;&gt;\nEnter expressions and press Enter to see results:\n2 + 3  # Output: 5\n7 - 4  # Output: 3\n6 * 9  # Output: 54\n8 / 2  # Output: 4.0\n8 // 2 # Output: 4\n2 ** 3 # Output: 8\n\nParentheses for Grouping\n(2 + 3) * 4  # Output: 20\n2 + (3 * 4)  # Output: 14\n\n\nVariables\nx = 10\ny = 3\nx / y  # Output: 3.3333333333333335\n\n\nExiting Interactive Mode\nTo exit, type:\nexit()\nAlternatively, use: - Ctrl+D (macOS/Linux) - Ctrl+Z then Enter (Windows)",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#control-flow",
+    "href": "tutorial_basic.html#control-flow",
+    "title": "Python Tutorial",
+    "section": "Control Flow",
+    "text": "Control Flow\nControl flow statements direct the execution of code based on conditions.\n\nConditional Statements\nConditional statements allow you to execute different code blocks based on specific conditions. Python provides three keywords for this purpose:\n\nif: Evaluates a condition and executes its code block if the condition is True.\nelif: Short for “else if,” it checks an additional condition if the preceding if or elif conditions are False. You can use multiple elif statements to test multiple conditions sequentially, and Python will execute the first True condition’s block, skipping the rest.\nelse: Executes a code block if none of the preceding if or elif conditions are True. It serves as a fallback and does not require a condition.\n\nThe following example uses age to categorize a person as a Minor, Adult, or Senior, demonstrating how if, elif, and else work together.\n# Categorize a person based on their age\nage = 19\nif age &lt; 18:\n    print(\"Minor\")\nelif age &lt;= 64:\n    print(\"Adult\")\nelse:\n    print(\"Senior\")\nOutput: Adult\n\n\nFor Loop\nA for loop iterates over a sequence (e.g., list or string).\ncomponents = [\"piston\", \"liner\", \"connecting rod\"]\nfor component in components:\n    print(component)\nOutput:\npiston\nliner\nconnecting rod\n\n\nWhile Loop\nA while loop executes as long as a condition is true. Ensure the condition eventually becomes false to avoid infinite loops.\ncount = 0\nwhile count &lt;= 5:\n    print(count)\n    count += 1\nOutput:\n0\n1\n2\n3\n4\n5",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#functions",
+    "href": "tutorial_basic.html#functions",
+    "title": "Python Tutorial",
+    "section": "Functions",
+    "text": "Functions\n\nThe def Keyword\nFunctions are reusable code blocks defined using the def keyword. They can include default parameters for optional arguments.\ndef add(a, b=0):\n    return a + b\nprint(add(5))      # Output: 5\nprint(add(5, 3))   # Output: 8\n\ndef multiply(*args):\n    result = 1\n    for num in args:\n        result *= num\n    return result\nprint(multiply(2, 3, 4))  # Output: 24\n\n\nThe lambda Keyword\nThe lambda keyword creates anonymous functions for short, one-off operations, often used in functional programming.\ncelsius_to_fahrenheit = lambda c: (c * 9 / 5) + 32\nprint(celsius_to_fahrenheit(25))  # Output: 77.0",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#the-math-module",
+    "href": "tutorial_basic.html#the-math-module",
+    "title": "Python Tutorial",
+    "section": "The math Module",
+    "text": "The math Module\nThe math module provides mathematical functions and constants.\nimport math\nprint(math.sqrt(16))  # Output: 4.0\nprint(math.pi)        # Output: 3.141592653589793\nimport math\nangle = math.pi / 4  # 45 degrees in radians\nprint(math.sin(angle))  # Output: 0.7071067811865475 (approximately √2/2)\nprint(math.cos(angle))  # Output: 0.7071067811865476 (approximately √2/2)\nprint(math.tan(angle))  # Output: 1.0\nNote: Floating-point arithmetic may result in small precision differences, as seen in the sin and cos outputs.\nimport math\nprint(math.log(10))       # Natural logarithm of 10: 2.302585092994046\nprint(math.log(100, 10))  # Logarithm of 100 with base 10: 2.0\n\nConverting Between Radians and Degrees\nThe math module provides math.radians() to convert degrees to radians and math.degrees() to convert radians to degrees, which is useful for trigonometric calculations.\n\n\n\n\n\n\nWarning\n\n\n\nIn Python, the math module’s trigonometric functions (sin, cos, tan, etc.) expect angles in radians, not degrees. Always convert degrees to radians before using sin, cos, or tan in Python’s math module.\n\n\nimport math\ndegrees = 180\nradians = math.radians(degrees)\nprint(f\"{degrees} degrees is {radians:.3f} radians\")  # Output: 180 degrees is 3.142 radians\n\nradians = math.pi / 2\ndegrees = math.degrees(radians)\nprint(f\"{radians:.3f} radians is {degrees:.1f} degrees\")  # Output: 1.571 radians is 90.0 degrees",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#writing-python-scripts",
+    "href": "tutorial_basic.html#writing-python-scripts",
+    "title": "Python Tutorial",
+    "section": "Writing Python Scripts",
+    "text": "Writing Python Scripts\nWrite Python code in a .py file and run it as a script. Create a file named script.py:\n# script.py\nimport math\nprint(\"Square root of 16 is:\", math.sqrt(16))\nprint(\"Value of pi is:\", math.pi)\nprint(\"Sine of 90 degrees is:\", math.sin(math.pi / 2))\nprint(\"Natural logarithm of 10 is:\", math.log(10))\nprint(\"Logarithm of 100 with base 10 is:\", math.log(100, 10))\nTo run the script, open a terminal, navigate to the directory containing script.py using the cd command (e.g., cd /path/to/directory), and type:\npython3 script.py  # or python script.py on Windows\nOutput:\nSquare root of 16 is: 4.0\nValue of pi is: 3.141592653589793\nSine of 90 degrees is: 1.0\nNatural logarithm of 10 is: 2.302585092994046\nLogarithm of 100 with base 10 is: 2.0",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "tutorial_basic.html#summary",
+    "href": "tutorial_basic.html#summary",
+    "title": "Python Tutorial",
+    "section": "Summary",
+    "text": "Summary\nYou’ve now learned Python basics: syntax, variables, control flow, functions, and the math module. Practice all examples instantly at python-fiddle.com.",
+    "crumbs": [
+      "Python Tutorial"
+    ]
+  },
+  {
+    "objectID": "01statics.html",
+    "href": "01statics.html",
+    "title": "1  Statics",
+    "section": "",
+    "text": "1.1 Space Diagrams\nStatics is the branch of mechanics that analyzes bodies in equilibrium under the action of forces. This chapter examines cases where forces are in balance and presents methods for calculating resultant forces and their associated moments.\nA space diagram illustrates the geometry of the system and the applied forces.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "01statics.html#space-diagrams",
+    "href": "01statics.html#space-diagrams",
+    "title": "1  Statics",
+    "section": "",
+    "text": "Figure 1.1: Space Diagram",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "01statics.html#vector-diagrams",
+    "href": "01statics.html#vector-diagrams",
+    "title": "1  Statics",
+    "section": "1.2 Vector Diagrams",
+    "text": "1.2 Vector Diagrams\nA vector diagram (or force polygon) is a scaled graphical construction in which force vectors are placed head-to-tail in succession. It is used to determine the resultant of a system of forces through vector addition, as well as to resolve equilibrium problems when the polygon closes.\n\n\n\n\n\n\nFigure 1.2: Vector Diagram\n\n\n\n\n1.2.1 Resultant\nThe resultant is a single force that has exactly the same effect on an object as all the original forces acting together. It is found by adding the forces vectorially taking into account both their magnitude and direction. The resultant gives the overall direction and magnitude of the combined forces as shown in Figure 1.2.\n\n\n1.2.2 Equilibrium\nEquilibrium of an object occurs when all the forces acting on it are balanced, so the object remains at rest or moves at a constant speed in a straight line. In equilibrium, as shown in Figure 1.3, there is no net force or acceleration, meaning the object is in a stable state without any change in its motion.\n\n\n\n\n\n\nFigure 1.3: Equilibrant",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "01statics.html#conditions-of-equilibrium",
+    "href": "01statics.html#conditions-of-equilibrium",
+    "title": "1  Statics",
+    "section": "1.3 Conditions of Equilibrium",
+    "text": "1.3 Conditions of Equilibrium\n\nNet force must be zero:\n\n\\[\n\\sum_{k} \\vec{F}_{k} = \\vec{0}\n\\tag{1.1}\\]\n\nNet torque must be zero:\n\n\\[\n\\sum_{k} \\vec{\\tau}_{k} = \\vec{0}\n\\tag{1.2}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "01statics.html#cosine-rule",
+    "href": "01statics.html#cosine-rule",
+    "title": "1  Statics",
+    "section": "1.4 Cosine Rule",
+    "text": "1.4 Cosine Rule\n\n\n\n\n\n\nFigure 1.4: Rules of Cosine and Sine\n\n\n\nThe Cosine Rule is used to relate the lengths of the sides of a triangle as shown in Figure 1.4 to the cosine of one of its angles:\n\\[\nc^2 = a^2 + b^2 - 2ab\\cos \\gamma\n\\tag{1.3}\\]\nWhere:\n\na, b, c are the sides of the triangle.\n\\(\\gamma\\) is the angle opposite side c.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "01statics.html#sine-rule",
+    "href": "01statics.html#sine-rule",
+    "title": "1  Statics",
+    "section": "1.5 Sine Rule",
+    "text": "1.5 Sine Rule\nThe Sine Rule relates the sides and angles of a triangle in Figure 1.4:\n\\[\n\\frac{a}{\\sin \\alpha} = \\frac{b}{\\sin \\beta} = \\frac{c}{\\sin \\gamma}\n\\tag{1.4}\\]\nWhere:\n\n\\(\\alpha\\), \\(\\beta\\), \\(\\gamma\\) are the angles of the triangle.\na, b, c are the sides of the triangle opposite to angles \\(\\alpha\\), \\(\\beta\\), \\(\\gamma\\) respectively.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "01statics.html#problem-set",
+    "href": "01statics.html#problem-set",
+    "title": "1  Statics",
+    "section": "1.6 Problem Set",
+    "text": "1.6 Problem Set\n\nExample 1.1 Two slings of equal length are slung from a horizontal beam and connected to a ring at their lower ends, the slings and beam forming an equilateral triangle. Find the force in each sling when a load of 30 kN hangs from the ring.\n\n\n\n\n\n\nNote\n\n\n\nIn Python, the math module’s trigonometric functions (sin, cos, tan, etc.) expect angles in radians, not degrees. Always convert degrees to radians before using sin, cos, or tan in Python’s math module.\n\n\nimport math\n\n# Given\nload = 30  # kN\nangle_deg = 60  # each sling makes 60° with the horizontal\n\n# Convert angle to radians\nangle_rad = math.radians(angle_deg)\n\n# Vertical equilibrium: 2 * T * sin(angle) = load\nT = load / (2 * math.sin(angle_rad))\n\nprint(f\"Tension in each sling: {T:.4f} kN\")\n\n\nExample 1.2 Two identical slings of equal length are attached to a horizontal beam and meet at a ring from which a 45 kN load is suspended. The slings and the beam form an isosceles triangle in which each sling makes an angle of 50° with the horizontal. Find the force (tension) in each sling.\nimport math\n\n# Given\nload = 45      # kN\nangle_deg = 50 # degrees\n\n# Convert angle to radians\nangle_rad = math.radians(angle_deg)\n\n# Compute tension\nT = load / (2 * math.sin(angle_rad))\n\nprint(f\"Tension in each sling: {T:.4f} kN\")\n\n\nExample 1.3 Two lifting ropes are connected at their lower ends to a common shackle from which a load of 25 kN hangs. If the ropes make angles of 32° and 42° respectively to the vertical, find the tension in each rope.\nimport math\n\n# Given\nload = 25        # kN\ntheta1 = 32      # angle opposite T2\ntheta2 = 42      # angle opposite T1\ntheta3 = 180 - (theta1 + theta2)  # angle opposite load\n\n# Convert to radians\n\nt1 = math.radians(theta1)\nt2 = math.radians(theta2)\nt3 = math.radians(theta3)\n\n# Law of sines\n\nT1 = load * math.sin(t2) / math.sin(t3)  # tension in rope 1\nT2 = load * math.sin(t1) / math.sin(t3)  # tension in rope 2\n\nprint(f\"Tension in rope 1: {T1:.4f} kN\")\nprint(f\"Tension in rope 2: {T2:.4f} kN\")\n\n\nExample 1.4 The angle between the jib and vertical post of a jib crane is 40°, and the angle between the jib and tie is 45°. Find the force in the jib and tie when a load of 15 kN hangs from the crane head.\nimport math\n\n# Given\nload = 15  # kN\nangle_jib_vertical = 40  # degrees\nangle_jib_tie = 45       # degrees\n\n# Third angle in the force triangle\n\nangle_tie_load = 180 - angle_jib_vertical - angle_jib_tie  # degrees\n\n# Convert angles to radians for math.sin\n\nangle_jib_vertical_rad = math.radians(angle_jib_vertical)\nangle_jib_tie_rad = math.radians(angle_jib_tie)\nangle_tie_load_rad = math.radians(angle_tie_load)\n\n# Law of sines\n\nF_jib = load * math.sin(angle_tie_load_rad) / math.sin(angle_jib_tie_rad)\nF_tie = load * math.sin(angle_jib_vertical_rad) / math.sin(angle_jib_tie_rad)\n\n# Print results\nprint(f\"Force in jib: {F_jib:.4f} kN\")\nprint(f\"Force in tie: {F_tie:.4f} kN\")\n\n\nExample 1.5 The lengths of the vertical post, jib, and tie of a jib crane are 8, 13, and 9 m, respectively. Find the forces in the jib and tie when a load of 20 kN hangs from the crane head.\nimport math\n\n# Given\nP = 8   # post m\nJ = 13  # jib  m\nT = 9   # tie m\nW = 20  # load in kN\n\n# Law of cosines\n\n# Angle opposite P (theta_p)\ntheta_p = math.acos((J**2 + T**2 - P**2) / (2 * J * T))\n\n# Angle opposite T (theta_t)\ntheta_t = math.acos((J**2 + P**2 - T**2) / (2 * J * P))\n\n# Angle opposite J (theta_j)\ntheta_j = math.pi - theta_p - theta_t\n\n# Law of sines\n\nF_J = W * math.sin(theta_j) / math.sin(theta_p)  # force in jib\nF_T = W * math.sin(theta_t) / math.sin(theta_p)  # force in tie\n\n# Convert angles to degrees\n\ntheta_p_deg = math.degrees(theta_p)\ntheta_t_deg = math.degrees(theta_t)\ntheta_j_deg = math.degrees(theta_j)\n\nprint(f\"theta_p = {theta_p_deg:.4f} degrees\")\nprint(f\"theta_t = {theta_t_deg:.4f} degrees\")\nprint(f\"theta_j = {theta_j_deg:.4f} degrees\")\n\nprint()\nprint(f\"Force in jib (F_J): {F_J:.4f} kN\")\nprint(f\"Force in tie (F_T): {F_T:.4f} kN\")\n\n\nExample 1.6 A ship sailing due east at 18 knots runs into a 3-knot current moving 40° east of north. Find the resultant speed and direction of the ship.\n\n\n\n\n\n\nNote\n\n\n\nDegrees, Minutes, and Seconds (DMS) notation is widely used in navigation and surveying because decimal degrees alone often lack sufficient precision for small-scale positioning. On Earth’s surface:\n\n1° of latitude ≈ 111 km\n\n1′ (minute of arc) ≈ 1.85 km\n\n1″ (second of arc) ≈ 30 m\n\nThus, a position given as 40° 26′ 46″ N instantly conveys location to within tens of metres, whereas the equivalent decimal form, 40.44611°, is less intuitive at a glance despite being mathematically identical.\n\n\nimport math\n\n# Given\nship = 18          # knots (due east)\ncurrent = 3        # knots\nangle_deg = 50     # angle between ship and current in degrees\n\n# Convert to radians\n\nangle_rad = math.radians(angle_deg)\n\n# Law of cosines\n\nR = math.sqrt(ship**2 + current**2 + 2*ship*current*math.cos(angle_rad))\n\n# Law of sines\n\ntheta_rad = math.asin((current * math.sin(angle_rad)) / R)\ntheta_deg = math.degrees(theta_rad)\n\n# Convert direction to degrees, minutes, seconds\n\ndeg = int(theta_deg)\nminutes_float = (theta_deg - deg) * 60\nminutes = int(minutes_float)\nseconds = (minutes_float - minutes) * 60\n\nprint(f\"Resultant speed: {R:.4f} knots\")\nprint(f\"Direction: {theta_deg:.4f}° north of east\")\nprint(f\"Direction (DMS): {deg}° {minutes}' {seconds:.0f}\\\" north of east\")",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html",
+    "href": "kinematics.html",
+    "title": "2  Kinematics",
+    "section": "",
+    "text": "2.1 Linear Motion Definitions",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html#linear-motion-definitions",
+    "href": "kinematics.html#linear-motion-definitions",
+    "title": "2  Kinematics",
+    "section": "",
+    "text": "\\(\\textbf{Speed} (v)\\): The scalar measure of the rate of change of distance. Mathematically, \\[\n  v = \\frac{d}{t}\n  \\] where (d) is distance and (t) is time.\n\\(\\textbf{Velocity} (\\vec{v})\\): The vector measure of the rate of change of displacement. It is given by: \\[\n  \\vec{v} = \\frac{\\Delta \\vec{x}}{\\Delta t}\n  \\] where \\(\\Delta \\vec{x}\\) is the displacement vector and \\(\\Delta t\\) is the time interval.\n\\(\\textbf{Acceleration} (\\vec{a})\\): The rate of change of velocity with respect to time. It is defined as: \\[\n  \\vec{a} = \\frac{\\Delta \\vec{v}}{\\Delta t}\n  \\]\n\n\nExample 2.1 A ship’s engines are stopped when travelling at a speed of 18 knots, and the ship comes to rest after 20 min. Assuming uniform deceleration, find the deceleration (m/s²) and the distance travelled in nautical miles in that time.\nimport math\n\n# Given\n\nv_knots = 18           # initial speed in knots\nt_minutes = 20         # time to stop in minutes\nkn_to_ms = 0.5144      # conversion factor (m/s per knot)\nnmi_in_m = 1852        # meters in a nautical mile\n\n# Convert units\n\nvi = v_knots * kn_to_ms      # initial speed in m/s\nvf = 0                       # final speed\nt = t_minutes * 60           # seconds\n\n# Deceleration (positive magnitude)\n\ndeceleration = (vi - vf) / t     # m/s^2\n\n# Average velocity for uniform deceleration\n\nv_avg = (vi + vf) / 2            # m/s\n\n# Distance travelled\n\ns = v_avg * t                    # meters\ns_nmi = s / nmi_in_m             # nautical miles\n\nprint(f\"Deceleration: {deceleration:.6f} m/s^2\")\nprint(f\"Distance travelled: {s_nmi:.3f} nautical miles\")",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html#equations-of-motion-constant-acceleration",
+    "href": "kinematics.html#equations-of-motion-constant-acceleration",
+    "title": "2  Kinematics",
+    "section": "2.2 Equations of Motion (Constant Acceleration)",
+    "text": "2.2 Equations of Motion (Constant Acceleration)\n\\[\n\\vec{v} = \\vec{u} + \\vec{a}t\n\\]\n\\[\n\\vec{s} = \\frac{\\vec{u}+\\vec{v}}{2}t\n\\]\n\\[\n\\vec{s} = \\vec{u}t + \\frac{1}{2}\\vec{a}t^2\n\\]\n\\[\n\\vec{v}^2 = \\vec{u}^2 + 2\\vec{a} \\cdot \\vec{s}\n\\]\nwhere:\n\n\\(\\vec{u}\\): Initial velocity\n\\(\\vec{v}\\): Final velocity\n\\(\\vec{s}\\): Displacement\n\\(\\vec{a}\\): Acceleration\n\\(t\\): Time\n\n\nExample 2.2 A ship’s propellers are stopped when travelling at 25 knots. From that point, it travels 4 kilometres before coming to a complete stop. Calculate the time it takes to stop in minutes and the average deceleration in m/s².\n# Given\n\nu_knots = 25          # initial speed in knots\nv_knots = 0           # final speed in knots\ns_m = 4000            # stopping distance in meters\nkn_to_ms = 0.5144     # conversion factor knots to m/s\n\n# Convert to m/s\n\nu = u_knots * kn_to_ms\nv = v_knots * kn_to_ms\n\n# Average deceleration (from s = 1/2*(u+v)*t)\n\nt = (2 * s_m) / (u + v)\n\n# Deceleration using v = u - a*t\n\na = (u - v) / t        \n\n# Convert time to minutes\n\nt_minutes = t / 60\n\nprint(f\"Average deceleration: {a:.5f} m/s²\")\nprint(f\"Time to stop: {t_minutes:.2f} minutes\")\n\n\nExample 2.3 A boat is rowed at 6 km/h perpendicular to a river flowing at 4 km/h. The river is 50 meters wide. How far downstream will the boat reach the opposite bank? What is the boat’s actual velocity (magnitude and direction)?\nWe treat this as vector addition: the boat’s rowing velocity across the river and the river’s current velocity downstream.\nGiven\n\nBoat speed across: \\(v_b = 6\\ \\text{km/h}\\)\nRiver current speed: \\(v_c = 4\\ \\text{km/h}\\)\nRiver width: \\(w = 50\\ \\text{m}\\)\n\nConvert speeds to m/s:\n\\[\n1\\ \\text{km/h} = \\frac{1000}{3600} = 0.277777\\ \\text{m/s}\n\\]\n\\[\nv_b = 6 \\times 0.277777 = 1.6666667\\ \\text{m/s}\n\\]\n\\[\nv_c = 4 \\times 0.277777 = 1.1111111\\ \\text{m/s}\n\\]\nTime to cross the river\n\\[\nt = \\frac{w}{v_b} = \\frac{50}{1.6666667} = 30\\ \\text{s}\n\\]\nDownstream drift\n\\[\n\\text{drift} = v_c \\times t = 1.1111111 \\times 30 = 33.3333\\ \\text{m}\n\\]\nActual velocity magnitude \\[\nv = \\sqrt{v_b^2 + v_c^2} = 2.00308\\ \\text{m/s}\n\\]\nDirection (downstream from perpendicular)\n\\[\n\\theta = \\tan^{-1}\\!\\left( \\frac{v_c}{v_b} \\right) = 33.69\n\\]\nimport math\n\n# Given\nboat_speed_kmh = 6      # km/h (perpendicular to river)\ncurrent_speed_kmh = 4   # km/h (downstream)\nwidth = 50              # meters (river width)\n\n# Convert speeds to m/s\n\nboat_speed = boat_speed_kmh * 1000 / 3600\ncurrent_speed = current_speed_kmh * 1000 / 3600\n\n# Time to cross\n\nt = width / boat_speed\n\n# Downstream drift\n\ndrift = current_speed * t\n\n# Actual velocity (magnitude)\n\nv_actual = math.sqrt(boat_speed**2 + current_speed**2)\n\n# Convert to km/h\n\nv_actual_kmh = v_actual * 3.6\n\n# Direction (downstream from perpendicular)\n\ntheta_deg = math.degrees(math.atan(current_speed / boat_speed))\n\nprint(f\"Time to cross: {t:.2f} s\")\nprint(f\"Downstream drift: {drift:.2f} m\")\nprint(f\"Actual speed: {v_actual:.2f} m/s ({v_actual_kmh:.2f} km/h)\")\nprint(f\"Direction: {theta_deg:.2f} degrees downstream\")\n\n\nExample 2.4 Two ships are moving toward each other in still water. Ship 1 is 310 meters long and travelling at 22 knots, while Ship 2 is 350 meters long and travelling at 19 knots. Calculate the time it takes for the ships to completely pass each other..\nimport math\n\n# Given\n\nlength1 = 310   # meters (Ship 1)\nlength2 = 350   # meters (Ship 2)\nspeed1 = 22     # knots\nspeed2 = 19     # knots\n\n# Total distance to be closed (sum of lengths)\n\ndistance_m = length1 + length2  # meters\n\n# Convert meters to nautical miles\n\ndistance_nm = distance_m / 1852\n\n# Relative (closing) speed in knots\n\nspeed_rel = speed1 + speed2\n\n# Time in hours\n\ntime_hours = distance_nm / speed_rel\n\n# Convert to seconds\ntime_seconds = time_hours * 3600\n\nprint(f\"Time for the ships to pass each other: {time_seconds:.2f} seconds\")",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html#angular-motion-definitions",
+    "href": "kinematics.html#angular-motion-definitions",
+    "title": "2  Kinematics",
+    "section": "2.3 Angular Motion Definitions",
+    "text": "2.3 Angular Motion Definitions\n\n\\(\\textbf{Angular Displacement} (\\theta)\\): The angle through which an object rotates, measured in radians.\n\n\\(\\textbf{Angular Velocity} (\\omega)\\): The rate of change of angular displacement. Mathematically: \\[\n    \\omega = \\frac{\\Delta \\theta}{\\Delta t}\n    \\] \\[\n\\omega (rad/s) =2\\pi n \\:where\\:n=speed\\:in\\:rev/s\n\\]\n\\(\\textbf{Angular Acceleration} (\\alpha)\\): The rate of change of angular velocity with respect to time: \\[\n     \\alpha = \\frac{\\Delta \\omega}{\\Delta t}\n     \\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html#equations-of-angular-motion-constant-angular-acceleration",
+    "href": "kinematics.html#equations-of-angular-motion-constant-angular-acceleration",
+    "title": "2  Kinematics",
+    "section": "2.4 Equations of Angular Motion (Constant Angular Acceleration)",
+    "text": "2.4 Equations of Angular Motion (Constant Angular Acceleration)\n\\[\n\\omega_2 = \\omega_1 \\mp \\alpha t\n\\]\n\\[\n\\theta = \\frac{\\omega_1+\\omega_2}{2}t\n\\]\n\\[\n\\theta = \\omega_1 t \\mp \\frac{1}{2}\\alpha t^2\n\\]\n\\[\n\\omega_2^2 = \\omega_1^2 \\mp 2\\alpha \\theta\n\\]\nwhere:\n\n\\(\\omega_1\\): Initial angular velocity (rad/s)\n\\(\\omega_2\\): Final angular velocity (rad/s)\n\\(\\theta\\) Angular displacement (rad)\n\\(\\alpha\\): Angular acceleration (rad/s2)\n\\(t\\): Time (s)\n\n\nExample 2.5 A shaft is rotating at 40 revolutions per minute (rev/min). It is uniformly decelerated at a rate of 0.017 rad/s² for 15 seconds. Calculate: 1. The angular velocity of the shaft at the end of 15 seconds (in rad/s and rev/min). 2. The total number of revolutions completed by the shaft during these 15 seconds.\nimport math\n\n# Given\n\nomega1_rpm = 40 # initial angular speed in rev/min\nalpha = -0.017  # angular acceleration (rad/s^2), (-) for deceleration\nt = 15          # time in seconds\n\n# Convert initial speed to rad/s\n\nomega1 = omega1_rpm * 2 * math.pi / 60  \n\n# Angular velocity after time t\n\nomega2 = omega1 + alpha * t              \n\n# Angular displacement during time t\n\ntheta = omega1 * t + 0.5 * alpha * t**2  \n\n# Convert angular displacement to revolutions\n\nrevolutions = theta / (2 * math.pi)\n\n# Convert omega2 to rpm\n\nomega2_rpm = omega2 * 60 / (2 * math.pi)\n\nprint(f\"Final angular velocity: {omega2:.4f} rad/s\")\nprint(f\"Final angular velocity: {omega2_rpm:.4f} rpm\")\nprint(f\"Angular displacement: {revolutions:.4f} revolutions\")",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html#relation-between-linear-and-angular-motion",
+    "href": "kinematics.html#relation-between-linear-and-angular-motion",
+    "title": "2  Kinematics",
+    "section": "2.5 Relation Between Linear and Angular Motion",
+    "text": "2.5 Relation Between Linear and Angular Motion\nThe relationship between linear and angular motion is described by the following equations:\n\\(s = r \\theta\\) (linear displacement \\(s\\) and angular displacement \\(\\theta\\)).\n\\(v = r \\omega\\) (linear velocity \\(v\\) and angular velocity \\(\\omega\\)).\n\\(a = r \\alpha\\) (linear acceleration \\(a\\) and angular acceleration \\(\\alpha\\)).\n\n2.5.1 Variables\n\n\\(v\\): Linear velocity, the rate of change of linear displacement \\((v = \\frac{ds}{dt})\\).\n\\(a\\): Linear acceleration, the rate of change of linear velocity \\((a = \\frac{dv}{dt})\\).\n\\(s\\): Linear displacement, the distance moved along the circular path.\n\\(r\\): Radius of the circular path.\n\\(\\omega\\): Angular velocity, the rate of change of angular displacement \\((\\omega = \\frac{d\\theta}{dt})\\).\n\\(\\alpha\\): Angular acceleration, the rate of change of angular velocity \\((\\alpha = \\frac{d\\omega}{dt})\\).\n\\(\\theta\\): Angular displacement, the angle swept by the radius in radians.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "kinematics.html#summary",
+    "href": "kinematics.html#summary",
+    "title": "2  Kinematics",
+    "section": "2.6 Summary",
+    "text": "2.6 Summary\n\nLinear motion is directly proportional to angular motion, with the radius (\\(r\\)) acting as the proportionality constant.\nUnits for the variables:\n\n\\(v\\): meters per second \\((m/s)\\),\n\\(a\\): meters per second squared \\((m/s^2)\\),\n\\(s\\): meters \\((m)\\),\n\\(r\\): meters \\((m)\\),\n\\(\\omega\\): radians per second \\((rad/s)\\),\n\\(\\alpha\\): radians per second squared \\((rad/s^2)\\),\n\\(\\theta\\): radians (\\(rad\\)).",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Kinematics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html",
+    "href": "02dynamics.html",
+    "title": "3  Dynamics",
+    "section": "",
+    "text": "3.1 Inertia\nDynamics is the branch of mechanics that studies the motion of bodies under the action of forces. This chapter examines situations where forces produce acceleration, and it presents methods for analyzing the resulting motion, including the application of Newton’s laws, energy principles, and momentum conservation.\nInertia is the property of a body that resists any change in its state of motion and is directly proportional to its mass. It can be understood as a form of “sluggishness” inherent to matter. For an object at rest, a net force is required to set it in motion; the greater the mass, the greater the force needed. Similarly, if an object is already moving, a net force is required to change its speed or direction, and the magnitude of this force is again proportional to the mass.\nThe term “inertia” is also used in structural mechanics to describe the resistance of a beam’s cross-section to bending, quantified by the second moment of area (see lecture notes on Second Moments).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#momentum",
+    "href": "02dynamics.html#momentum",
+    "title": "3  Dynamics",
+    "section": "3.2 Momentum",
+    "text": "3.2 Momentum\nMomentum is the product of an object’s mass and its velocity and quantifies the amount of motion a moving body possesses. This concept is particularly important when considering a large vessel approaching a dock. Once the vessel is underway, its considerable momentum means that a substantial force, applied over sufficient time, is required to bring it to a stop or significantly alter its course. Without such intervention, the vessel will not stop quickly on its own and may collide with the dock.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#newtons-laws-of-motion",
+    "href": "02dynamics.html#newtons-laws-of-motion",
+    "title": "3  Dynamics",
+    "section": "3.3 Newton’s Laws of Motion",
+    "text": "3.3 Newton’s Laws of Motion\n\nFirst Law (Law of Inertia):\nAn object remains at rest, or in uniform motion in a straight line, unless acted upon by a net external force.\n\\[\n\\Sigma F = 0 \\implies v = \\text{constant}\n\\]\nSecond Law (Law of Acceleration):\nThe acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.\n\\[\n\\vec{F} = m \\vec{a}\n\\]\nThird Law (Action-Reaction Law):\nFor every action, there is an equal and opposite reaction.\n\\[\n\\vec{F}_{\\text{action}} = -\\vec{F}_{\\text{reaction}}\n\\]\n\n\nExample 3.1 Find the accelerating force required to increase the velocity of a body which has a mass of 20 kg from 30 m/s to 70 m/s in 4 s.\n# Given\n\nm = 20           # mass in kg\nu = 30           # initial velocity in m/s\nv = 70           # final velocity in m/s\nt = 4            # time in seconds\n\n# Calculate acceleration\n\na = (v - u) / t\n\n# Calculate force\n\nF = m * a\n\nprint(f\"Acceleration: {a:.2f} m/s²\")\nprint(f\"Accelerating force: {F:.2f} N\")\n\n\nExample 3.2 A lift is supported by a steel wire rope, the total mass of the lift and contents is 750 kg. Find the tension in the wire rope, in newtons, when the lift is (i) moving at constant velocity, (ii) moving upwards and accelerating at 1.2 m/s2, (iii) moving upwards and retarding at 1.2 m/s2\n# Given\n\nm = 750          # mass in kg\ng = 9.81         # gravitational acceleration in m/s^2\n\n# Accelerations for each case\n\na_constant = 0\na_up_accel = 1.2\na_up_decel = -1.2\n\n# Tension calculations\n\nT_constant = m * (g + a_constant)\nT_up_accel = m * (g + a_up_accel)\nT_up_decel = m * (g + a_up_decel)\n\nprint(f\"Tension at constant velocity: {T_constant:.4f} N\")\nprint(f\"Tension during upward acceleration: {T_up_accel:.4f} N\")\nprint(f\"Tension during upward deceleration: {T_up_decel:.4f} N\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#linear-momentum",
+    "href": "02dynamics.html#linear-momentum",
+    "title": "3  Dynamics",
+    "section": "3.4 Linear momentum",
+    "text": "3.4 Linear momentum\nLinear momentum is a fundamental concept in physics that quantifies the motion of an object. It is defined as the product of the object’s mass and its velocity. Because momentum is a vector quantity, it possesses both magnitude and direction.\n\\[\nLinear\\ momentum = m \\vec{v}\n\\]\nWhere:\n\nLinear momentum is in kg·m/s.\n\\(m\\) is the mass of the object in kilograms.\n\\(\\vec{v}\\) is the velocity of the object in meters per second.\n\n\n3.4.1 Conservation of Linear Momentum\nThe law of conservation of linear momentum states that, in a closed system with no external forces (or when the net external force is zero), the total linear momentum remains constant over time. This principle is particularly evident in collisions between two bodies. During a collision, the force exerted by the first body on the second is equal in magnitude and opposite in direction to the force exerted by the second on the first (Newton’s third law). These equal and opposite forces act for the same duration, producing changes in momentum that are equal in magnitude but opposite in direction. Consequently, the momentum gained by one body exactly equals the momentum lost by the other. Therefore, the total momentum of the system before the collision is equal to the total momentum after the collision.\nIn the absence of external forces, linear momentum is neither created nor destroyed; it is conserved. This is known as the law of conservation of linear momentum.\n\nExample 3.3 A hand hammer with a head mass of 0.8 kg strikes a chisel at 9 m/s and comes to rest in 1/250 seconds. Calculate the average force exerted during the blow.\n# Given\n\nm = 0.8               # kg\nu = 9                 # m/s (initial velocity)\nv = 0                 # m/s (final velocity)\nt = 1/250             # s (time to come to rest)\n\n# Change in momentum\n\ndelta_p = m * (v - u)\n\n# Average force\n\nF_avg = delta_p / t\n\nprint(f\"Average force during the blow: {F_avg:.4f} N\")\n\n\nExample 3.4 A jet of fresh water, 20 mm in diameter, emerges horizontally from a nozzle at a speed of 21 m/s and strikes a stationary vertical plate normally. Assuming no splashback (i.e., the water comes to rest upon impact with no velocity component normal to the plate after striking), calculate: (a) the mass flow rate of water leaving the nozzle (in kg/s), and (b) the force exerted by the jet on the plate. The density of fresh water is 1000 kg/m³.\nimport math\n\n# Given\n\nd = 0.02          # diameter in meters\nv = 21            # jet speed in m/s\nrho = 1000        # density of water in kg/m^3\n\n# Mass flow rate\n\nA = math.pi * (d**2) / 4        # cross-sectional area\nv_dot = A * v                   # volumetric flow rate\nm_dot = rho * v_dot             # mass flow rate\n\n# Force on the plate\n\nF = m_dot * v                   # momentum change\n\nprint(f\"Mass flow rate (kg/s): {m_dot:.4f}\")\nprint(f\"Force on plate (N): {F:.4f}\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#angular-momentum",
+    "href": "02dynamics.html#angular-momentum",
+    "title": "3  Dynamics",
+    "section": "3.5 Angular Momentum",
+    "text": "3.5 Angular Momentum\nAngular momentum is the moment of linear momentum about a chosen point or axis. For a single particle, it is given by the cross product of its position vector (measured from that point) and its linear momentum.\nMore broadly, angular momentum measures the rotational motion of a system. For extended bodies, its evaluation depends on both the distance of mass elements from the axis (the first moment of position) and how the mass is distributed throughout the object—the moment of inertia, or second moment of mass.\n\n\n\nAngular momentum\n\n\nGiven linear velocity \\(\\vec{v}\\) and angular velocity \\(\\omega\\):\n\\[\n\\vec{v} = r \\omega\n\\]\nThe linear momentum is determined by:\n\\[\n\\text{Linear momentum} = m \\vec{v}\n\\]\nSubstituting for \\(\\vec{v}\\):\n\\[\n\\text{Linear momentum} = m r \\omega\n\\]\nThe moment of linear momentum can then be written as:\n\\[\n\\text{Moment of linear momentum} = m r \\omega r\n\\]\nThe moment of linear momentum is referred to as the angular momentum. Simplifying the above equation:\n\\[\n\\text{Angular momentum} = m r^2 \\omega\n\\]\nHere, \\(m r^2\\) is the moment of inertia (second moment of mass) of the object about its axis of rotation, denoted as \\(I\\). Thus, the angular momentum can be expressed as:\n\\[\n\\text{Angular momentum} = I \\omega\n\\]\nWhere:\n\n\\(I\\) is the moment of inertia in \\(kg·m²\\).\n\\(\\omega\\) is the angular velocity in \\(rad/s\\).\n\nAdditionally, the moment of inertia \\(I\\) is given by:\n\\[\nI = m k^2\n\\]\nWhere:\n\n\\(I\\) is the moment of inertia in \\(kg·m²\\).\n\\(m\\) is the mass in \\(kg\\).\n\\(k\\) is the radius of gyration in \\(m\\).\n\n\n\n\n\n\n\nNote\n\n\n\nIn structural engineering, the moment of inertia (m⁴) is a measure of resistance to bending (deflection or stiffness).\nIn angular motion and physics, the moment of inertia (kg·m²) is a measure of resistance to angular acceleration (rotational inertia).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#the-radius-of-gyration",
+    "href": "02dynamics.html#the-radius-of-gyration",
+    "title": "3  Dynamics",
+    "section": "3.6 The Radius of Gyration",
+    "text": "3.6 The Radius of Gyration\nThe radius of gyration is a geometric property of a rigid body or mass distribution that describes how the mass is distributed relative to an axis of rotation. It represents the effective distance from the axis at which the entire mass could be concentrated while producing the same moment of inertia as the actual distributed mass.\nIn simpler terms, a smaller radius of gyration means the mass is closer to the axis, which is good for reducing inertia in rotating machinery. This is desirable in applications like engine crankshafts or turbine rotors where rapid changes in speed are required. A larger radius of gyration means the mass is farther from the axis, like a hollow cylinder has a larger k than a solid cylinder of the same mass and outer radius. This is beneficial when energy storage is needed (e.g., flywheels).\n\nExample 3.5 A flywheel of mass 500 kg and radius of gyration 1.2 m is running at 300 rev/min. By means of a clutch, this flywheel is suddenly connected to another flywheel, mass 2000 kg and radius of gyration 0.6 m, initially at rest. Calculate their common speed of rotation after engagement.\nimport math\n\n# Given data\n\nm1, k1 = 500, 1.2\nm2, k2 = 2000, 0.6\nrpm1 = 300\n\n# Moments of inertia\n\nI1 = m1 * k1**2\nI2 = m2 * k2**2\n\n# Convert rpm to rad/s\n\nomega1 = (rpm1 / 60) * 2 * math.pi\n\n# Conservation of angular momentum\n\nomega_f = (I1 * omega1) / (I1 + I2)\n\n# Convert rad/s to rpm\n\nrpm_f = (omega_f / (2 * math.pi)) * 60\n\nprint(f\"Final angular velocity (rad/s): {omega_f:.4f}\")\nprint(f\"Final angular velocity (rpm): {rpm_f:.4f}\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#turning-moment",
+    "href": "02dynamics.html#turning-moment",
+    "title": "3  Dynamics",
+    "section": "3.7 Turning Moment",
+    "text": "3.7 Turning Moment\n\n\n\nTurning moment\n\n\nWe know the relation between linear acceleration \\(a\\) and angular acceleration \\(\\alpha\\):\n\\[\na = r \\alpha\n\\]\nAnd\n\\[\nF = ma\n\\]\nTherefore,\n\\[\nF = m \\alpha r\n\\]\nIf the force is not applied directly on the rim but at a greater or lesser leverage, say \\(L\\) from the centre, the effective force on the rim causing it to accelerate will be greater or lesser accordingly, in the ratio of \\(L\\) to \\(r\\). Thus:\n\\[\nF \\frac{L}{r} = m \\alpha r\n\\]\nMultiplying both sides by \\(r\\),\n\\[\nFL = m \\alpha r^2\n\\]\nNow, \\(FL\\) is the torque applied. Therefore, the accelerating torque is:\n\\[\n\\tau = m r^2 \\alpha\n\\]\nOr,\n\\[\n\\tau = m k^2 \\alpha\n\\]\n\\(\\tau\\) is also given by:\n\\[\n\\tau = I \\alpha\n\\]\nWhere:\n\n\\(\\tau\\) is the torque in \\(Nm\\).\n\\(I\\) is the moment of inertia in \\(kg·m²\\).\n\\(\\alpha\\): Angular acceleration in \\(rad/s^2\\).\n\n\nExample 3.6 The mass of a flywheel is 175 kg and its radius of gyration is 380 mm. Find the torque required to attain a speed of 500 rev/min from rest in 30 s.\nimport math\n\n# Given\nm = 175                 # mass in kg\nk = 0.38                # radius of gyration in m\nrpm_final = 500         # final speed\nt = 30                  # time in seconds\n\n# Moment of inertia\nI = m * k**2\n\n# Convert rpm → rad/s\nomega_final = (rpm_final * 2 * math.pi) / 60\n\n# Angular acceleration\nalpha = omega_final / t\n\n# Torque\ntau = I * alpha\n\nprint(f\"Moment of inertia I (kg·m^2): {I:.4f}\")\nprint(f\"Final angular velocity ω (rad/s): {omega_final:.4f}\")\nprint(f\"Angular acceleration α (rad/s^2): {alpha:.4f}\")\nprint(f\"Required torque τ (N·m): {tau:.4f}\")\n\n\nExample 3.7 The torque to overcome frictional and other resistances of a turbine is 317 N m and may be considered constant for all speeds. The mass of the rotating parts is 1.59 t and the radius of gyration is 0.686 m. If the gas is cut off when the turbine is running free of load at 1920 rev/min, find the time it will take to come to rest and the number of revolutions turned during that time.\nimport math\n\n# Given\n\ntau = 317.0           # N·m\nm = 1.59 * 1000       # kg\nk = 0.686             # m\nrpm0 = 1920.0         # rev/min\n\n\nI = m * k**2\nomega0 = (rpm0 / 60.0) * 2.0 * math.pi   # rad/s\nalpha = tau / I                          # rad/s^2\nt = omega0 / alpha                       # s\ntheta = 0.5 * omega0 * t                 # rad\nrevs = theta / (2.0 * math.pi)\n\n\nprint(f\"I (kg·m^2):           {I:.4f}\")\nprint(f\"omega0 (rad/s):       {omega0:.4f}\")\nprint(f\"alpha (rad/s^2):      {alpha:.6f}\")\nprint(f\"time to stop (s):     {t:.4f}\")\nprint(f\"time to stop (min):   {t/60:.4f}\")\nprint(f\"revolutions:          {revs:.4f}\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#power-by-torque",
+    "href": "02dynamics.html#power-by-torque",
+    "title": "3  Dynamics",
+    "section": "3.8 Power by Torque",
+    "text": "3.8 Power by Torque\n\n\n\nA rotating mechanism.\n\n\nConsider a force \\(F\\) applied at a radius \\(r\\) on a rotating mechanism, as shown above.\nThe work done in one revolution is the product of the force and the circumference. Therefore:\n\\[\nW = F \\cdot 2 \\pi r\n\\]\nIf the mechanism is running at \\(n\\) revolutions per second:\n\\[\n\\text{Power} = F \\cdot 2 \\pi r n\n\\]\nSince torque \\(\\tau = F r\\), we can rewrite the equation as:\n\\[\nP = \\tau \\cdot 2 \\pi n\n\\]\nGiven that \\(\\omega = 2 \\pi n\\):\n\\[\nP = \\tau \\cdot \\omega\n\\]\nWhere:\n\n\\(P\\) is the power in watts (W),\n\\(\\tau\\) is the torque in newton-meters (Nm), and\n\\(\\omega\\) is the angular velocity in radians per second (rad/s).\n\n\nExample 3.8 The mean torque in a propeller shaft is 2.26 x 105 Nm when running at 140 rpm. Find the power transmitted.\nimport math\n\n# Given\n\nT = 2.26e5      # Nm\nrpm = 140\n\nomega = rpm * 2 * math.pi / 60\nP = T * omega\n\nprint(f\"Angular speed (rad/s): {omega:.4f}\")\nprint(f\"Power (W): {P:.4f}\")\nprint(f\"Power (MW): {P/1e6:.4f}\")\n\n\nExample 3.9 One gear wheel with 100 teeth of 6 mm pitch running at 250 rev/min drives another which has 50 teeth. If the power transmitted is 0.5 kW, find the driving force on the teeth and the speed of the driven wheel.\nimport math\n\n# Given\n\nN1 = 100          # teeth on driving wheel\nN2 = 50           # teeth on driven wheel\npitch = 0.006     # circular pitch (m)\nn1 = 250          # driving rpm\nP = 0.5e3         # power in watts\n\n# Pitch diameter of driving wheel\n\nD1 = (N1 * pitch) / math.pi\nr1 = D1 / 2\n\n# Angular speed of driving wheel\n\nomega1 = n1 * 2 * math.pi / 60\n\n# Torque on driving wheel\n\nT = P / omega1\n\n# Tangential driving force\n\nF = T / r1\n\n# Driven wheel speed\n\nn2 = n1 * (N1 / N2)\n\nprint(f\"Pitch diameter D1 (m): {D1:.4f}\")\nprint(f\"Torque T (N·m): {T:.4f}\")\nprint(f\"Tangential force F (N): {F:.4f}\")\nprint(f\"Driven wheel speed n2 (rpm): {n2:.4f}\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "02dynamics.html#kinetic-energy-of-rotation",
+    "href": "02dynamics.html#kinetic-energy-of-rotation",
+    "title": "3  Dynamics",
+    "section": "3.9 Kinetic Energy of Rotation",
+    "text": "3.9 Kinetic Energy of Rotation\nWe know that \\(K.E. = \\frac{1}{2}mv^2\\), where \\(v\\) is the linear velocity of the body. For a rotating body, the effective linear velocity is at the radius of gyration, as this is the radius at which the entire mass of the rotating body can be considered to act.\nLet \\(k\\) = radius of gyration (in meters),\nLet \\(\\omega\\) = angular velocity (in radians per second).\nThe relationship between linear and angular velocity is:\n\\[\nv = \\omega k\n\\]\nSubstituting \\(v^2 = \\omega^2 k^2\\) into \\(K.E. = \\frac{1}{2}mv^2\\) gives:\n\\[\n\\text{Rotational K.E.} = \\frac{1}{2} m k^2 \\omega^2\n\\]\nSince \\(I = m k^2\\), where \\(I\\) is the moment of inertia:\n\\[\n\\text{Rotational K.E.} = \\frac{1}{2} I \\omega^2\n\\]\n\nExample 3.10 The radius of gyration of the flywheel of a shearing machine is 0.46 m and its mass is 750 kg. Find the kinetic energy stored in it when running at 120 rev/min. If the speed falls to 100 rev/min during the cutting stroke, find the kinetic energy given out by the wheel.\nimport math\n\nm = 750\nk = 0.46\nI = m * k**2\n\nomega1 = 120 * 2 * math.pi / 60\nomega2 = 100 * 2 * math.pi / 60\n\nK1 = 0.5 * I * omega1**2\nK2 = 0.5 * I * omega2**2\ndK = K1 - K2\n\nprint(f\"I (kg·m^2):           {I:.4f}\")\nprint(f\"KE at 120 rpm:        {K1/1e3:.4f} kJ\")\nprint(f\"KE at 100 rpm:        {K2/1e3:.4f} kJ\")\nprint(f\"Energy given out:     {dK/1e3:.4f} kJ\")\n\n\n\nExample 3.11 A ship’s anchor has a mass of 5 tonnes. Determine the work done in raising the anchor from a depth of 100 m. If the hauling gear is driven by a motor whose output is 80 kW and the efficiency of the haulage is 75%, determine how long the lifting operation takes.\n# Given\n\nm_anchor = 5 * 1000        # tonnes to kg\ndepth = 100                # m\ng = 9.81                   # m/s^2\n\nmotor_power = 80_000       # W\nefficiency = 0.75          # 75%\n\n# Work done lifting the anchor\n\nwork_done = m_anchor * g * depth\n\n# Effective power available for lifting\n\nuseful_power = motor_power * efficiency\n\n# Time required\n\ntime_seconds = work_done / useful_power\n\nprint(\"Work done in lifting the anchor (MJ): {:.4f}\".format(work_done/1e6))\nprint(\"Time required (s): {:.4f}\".format(time_seconds))",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Dynamics</span>"
+    ]
+  },
+  {
+    "objectID": "03hydrostatics.html",
+    "href": "03hydrostatics.html",
+    "title": "4  Hydrostatics",
+    "section": "",
+    "text": "4.1 Pressure Head\nHydrostatics is the branch of fluid mechanics that studies fluids at rest and the forces and pressures they exert on immersed or containing surfaces. Key principles include Pascal’s law (pressure applied to an enclosed fluid is transmitted undiminished in all directions), Archimedes’ principle (buoyant force on a submerged body equals the weight of displaced fluid), and the hydrostatic pressure distribution in a fluid column, expressed as \\(p = \\rho g h\\), where \\(p\\) is gauge pressure, \\(\\rho\\) is fluid density, \\(g\\) is gravitational acceleration, and \\(h\\) is depth below the free surface.\nIn fluid mechanics, pressure head is the height of a fluid column that corresponds to a specific pressure at a given point, assuming the fluid is static. It’s expressed as \\(h_p = \\frac{p}{\\rho g}\\), where \\(p\\) is the pressure above atmospheric, \\(\\rho\\) is the fluid density, and \\(g\\) is the acceleration due to gravity. The unit is typically meters (or feet) of the fluid column. Pressure head represents the potential energy per unit weight due to pressure and is a component of the total hydraulic head, which is the sum of pressure head and elevation head.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Hydrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "03hydrostatics.html#load-on-immersed-surfaces",
+    "href": "03hydrostatics.html#load-on-immersed-surfaces",
+    "title": "4  Hydrostatics",
+    "section": "4.2 Load On Immersed Surfaces",
+    "text": "4.2 Load On Immersed Surfaces\nThe load on an immersed surface is the total hydrostatic force exerted by a fluid on a surface submerged in a static fluid. This force arises from the pressure variation with depth, governed by the hydrostatic pressure equation \\(p = \\rho g h\\), where \\(\\rho\\) is fluid density, \\(g\\) is gravitational acceleration, and \\(h\\) is the depth below the free surface.\nThe pressure acts perpendicular to the surface, resulting in a distributed load. The total force \\(F\\) is calculated as \\(F = \\rho g A \\bar{h}\\), where \\(A\\) is the surface area and \\(\\bar{h}\\) is the depth of the centroid of the area.\n\nExample 4.1 A vertical rectangular bulkhead is 7 m wide and extends over the full height of the water column. Fresh water stands 6 m deep on one side and is assumed to be at zero level on the other side. Calculate the total hydrostatic load (thrust) on the bulkhead. Density of fresh water = 1000 kg/m³.\n# Given\nwidth          = 7.0    # m (horizontal width of bulkhead)\nheight_water   = 6.0    # m (water depth on one side)\nrho_water      = 1000.0 # kg/m³ (fresh water)\ng              = 9.81   # m/s²\n\n# Calculations\narea           = width * height_water                    # m²\nh_centroid     = height_water / 2                        # m (from free surface)\nforce_N        = rho_water * g * h_centroid * area       # Newtons\nforce_kN       = force_N / 1000\n\n\nprint(\"=== Hydrostatic Load on Bulkhead ===\")\nprint(f\"Bulkhead width         : {width} m\")\nprint(f\"Water depth            : {height_water} m\")\nprint(f\"Submerged area         : {area:.1f} m²\")\nprint(f\"Depth of centroid      : {h_centroid} m\")\nprint(f\"Total water load       : {force_kN:,.0f} kN  ({force_kN/1000:.3f} MN)\")\n\n\nExample 4.2 A 10-meter-long, 4-meter-wide, and 6-meter-high tank is filled with oil (specific gravity = 0.9). The oil rises 5 meters up a vent pipe above the tank’s top. Calculate the load on one end plate and the bottom of the tank.\n# -----------------------------\n# Given data\n# -----------------------------\ntank_length = 10.0  # m\ntank_width = 4.0  # m\ntank_height = 6.0  # m\nsounding_pipe = 5.0  # m (oil rises 5 m above the tank top in vent/pipe)\n\nspecific_gravity = 0.9\nrho_oil = specific_gravity * 1000  # kg/m³\ng = 9.81  # m/s²\n\n# -----------------------------\n# Calculated values\n# -----------------------------\ntotal_head = tank_height + sounding_pipe  # from bottom to oil surface\n\n# End plate dimensions and force\nend_height = tank_height  # m\nend_width = tank_width  # m\narea_end = end_height * end_width  # m²\n\n# Depth of centroid of end plate below oil surface\nh_centroid_end = sounding_pipe + (tank_height / 2)  # m\n\n# Hydrostatic force on end plate\nforce_end_plate = rho_oil * g * h_centroid_end * area_end\n\n# Bottom plate force\narea_bottom = tank_length * tank_width  # m²\nforce_bottom = rho_oil * g * total_head * area_bottom\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(\"=== Hydrostatic Loads on Oil Tank ===\")\nprint(\n    f\"Tank dimensions       : {tank_length} m × {tank_width} m × \"\n    f\"{tank_height} m (L×W×H)\"\n)\nprint(f\"Oil rise in sounding pipe : {sounding_pipe} m\")\nprint(f\"Oil density           : {rho_oil} kg/m³\")\nprint()\nprint(\n    f\"End plate (one wall)  : {end_height} m high × {end_width} m \"\n    f\"wide = {area_end} m²\"\n)\nprint(\n    f\"Horizontal load on one end plate : {force_end_plate:,.0f} N = \"\n    f\"{force_end_plate/1000:.0f} kN\"\n)\nprint()\nprint(\n    f\"Bottom plate          : {tank_length} m × {tank_width} m = \"\n    f\"{area_bottom} m²\"\n)\nprint(\n    f\"Vertical load on bottom          : {force_bottom:,.0f} N = \"\n    f\"{force_bottom/1000:.0f} kN\"\n)\n\n\nExample 4.3 A rectangular dock gate measures 4 meters wide. If the water level is 5.5 meters high on one side and 3.5 meters high on the other, what horizontal thrust will act on the gate? Assume the water density is 1000 kg/m³.\n\n# Given\n\nwidth = 4.0          # gate width in meters\nh1 = 5.5             # water depth on higher side (m\nh2 = 3.5             # water depth on lower side (m)\nrho = 1000.0         # density of water (kg/m³)\ng = 9.81             # acceleration due to gravity (m/s²)\n\n# Hydrostatic force on higher side\nA1 = h1 * width\nh_c1 = h1 / 2\nF1 = rho * g * h_c1 * A1\n\n# Hydrostatic force on lower side\nA2 = h2 * width\nh_c2 = h2 / 2\nF2 = rho * g * h_c2 * A2\n\n# Net horizontal thrust (from higher to lower side)\nF_net = F1 - F2\n\nprint(\"=== Hydrostatic Thrust Calculation ===\")\nprint(f\"Force from higher side (5.5 m): {F1:.0f} N\")\nprint(f\"Force from lower side  (3.5 m): {F2:.0f} N\")\nprint(f\"Net horizontal thrust on gate: {F_net:.0f} N\")\n\n\nExample 4.4 A rectangular dock gate measures 12 meters wide. When the sea is 9 meters deep on one side and 4.5 meters deep on the other, what horizontal thrust will act on the gate? Assume the density of seawater is 1025 kg/m³.\n# -----------------------------\n# Given data\n# -----------------------------\nwidth = 12.0         # width of gate (m)\nh1 = 9.0             # deeper side water depth (m)\nh2 = 4.5             # shallower side water depth (m)\nrho = 1025.0         # density of seawater (kg/m³)\ng = 9.81             # acceleration due to gravity (m/s²)\n\n# -----------------------------\n# Hydrostatic force on deeper side\n# -----------------------------\nA1 = h1 * width           # area of gate submerged\nh_c1 = h1 / 2             # depth of centroid\nF1 = rho * g * h_c1 * A1  # hydrostatic force\n\n# -----------------------------\n# Hydrostatic force on shallower side\n# -----------------------------\nA2 = h2 * width           # area of gate submerged\nh_c2 = h2 / 2             # depth of centroid\nF2 = rho * g * h_c2 * A2  # hydrostatic force\n\n# -----------------------------\n# Net horizontal thrust\n# -----------------------------\nF_net = F1 - F2\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(\"=== Dock Gate Hydrostatic Thrust Calculation ===\")\nprint(f\"Force from {h1} m side : {F1:,.0f} N  ({F1/1e6:.3f} MN)\")\nprint(f\"Force from {h2} m side : {F2:,.0f} N  ({F2/1e6:.3f} MN)\")\nprint(\n    f\"Resultant horizontal thrust: {F_net:,.0f} N  \"\n    f\"({F_net/1000:.1f} kN or {F_net/1e6:.3f} MN)\"\n)\n\n\nExample 4.5 A vertical rectangular bulkhead, 2 meters wide, divides two liquids in a tank. On one side, oil with a density of 850 kg/m³ stands 4 meters deep. On the other side, fresh water with a density of 1000 kg/m³ is 6 meters deep. The bottom of the bulkhead rests on the tank bottom, and both liquids are open to the atmosphere at the top, resulting in zero gauge pressure at the free surfaces. Calculate the magnitude and direction of the net hydrostatic thrust on the bulkhead.\n# -----------------------------\n# Given data\n# -----------------------------\nwidth = 2.0  # m (width of bulkhead)\nh_oil = 4.0  # m (oil depth)\nh_water = 6.0  # m (water depth)\nrho_oil = 850.0  # kg/m³\nrho_water = 1000.0  # kg/m³\ng = 9.81  # m/s²\n\n# -----------------------------\n# Display input parameters\n# -----------------------------\nprint(\"Bulkhead Separating Oil and Water\")\nprint(f\"Bulkhead width          : {width} m\")\nprint(f\"Oil side    : {h_oil} m deep,   ρ = {rho_oil} kg/m³\")\nprint(f\"Water side  : {h_water} m deep,   ρ = {rho_water} kg/m³\")\nprint()\n\n# -----------------------------\n# Hydrostatic force on oil side\n# -----------------------------\nA_oil = width * h_oil\nh_c_oil = h_oil / 2\nF_oil = rho_oil * g * h_c_oil * A_oil\n\n# -----------------------------\n# Hydrostatic force on water side\n# -----------------------------\nA_water = width * h_water\nh_c_water = h_water / 2\nF_water = rho_water * g * h_c_water * A_water\n\n# -----------------------------\n# Net horizontal thrust\n# -----------------------------\nF_net_N = F_water - F_oil  # positive towards oil side\nF_net_kN = F_net_N / 1000\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(f\"Force from oil side     : {F_oil:8.0f} N  = {F_oil/1000:6.1f} kN\")\nprint(f\"Force from water side   : {F_water:8.0f} N  = {F_water/1000:6.1f} kN\")\nprint()\nprint(f\"NET THRUST              : {F_net_N:8.0f} N  = {F_net_kN:6.1f} kN\")\nprint(\"Direction               : Towards the oil side\")\n\n\nExample 4.6 Seawater has flooded an oil tanker’s oil tank to a depth of 4 meters, and a 10-meter layer of oil sits atop the seawater. Calculate the pressure at the bottom of the tank. Note: The density of oil is 0.85 g/cm³, the density of seawater is 1.02 t/m³, and the atmospheric pressure is 101.3 kPa.\n# -----------------------------\n# Given data\n# -----------------------------\noil_density_g_per_cm3 = 0.85  # Density of oil in g/cm³\noil_height_m = 10.0  # Height of oil layer in meters\nseawater_density_t_per_m3 = 1.02  # Density of seawater in t/m³\nseawater_height_m = 4.0  # Height of seawater layer in meters\natmospheric_pressure_kPa = 101.3  # Atmospheric pressure in kPa\ng = 9.81  # Acceleration due to gravity (m/s²)\n\n# -----------------------------\n# Convert densities to kg/m³\n# -----------------------------\noil_density = oil_density_g_per_cm3 * 1000  # g/cm³ → kg/m³\nseawater_density = seawater_density_t_per_m3 * 1000  # t/m³ → kg/m³\n\n# -----------------------------\n# Hydrostatic pressure calculations\n# -----------------------------\npressure_oil_kPa = (oil_density * g * oil_height_m) / 1000\npressure_seawater_kPa = (seawater_density * g * seawater_height_m) / 1000\n\n# Total gauge and absolute pressure\ngauge_pressure_kPa = pressure_oil_kPa + pressure_seawater_kPa\nabsolute_pressure_kPa = atmospheric_pressure_kPa + gauge_pressure_kPa\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(f\"Pressure due to oil layer       : {pressure_oil_kPa:.4f} kPa\")\nprint(f\"Pressure due to seawater layer  : {pressure_seawater_kPa:.4f} kPa\")\nprint(f\"Total gauge pressure            : {gauge_pressure_kPa:.4f} kPa\")\nprint(f\"Absolute pressure at the bottom : {absolute_pressure_kPa:.4f} kPa\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Hydrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "03hydrostatics.html#hydraulic-jacks",
+    "href": "03hydrostatics.html#hydraulic-jacks",
+    "title": "4  Hydrostatics",
+    "section": "4.3 Hydraulic Jacks",
+    "text": "4.3 Hydraulic Jacks\nHydraulic jacks use Pascal’s law to lift heavy loads with minimal input force. Pascal’s law states that pressure applied to an enclosed fluid is transmitted equally in all directions. In a hydraulic jack, two pistons of different sizes are connected by a confined fluid. Applying an effort force to the smaller piston generates a pressure that is transmitted to the larger piston, producing an output force. Calculations involving hydraulic jacks, such as determining system pressure, required input force, or lifted load, rely on this principle under ideal conditions, neglecting friction and fluid compressibility.\n\nExample 4.7 A force of 150 N is transmitted from a piston of 25 mm² to one of 100 mm². Determine the system pressure and the load carried by the larger piston.\n# -----------------------------\n# Given parameters\n# -----------------------------\narea_small_mm2 = 25.0  # mm² (small piston)\narea_large_mm2 = 100.0  # mm² (large piston)\nforce_small = 150.0  # N (force applied to small piston)\n\n# -----------------------------\n# Convert areas to SI units (m²)\n# -----------------------------\narea_small = area_small_mm2 * 1e-6  # 1 mm² = 10^-6 m²\narea_large = area_large_mm2 * 1e-6\n\n# -----------------------------\n# System pressure and load on large piston\n# -----------------------------\npressure = force_small / area_small  # Pa\nload_large = pressure * area_large  # N\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(f\"System pressure: {pressure:.2f} Pa \" f\"(or {pressure / 1e6:.1f} MPa)\")\nprint(f\"Load carried by larger piston: {load_large:.1f} N\")\n\n\nExample 4.8 A simple hydraulic jack consists of a small effort plunger with a diameter of 25 mm and a large load piston with a diameter of 70 mm. The jack lifts a load of 5.88 kN. Calculate:\n\nThe pressure in the hydraulic fluid (system pressure).\nThe force exerted on the small plunger (load on the small plunger) required to support the given load, assuming ideal conditions (no losses).\n\nimport math\n\n# -----------------------------\n# Given data\n# -----------------------------\ndiameter_small = 0.025  # m (effort plunger)\ndiameter_large = 0.070  # m (load piston)\nload = 5880.0  # N (equivalent to 5.88 kN)\n\n# -----------------------------\n# Calculate radii and cross-sectional areas\n# -----------------------------\nradius_small = diameter_small / 2\nradius_large = diameter_large / 2\n\narea_small = math.pi * (radius_small**2)  # m²\narea_large = math.pi * (radius_large**2)  # m²\n\n# -----------------------------\n# System pressure and ideal force on small plunger\n# -----------------------------\npressure = load / area_large  # Pa\nforce_small = pressure * area_small  # N\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(f\"System pressure: {pressure:.2f} Pa \" f\"(or {pressure / 1e6:.3f} MPa)\")\nprint(f\"Ideal force on small plunger: {force_small:.1f} N\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Hydrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html",
+    "href": "04hydrodynamics.html",
+    "title": "5  Hydrodynamics",
+    "section": "",
+    "text": "5.1 Volume Flow Rate\nHydrodynamics, a branch of fluid mechanics, studies the motion of liquids and the forces acting on them. Unlike aerodynamics, which concerns compressible gases such as air, hydrodynamics primarily deals with incompressible fluids like water. It is based on classical physics principles, including Newton’s laws of motion, the conservation of mass and momentum. These principles are used to describe the velocity, pressure and viscosity of a fluid in motion.\nVolume rate of flow refers to the rate at which a fluid volume passes a given section in a flow stream. Volume rate of flow may also be referred to as capacity of flow, flow rate or discharge. It is generally given in units of volume per unit of time, cubic meters per second (m3/s) or liters per second (L/s).\nConsider an ideal fluid flow in a pipe of cross-section ‘A’ (m2). For an ideal fluid all the particles move to the right with a velocity of ‘C’ (m/s). As the fluid flow to the right with a velocity of C m/s, ‘C’ m of fluid pass section 1 every second. i.e. the volume of fluid passing section-1 every second is A x C.\n\\[\n\\dot{v} = A \\cdot C\n\\]\nWhere:\nConsider a real fluid flowing in the same pipe. Here particle velocity will be a variable across the flow stream.\nIf the mean velocity cm of all the fluid particles could be found, then similar to the ideal fluid.\n\\[\nVolume\\ flow = area\\ x\\ mean\\ velocity\n\\]\nUnless otherwise indicated, the velocity of flow is understood to refer to the average or mean velocity of all the particles in a flowing fluid.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#volume-flow-rate",
+    "href": "04hydrodynamics.html#volume-flow-rate",
+    "title": "5  Hydrodynamics",
+    "section": "",
+    "text": "Volume flow\n\n\n\n\n\n\n\\(\\dot{v}\\): Volume flow rate, \\(\\mathrm{m^3/s}\\)\n\\(A\\): Cross-sectional area of the flow, \\(\\mathrm{m^2}\\)\n\\(C\\): Mean (average) velocity of the fluid, \\(\\mathrm{m/s}\\)\n\n\n\n\n\nMean velocity",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#mass-flow-rate",
+    "href": "04hydrodynamics.html#mass-flow-rate",
+    "title": "5  Hydrodynamics",
+    "section": "5.2 Mass Flow Rate",
+    "text": "5.2 Mass Flow Rate\nMass flow rate refers to the rate at which a fluid mass passes a given section in a flow stream. It is given in units of mass per unit of time, kilogram per second (kg/s). Mass flow rate is easily calculated from volume flow rate as follows.\n\\[\n\\dot{m} = \\rho \\cdot \\dot v\n\\]\nWhere:\n\n\\(\\dot{m}\\): mass flow rate, \\(\\mathrm{kg/s}\\)\n\\(\\rho\\): density, \\(\\mathrm{kg/m^3}\\)\n\\(\\dot{v}\\): volume flow, \\(\\mathrm{m^3/s}\\)\n\nOr\n\\[\n\\dot{m} = \\rho \\cdot A \\cdot C\n\\]\nWhere:\n\n\\(\\dot{m}\\): mass flow rate, \\(\\mathrm{kg/s}\\)\n\\(\\rho\\): density, \\(\\mathrm{kg/m^3}\\)\n\\(A\\): Cross-sectional area of the flow, \\(\\mathrm{m^2}\\)\n\\(C\\): Mean (average) velocity of the fluid, \\(\\mathrm{m/s}\\)\n\n\nExample 5.1 Oil of relative density 0.9 flows at full bore through a pipe with an internal diameter of 75 mm at a velocity of 1.2 m/s. Calculate the volume flow rate in cubic metres per second and the mass flow rate in tonnes per hour.\nimport math\n\n# -----------------------------\n# Given data\n# -----------------------------\ninternal_diameter_mm = 75        # mm (pipe internal diameter)\nvelocity_m_per_s = 1.2           # m/s (fluid velocity)\nrelative_density = 0.9           # relative to water\ndensity_water_kg_per_m3 = 1000   # standard density of water (kg/m³)\n\n# -----------------------------\n# Convert units and calculate radius\n# -----------------------------\ninternal_diameter_m = internal_diameter_mm / 1000  # mm → m\nradius_m = internal_diameter_m / 2                 # pipe radius (m)\n\n# -----------------------------\n# Cross-sectional area\n# -----------------------------\narea_m2 = math.pi * radius_m ** 2                 # m²\n\n# -----------------------------\n# Volume and mass flow rates\n# -----------------------------\nvolume_flow_rate_m3_per_s = area_m2 * velocity_m_per_s\n\n# Density of oil (kg/m³)\ndensity_oil_kg_per_m3 = relative_density * density_water_kg_per_m3\n\n# Mass flow rate (kg/s)\nmass_flow_rate_kg_per_s = density_oil_kg_per_m3 * volume_flow_rate_m3_per_s\n\n# Mass flow rate in tonnes per hour\nmass_flow_rate_tonnes_per_hour = (mass_flow_rate_kg_per_s * 3600) / 1000\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(f\"Volume flow rate, m³/s         : {volume_flow_rate_m3_per_s:.4f}\")\nprint(f\"Mass flow rate, tonnes/hour    : {mass_flow_rate_tonnes_per_hour:.4f}\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#flow-through-valves",
+    "href": "04hydrodynamics.html#flow-through-valves",
+    "title": "5  Hydrodynamics",
+    "section": "5.3 Flow Through Valves",
+    "text": "5.3 Flow Through Valves\nReferring to the figure, the area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.\n\n\n\nFlow through valves\n\n\nThe lift beyond which it would cause no restriction is when the circumferential area of the lift opening is equal to the cross-sectional area of the bore, thus,\n\\[\n\\text{Circumference} \\times \\text{Lift} = \\text{Cross-sectional area}.\n\\] \\[\n\\pi d \\times L = \\frac{\\pi d^{2}}{4},\n\\]\nwhere \\(L\\) is the lift and \\(d\\) is the diameter of the valve.\nHence, a lift equal to one-quarter of the diameter of the valve allows full bore flow:\n\\[\nL = \\frac{d}{4}.\n\\]\n\nExample 5.2 Calculate the volume flow rate of water in cubic metres per minute through a 150-millimetre diameter valve when the velocity of the water is 2.5 m/s and the valve lift is (i) 30 millimetres and (ii) 45 millimetres.\nimport math\n\n# Given\nd = 0.15                  # diameter in metres\nV = 2.5                   # velocity in m/s\n\n# Maximum effective lift\ncritical_lift_mm = (d / 4) * 1000\n\n# Full bore area and flow rate\nA_bore = math.pi * d**2 / 4\nQ_full_m3_per_s = V * A_bore\nQ_full = Q_full_m3_per_s * 60      # convert to m³/min\n\n\n# (i) Lift = 30 mm\nL1 = 0.030                # lift in metres\nA_annular1 = math.pi * d * L1\nA_effective1 = min(A_annular1, A_bore)\nQ1 = V * A_effective1 * 60\n\n\n# (ii) Lift = 45 mm\nL2 = 0.045                # lift in metres\nA_annular2 = math.pi * d * L2\nA_effective2 = min(A_annular2, A_bore)\nQ2 = V * A_effective2 * 60\n\n\nprint(f\"Maximum effective lift: {critical_lift_mm:.4f} mm\")\nprint(f\"Full bore flow rate: {Q_full:.4f} m³/min\")\nprint(f\"At 30 mm lift: {Q1:.4f} m³/min\")\nprint(f\"At 45 mm lift: {Q2:.4f} m³/min\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#discharge-through-an-orifice",
+    "href": "04hydrodynamics.html#discharge-through-an-orifice",
+    "title": "5  Hydrodynamics",
+    "section": "5.4 Discharge Through an Orifice",
+    "text": "5.4 Discharge Through an Orifice\nWhen water discharges through an orifice in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.\n\n\n\nOrifice\n\n\nThis yields the theoretical velocity of the jet: \\[\nC = \\sqrt{2gh}\n\\] where \\(g\\) is the acceleration due to gravity and \\(h\\) is the height of the water surface above the orifice.\nThe theoretical volume flow rate is then: \\[\n\\dot{v}_{\\text{theoretical}} = A C = A \\sqrt{2gh}\n\\] where \\(A\\) is the area of the orifice.\nDue to viscous effects, the actual velocity is less than the theoretical value. The coefficient of velocity, \\(C_v\\), is defined as the ratio of actual velocity to theoretical velocity. Thus, the velocity-corrected flow rate is: \\[\n\\dot{v}_{\\text{velocity-corrected}} = C_v A \\sqrt{2gh}\n\\]\nDownstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta. The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.\n\n\n\nVena contracta\n\n\nThe coefficient of contraction, \\(C_A\\), is the ratio of the jet area at the vena contracta to the orifice area: \\[\nA_{\\text{jet}} = C_A A\n\\]\nThe actual volume flow rate therefore becomes: \\[\n\\dot{v}_{\\text{actual}} = C_A A \\cdot C_v \\sqrt{2gh}\n\\]\nThe coefficient of discharge, \\(C_d\\), is the ratio of the actual volume flow rate to the theoretical volume flow rate: \\[\nC_d = C_A \\cdot C_v\n\\]\nConsequently, \\[\n\\dot{v}_{\\text{actual}} = C_d A \\sqrt{2gh}\n\\]\n\nExample 5.3 Water escapes through a hole 20 mm in diameter in the side of a tank, with a water head of 3 m above the hole. Given a coefficient of velocity of 0.97 and a coefficient of reduction of area of 0.64, calculate (i) the velocity of the water jet as it exits the hole and (ii) the quantity of water escaping tonne per hour.\nimport math\n\n# Given\ndiameter_mm = 20\ndiameter_m = diameter_mm / 1000\nradius_m = diameter_m / 2\nh = 3  # m\nCv = 0.97\nCa = 0.64\ng = 9.81  # m/s²\ndensity_water = 1000  # kg/m³\n\n# Calculations\narea = math.pi * radius_m ** 2\n\nv_theoretical = math.sqrt(2 * g * h)\nv_actual = Cv * v_theoretical\n\nvolume_flow_actual = Ca * area * v_actual  # m³/s\n\nmass_flow = density_water * volume_flow_actual  # kg/s\n\nmass_per_hour_kg = mass_flow * 3600\nmass_per_hour_tonne = mass_per_hour_kg / 1000\n\n# Output results\nprint(f\"(i) Actual velocity of the water jet: {v_actual:.3f} m/s\")\n\nprint(f\"\\n(ii) Quantity of water escaping per hour:\")\nprint(f\"    Volume flow rate: {volume_flow_actual:.6f} m³/s\")\nprint(f\"    Mass flow rate: {mass_flow:.4f} kg/s\")\nprint(f\"    Mass per hour: {mass_per_hour_kg:.4f} kg/hour\")\nprint(f\"    Mass per hour: {mass_per_hour_tonne:.4f} tonnes/hour\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#continuity-equation",
+    "href": "04hydrodynamics.html#continuity-equation",
+    "title": "5  Hydrodynamics",
+    "section": "5.5 Continuity Equation",
+    "text": "5.5 Continuity Equation\nContinuous flow exists in a flow system when the mass flow rate is constant throughout the system. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.\n\n\n\nContinuity equation\n\n\nSince \\(\\dot{m_1} = \\dot{m_2}\\), therefore\n\\[\n\\rho_1 \\cdot A_1 \\cdot C_1= \\rho_2 \\cdot A_2 \\cdot C_2\n\\]\nIf the fluid is incompressible (most liquids), then density will remain constant (\\(\\rho_1=\\rho_2\\)) and the above equations may be written as:\n\\[\nA_1 \\cdot C_1= A_2 \\cdot C_2\n\\] Or\n\\[\n\\dot{v_1}= \\dot{v_2}\n\\]\nThat is, the volume flow rate is constant for an incompressible fluid.\n\nExample 5.4 A pipe decreases in diameter from 300 mm to 200 mm. Water flows from the larger to the smaller pipe at a constant rate of 18.4 kL/min. Calculate the mass flow rate and the velocities in the larger and smaller pipe.\nimport math\n\n# Given\nflow_rate_kL_per_min = 18.4   # Volumetric flow rate in kL/min\ndiameter_large_mm = 300       # Diameter of larger pipe in mm\ndiameter_small_mm = 200       # Diameter of smaller pipe in mm\ndensity_water = 1000          # Density of water in kg/m³\n\n# Convert volumetric flow rate to m³/s\nflow_rate_m3_per_s = (flow_rate_kL_per_min / 60)\n\n# Convert diameters to meters and calculate radii\nd1 = diameter_large_mm / 1000  # m\nd2 = diameter_small_mm / 1000  # m\nr1 = d1 / 2\nr2 = d2 / 2\n\n# Cross-sectional areas\nA1 = math.pi * r1**2  # m²\nA2 = math.pi * r2**2  # m²\n\n# Velocities\nv1 = flow_rate_m3_per_s / A1  # m/s (larger pipe)\nv2 = flow_rate_m3_per_s / A2  # m/s (smaller pipe)\n\n# Mass flow rate\nmass_flow_rate = density_water * flow_rate_m3_per_s  # kg/s\n\n# Output results\nprint(f\"Mass flow rate: {mass_flow_rate:.4f} kg/s\")\nprint(f\"Velocity in larger pipe (300 mm): {v1:.4f} m/s\")\nprint(f\"Velocity in smaller pipe (200 mm): {v2:.4f} m/s\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#the-energy-equation-for-an-ideal-fluid",
+    "href": "04hydrodynamics.html#the-energy-equation-for-an-ideal-fluid",
+    "title": "5  Hydrodynamics",
+    "section": "5.6 The Energy Equation for an Ideal Fluid",
+    "text": "5.6 The Energy Equation for an Ideal Fluid\nThe steady flow equation is developed from the Law of Conservation of Energy. If there are no energy losses or energy additions in a flow system, then the total energy of a flowing fluid will remain constant.\nA flowing fluid may lose energy as a result of fluid friction, heat energy transfer and fluid motors. For an ideal fluid, frictional losses are equal to zero. Energy may be added to a fluid via a pump or heat energy addition.\nThe total energy possessed by a flowing fluid consists of:\n\ninternal energy\npotential energy\nkinetic energy and\npressure energy (flow energy).\n\nGenerally in fluid mechanics the change in internal energy is considered to be negligible. Heat energy transfers are usually not considered in fluid mechanics and the frictional heat developed by a flowing fluid is relatively small. Therefore, the internal energy term is omitted from the energy balance.\nConsider the flow system shown below. For this system, assume:\n\nan ideal fluid\nthat there are no energy losses or additions and\nsteady flow conditions exist.\n\n\n\n\nEnergy equation\n\n\nFrom the Law of Conservation of Energy:\nThe Total Energy at section 1 = The Total Energy at section 2\n\\[\nmZ_1g+\\frac{m C_1^2}{2}+mP_1v_1=mZ_2g+\\frac{m C_2^2}{2}+mP_2v_2\n\\]\nDividing through by \\(mg\\):\n\\[\n\\frac{mZ_1g}{mg}+\\frac{m C_1^2}{2mg}+\\frac{mP_1v_1}{mg}=\\frac{mZ_2g}{mg}+\\frac{m C_2^2}{2mg}+\\frac{mP_2v_2}{mg}\n\\]\nTherefore\n\\[\nZ_1+\\frac{C_1^2}{2g}+\\frac{P_1v_1}{g}=Z_2+\\frac{C_2^2}{2g}+\\frac{P_2v_2}{g}\n\\]\nIn fluid mechanics density (\\(\\rho\\)) is generally used in preference to specific volume, i.e. \\(v=\\frac{1}{\\rho}\\) Therefore:\n\\[\nZ_1+\\frac{C_1^2}{2g}+\\frac{P_1}{g\\rho_1}=Z_2+\\frac{C_2^2}{2g}+\\frac{P_2}{g\\rho_2}\n\\]\nIn fluid mechanics, specific weight represents the force exerted by gravity on a unit volume of a fluid. For this reason, units are expressed as force per unit volume (e.g., \\(N/m^3\\))\nSpecific weight is given \\(\\gamma = g\\rho\\)\nWhere:\n\\(\\gamma\\): specific weight, \\(\\mathrm{N/m^3}\\)\n\\(g\\): gravitational acceleration, \\(\\mathrm{m/s^2}\\)\n\\(\\rho\\): density, \\(\\mathrm{kg/m^3}\\)\n\\[\nZ_1+\\frac{C_1^2}{2g}+\\frac{P_1}{\\gamma_1}=Z_2+\\frac{C_2^2}{2g}+\\frac{P_2}{\\gamma_2}\n\\]\nEach term has units of m, therefore:\n\nPotential energy \\(Z\\) is known as the elevation head.\nKinetic energy \\(\\frac{c^2}{2g}\\) is known as the velocity head.\nPressure energy \\(\\frac{P}{\\gamma}\\) is known as the pressure head.\n\nSimilarly, the total energy of a flowing fluid is known as the total head (H).\n\\[\nTotal\\ Head= Elevation\\ Head + Velocity\\ Head + Pressure\\ Head\n\\] \\[\nH=Z+\\frac{C^2}{2g}+\\frac{P}{\\gamma}\n\\]\nThe total head (H) will be a constant throughout a flow system if:\n\nfrictional losses (head loss) are equal to zero\nwork energy is not added by a pump (pump head) or removed by a motor.\n\n\nExample 5.5 Consider a simple flow system consisting of a varying cross-section pipe. Water flows through this system at a rate of 2000 L/min. As the pipe increases in elevation from 30 m to 36 m it decreases in diameter from 10 cm to 3.0 cm. If the pressure is 6.5 MPa at the 30 m elevation, what is the pressure at 36 m?\n\n\n\nExample\n\n\nimport math\n\n# Given\nv_dot_lpm = 2000.0                # Flow rate, L/min\nv_dot = v_dot_lpm / 60000.0       # Convert to m³/s\nd1 = 0.10                         # Diameter at lower section, m\nd2 = 0.03                         # Diameter at higher section, m\nz1 = 30.0                         # Elevation at lower section, m\nz2 = 36.0                         # Elevation at higher section, m\nP1 = 6.5e6                        # Pressure at lower section, Pa\nrho = 1000.0                      # Density of water, kg/m³\n\n# Cross-sectional areas\nA1 = math.pi * (d1 / 2.0)**2\nA2 = math.pi * (d2 / 2.0)**2\n\n# Velocities\nc1 = v_dot / A1\nc2 = v_dot / A2\n\n# Bernoulli's equation to find P2\nP2 = P1 + 0.5 * rho * (c1**2 - c2**2) + rho * g * (z1 - z2)\n\n# Convert P2 to MPa\nP2_MPa = P2 / 1e6\n\n# Output results\nprint(f\"Flow rate: {v_dot:.5f} m³/s\")\nprint(f\"Area 1: {A1:.6f} m²\")\nprint(f\"Area 2: {A2:.6f} m²\")\nprint(f\"Velocity 1: {c1:.4f} m/s\")\nprint(f\"Velocity 2: {c2:.4f} m/s\")\nprint(f\"Pressure at 36 m elevation: {P2_MPa:.4f} MPa\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#bernoullis-equation",
+    "href": "04hydrodynamics.html#bernoullis-equation",
+    "title": "5  Hydrodynamics",
+    "section": "5.7 Bernoulli’s Equation",
+    "text": "5.7 Bernoulli’s Equation\nThe Bernoulli’s equation between two points in a fluid flow is given by:\n\\[\nP_1 + \\frac{1}{2} \\rho C_1^2 + \\rho g h_1 = P_2 + \\frac{1}{2} \\rho C_2^2 + \\rho g h_2\n\\]\nWhere:\n\n\\(P_1\\) and \\(P_2\\) are the pressures at points 1 and 2, respectively.\n\\(\\rho\\) is the density of the fluid.\n\\(C_1\\) and \\(C_2\\) are the velocities of the fluid at points 1 and 2, respectively.\n\\(g\\) is the acceleration due to gravity.\n\\(h_1\\) and \\(h_2\\) are the heights of the fluid at points 1 and 2, respectively.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#venturi-meter",
+    "href": "04hydrodynamics.html#venturi-meter",
+    "title": "5  Hydrodynamics",
+    "section": "5.8 Venturi Meter",
+    "text": "5.8 Venturi Meter\nA venturi meter measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:\n\n\n\nVenturi meter\n\n\nWhen the entrance and throat areas are known, and the pressure readings (or pressure difference) at these points are measured, Bernoulli’s equation can be used to calculate the liquid velocity and flow rate. Typically, a venturi meter is installed horizontally in the pipeline, which simplifies calculations since there is no elevation difference between points (Z1 = Z2), thus eliminating the height terms.\n\nExample 5.6 Calculate the mass flow rate in kilograms per second through a smooth, horizontal venturi meter with an entrance diameter of 375 mm and a throat diameter of 125 mm, given a pressure difference of 457 mm of water\nimport math\n\n# Given\nD1 = 0.375  # Entrance diameter in meters\nD2 = 0.125  # Throat diameter in meters\nh = 0.457   # Pressure head difference in meters of water\ng = 9.81    # Gravitational acceleration in m/s²\nrho = 1000  # Density of water in kg/m³\n\n# Calculate cross-sectional areas\nA1 = math.pi * (D1 / 2)**2\nA2 = math.pi * (D2 / 2)**2\n\n# Compute the squared area ratio (A2/A1)^2\nratio_squared = (A2 / A1)**2\n\n# Calculate throat velocity c2\nc2 = math.sqrt((2 * g * h) / (1 - ratio_squared))\n\n# Calculate volumetric flow rate v_dot using throat section\nv_dot = A2 * c2\n\n# Calculate mass flow rate\nmass_flow_rate = rho * v_dot\n\n# Output results\nprint(f\"Entrance area: {A1:.6f} m²\")\nprint(f\"Throat area: {A2:.6f} m²\")\nprint(f\"Throat velocity: {c2:.4f} m/s\")\nprint(f\"Volumetric flow rate: {v_dot:.4f} m³/s\")\nprint(f\"Mass flow rate: {mass_flow_rate:.4f} kg/s\")\n\n\nExample 5.7 A horizontal venturi meter has an inlet diameter of 450 mm and a throat diameter of 225 mm. The pressure difference between these two points is equivalent to 381 mm of water. Given the density of fresh water is 1000 kg/m³, calculate the mass flow rate through the meter.\nimport math\n\n# Given\nD1 = 0.450  # Inlet diameter in meters\nD2 = 0.225  # Throat diameter in meters\nh = 0.381   # Pressure head difference in meters of water\ng = 9.81    # Gravitational acceleration in m/s²\nrho = 1000  # Density of water in kg/m³\n\n# Calculate cross-sectional areas\nA1 = math.pi * (D1 / 2)**2\nA2 = math.pi * (D2 / 2)**2\n\n# Compute the squared area ratio (A2/A1)^2\nratio_squared = (A2 / A1)**2\n\n# Calculate throat velocity c2\nc2 = math.sqrt((2 * g * h) / (1 - ratio_squared))\n\n# Calculate volumetric flow rate v_dot using throat section\nv_dot = A2 * c2\n\n# Calculate mass flow rate\nmass_flow_rate = rho * v_dot\n\n# Output results\nprint(f\"Entrance area: {A1:.6f} m²\")\nprint(f\"Throat area: {A2:.6f} m²\")\nprint(f\"Throat velocity: {c2:.4f} m/s\")\nprint(f\"Volumetric flow rate: {v_dot:.4f} m³/s\")\nprint(f\"Mass flow rate: {mass_flow_rate:.4f} kg/s\")\n\n\nExample 5.8 A 300 mm diameter pipe has a venturi meter with a throat diameter of 100 mm. A U-tube gauge filled with water and mercury measures a pressure head difference of 250 mm between the inlet and throat. The meter coefficient is 0.95. Using the density of water (1000 kg/m³), calculate the discharge rate through the pipe in m³/s.\nimport math\n\n# -----------------------------\n# Given data\n# -----------------------------\nD1 = 0.3  # Inlet diameter in meters\nD2 = 0.1  # Throat diameter in meters\nCd = 0.95  # Coefficient of discharge\nh_mercury = 0.250  # Manometer reading in meters of mercury\nSG = 13.6  # Specific gravity of mercury relative to water\ng = 9.81  # Acceleration due to gravity in m/s²\n\n# -----------------------------\n# Cross-sectional areas\n# -----------------------------\nA1 = math.pi * (D1**2) / 4  # Area at the inlet\nA2 = math.pi * (D2**2) / 4  # Area at the throat\n\n# -----------------------------\n# Equivalent water head\n# -----------------------------\n# The difference in water levels (equivalent head) generates\n# a hydrostatic pressure in the connecting legs that counteracts\n# the mercury column. Multiplying by (SG - 1) accounts for the\n# specific gravity of mercury relative to water.\nh_eq = h_mercury * (SG - 1)\n\n# -----------------------------\n# Diameter ratio\n# -----------------------------\nbeta = D2 / D1\n\n# -----------------------------\n# Discharge calculations\n# -----------------------------\n# Theoretical discharge based on the ideal flow equation\nQ_theoretical = A2 * math.sqrt((2 * g * h_eq) / (1 - beta**4))\n\n# Actual discharge accounting for the coefficient of discharge\nQ_actual = Cd * Q_theoretical\n\n# -----------------------------\n# Output results\n# -----------------------------\nprint(f\"Cross-sectional area at inlet (A1): {A1:.4f} m²\")\nprint(f\"Cross-sectional area at throat (A2): {A2:.4f} m²\")\nprint(f\"Equivalent water head (h_eq): {h_eq:.4f} m\")\nprint(f\"Theoretical discharge: {Q_theoretical:.4f} m³/s\")\nprint(f\"Actual discharge: {Q_actual:.4f} m³/s\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "04hydrodynamics.html#power-required-for-pumping-water",
+    "href": "04hydrodynamics.html#power-required-for-pumping-water",
+    "title": "5  Hydrodynamics",
+    "section": "5.9 Power Required for Pumping Water",
+    "text": "5.9 Power Required for Pumping Water\nThe power needed to pump water is the rate at which work is done to increase the fluid’s potential energy by lifting it against gravity, often with friction or other losses.\nIn ideal conditions, the theoretical power \\(P\\) is calculated as\n\\[\nP = \\rho g h \\dot{v}\n\\]\nwhere \\(\\rho\\) is the fluid density, \\(g\\) is gravitational acceleration, \\(h\\) is the total head, and \\(\\dot{v}\\) is the volumetric flow rate. This is derived from the mass flow rate \\(\\dot{m} = \\rho \\dot{v}\\).\nActual input power accounts for pump efficiency \\(\\eta\\), given by\n\\[\n\\eta = \\frac{P_{\\mathrm{output}}}{P_{\\mathrm{input}}}\n\\]\n\nExample 5.9 Water is pumped to a height of 20 m at a rate of 12 litres per second. If the pump efficiency is 75%, calculate the input power.\n# Given\nflow_rate_lps = 12.0    # litres per second\nheight = 20.0           # metres\nefficiency = 0.75       \nrho = 1000.0            # density of water in kg/m³\ng = 9.81                # acceleration due to gravity in m/s²\n\n# Calculations\nv_dot = flow_rate_lps / 1000.0                   # volumetric flow rate in m³/s\nm_dot = rho * v_dot                              #  mass flow rate in kg/s\noutput_power = m_dot * g * height           # watts\ninput_power = output_power / efficiency     # watts\n\n# Result\nprint(f\"Actual input power (with 75% efficiency): {input_power:.4f} W ({input_power / 1000:.4f} kW)\")\n\n\nExample 5.10 A water pump operates with an actual input power of 3 kW and an overall efficiency of 70%. The pump delivers water at a rate of 12 litres per second. Assuming the power is used solely to increase the gravitational potential energy (negligible velocity and pressure heads), calculate the height (head) to which the water is pumped.\n# Given\ninput_power = 3000.0    # Actual input power in W\nefficiency = 0.70       # Pump efficiency\nflow_rate_lps = 12.0    # Flow rate in litres per second\nrho = 1000.0            # Density of water in kg/m³\ng = 9.81                # Gravitational acceleration in m/s²\n\n# Volumetric flow rate v_dot (m³/s)\nv_dot = flow_rate_lps / 1000.0\n\n# Mass flow rate m_dot (kg/s)\nm_dot = rho * v_dot\n\n# Output power delivered to the water (W)\noutput_power = input_power * efficiency\n\n# Head h (m) using P = m_dot * g * h\nh = output_power / (m_dot * g)\n\n# Result\nprint(f\"Head (height pumped): {h:.2f} m\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hydrodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "colophon.html",
+    "href": "colophon.html",
+    "title": "Colophon",
+    "section": "",
+    "text": "This booklet was typeset with Quarto v.1.8.26.",
+    "crumbs": [
+      "Colophon"
+    ]
+  },
+  {
+    "objectID": "greek_letters.html",
+    "href": "greek_letters.html",
+    "title": "Appendix A — Greek Letters",
+    "section": "",
+    "text": "The following tables present the names of Greek letters and selected symbols commonly used in engineering courses, ensuring precise reference and avoiding reliance on informal descriptors such as “squiggle.”\n\nGreek letters.\n\n\nLower Case\nUpper Case\nName\n\n\n\n\n\\(\\alpha\\)\nA\nalpha\n\n\n\\(\\beta\\)\nB\nbeta\n\n\n\\(\\gamma\\)\n\\(\\Gamma\\)\ngamma\n\n\n\\(\\delta\\)\n\\(\\Delta\\)\ndelta\n\n\n\\(\\epsilon\\)\nE\nepsilon\n\n\n\\(\\zeta\\)\nZ\nzeta\n\n\n\\(\\eta\\)\nE\neta\n\n\n\\(\\theta\\)\n\\(\\Theta\\)\ntheta\n\n\n\\(\\iota\\)\nI\niota\n\n\n\\(\\kappa\\)\nK\nkappa\n\n\n\\(\\lambda\\)\n\\(\\Lambda\\)\nlambda\n\n\n\\(\\mu\\)\nM\nmu\n\n\n\\(\\nu\\)\nN\nnu\n\n\n\\(\\xi\\)\n\\(\\Xi\\)\nxi\n\n\n\\(\\omicron\\)\nO\nomicron\n\n\n\\(\\pi\\)\n\\(\\Pi\\)\npi\n\n\n\\(\\rho\\)\nP\nrho\n\n\n\\(\\sigma\\)\n\\(\\Sigma\\)\nsigma\n\n\n\\(\\tau\\)\nT\ntau\n\n\n\\(\\upsilon\\)\n\\(\\Upsilon\\)\nupsilon\n\n\n\\(\\phi\\)\n\\(\\Phi\\)\nphi\n\n\n\\(\\chi\\)\nX\nchi\n\n\n\\(\\psi\\)\n\\(\\Psi\\)\npsi\n\n\n\\(\\omega\\)\n\\(\\Omega\\)\nomega\n\n\n\n\nCommonly used symbols in engineering courses.\n\n\n\n\n\n\n\n\nSymbol\nName\nUse\nCourse\n\n\n\n\n\\(\\Delta\\)\nDelta\nChange\nThermodynamics\n\n\n\\(\\Delta\\)\nDelta\nDisplacement\nNaval Architecture\n\n\n\\(\\nabla\\)\nNabla\nVolume\nNaval Architecture\n\n\n\\(\\Sigma\\)\nSigma\nSum\nThermodynamics, Naval Architecture, Applied Mechanics\n\n\n\\(\\sigma\\)\nSigma\nStress\nThermodynamics, Applied Mechanics\n\n\n\\(\\epsilon\\)\nEpsilon\nModulus of elasticity\nThermodynamics, Applied Mechanics\n\n\n\\(\\eta\\)\nEta\nEfficiency\nThermodynamics\n\n\n\\(\\mu\\)\nMu\nFriction\nThermodynamics, Applied Mechanics\n\n\n\\(\\omega\\)\nOmega\nAngular velocity\nThermodynamics, Applied Mechanics\n\n\n\\(\\rho\\)\nRho\nDensity\nThermodynamics, Naval Architecture\n\n\n\\(\\tau\\)\nTau\nTorque\nThermodynamics, Applied Mechanics",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Greek Letters</span>"
+    ]
+  }
+]
