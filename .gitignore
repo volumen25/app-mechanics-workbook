@@ -11,7 +11,6 @@ dist/
 build/
 
 # Quarto
-/_site/
 /.quarto/
 
 # OS
@@ -19,12 +18,10 @@ build/
 Thumbs.db
 Desktop.ini
 
-# IDE
-.vscode/
-.idea/
+# IDE - ignore everything in .vscode EXCEPT settings.json
+.vscode/*
+!.vscode/settings.json
+
 *.swp
 *.swo
 **/*.quarto_ipynb
-
-# Allow shared workspace settings
-!.vscode/settings.json
