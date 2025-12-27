@@ -24,7 +24,7 @@
     "href": "dedication.html",
     "title": "Dedication",
     "section": "",
-    "text": "To my students, whose inspiration and encouragement made this work possible.",
+    "text": "To the memory of my colleague and inspiration, Brian Noronha.\nBoth academic and Class 1 Marine Engineer, he was a rare professional and a fine gentleman.",
     "crumbs": [
       "Dedication"
     ]
@@ -565,7 +565,7 @@
     "href": "revision_history.html",
     "title": "Appendix B — Revision History",
     "section": "",
-    "text": "Changelog.\n\n\nVersion\nDate\nDescription\n\n\n\n\n2.0\n2026-01-\nMajor revision with new chapters\n\n\n1.0\n2025-09-\nUpdated SI units section\n\n\n0.2\n2025-09-03\nAdded formulae section\n\n\n0.1\n2025-09-01\nInitial development",
+    "text": "Changelog.\n\n\n\n\n\n\n\nVersion\nDate\nDescription\n\n\n\n\n2.0\n2026-01-\nMajor revision with new chapters\n\n\n1.0\n2025-09-\nUpdated SI units section\n\n\n0.3\n2025-12-27\nAdded formatting support for Python files using the Black formatter.\n\n\n0.2\n2025-09-03\nAdded formulae section\n\n\n0.1\n2025-09-01\nInitial development",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Revision History</span>"
