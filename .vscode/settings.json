@@ -12,8 +12,12 @@
         "**/*.pyc": true
     },
     "cSpell.words": [
+        "Amstrad",
+        "angulardisp",
         "angularmomentum",
         "arctan",
+        "BCIT’s",
+        "BPEP",
         "centi",
         "Centimetre",
         "centroidal",
@@ -73,6 +77,7 @@
         "submultiples",
         "superheater",
         "sweigart",
+        "textbf",
         "Tmax",
         "turningmoment",
         "unitless",

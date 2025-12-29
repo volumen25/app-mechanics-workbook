@@ -31,13 +31,18 @@ book:
     - acknowledgements.qmd    
     - study_guide.qmd        
     - tutorial_basic.qmd
+
+    # Main Matter
     - 01statics.qmd
     - 02kinematics.qmd
     - 02dynamics.qmd
     - 03hydrostatics.qmd
     - 04hydrodynamics.qmd
+
+    # Back Matter
     - references.qmd
     - colophon.qmd
+    - author.qmd
   appendices:
     - formulae.qmd
     - greek_letters.qmd

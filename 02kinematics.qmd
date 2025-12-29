@@ -15,7 +15,7 @@
       $$
 
 ::: {#exm-ex2-2}
-A ship's engines are stopped when travelling at a speed of 18 knots, and the ship comes to rest after 20 min. Assuming uniform deceleration, find the deceleration (m/s²) and the distance travelled in nautical miles in that time.
+A ship's engines are stopped when traveling at a speed of 18 knots, and the ship comes to rest after 20 min. Assuming uniform deceleration, find the deceleration (m/s²) and the distance traveled in nautical miles in that time.
 
 ``` python
 import math
@@ -41,13 +41,13 @@ deceleration = (vi - vf) / t     # m/s^2
 
 v_avg = (vi + vf) / 2            # m/s
 
-# Distance travelled
+# Distance traveled
 
 s = v_avg * t                    # meters
 s_nmi = s / nmi_in_m             # nautical miles
 
 print(f"Deceleration: {deceleration:.6f} m/s^2")
-print(f"Distance travelled: {s_nmi:.3f} nautical miles")
+print(f"Distance traveled: {s_nmi:.3f} nautical miles")
 ```
 :::
 
@@ -78,7 +78,7 @@ where:
 -   $t$: Time
 
 ::: {#exm-ex2-6}
-A ship’s propellers are stopped when travelling at 25 knots. From that point, it travels 4 kilometres before coming to a complete stop. Calculate the time it takes to stop in minutes and the average deceleration in m/s².
+A ship’s propellers are stopped when traveling at 25 knots. From that point, it travels 4 kilometers before coming to a complete stop. Calculate the time it takes to stop in minutes and the average deceleration in m/s².
 
 ``` python
 # Given
@@ -200,7 +200,7 @@ print(f"Direction: {theta_deg:.2f} degrees downstream")
 :::
 
 ::: {#exm-ships}
-Two ships are moving toward each other in still water. Ship 1 is 310 meters long and travelling at 22 knots, while Ship 2 is 350 meters long and travelling at 19 knots. Calculate the time it takes for the ships to completely pass each other..
+Two ships are moving toward each other in still water. Ship 1 is 310 meters long and traveling at 22 knots, while Ship 2 is 350 meters long and traveling at 19 knots. Calculate the time it takes for the ships to completely pass each other..
 
 ``` python
 import math

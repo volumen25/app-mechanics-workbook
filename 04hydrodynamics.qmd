@@ -70,46 +70,54 @@ Where:
 Oil of relative density 0.9 flows at full bore through a pipe with an internal diameter of 75 mm at a velocity of 1.2 m/s. Calculate the volume flow rate in cubic metres per second and the mass flow rate in tonnes per hour.
 
 ``` python
+"""
+Pipe Flow Rate Calculation for Oil
+Determines the volumetric and mass flow rates in a pipe carrying oil,
+given the internal diameter, fluid velocity, and relative density.
+"""
+
 import math
 
-# -----------------------------
-# Given data
-# -----------------------------
-internal_diameter_mm = 75        # mm (pipe internal diameter)
-velocity_m_per_s = 1.2           # m/s (fluid velocity)
-relative_density = 0.9           # relative to water
-density_water_kg_per_m3 = 1000   # standard density of water (kg/m³)
+# Input parameters
+internal_diameter_millimeters = 75.0  # Pipe internal diameter in mm
+fluid_velocity_meters_per_second = 1.2  # Average velocity of oil in m/s
+relative_density = 0.9  # Specific gravity of oil (relative to water)
+density_water_kilograms_per_cubic_meter = 1000.0  # Density of water in kg/m³
 
-# -----------------------------
-# Convert units and calculate radius
-# -----------------------------
-internal_diameter_m = internal_diameter_mm / 1000  # mm → m
-radius_m = internal_diameter_m / 2                 # pipe radius (m)
+# Unit conversion and geometry
+internal_diameter_meters = internal_diameter_millimeters / 1000.0
+pipe_radius_meters = internal_diameter_meters / 2.0
 
-# -----------------------------
-# Cross-sectional area
-# -----------------------------
-area_m2 = math.pi * radius_m ** 2                 # m²
+# Cross-sectional area of the pipe
+cross_sectional_area_square_meters = math.pi * pipe_radius_meters ** 2
 
-# -----------------------------
-# Volume and mass flow rates
-# -----------------------------
-volume_flow_rate_m3_per_s = area_m2 * velocity_m_per_s
+# Volumetric flow rate
+volumetric_flow_rate_cubic_meters_per_second = (
+    cross_sectional_area_square_meters * fluid_velocity_meters_per_second
+)
 
-# Density of oil (kg/m³)
-density_oil_kg_per_m3 = relative_density * density_water_kg_per_m3
+# Density of the oil
+oil_density_kilograms_per_cubic_meter = (
+    relative_density * density_water_kilograms_per_cubic_meter
+)
 
-# Mass flow rate (kg/s)
-mass_flow_rate_kg_per_s = density_oil_kg_per_m3 * volume_flow_rate_m3_per_s
+# Mass flow rate
+mass_flow_rate_kilograms_per_second = (
+    oil_density_kilograms_per_cubic_meter *
+    volumetric_flow_rate_cubic_meters_per_second
+)
 
-# Mass flow rate in tonnes per hour
-mass_flow_rate_tonnes_per_hour = (mass_flow_rate_kg_per_s * 3600) / 1000
+# Convert mass flow rate to tonnes per hour
+mass_flow_rate_tonnes_per_hour = (
+    mass_flow_rate_kilograms_per_second * 3600 / 1000
+)
 
-# -----------------------------
-# Output results
-# -----------------------------
-print(f"Volume flow rate, m³/s         : {volume_flow_rate_m3_per_s:.4f}")
-print(f"Mass flow rate, tonnes/hour    : {mass_flow_rate_tonnes_per_hour:.4f}")
+# Display results
+print("Pipe Flow Analysis Results:")
+print(f"  Volumetric flow rate : "
+      f"{volumetric_flow_rate_cubic_meters_per_second:.4f} m³/s")
+print(f"  Mass flow rate       : "
+      f"{mass_flow_rate_tonnes_per_hour:.4f} tonnes/hour")
 
 ```
 :::
