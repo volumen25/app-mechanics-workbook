@@ -34,7 +34,6 @@ book:
 
     # Main Matter
     - 01statics.qmd
-    - 02kinematics.qmd
     - 02dynamics.qmd
     - 03hydrostatics.qmd
     - 04hydrodynamics.qmd
