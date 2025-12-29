@@ -1,6 +1,6 @@
 # Dynamics {#dynamics}
 
-Mechanics is the branch of physics concerned with the motion of bodies and the forces that influence it. This chapter begins with kinematics, the study of motion without reference to its causes, where we describe position, velocity, and acceleration in one and two dimensions. Building on this foundation, we then explore dynamics, examining situations where forces produce acceleration, and present methods for analyzing the resulting motion, including the application of Newton’s laws, energy principles, and momentum conservation
+Dynamics is the branch of mechanics that studies the motion of bodies under the action of forces. This chapter examines situations where forces produce acceleration, and it presents methods for analyzing the resulting motion, including the application of Newton’s laws, energy principles, and momentum conservation.
 
 ## Inertia
 

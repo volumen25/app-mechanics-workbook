@@ -1,16 +1,16 @@
 # Statics {#statics}
 
-Statics is the branch of mechanics that analyzes bodies in equilibrium under the action of forces. This chapter examines cases where forces are in balance and presents methods for calculating resultant forces and their associated moments.
+Mechanics is the branch of physics and engineering concerned with the behavior of bodies under the action of forces, encompassing statics and dynamics. This chapter introduces statics\index{Statics}, the study of bodies in equilibrium where net forces and moments are zero. We examine balanced force systems, including space and vector diagrams, conditions of equilibrium, and the calculation of resultant forces and moments.
 
 ## Space Diagrams
 
-A space diagram illustrates the geometry of the system and the applied forces.
+A space diagram\index{Space diagram} illustrates the geometry of the system and the applied forces.
 
 ![Space Diagram](images/spacedia.png){#fig-spacedia width="75%"}
 
 ## Vector Diagrams
 
-A vector diagram (or force polygon) is a **scaled** graphical construction in which force vectors are placed head-to-tail in succession. It is used to determine the resultant of a system of forces through vector addition, as well as to resolve equilibrium problems when the polygon closes.
+A vector diagram\index{Vector diagram} (or force polygon) is a **scaled** graphical construction in which force vectors are placed head-to-tail in succession. It is used to determine the resultant of a system of forces through vector addition, as well as to resolve equilibrium problems when the polygon closes.
 
 ![Vector Diagram](images/vectordia.png){#fig-vectordia}
 
@@ -73,24 +73,46 @@ Where:
 :::: {#exm-1_6}
 Two slings of equal length are slung from a horizontal beam and connected to a ring at their lower ends, the slings and beam forming an equilateral triangle. Find the force in each sling when a load of 30 kN hangs from the ring.
 
-::: callout-note
-In Python, the math module’s trigonometric functions (sin, cos, tan, etc.) expect angles in radians, not degrees. Always convert degrees to radians before using sin, cos, or tan in Python’s math module.
+::: callout-warning
+In Python, the trigonometric functions in the `math` module (`sin`, `cos`, `tan`, etc.) expect angles in radians, not degrees. Always convert degrees to radians before using these functions.
 :::
 
 ``` python
+"""
+Sling Tension Calculator
+
+Calculates the tension in each sling of a two-sling system
+supporting a vertical load, the slings and beam forming 
+an equilateral triangle.
+"""
+
 import math
 
-# Given
-load = 30  # kN
-angle_deg = 60  # each sling makes 60° with the horizontal
+# ====================================
+# INPUT PARAMETERS
+# ====================================
 
-# Convert angle to radians
-angle_rad = math.radians(angle_deg)
+vertical_load_kn = 30  # Total vertical load in kilonewtons
+sling_angle_degrees = 60  # Angle each sling makes with horizontal
 
-# Vertical equilibrium: 2 * T * sin(angle) = load
-T = load / (2 * math.sin(angle_rad))
+# ====================================
+# CALCULATIONS
+# ====================================
 
-print(f"Tension in each sling: {T:.4f} kN")
+# Convert angle from degrees to radians for trigonometric functions
+sling_angle_radians = math.radians(sling_angle_degrees)
+
+# Apply vertical equilibrium equation:
+# Sum of vertical forces = 0
+# 2 * T * sin(θ) = W
+# where T is tension in each sling, θ is angle, W is vertical load
+tension_per_sling_kn = vertical_load_kn / (2 * math.sin(sling_angle_radians))
+
+# ====================================
+# OUTPUT RESULTS
+# ====================================
+
+print(f"Tension in each sling: {tension_per_sling_kn:.4f} kN")
 ```
 ::::
 
@@ -98,19 +120,41 @@ print(f"Tension in each sling: {T:.4f} kN")
 Two identical slings of equal length are attached to a horizontal beam and meet at a ring from which a 45 kN load is suspended. The slings and the beam form an isosceles triangle in which each sling makes an angle of 50° with the horizontal. Find the force (tension) in each sling.
 
 ``` python
+"""
+Sling Tension Calculator
+
+Calculates the tension in each sling of a two-sling system
+supporting a vertical load, the slings and the beam form 
+an isosceles triangle.
+"""
+
 import math
 
-# Given
-load = 45      # kN
-angle_deg = 50 # degrees
+# ====================================
+# INPUT PARAMETERS
+# ====================================
 
-# Convert angle to radians
-angle_rad = math.radians(angle_deg)
+vertical_load_kn = 45  # Total vertical load in kilonewtons
+sling_angle_degrees = 50  # Angle each sling makes with horizontal
 
-# Compute tension
-T = load / (2 * math.sin(angle_rad))
+# ====================================
+# CALCULATIONS
+# ====================================
 
-print(f"Tension in each sling: {T:.4f} kN")
+# Convert angle from degrees to radians for trigonometric functions
+sling_angle_radians = math.radians(sling_angle_degrees)
+
+# Apply vertical equilibrium equation:
+# Sum of vertical forces = 0
+# 2 * T * sin(θ) = W
+# where T is tension in each sling, θ is angle, W is vertical load
+tension_per_sling_kn = vertical_load_kn / (2 * math.sin(sling_angle_radians))
+
+# ====================================
+# OUTPUT RESULTS
+# ====================================
+
+print(f"Tension in each sling: {tension_per_sling_kn:.4f} kN")
 ```
 :::
 
@@ -118,27 +162,59 @@ print(f"Tension in each sling: {T:.4f} kN")
 Two lifting ropes are connected at their lower ends to a common shackle from which a load of 25 kN hangs. If the ropes make angles of 32° and 42° respectively to the vertical, find the tension in each rope.
 
 ``` python
+"""
+Rope Tension Calculator (Law of Sines)
+
+Calculates tensions in two ropes supporting a load using the law of sines.
+The system forms a triangle where the angles and load are known.
+"""
+
 import math
 
-# Given
-load = 25        # kN
-theta1 = 32      # angle opposite T2
-theta2 = 42      # angle opposite T1
-theta3 = 180 - (theta1 + theta2)  # angle opposite load
+# ====================================
+# INPUT PARAMETERS
+# ====================================
 
-# Convert to radians
+vertical_load_kn = 25  # Total vertical load in kilonewtons
+angle_opposite_rope2_deg = 32  # Angle opposite to tension T2 (degrees)
+angle_opposite_rope1_deg = 42  # Angle opposite to tension T1 (degrees)
 
-t1 = math.radians(theta1)
-t2 = math.radians(theta2)
-t3 = math.radians(theta3)
+# Calculate the third angle of the triangle (angles sum to 180°)
+angle_opposite_load_deg = 180 - (angle_opposite_rope2_deg + angle_opposite_rope1_deg)
 
-# Law of sines
+# ====================================
+# CALCULATIONS
+# ====================================
 
-T1 = load * math.sin(t2) / math.sin(t3)  # tension in rope 1
-T2 = load * math.sin(t1) / math.sin(t3)  # tension in rope 2
+# Convert all angles from degrees to radians for trigonometric functions
+angle_opposite_rope2_rad = math.radians(angle_opposite_rope2_deg)
+angle_opposite_rope1_rad = math.radians(angle_opposite_rope1_deg)
+angle_opposite_load_rad = math.radians(angle_opposite_load_deg)
 
-print(f"Tension in rope 1: {T1:.4f} kN")
-print(f"Tension in rope 2: {T2:.4f} kN")
+# Apply the law of sines to find tensions:
+# T1 / sin(θ1) = T2 / sin(θ2) = W / sin(θ3)
+# where θ1 is opposite T1, θ2 is opposite T2, θ3 is opposite W
+
+# Tension in rope 1 (opposite to angle_opposite_rope1)
+tension_rope1_kn = (
+    vertical_load_kn
+    * math.sin(angle_opposite_rope1_rad)
+    / math.sin(angle_opposite_load_rad)
+)
+
+# Tension in rope 2 (opposite to angle_opposite_rope2)
+tension_rope2_kn = (
+    vertical_load_kn
+    * math.sin(angle_opposite_rope2_rad)
+    / math.sin(angle_opposite_load_rad)
+)
+
+# ====================================
+# OUTPUT RESULTS
+# ====================================
+
+print(f"Tension in rope 1: {tension_rope1_kn:.4f} kN")
+print(f"Tension in rope 2: {tension_rope2_kn:.4f} kN")
 ```
 :::
 
@@ -146,31 +222,57 @@ print(f"Tension in rope 2: {T2:.4f} kN")
 The angle between the jib and vertical post of a jib crane is 40°, and the angle between the jib and tie is 45°. Find the force in the jib and tie when a load of 15 kN hangs from the crane head.
 
 ``` python
+"""
+Jib and Tie Force Calculator
+
+Calculates forces in a jib and tie member supporting a vertical load.
+Uses the law of sines to solve the force triangle.
+"""
+
 import math
 
-# Given
-load = 15  # kN
-angle_jib_vertical = 40  # degrees
-angle_jib_tie = 45       # degrees
+# ====================================
+# INPUT PARAMETERS
+# ====================================
 
-# Third angle in the force triangle
+vertical_load_kn = 15  # Total vertical load in kilonewtons
+angle_jib_to_vertical_deg = 40  # Angle between jib and vertical (degrees)
+angle_jib_to_tie_deg = 45  # Angle between jib and tie (degrees)
 
-angle_tie_load = 180 - angle_jib_vertical - angle_jib_tie  # degrees
+# Calculate the third angle in the force triangle (angles sum to 180°)
+angle_tie_to_load_deg = 180 - angle_jib_to_vertical_deg - angle_jib_to_tie_deg
 
-# Convert angles to radians for math.sin
+# ====================================
+# CALCULATIONS
+# ====================================
 
-angle_jib_vertical_rad = math.radians(angle_jib_vertical)
-angle_jib_tie_rad = math.radians(angle_jib_tie)
-angle_tie_load_rad = math.radians(angle_tie_load)
+# Convert all angles from degrees to radians for trigonometric functions
+angle_jib_to_vertical_rad = math.radians(angle_jib_to_vertical_deg)
+angle_jib_to_tie_rad = math.radians(angle_jib_to_tie_deg)
+angle_tie_to_load_rad = math.radians(angle_tie_to_load_deg)
 
-# Law of sines
+# Apply the law of sines to find forces in jib and tie:
+# F_jib / sin(θ_opposite_jib) = F_tie / sin(θ_opposite_tie) = W / sin(θ_ref)
+# where the reference angle is the angle between jib and tie
 
-F_jib = load * math.sin(angle_tie_load_rad) / math.sin(angle_jib_tie_rad)
-F_tie = load * math.sin(angle_jib_vertical_rad) / math.sin(angle_jib_tie_rad)
+# Force in jib (compression or tension depending on configuration)
+force_jib_kn = (
+    vertical_load_kn * math.sin(angle_tie_to_load_rad) / math.sin(angle_jib_to_tie_rad)
+)
 
-# Print results
-print(f"Force in jib: {F_jib:.4f} kN")
-print(f"Force in tie: {F_tie:.4f} kN")
+# Force in tie (tension)
+force_tie_kn = (
+    vertical_load_kn
+    * math.sin(angle_jib_to_vertical_rad)
+    / math.sin(angle_jib_to_tie_rad)
+)
+
+# ====================================
+# OUTPUT RESULTS
+# ====================================
+
+print(f"Force in jib: {force_jib_kn:.4f} kN")
+print(f"Force in tie: {force_tie_kn:.4f} kN")
 ```
 :::
 
@@ -178,89 +280,84 @@ print(f"Force in tie: {F_tie:.4f} kN")
 The lengths of the vertical post, jib, and tie of a jib crane are 8, 13, and 9 m, respectively. Find the forces in the jib and tie when a load of 20 kN hangs from the crane head.
 
 ``` python
+"""
+Structural Force Calculator
+
+Calculates forces in a triangular structure (post, jib, tie) given the
+member lengths and applied load. Uses law of cosines to find angles,
+then law of sines to determine member forces.
+"""
+
 import math
 
-# Given
-P = 8   # post m
-J = 13  # jib  m
-T = 9   # tie m
-W = 20  # load in kN
+# ====================================
+# INPUT PARAMETERS
+# ====================================
 
-# Law of cosines
+post_length_m = 8  # Length of post member in meters
+jib_length_m = 13  # Length of jib member in meters
+tie_length_m = 9  # Length of tie member in meters
+applied_load_kn = 20  # Applied vertical load in kilonewtons
 
-# Angle opposite P (theta_p)
-theta_p = math.acos((J**2 + T**2 - P**2) / (2 * J * T))
+# ====================================
+# ANGLE CALCULATIONS (LAW OF COSINES)
+# ====================================
 
-# Angle opposite T (theta_t)
-theta_t = math.acos((J**2 + P**2 - T**2) / (2 * J * P))
+# Calculate angle opposite to post using law of cosines:
+# cos(θ_p) = (J² + T² - P²) / (2·J·T)
+angle_opposite_post_rad = math.acos(
+    (jib_length_m**2 + tie_length_m**2 - post_length_m**2)
+    / (2 * jib_length_m * tie_length_m)
+)
 
-# Angle opposite J (theta_j)
-theta_j = math.pi - theta_p - theta_t
+# Calculate angle opposite to tie using law of cosines:
+# cos(θ_t) = (J² + P² - T²) / (2·J·P)
+angle_opposite_tie_rad = math.acos(
+    (jib_length_m**2 + post_length_m**2 - tie_length_m**2)
+    / (2 * jib_length_m * post_length_m)
+)
 
-# Law of sines
+# Calculate angle opposite to jib (angles in triangle sum to π radians)
+angle_opposite_jib_rad = math.pi - angle_opposite_post_rad - angle_opposite_tie_rad
 
-F_J = W * math.sin(theta_j) / math.sin(theta_p)  # force in jib
-F_T = W * math.sin(theta_t) / math.sin(theta_p)  # force in tie
+# ====================================
+# FORCE CALCULATIONS (LAW OF SINES)
+# ====================================
 
-# Convert angles to degrees
+# Apply law of sines to find member forces:
+# F_jib / sin(θ_jib) = F_tie / sin(θ_tie) = W / sin(θ_post)
 
-theta_p_deg = math.degrees(theta_p)
-theta_t_deg = math.degrees(theta_t)
-theta_j_deg = math.degrees(theta_j)
+# Force in jib member
+force_jib_kn = (
+    applied_load_kn
+    * math.sin(angle_opposite_jib_rad)
+    / math.sin(angle_opposite_post_rad)
+)
 
-print(f"theta_p = {theta_p_deg:.4f} degrees")
-print(f"theta_t = {theta_t_deg:.4f} degrees")
-print(f"theta_j = {theta_j_deg:.4f} degrees")
+# Force in tie member
+force_tie_kn = (
+    applied_load_kn
+    * math.sin(angle_opposite_tie_rad)
+    / math.sin(angle_opposite_post_rad)
+)
 
+# ====================================
+# CONVERT ANGLES TO DEGREES FOR OUTPUT
+# ====================================
+
+angle_opposite_post_deg = math.degrees(angle_opposite_post_rad)
+angle_opposite_tie_deg = math.degrees(angle_opposite_tie_rad)
+angle_opposite_jib_deg = math.degrees(angle_opposite_jib_rad)
+
+# ====================================
+# OUTPUT RESULTS
+# ====================================
+
+print(f"theta_p = {angle_opposite_post_deg:.4f} degrees")
+print(f"theta_t = {angle_opposite_tie_deg:.4f} degrees")
+print(f"theta_j = {angle_opposite_jib_deg:.4f} degrees")
 print()
-print(f"Force in jib (F_J): {F_J:.4f} kN")
-print(f"Force in tie (F_T): {F_T:.4f} kN")
+print(f"Force in jib (F_J): {force_jib_kn:.4f} kN")
+print(f"Force in tie (F_T): {force_tie_kn:.4f} kN")
 ```
 :::
-
-:::: {#exm-1_15}
-A ship sailing due east at 18 knots runs into a 3-knot current moving 40° east of north. Find the resultant speed and direction of the ship.
-
-::: callout-note
-Degrees, Minutes, and Seconds (DMS) notation is widely used in navigation and surveying because decimal degrees alone often lack sufficient precision for small-scale positioning. On Earth’s surface:
-
--   1° of latitude ≈ 111 km\
--   1′ (minute of arc) ≈ 1.85 km\
--   1″ (second of arc) ≈ 30 m
-
-Thus, a position given as 40° 26′ 46″ N instantly conveys location to within tens of metres, whereas the equivalent decimal form, 40.44611°, is less intuitive at a glance despite being mathematically identical.
-:::
-
-``` python
-import math
-
-# Given
-ship = 18          # knots (due east)
-current = 3        # knots
-angle_deg = 50     # angle between ship and current in degrees
-
-# Convert to radians
-
-angle_rad = math.radians(angle_deg)
-
-# Law of cosines
-
-R = math.sqrt(ship**2 + current**2 + 2*ship*current*math.cos(angle_rad))
-
-# Law of sines
-
-theta_rad = math.asin((current * math.sin(angle_rad)) / R)
-theta_deg = math.degrees(theta_rad)
-
-# Convert direction to degrees, minutes, seconds
-
-deg = int(theta_deg)
-minutes_float = (theta_deg - deg) * 60
-minutes = int(minutes_float)
-seconds = (minutes_float - minutes) * 60
-
-print(f"Resultant speed: {R:.4f} knots")
-print(f"Direction: {theta_deg:.4f}° north of east")
-print(f"Direction (DMS): {deg}° {minutes}' {seconds:.0f}\" north of east")
-```
-::::
