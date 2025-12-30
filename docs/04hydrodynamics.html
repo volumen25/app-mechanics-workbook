@@ -424,13 +424,11 @@ window.Quarto = {
   <ul>
   <li><a href="#volume-flow-rate" id="toc-volume-flow-rate" class="nav-link active" data-scroll-target="#volume-flow-rate"><span class="header-section-number">4.1</span> Volume Flow Rate</a></li>
   <li><a href="#mass-flow-rate" id="toc-mass-flow-rate" class="nav-link" data-scroll-target="#mass-flow-rate"><span class="header-section-number">4.2</span> Mass Flow Rate</a></li>
-  <li><a href="#flow-through-valves" id="toc-flow-through-valves" class="nav-link" data-scroll-target="#flow-through-valves"><span class="header-section-number">4.3</span> Flow Through Valves</a></li>
-  <li><a href="#discharge-through-an-orifice" id="toc-discharge-through-an-orifice" class="nav-link" data-scroll-target="#discharge-through-an-orifice"><span class="header-section-number">4.4</span> Discharge Through an Orifice</a></li>
-  <li><a href="#continuity-equation" id="toc-continuity-equation" class="nav-link" data-scroll-target="#continuity-equation"><span class="header-section-number">4.5</span> Continuity Equation</a></li>
-  <li><a href="#the-energy-equation-for-an-ideal-fluid" id="toc-the-energy-equation-for-an-ideal-fluid" class="nav-link" data-scroll-target="#the-energy-equation-for-an-ideal-fluid"><span class="header-section-number">4.6</span> The Energy Equation for an Ideal Fluid</a></li>
-  <li><a href="#bernoullis-equation" id="toc-bernoullis-equation" class="nav-link" data-scroll-target="#bernoullis-equation"><span class="header-section-number">4.7</span> Bernoulli’s Equation</a></li>
-  <li><a href="#venturi-meter" id="toc-venturi-meter" class="nav-link" data-scroll-target="#venturi-meter"><span class="header-section-number">4.8</span> Venturi Meter</a></li>
-  <li><a href="#power-required-for-pumping-water" id="toc-power-required-for-pumping-water" class="nav-link" data-scroll-target="#power-required-for-pumping-water"><span class="header-section-number">4.9</span> Power Required for Pumping Water</a></li>
+  <li><a href="#discharge-through-an-orifice" id="toc-discharge-through-an-orifice" class="nav-link" data-scroll-target="#discharge-through-an-orifice"><span class="header-section-number">4.3</span> Discharge Through an Orifice</a></li>
+  <li><a href="#continuity-equation" id="toc-continuity-equation" class="nav-link" data-scroll-target="#continuity-equation"><span class="header-section-number">4.4</span> Continuity Equation</a></li>
+  <li><a href="#the-energy-equation-for-an-ideal-fluid" id="toc-the-energy-equation-for-an-ideal-fluid" class="nav-link" data-scroll-target="#the-energy-equation-for-an-ideal-fluid"><span class="header-section-number">4.5</span> The Energy Equation for an Ideal Fluid</a></li>
+  <li><a href="#bernoullis-equation" id="toc-bernoullis-equation" class="nav-link" data-scroll-target="#bernoullis-equation"><span class="header-section-number">4.6</span> Bernoulli’s Equation</a></li>
+  <li><a href="#venturi-meter" id="toc-venturi-meter" class="nav-link" data-scroll-target="#venturi-meter"><span class="header-section-number">4.7</span> Venturi Meter</a></li>
   </ul>
 </nav>
     </div>
@@ -504,108 +502,63 @@ Volume\ flow = area\ x\ mean\ velocity
 <div id="exm-13-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.1</strong></span> Oil of relative density 0.9 flows at full bore through a pipe with an internal diameter of 75 mm at a velocity of 1.2 m/s. Calculate the volume flow rate in cubic metres per second and the mass flow rate in tonnes per hour.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Pipe Flow Rate Calculation for Oil</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Determines the volumetric and mass flow rates in a pipe carrying oil,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">given the internal diameter, fluid velocity, and relative density.</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Input parameters</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>internal_diameter_millimeters <span class="op">=</span> <span class="fl">75.0</span>  <span class="co"># Pipe internal diameter in mm</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fluid_velocity_meters_per_second <span class="op">=</span> <span class="fl">1.2</span>  <span class="co"># Average velocity of oil in m/s</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>relative_density <span class="op">=</span> <span class="fl">0.9</span>  <span class="co"># Specific gravity of oil (relative to water)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>density_water_kilograms_per_cubic_meter <span class="op">=</span> <span class="fl">1000.0</span>  <span class="co"># Density of water in kg/m³</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Unit conversion and geometry</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>internal_diameter_meters <span class="op">=</span> internal_diameter_millimeters <span class="op">/</span> <span class="fl">1000.0</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>pipe_radius_meters <span class="op">=</span> internal_diameter_meters <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Pipe Flow Rate Calculator for Oil</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Determines the volumetric and mass flow rates in a pipe carrying oil,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">given the internal diameter, fluid velocity, and relative density.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT PARAMETERS</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pipe_internal_diameter_mm <span class="op">=</span> <span class="fl">75.0</span>  <span class="co"># Pipe internal diameter in millimeters</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>oil_velocity_m_per_s <span class="op">=</span> <span class="fl">1.2</span>  <span class="co"># Average velocity of oil in m/s</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>oil_relative_density <span class="op">=</span> <span class="fl">0.9</span>  <span class="co"># Specific gravity of oil (relative to water)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>water_density_kg_per_m3 <span class="op">=</span> <span class="fl">1000.0</span>  <span class="co"># Density of water in kg/m³</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-sectional area of the pipe</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>cross_sectional_area_square_meters <span class="op">=</span> math.pi <span class="op">*</span> pipe_radius_meters <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Volumetric flow rate</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_cubic_meters_per_second <span class="op">=</span> (</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    cross_sectional_area_square_meters <span class="op">*</span> fluid_velocity_meters_per_second</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Density of the oil</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>oil_density_kilograms_per_cubic_meter <span class="op">=</span> (</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    relative_density <span class="op">*</span> density_water_kilograms_per_cubic_meter</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># UNIT CONVERSIONS AND GEOMETRY</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert pipe diameter from millimeters to meters</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>pipe_internal_diameter_m <span class="op">=</span> pipe_internal_diameter_mm <span class="op">/</span> <span class="fl">1000.0</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate pipe radius</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>pipe_radius_m <span class="op">=</span> pipe_internal_diameter_m <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area of the pipe (circular)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>pipe_cross_sectional_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> pipe_radius_m<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Mass flow rate</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_kilograms_per_second <span class="op">=</span> (</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    oil_density_kilograms_per_cubic_meter <span class="op">*</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    volumetric_flow_rate_cubic_meters_per_second</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert mass flow rate to tonnes per hour</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_tonnes_per_hour <span class="op">=</span> (</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    mass_flow_rate_kilograms_per_second <span class="op">*</span> <span class="dv">3600</span> <span class="op">/</span> <span class="dv">1000</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Pipe Flow Analysis Results:"</span>)</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Volumetric flow rate : "</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span>volumetric_flow_rate_cubic_meters_per_second<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Mass flow rate       : "</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span>mass_flow_rate_tonnes_per_hour<span class="sc">:.4f}</span><span class="ss"> tonnes/hour"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># FLOW RATE CALCULATIONS</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate volumetric flow rate using Q = A · v</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_m3_per_s <span class="op">=</span> pipe_cross_sectional_area_m2 <span class="op">*</span> oil_velocity_m_per_s</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate oil density from relative density</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>oil_density_kg_per_m3 <span class="op">=</span> oil_relative_density <span class="op">*</span> water_density_kg_per_m3</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mass flow rate using ṁ = ρ · Q</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_kg_per_s <span class="op">=</span> oil_density_kg_per_m3 <span class="op">*</span> volumetric_flow_rate_m3_per_s</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert mass flow rate to tonnes per hour</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_tonnes_per_hour <span class="op">=</span> mass_flow_rate_kg_per_s <span class="op">*</span> <span class="dv">3600</span> <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT RESULTS</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Pipe Flow Analysis Results:"</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Volumetric flow rate : </span><span class="sc">{</span>volumetric_flow_rate_m3_per_s<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Mass flow rate       : </span><span class="sc">{</span>mass_flow_rate_tonnes_per_hour<span class="sc">:.4f}</span><span class="ss"> "</span> <span class="ss">f"tonnes/hour"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="flow-through-valves" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="flow-through-valves"><span class="header-section-number">4.3</span> Flow Through Valves</h2>
-<p>The area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.</p>
-<p>The lift beyond which it would cause no restriction is when the circumferential area of the lift opening is equal to the cross-sectional area of the bore, thus,</p>
-<p><span class="math display">\[
-\text{Circumference} \times \text{Lift} = \text{Cross-sectional area}.
-\]</span> <span class="math display">\[
-\pi d \times L = \frac{\pi d^{2}}{4},
-\]</span></p>
-<p>where <span class="math inline">\(L\)</span> is the lift and <span class="math inline">\(d\)</span> is the diameter of the valve.</p>
-<p>Hence, a lift equal to one-quarter of the diameter of the valve allows full bore flow:</p>
-<p><span class="math display">\[
-L = \frac{d}{4}.
-\]</span></p>
-<div id="exm-13-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.2</strong></span> Calculate the volume flow rate of water in cubic metres per minute through a 150-millimetre diameter valve when the velocity of the water is 2.5 m/s and the valve lift is (i) 30 millimetres and (ii) 45 millimetres.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">0.15</span>                  <span class="co"># diameter in metres</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> <span class="fl">2.5</span>                   <span class="co"># velocity in m/s</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Maximum effective lift</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>critical_lift_mm <span class="op">=</span> (d <span class="op">/</span> <span class="dv">4</span>) <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Full bore area and flow rate</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>A_bore <span class="op">=</span> math.pi <span class="op">*</span> d<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">4</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Q_full_m3_per_s <span class="op">=</span> V <span class="op">*</span> A_bore</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Q_full <span class="op">=</span> Q_full_m3_per_s <span class="op">*</span> <span class="dv">60</span>      <span class="co"># convert to m³/min</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># (i) Lift = 30 mm</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>L1 <span class="op">=</span> <span class="fl">0.030</span>                <span class="co"># lift in metres</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>A_annular1 <span class="op">=</span> math.pi <span class="op">*</span> d <span class="op">*</span> L1</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>A_effective1 <span class="op">=</span> <span class="bu">min</span>(A_annular1, A_bore)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> V <span class="op">*</span> A_effective1 <span class="op">*</span> <span class="dv">60</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># (ii) Lift = 45 mm</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>L2 <span class="op">=</span> <span class="fl">0.045</span>                <span class="co"># lift in metres</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>A_annular2 <span class="op">=</span> math.pi <span class="op">*</span> d <span class="op">*</span> L2</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>A_effective2 <span class="op">=</span> <span class="bu">min</span>(A_annular2, A_bore)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>Q2 <span class="op">=</span> V <span class="op">*</span> A_effective2 <span class="op">*</span> <span class="dv">60</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maximum effective lift: </span><span class="sc">{</span>critical_lift_mm<span class="sc">:.4f}</span><span class="ss"> mm"</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Full bore flow rate: </span><span class="sc">{</span>Q_full<span class="sc">:.4f}</span><span class="ss"> m³/min"</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"At 30 mm lift: </span><span class="sc">{</span>Q1<span class="sc">:.4f}</span><span class="ss"> m³/min"</span>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"At 45 mm lift: </span><span class="sc">{</span>Q2<span class="sc">:.4f}</span><span class="ss"> m³/min"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="discharge-through-an-orifice" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="discharge-through-an-orifice"><span class="header-section-number">4.4</span> Discharge Through an Orifice</h2>
+<section id="discharge-through-an-orifice" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="discharge-through-an-orifice"><span class="header-section-number">4.3</span> Discharge Through an Orifice</h2>
 <p>When water discharges through an orifice (<a href="#fig-OrificePlate" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>) in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.</p>
 <div id="fig-OrificePlate" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -650,44 +603,86 @@ C_d = C_A \cdot C_v
 \dot{v}_{\text{actual}} = C_d A \sqrt{2gh}
 \]</span></p>
 <div id="exm-13-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.3</strong></span> Water escapes through a hole 20 mm in diameter in the side of a tank, with a water head of 3 m above the hole. Given a coefficient of velocity of 0.97 and a coefficient of reduction of area of 0.64, calculate (i) the velocity of the water jet as it exits the hole and (ii) the quantity of water escaping tonne per hour.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>diameter_mm <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>diameter_m <span class="op">=</span> diameter_mm <span class="op">/</span> <span class="dv">1000</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>radius_m <span class="op">=</span> diameter_m <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">3</span>  <span class="co"># m</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>Cv <span class="op">=</span> <span class="fl">0.97</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Ca <span class="op">=</span> <span class="fl">0.64</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.81</span>  <span class="co"># m/s²</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>density_water <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># kg/m³</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculations</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> math.pi <span class="op">*</span> radius_m <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>v_theoretical <span class="op">=</span> math.sqrt(<span class="dv">2</span> <span class="op">*</span> g <span class="op">*</span> h)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>v_actual <span class="op">=</span> Cv <span class="op">*</span> v_theoretical</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>volume_flow_actual <span class="op">=</span> Ca <span class="op">*</span> area <span class="op">*</span> v_actual  <span class="co"># m³/s</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>mass_flow <span class="op">=</span> density_water <span class="op">*</span> volume_flow_actual  <span class="co"># kg/s</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>mass_per_hour_kg <span class="op">=</span> mass_flow <span class="op">*</span> <span class="dv">3600</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>mass_per_hour_tonne <span class="op">=</span> mass_per_hour_kg <span class="op">/</span> <span class="dv">1000</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(i) Actual velocity of the water jet: </span><span class="sc">{</span>v_actual<span class="sc">:.3f}</span><span class="ss"> m/s"</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">(ii) Quantity of water escaping per hour:"</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Volume flow rate: </span><span class="sc">{</span>volume_flow_actual<span class="sc">:.6f}</span><span class="ss"> m³/s"</span>)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Mass flow rate: </span><span class="sc">{</span>mass_flow<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Mass per hour: </span><span class="sc">{</span>mass_per_hour_kg<span class="sc">:.4f}</span><span class="ss"> kg/hour"</span>)</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Mass per hour: </span><span class="sc">{</span>mass_per_hour_tonne<span class="sc">:.4f}</span><span class="ss"> tonnes/hour"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="theorem-title"><strong>Example 4.2</strong></span> Water escapes through a hole 20 mm in diameter in the side of a tank, with a water head of 3 m above the hole. Given a coefficient of velocity of 0.97 and a coefficient of reduction of area of 0.64, calculate (i) the velocity of the water jet as it exits the hole and (ii) the quantity of water escaping tonne per hour.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">Orifice Flow Calculator</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">Calculates the actual velocity and discharge rate of water escaping</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">through an orifice under a given head. Uses coefficient of velocity (Cv)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">and coefficient of area (Ca) to account for real flow conditions.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT PARAMETERS</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>orifice_diameter_mm <span class="op">=</span> <span class="dv">20</span>  <span class="co"># Orifice diameter in millimeters</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>head_above_orifice_m <span class="op">=</span> <span class="dv">3</span>  <span class="co"># Height of water above orifice in meters</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>coefficient_of_velocity <span class="op">=</span> <span class="fl">0.97</span>  <span class="co"># Cv (accounts for velocity reduction)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>coefficient_of_area <span class="op">=</span> <span class="fl">0.64</span>  <span class="co"># Ca (accounts for vena contracta)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>gravitational_acceleration_m_per_s2 <span class="op">=</span> <span class="fl">9.81</span>  <span class="co"># Acceleration due to gravity</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>water_density_kg_per_m3 <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Density of water in kg/m³</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># UNIT CONVERSIONS AND GEOMETRY</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert orifice diameter from millimeters to meters</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>orifice_diameter_m <span class="op">=</span> orifice_diameter_mm <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate orifice radius</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>orifice_radius_m <span class="op">=</span> orifice_diameter_m <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area of orifice</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>orifice_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> orifice_radius_m<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># VELOCITY CALCULATIONS</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate theoretical velocity using Torricelli's theorem: v = √(2gh)</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>theoretical_velocity_m_per_s <span class="op">=</span> math.sqrt(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> <span class="op">*</span> gravitational_acceleration_m_per_s2 <span class="op">*</span> head_above_orifice_m</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate actual velocity accounting for friction losses</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>actual_velocity_m_per_s <span class="op">=</span> coefficient_of_velocity <span class="op">*</span> theoretical_velocity_m_per_s</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># FLOW RATE CALCULATIONS</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate actual volumetric flow rate: Q = Ca · A · v</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># (Ca accounts for contraction of jet at vena contracta)</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_m3_per_s <span class="op">=</span> (</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    coefficient_of_area <span class="op">*</span> orifice_area_m2 <span class="op">*</span> actual_velocity_m_per_s</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mass flow rate: ṁ = ρ · Q</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_kg_per_s <span class="op">=</span> water_density_kg_per_m3 <span class="op">*</span> volumetric_flow_rate_m3_per_s</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert mass flow rate to per-hour basis</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_kg_per_hour <span class="op">=</span> mass_flow_rate_kg_per_s <span class="op">*</span> <span class="dv">3600</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert mass flow rate to tonnes per hour</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_tonnes_per_hour <span class="op">=</span> mass_flow_rate_kg_per_hour <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT RESULTS</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(i) Actual velocity of the water jet: "</span> <span class="ss">f"</span><span class="sc">{</span>actual_velocity_m_per_s<span class="sc">:.3f}</span><span class="ss"> m/s"</span>)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">(ii) Quantity of water escaping per hour:"</span>)</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Volume flow rate: </span><span class="sc">{</span>volumetric_flow_rate_m3_per_s<span class="sc">:.6f}</span><span class="ss"> m³/s"</span>)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Mass flow rate: </span><span class="sc">{</span>mass_flow_rate_kg_per_s<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Mass per hour: </span><span class="sc">{</span>mass_flow_rate_kg_per_hour<span class="sc">:.4f}</span><span class="ss"> kg/hour"</span>)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"    Mass per hour: </span><span class="sc">{</span>mass_flow_rate_tonnes_per_hour<span class="sc">:.4f}</span><span class="ss"> tonnes/hour"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="continuity-equation" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="continuity-equation"><span class="header-section-number">4.5</span> Continuity Equation</h2>
+<section id="continuity-equation" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="continuity-equation"><span class="header-section-number">4.4</span> Continuity Equation</h2>
 <p>Continuous flow exists in a flow system when the mass flow rate is constant throughout the system as shown in <a href="#fig-continuity" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.</p>
 <div id="fig-continuity" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -712,43 +707,86 @@ A_1 \cdot C_1= A_2 \cdot C_2
 \]</span></p>
 <p>That is, the volume flow rate is constant for an incompressible fluid.</p>
 <div id="exm-conteq" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.4</strong></span> A pipe decreases in diameter from 300 mm to 200 mm. Water flows from the larger to the smaller pipe at a constant rate of 18.4 kL/min. Calculate the mass flow rate and the velocities in the larger and smaller pipe.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>flow_rate_kL_per_min <span class="op">=</span> <span class="fl">18.4</span>   <span class="co"># Volumetric flow rate in kL/min</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>diameter_large_mm <span class="op">=</span> <span class="dv">300</span>       <span class="co"># Diameter of larger pipe in mm</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>diameter_small_mm <span class="op">=</span> <span class="dv">200</span>       <span class="co"># Diameter of smaller pipe in mm</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>density_water <span class="op">=</span> <span class="dv">1000</span>          <span class="co"># Density of water in kg/m³</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert volumetric flow rate to m³/s</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>flow_rate_m3_per_s <span class="op">=</span> (flow_rate_kL_per_min <span class="op">/</span> <span class="dv">60</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert diameters to meters and calculate radii</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> diameter_large_mm <span class="op">/</span> <span class="dv">1000</span>  <span class="co"># m</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> diameter_small_mm <span class="op">/</span> <span class="dv">1000</span>  <span class="co"># m</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> d1 <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> d2 <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-sectional areas</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> math.pi <span class="op">*</span> r1<span class="op">**</span><span class="dv">2</span>  <span class="co"># m²</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> math.pi <span class="op">*</span> r2<span class="op">**</span><span class="dv">2</span>  <span class="co"># m²</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Velocities</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> flow_rate_m3_per_s <span class="op">/</span> A1  <span class="co"># m/s (larger pipe)</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> flow_rate_m3_per_s <span class="op">/</span> A2  <span class="co"># m/s (smaller pipe)</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Mass flow rate</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>mass_flow_rate <span class="op">=</span> density_water <span class="op">*</span> flow_rate_m3_per_s  <span class="co"># kg/s</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mass flow rate: </span><span class="sc">{</span>mass_flow_rate<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Velocity in larger pipe (300 mm): </span><span class="sc">{</span>v1<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Velocity in smaller pipe (200 mm): </span><span class="sc">{</span>v2<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="theorem-title"><strong>Example 4.3</strong></span> A pipe decreases in diameter from 300 mm to 200 mm. Water flows from the larger to the smaller pipe at a constant rate of 18.4 kL/min. Calculate the mass flow rate and the velocities in the larger and smaller pipe.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">Pipe Flow Velocity Calculator</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">Calculates the mass flow rate and velocities in pipes of different</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">diameters carrying water at a constant volumetric flow rate. Uses</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">continuity equation to determine flow velocities.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT PARAMETERS</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_kl_per_min <span class="op">=</span> <span class="fl">18.4</span>  <span class="co"># Flow rate in kiloliters/min</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>large_pipe_diameter_mm <span class="op">=</span> <span class="dv">300</span>  <span class="co"># Diameter of larger pipe in millimeters</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>small_pipe_diameter_mm <span class="op">=</span> <span class="dv">200</span>  <span class="co"># Diameter of smaller pipe in millimeters</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>water_density_kg_per_m3 <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Density of water in kg/m³</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># UNIT CONVERSIONS</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert volumetric flow rate from kL/min to m³/s</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># (1 kL = 1 m³, and 1 min = 60 s)</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_m3_per_s <span class="op">=</span> volumetric_flow_rate_kl_per_min <span class="op">/</span> <span class="dv">60</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert pipe diameters from millimeters to meters</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>large_pipe_diameter_m <span class="op">=</span> large_pipe_diameter_mm <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>small_pipe_diameter_m <span class="op">=</span> small_pipe_diameter_mm <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate pipe radii</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>large_pipe_radius_m <span class="op">=</span> large_pipe_diameter_m <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>small_pipe_radius_m <span class="op">=</span> small_pipe_diameter_m <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># CROSS-SECTIONAL AREA CALCULATIONS</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area of larger pipe</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>large_pipe_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> large_pipe_radius_m<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area of smaller pipe</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>small_pipe_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> small_pipe_radius_m<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co"># VELOCITY CALCULATIONS</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate velocity in larger pipe using continuity equation: v = Q / A</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>velocity_large_pipe_m_per_s <span class="op">=</span> volumetric_flow_rate_m3_per_s <span class="op">/</span> large_pipe_area_m2</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate velocity in smaller pipe using continuity equation: v = Q / A</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>velocity_small_pipe_m_per_s <span class="op">=</span> volumetric_flow_rate_m3_per_s <span class="op">/</span> small_pipe_area_m2</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co"># MASS FLOW RATE CALCULATION</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mass flow rate using ṁ = ρ · Q</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_kg_per_s <span class="op">=</span> water_density_kg_per_m3 <span class="op">*</span> volumetric_flow_rate_m3_per_s</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT RESULTS</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mass flow rate: </span><span class="sc">{</span>mass_flow_rate_kg_per_s<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Velocity in larger pipe (</span><span class="sc">{</span>large_pipe_diameter_mm<span class="sc">}</span><span class="ss"> mm): "</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>velocity_large_pipe_m_per_s<span class="sc">:.4f}</span><span class="ss"> m/s"</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Velocity in smaller pipe (</span><span class="sc">{</span>small_pipe_diameter_mm<span class="sc">}</span><span class="ss"> mm): "</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>velocity_small_pipe_m_per_s<span class="sc">:.4f}</span><span class="ss"> m/s"</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="the-energy-equation-for-an-ideal-fluid" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="the-energy-equation-for-an-ideal-fluid"><span class="header-section-number">4.6</span> The Energy Equation for an Ideal Fluid</h2>
+<section id="the-energy-equation-for-an-ideal-fluid" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="the-energy-equation-for-an-ideal-fluid"><span class="header-section-number">4.5</span> The Energy Equation for an Ideal Fluid</h2>
 <p>The steady flow equation is developed from the Law of Conservation of Energy. If there are no energy losses or energy additions in a flow system, then the total energy of a flowing fluid will remain constant.</p>
 <p>A flowing fluid may lose energy as a result of fluid friction, heat energy transfer and fluid motors. For an ideal fluid, frictional losses are equal to zero. Energy may be added to a fluid via a pump or heat energy addition.</p>
 <p>The total energy possessed by a flowing fluid consists of:</p>
@@ -819,44 +857,97 @@ H=Z+\frac{C^2}{2g}+\frac{P}{\gamma}
 <li><p>work energy is not added by a pump (pump head) or removed by a motor.</p></li>
 </ol>
 <div id="exm-energyeq" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.5</strong></span> Consider a simple flow system consisting of a varying cross-section pipe. Water flows through this system at a rate of 2000 L/min. As the pipe increases in elevation from 30 m to 36 m it decreases in diameter from 10 cm to 3.0 cm. If the pressure is 6.5 MPa at the 30 m elevation, what is the pressure at 36 m?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>v_dot_lpm <span class="op">=</span> <span class="fl">2000.0</span>                <span class="co"># Flow rate, L/min</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>v_dot <span class="op">=</span> v_dot_lpm <span class="op">/</span> <span class="fl">60000.0</span>       <span class="co"># Convert to m³/s</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> <span class="fl">0.10</span>                         <span class="co"># Diameter at lower section, m</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> <span class="fl">0.03</span>                         <span class="co"># Diameter at higher section, m</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>z1 <span class="op">=</span> <span class="fl">30.0</span>                         <span class="co"># Elevation at lower section, m</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>z2 <span class="op">=</span> <span class="fl">36.0</span>                         <span class="co"># Elevation at higher section, m</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>P1 <span class="op">=</span> <span class="fl">6.5e6</span>                        <span class="co"># Pressure at lower section, Pa</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="fl">1000.0</span>                      <span class="co"># Density of water, kg/m³</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-sectional areas</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> math.pi <span class="op">*</span> (d1 <span class="op">/</span> <span class="fl">2.0</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> math.pi <span class="op">*</span> (d2 <span class="op">/</span> <span class="fl">2.0</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Velocities</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> v_dot <span class="op">/</span> A1</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> v_dot <span class="op">/</span> A2</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Bernoulli's equation to find P2</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>P2 <span class="op">=</span> P1 <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> rho <span class="op">*</span> (c1<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> c2<span class="op">**</span><span class="dv">2</span>) <span class="op">+</span> rho <span class="op">*</span> g <span class="op">*</span> (z1 <span class="op">-</span> z2)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert P2 to MPa</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>P2_MPa <span class="op">=</span> P2 <span class="op">/</span> <span class="fl">1e6</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Flow rate: </span><span class="sc">{</span>v_dot<span class="sc">:.5f}</span><span class="ss"> m³/s"</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Area 1: </span><span class="sc">{</span>A1<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Area 2: </span><span class="sc">{</span>A2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Velocity 1: </span><span class="sc">{</span>c1<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Velocity 2: </span><span class="sc">{</span>c2<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Pressure at 36 m elevation: </span><span class="sc">{</span>P2_MPa<span class="sc">:.4f}</span><span class="ss"> MPa"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="theorem-title"><strong>Example 4.4</strong></span> Consider a simple flow system consisting of a varying cross-section pipe. Water flows through this system at a rate of 2000 L/min. As the pipe increases in elevation from 30 m to 36 m it decreases in diameter from 10 cm to 3.0 cm. If the pressure is 6.5 MPa at the 30 m elevation, what is the pressure at 36 m?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">Energy Equation Pressure Calculator</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">Calculates the pressure at a higher elevation in a pipe using the energy</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">equation. Accounts for changes in velocity, elevation, and pressure between</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">two sections of a pipe carrying water.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT PARAMETERS</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_l_per_min <span class="op">=</span> <span class="fl">2000.0</span>  <span class="co"># Flow rate in liters per minute</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>diameter_lower_section_m <span class="op">=</span> <span class="fl">0.10</span>  <span class="co"># Pipe diameter at lower section in meters</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>diameter_upper_section_m <span class="op">=</span> <span class="fl">0.03</span>  <span class="co"># Pipe diameter at upper section in meters</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>elevation_lower_section_m <span class="op">=</span> <span class="fl">30.0</span>  <span class="co"># Elevation at lower section in meters</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>elevation_upper_section_m <span class="op">=</span> <span class="fl">36.0</span>  <span class="co"># Elevation at upper section in meters</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>pressure_lower_section_pa <span class="op">=</span> <span class="fl">6.5e6</span>  <span class="co"># Pressure at lower section in Pascals</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>water_density_kg_per_m3 <span class="op">=</span> <span class="fl">1000.0</span>  <span class="co"># Density of water in kg/m³</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>gravitational_acceleration_m_per_s2 <span class="op">=</span> <span class="fl">9.81</span>  <span class="co"># Acceleration due to gravity</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># UNIT CONVERSIONS</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert volumetric flow rate from L/min to m³/s</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># (1 L = 0.001 m³, 1 min = 60 s)</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_m3_per_s <span class="op">=</span> volumetric_flow_rate_l_per_min <span class="op">/</span> <span class="fl">60000.0</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># CROSS-SECTIONAL AREA CALCULATIONS</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area at lower section</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>area_lower_section_m2 <span class="op">=</span> math.pi <span class="op">*</span> (diameter_lower_section_m <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area at upper section</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>area_upper_section_m2 <span class="op">=</span> math.pi <span class="op">*</span> (diameter_upper_section_m <span class="op">/</span> <span class="fl">2.0</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co"># VELOCITY CALCULATIONS</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate velocity at lower section using continuity equation: v = Q / A</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>velocity_lower_section_m_per_s <span class="op">=</span> volumetric_flow_rate_m3_per_s <span class="op">/</span> area_lower_section_m2</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate velocity at upper section using continuity equation: v = Q / A</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>velocity_upper_section_m_per_s <span class="op">=</span> volumetric_flow_rate_m3_per_s <span class="op">/</span> area_upper_section_m2</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co"># PRESSURE CALCULATION USING ENERGY EQUATION</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the energy equation between lower and upper sections:</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="co"># P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Solving for P₂:</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="co"># P₂ = P₁ + ½ρ(v₁² - v₂²) + ρg(z₁ - z₂)</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>pressure_upper_section_pa <span class="op">=</span> (</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    pressure_lower_section_pa</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> <span class="fl">0.5</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span> water_density_kg_per_m3</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span> (velocity_lower_section_m_per_s<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> velocity_upper_section_m_per_s<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> water_density_kg_per_m3</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span> gravitational_acceleration_m_per_s2</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span> (elevation_lower_section_m <span class="op">-</span> elevation_upper_section_m)</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert pressure to MPa for output</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>pressure_upper_section_mpa <span class="op">=</span> pressure_upper_section_pa <span class="op">/</span> <span class="fl">1e6</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT RESULTS</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Flow rate: </span><span class="sc">{</span>volumetric_flow_rate_m3_per_s<span class="sc">:.5f}</span><span class="ss"> m³/s"</span>)</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Area 1: </span><span class="sc">{</span>area_lower_section_m2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Area 2: </span><span class="sc">{</span>area_upper_section_m2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Velocity 1: </span><span class="sc">{</span>velocity_lower_section_m_per_s<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Velocity 2: </span><span class="sc">{</span>velocity_upper_section_m_per_s<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Pressure at </span><span class="sc">{</span>elevation_upper_section_m<span class="sc">}</span><span class="ss"> m elevation: "</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>pressure_upper_section_mpa<span class="sc">:.4f}</span><span class="ss"> MPa"</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="bernoullis-equation" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="bernoullis-equation"><span class="header-section-number">4.7</span> Bernoulli’s Equation</h2>
+<section id="bernoullis-equation" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="bernoullis-equation"><span class="header-section-number">4.6</span> Bernoulli’s Equation</h2>
 <p>The Bernoulli’s equation between two points in a fluid flow is given by:</p>
 <p><span class="math display">\[
 P_1 + \frac{1}{2} \rho C_1^2 + \rho g h_1 = P_2 + \frac{1}{2} \rho C_2^2 + \rho g h_2
@@ -870,8 +961,8 @@ P_1 + \frac{1}{2} \rho C_1^2 + \rho g h_1 = P_2 + \frac{1}{2} \rho C_2^2 + \rho 
 <li><p><span class="math inline">\(h_1\)</span> and <span class="math inline">\(h_2\)</span> are the heights of the fluid at points 1 and 2, respectively.</p></li>
 </ul>
 </section>
-<section id="venturi-meter" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="venturi-meter"><span class="header-section-number">4.8</span> Venturi Meter</h2>
+<section id="venturi-meter" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="venturi-meter"><span class="header-section-number">4.7</span> Venturi Meter</h2>
 <p>A venturi meter (<a href="#fig-venturi" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>) measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:</p>
 <div id="fig-venturi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -884,180 +975,148 @@ Figure&nbsp;4.5: Venturi meter
 </figure>
 </div>
 <p>When the entrance and throat areas are known, and the pressure readings (or pressure difference) at these points are measured, Bernoulli’s equation can be used to calculate the liquid velocity and flow rate. Typically, a venturi meter is installed horizontally in the pipeline, which simplifies calculations since there is no elevation difference between points (Z<sub>1</sub> = Z<sub>2</sub>), thus eliminating the height terms.</p>
-<div id="exm-fe1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.6</strong></span> Calculate the mass flow rate in kilograms per second through a smooth, horizontal venturi meter with an entrance diameter of 375 mm and a throat diameter of 125 mm, given a pressure difference of 457 mm of water</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>D1 <span class="op">=</span> <span class="fl">0.375</span>  <span class="co"># Entrance diameter in meters</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>D2 <span class="op">=</span> <span class="fl">0.125</span>  <span class="co"># Throat diameter in meters</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.457</span>   <span class="co"># Pressure head difference in meters of water</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.81</span>    <span class="co"># Gravitational acceleration in m/s²</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Density of water in kg/m³</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional areas</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> math.pi <span class="op">*</span> (D1 <span class="op">/</span> <span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> math.pi <span class="op">*</span> (D2 <span class="op">/</span> <span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the squared area ratio (A2/A1)^2</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ratio_squared <span class="op">=</span> (A2 <span class="op">/</span> A1)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate throat velocity c2</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> math.sqrt((<span class="dv">2</span> <span class="op">*</span> g <span class="op">*</span> h) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> ratio_squared))</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate volumetric flow rate v_dot using throat section</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>v_dot <span class="op">=</span> A2 <span class="op">*</span> c2</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mass flow rate</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>mass_flow_rate <span class="op">=</span> rho <span class="op">*</span> v_dot</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Entrance area: </span><span class="sc">{</span>A1<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Throat area: </span><span class="sc">{</span>A2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Throat velocity: </span><span class="sc">{</span>c2<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Volumetric flow rate: </span><span class="sc">{</span>v_dot<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mass flow rate: </span><span class="sc">{</span>mass_flow_rate<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <div id="exm-13_7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.7</strong></span> A horizontal venturi meter has an inlet diameter of 450 mm and a throat diameter of 225 mm. The pressure difference between these two points is equivalent to 381 mm of water. Given the density of fresh water is 1000 kg/m³, calculate the mass flow rate through the meter.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>D1 <span class="op">=</span> <span class="fl">0.450</span>  <span class="co"># Inlet diameter in meters</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>D2 <span class="op">=</span> <span class="fl">0.225</span>  <span class="co"># Throat diameter in meters</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.381</span>   <span class="co"># Pressure head difference in meters of water</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.81</span>    <span class="co"># Gravitational acceleration in m/s²</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Density of water in kg/m³</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional areas</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> math.pi <span class="op">*</span> (D1 <span class="op">/</span> <span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> math.pi <span class="op">*</span> (D2 <span class="op">/</span> <span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the squared area ratio (A2/A1)^2</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>ratio_squared <span class="op">=</span> (A2 <span class="op">/</span> A1)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate throat velocity c2</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> math.sqrt((<span class="dv">2</span> <span class="op">*</span> g <span class="op">*</span> h) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> ratio_squared))</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate volumetric flow rate v_dot using throat section</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>v_dot <span class="op">=</span> A2 <span class="op">*</span> c2</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mass flow rate</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>mass_flow_rate <span class="op">=</span> rho <span class="op">*</span> v_dot</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Entrance area: </span><span class="sc">{</span>A1<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Throat area: </span><span class="sc">{</span>A2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Throat velocity: </span><span class="sc">{</span>c2<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Volumetric flow rate: </span><span class="sc">{</span>v_dot<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mass flow rate: </span><span class="sc">{</span>mass_flow_rate<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="theorem-title"><strong>Example 4.5</strong></span> A horizontal venturi meter has an inlet diameter of 450 mm and a throat diameter of 225 mm. The pressure difference between these two points is equivalent to 381 mm of water. Given the density of fresh water is 1000 kg/m³, calculate the mass flow rate through the meter.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">Venturi Meter Flow Calculator</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">Calculates the flow rate through a Venturi meter using Bernoulli's</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">equation. Determines throat velocity and volumetric/mass flow rates</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">from the pressure differential between inlet and throat sections.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT PARAMETERS</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>inlet_diameter_m <span class="op">=</span> <span class="fl">0.450</span>  <span class="co"># Inlet diameter in meters</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>throat_diameter_m <span class="op">=</span> <span class="fl">0.225</span>  <span class="co"># Throat diameter in meters</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>pressure_head_difference_m <span class="op">=</span> <span class="fl">0.381</span>  <span class="co"># Pressure head difference in meters</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>gravitational_acceleration_m_per_s2 <span class="op">=</span> <span class="fl">9.81</span>  <span class="co"># Acceleration due to gravity</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>water_density_kg_per_m3 <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Density of water in kg/m³</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># CROSS-SECTIONAL AREA CALCULATIONS</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area at inlet</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>inlet_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> (inlet_diameter_m <span class="op">/</span> <span class="dv">2</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area at throat</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>throat_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> (throat_diameter_m <span class="op">/</span> <span class="dv">2</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co"># VELOCITY CALCULATION USING BERNOULLI'S EQUATION</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the squared area ratio (A_throat / A_inlet)²</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>area_ratio_squared <span class="op">=</span> (throat_area_m2 <span class="op">/</span> inlet_area_m2) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate throat velocity using Bernoulli's equation for a Venturi meter:</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># c₂ = √[2gh / (1 - (A₂/A₁)²)]</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co"># where h is the pressure head difference</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>throat_velocity_m_per_s <span class="op">=</span> math.sqrt(</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">2</span> <span class="op">*</span> gravitational_acceleration_m_per_s2 <span class="op">*</span> pressure_head_difference_m)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> area_ratio_squared)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co"># FLOW RATE CALCULATIONS</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate volumetric flow rate using Q = A · v at throat section</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>volumetric_flow_rate_m3_per_s <span class="op">=</span> throat_area_m2 <span class="op">*</span> throat_velocity_m_per_s</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mass flow rate using ṁ = ρ · Q</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>mass_flow_rate_kg_per_s <span class="op">=</span> water_density_kg_per_m3 <span class="op">*</span> volumetric_flow_rate_m3_per_s</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT RESULTS</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Entrance area: </span><span class="sc">{</span>inlet_area_m2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Throat area: </span><span class="sc">{</span>throat_area_m2<span class="sc">:.6f}</span><span class="ss"> m²"</span>)</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Throat velocity: </span><span class="sc">{</span>throat_velocity_m_per_s<span class="sc">:.4f}</span><span class="ss"> m/s"</span>)</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Volumetric flow rate: </span><span class="sc">{</span>volumetric_flow_rate_m3_per_s<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mass flow rate: </span><span class="sc">{</span>mass_flow_rate_kg_per_s<span class="sc">:.4f}</span><span class="ss"> kg/s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="exm-13_8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.8</strong></span> A 300 mm diameter pipe has a venturi meter with a throat diameter of 100 mm. A U-tube gauge filled with water and mercury measures a pressure head difference of 250 mm between the inlet and throat. The meter coefficient is 0.95. Using the density of water (1000 kg/m³), calculate the discharge rate through the pipe in m³/s.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Given data</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>D1 <span class="op">=</span> <span class="fl">0.3</span>  <span class="co"># Inlet diameter in meters</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>D2 <span class="op">=</span> <span class="fl">0.1</span>  <span class="co"># Throat diameter in meters</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Cd <span class="op">=</span> <span class="fl">0.95</span>  <span class="co"># Coefficient of discharge</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>h_mercury <span class="op">=</span> <span class="fl">0.250</span>  <span class="co"># Manometer reading in meters of mercury</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>SG <span class="op">=</span> <span class="fl">13.6</span>  <span class="co"># Specific gravity of mercury relative to water</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.81</span>  <span class="co"># Acceleration due to gravity in m/s²</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-sectional areas</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> math.pi <span class="op">*</span> (D1<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">4</span>  <span class="co"># Area at the inlet</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> math.pi <span class="op">*</span> (D2<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">4</span>  <span class="co"># Area at the throat</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent water head</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># The difference in water levels (equivalent head) generates</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># a hydrostatic pressure in the connecting legs that counteracts</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># the mercury column. Multiplying by (SG - 1) accounts for the</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># specific gravity of mercury relative to water.</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>h_eq <span class="op">=</span> h_mercury <span class="op">*</span> (SG <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Diameter ratio</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> D2 <span class="op">/</span> D1</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Discharge calculations</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Theoretical discharge based on the ideal flow equation</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>Q_theoretical <span class="op">=</span> A2 <span class="op">*</span> math.sqrt((<span class="dv">2</span> <span class="op">*</span> g <span class="op">*</span> h_eq) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> beta<span class="op">**</span><span class="dv">4</span>))</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Actual discharge accounting for the coefficient of discharge</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>Q_actual <span class="op">=</span> Cd <span class="op">*</span> Q_theoretical</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Output results</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cross-sectional area at inlet (A1): </span><span class="sc">{</span>A1<span class="sc">:.4f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cross-sectional area at throat (A2): </span><span class="sc">{</span>A2<span class="sc">:.4f}</span><span class="ss"> m²"</span>)</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Equivalent water head (h_eq): </span><span class="sc">{</span>h_eq<span class="sc">:.4f}</span><span class="ss"> m"</span>)</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Theoretical discharge: </span><span class="sc">{</span>Q_theoretical<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Actual discharge: </span><span class="sc">{</span>Q_actual<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="power-required-for-pumping-water" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="power-required-for-pumping-water"><span class="header-section-number">4.9</span> Power Required for Pumping Water</h2>
-<p>The power needed to pump water is the rate at which work is done to increase the fluid’s potential energy by lifting it against gravity, often with friction or other losses.</p>
-<p>In ideal conditions, the theoretical power <span class="math inline">\(P\)</span> is calculated as</p>
-<p><span class="math display">\[
-P = \rho g h \dot{v}
-\]</span></p>
-<p>where <span class="math inline">\(\rho\)</span> is the fluid density, <span class="math inline">\(g\)</span> is gravitational acceleration, <span class="math inline">\(h\)</span> is the total head, and <span class="math inline">\(\dot{v}\)</span> is the volumetric flow rate. This is derived from the mass flow rate <span class="math inline">\(\dot{m} = \rho \dot{v}\)</span>.</p>
-<p>Actual input power accounts for pump efficiency <span class="math inline">\(\eta\)</span>, given by</p>
-<p><span class="math display">\[
-\eta = \frac{P_{\mathrm{output}}}{P_{\mathrm{input}}}
-\]</span></p>
-<div id="exm-fe2-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.9</strong></span> Water is pumped to a height of 20 m at a rate of 12 litres per second. If the pump efficiency is 75%, calculate the input power.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>flow_rate_lps <span class="op">=</span> <span class="fl">12.0</span>    <span class="co"># litres per second</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">20.0</span>           <span class="co"># metres</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>efficiency <span class="op">=</span> <span class="fl">0.75</span>       </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="fl">1000.0</span>            <span class="co"># density of water in kg/m³</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.81</span>                <span class="co"># acceleration due to gravity in m/s²</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculations</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>v_dot <span class="op">=</span> flow_rate_lps <span class="op">/</span> <span class="fl">1000.0</span>                   <span class="co"># volumetric flow rate in m³/s</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>m_dot <span class="op">=</span> rho <span class="op">*</span> v_dot                              <span class="co">#  mass flow rate in kg/s</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>output_power <span class="op">=</span> m_dot <span class="op">*</span> g <span class="op">*</span> height           <span class="co"># watts</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>input_power <span class="op">=</span> output_power <span class="op">/</span> efficiency     <span class="co"># watts</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Result</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Actual input power (with 75% efficiency): </span><span class="sc">{</span>input_power<span class="sc">:.4f}</span><span class="ss"> W (</span><span class="sc">{</span>input_power <span class="op">/</span> <span class="dv">1000</span><span class="sc">:.4f}</span><span class="ss"> kW)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="exm-similar-fe2-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.10</strong></span> A water pump operates with an actual input power of 3 kW and an overall efficiency of 70%. The pump delivers water at a rate of 12 litres per second. Assuming the power is used solely to increase the gravitational potential energy (negligible velocity and pressure heads), calculate the height (head) to which the water is pumped.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>input_power <span class="op">=</span> <span class="fl">3000.0</span>    <span class="co"># Actual input power in W</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>efficiency <span class="op">=</span> <span class="fl">0.70</span>       <span class="co"># Pump efficiency</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>flow_rate_lps <span class="op">=</span> <span class="fl">12.0</span>    <span class="co"># Flow rate in litres per second</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="fl">1000.0</span>            <span class="co"># Density of water in kg/m³</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.81</span>                <span class="co"># Gravitational acceleration in m/s²</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Volumetric flow rate v_dot (m³/s)</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>v_dot <span class="op">=</span> flow_rate_lps <span class="op">/</span> <span class="fl">1000.0</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Mass flow rate m_dot (kg/s)</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>m_dot <span class="op">=</span> rho <span class="op">*</span> v_dot</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Output power delivered to the water (W)</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>output_power <span class="op">=</span> input_power <span class="op">*</span> efficiency</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Head h (m) using P = m_dot * g * h</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> output_power <span class="op">/</span> (m_dot <span class="op">*</span> g)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Result</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Head (height pumped): </span><span class="sc">{</span>h<span class="sc">:.2f}</span><span class="ss"> m"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="theorem-title"><strong>Example 4.6</strong></span> A 300 mm diameter pipe has a venturi meter with a throat diameter of 100 mm. A U-tube gauge filled with water and mercury measures a pressure head difference of 250 mm between the inlet and throat. The meter coefficient is 0.95. Using the density of water (1000 kg/m³), calculate the discharge rate through the pipe in m³/s.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">Venturi Meter with Mercury Manometer Calculator</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">Calculates the actual discharge through a Venturi meter using a mercury</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">manometer to measure pressure difference. Accounts for the coefficient</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">of discharge and converts mercury column height to equivalent water head.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT PARAMETERS</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>inlet_diameter_m <span class="op">=</span> <span class="fl">0.3</span>  <span class="co"># Inlet diameter in meters</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>throat_diameter_m <span class="op">=</span> <span class="fl">0.1</span>  <span class="co"># Throat diameter in meters</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>coefficient_of_discharge <span class="op">=</span> <span class="fl">0.95</span>  <span class="co"># Discharge coefficient (dimensionless)</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>mercury_column_height_m <span class="op">=</span> <span class="fl">0.250</span>  <span class="co"># Manometer reading in meters of mercury</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>mercury_specific_gravity <span class="op">=</span> <span class="fl">13.6</span>  <span class="co"># Specific gravity of mercury (water = 1)</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>gravitational_acceleration_m_per_s2 <span class="op">=</span> <span class="fl">9.81</span>  <span class="co"># Acceleration due to gravity</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># CROSS-SECTIONAL AREA CALCULATIONS</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area at inlet</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>inlet_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> (inlet_diameter_m<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">4</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cross-sectional area at throat</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>throat_area_m2 <span class="op">=</span> math.pi <span class="op">*</span> (throat_diameter_m<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">4</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co"># EQUIVALENT WATER HEAD CALCULATION</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert mercury column height to equivalent water head</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="co"># The pressure difference measured by mercury must be converted to</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co"># water equivalent by accounting for the density difference:</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co"># h_water = h_mercury × (SG_mercury - 1)</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>equivalent_water_head_m <span class="op">=</span> mercury_column_height_m <span class="op">*</span> (mercury_specific_gravity <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co"># DIAMETER RATIO CALCULATION</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate diameter ratio (beta) for use in discharge equation</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>diameter_ratio <span class="op">=</span> throat_diameter_m <span class="op">/</span> inlet_diameter_m</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="co"># DISCHARGE CALCULATIONS</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate theoretical discharge using Venturi meter equation:</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Q_theoretical = A₂ × √[2gh / (1 - β⁴)]</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="co"># where β = D₂/D₁ is the diameter ratio</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>theoretical_discharge_m3_per_s <span class="op">=</span> throat_area_m2 <span class="op">*</span> math.sqrt(</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">2</span> <span class="op">*</span> gravitational_acceleration_m_per_s2 <span class="op">*</span> equivalent_water_head_m)</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> diameter_ratio<span class="op">**</span><span class="dv">4</span>)</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate actual discharge accounting for losses:</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Q_actual = Cd × Q_theoretical</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>actual_discharge_m3_per_s <span class="op">=</span> coefficient_of_discharge <span class="op">*</span> theoretical_discharge_m3_per_s</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT RESULTS</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================================</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cross-sectional area at inlet (A1): </span><span class="sc">{</span>inlet_area_m2<span class="sc">:.4f}</span><span class="ss"> m²"</span>)</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cross-sectional area at throat (A2): </span><span class="sc">{</span>throat_area_m2<span class="sc">:.4f}</span><span class="ss"> m²"</span>)</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Equivalent water head (h_eq): </span><span class="sc">{</span>equivalent_water_head_m<span class="sc">:.4f}</span><span class="ss"> m"</span>)</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Theoretical discharge: </span><span class="sc">{</span>theoretical_discharge_m3_per_s<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Actual discharge: </span><span class="sc">{</span>actual_discharge_m3_per_s<span class="sc">:.4f}</span><span class="ss"> m³/s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

@@ -67,113 +67,60 @@ Oil of relative density 0.9 flows at full bore through a pipe with an internal d
 
 ``` python
 """
-Pipe Flow Rate Calculation for Oil
+Pipe Flow Rate Calculator for Oil
+
 Determines the volumetric and mass flow rates in a pipe carrying oil,
 given the internal diameter, fluid velocity, and relative density.
 """
 
 import math
 
-# Input parameters
-internal_diameter_millimeters = 75.0  # Pipe internal diameter in mm
-fluid_velocity_meters_per_second = 1.2  # Average velocity of oil in m/s
-relative_density = 0.9  # Specific gravity of oil (relative to water)
-density_water_kilograms_per_cubic_meter = 1000.0  # Density of water in kg/m³
+# ==============================
+# INPUT PARAMETERS
+# ==============================
 
-# Unit conversion and geometry
-internal_diameter_meters = internal_diameter_millimeters / 1000.0
-pipe_radius_meters = internal_diameter_meters / 2.0
+pipe_internal_diameter_mm = 75.0  # Pipe internal diameter in millimeters
+oil_velocity_m_per_s = 1.2  # Average velocity of oil in m/s
+oil_relative_density = 0.9  # Specific gravity of oil (relative to water)
+water_density_kg_per_m3 = 1000.0  # Density of water in kg/m³
 
-# Cross-sectional area of the pipe
-cross_sectional_area_square_meters = math.pi * pipe_radius_meters ** 2
+# ==============================
+# UNIT CONVERSIONS AND GEOMETRY
+# ==============================
 
-# Volumetric flow rate
-volumetric_flow_rate_cubic_meters_per_second = (
-    cross_sectional_area_square_meters * fluid_velocity_meters_per_second
-)
+# Convert pipe diameter from millimeters to meters
+pipe_internal_diameter_m = pipe_internal_diameter_mm / 1000.0
 
-# Density of the oil
-oil_density_kilograms_per_cubic_meter = (
-    relative_density * density_water_kilograms_per_cubic_meter
-)
+# Calculate pipe radius
+pipe_radius_m = pipe_internal_diameter_m / 2.0
 
-# Mass flow rate
-mass_flow_rate_kilograms_per_second = (
-    oil_density_kilograms_per_cubic_meter *
-    volumetric_flow_rate_cubic_meters_per_second
-)
+# Calculate cross-sectional area of the pipe (circular)
+pipe_cross_sectional_area_m2 = math.pi * pipe_radius_m**2
+
+# ==============================
+# FLOW RATE CALCULATIONS
+# ==============================
+
+# Calculate volumetric flow rate using Q = A · v
+volumetric_flow_rate_m3_per_s = pipe_cross_sectional_area_m2 * oil_velocity_m_per_s
+
+# Calculate oil density from relative density
+oil_density_kg_per_m3 = oil_relative_density * water_density_kg_per_m3
+
+# Calculate mass flow rate using ṁ = ρ · Q
+mass_flow_rate_kg_per_s = oil_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
 
 # Convert mass flow rate to tonnes per hour
-mass_flow_rate_tonnes_per_hour = (
-    mass_flow_rate_kilograms_per_second * 3600 / 1000
-)
+mass_flow_rate_tonnes_per_hour = mass_flow_rate_kg_per_s * 3600 / 1000
 
-# Display results
+# ==============================
+# OUTPUT RESULTS
+# ==============================
+
 print("Pipe Flow Analysis Results:")
-print(f"  Volumetric flow rate : "
-      f"{volumetric_flow_rate_cubic_meters_per_second:.4f} m³/s")
-print(f"  Mass flow rate       : "
-      f"{mass_flow_rate_tonnes_per_hour:.4f} tonnes/hour")
-```
-:::
+print(f"  Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m³/s")
+print(f"  Mass flow rate       : {mass_flow_rate_tonnes_per_hour:.4f} " f"tonnes/hour")
 
-## Flow Through Valves
-
-The area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.
-
-The lift beyond which it would cause no restriction is when the circumferential area of the lift opening is equal to the cross-sectional area of the bore, thus,
-
-$$
-\text{Circumference} \times \text{Lift} = \text{Cross-sectional area}.
-$$ $$
-\pi d \times L = \frac{\pi d^{2}}{4},
-$$
-
-where $L$ is the lift and $d$ is the diameter of the valve.
-
-Hence, a lift equal to one-quarter of the diameter of the valve allows full bore flow:
-
-$$
-L = \frac{d}{4}.
-$$
-
-::: {#exm-13-2}
-Calculate the volume flow rate of water in cubic metres per minute through a 150-millimetre diameter valve when the velocity of the water is 2.5 m/s and the valve lift is (i) 30 millimetres and (ii) 45 millimetres.
-
-``` python
-import math
-
-# Given
-d = 0.15                  # diameter in metres
-V = 2.5                   # velocity in m/s
-
-# Maximum effective lift
-critical_lift_mm = (d / 4) * 1000
-
-# Full bore area and flow rate
-A_bore = math.pi * d**2 / 4
-Q_full_m3_per_s = V * A_bore
-Q_full = Q_full_m3_per_s * 60      # convert to m³/min
-
-
-# (i) Lift = 30 mm
-L1 = 0.030                # lift in metres
-A_annular1 = math.pi * d * L1
-A_effective1 = min(A_annular1, A_bore)
-Q1 = V * A_effective1 * 60
-
-
-# (ii) Lift = 45 mm
-L2 = 0.045                # lift in metres
-A_annular2 = math.pi * d * L2
-A_effective2 = min(A_annular2, A_bore)
-Q2 = V * A_effective2 * 60
-
-
-print(f"Maximum effective lift: {critical_lift_mm:.4f} mm")
-print(f"Full bore flow rate: {Q_full:.4f} m³/min")
-print(f"At 30 mm lift: {Q1:.4f} m³/min")
-print(f"At 45 mm lift: {Q2:.4f} m³/min")
 ```
 :::
 
@@ -219,39 +166,82 @@ $$
 Water escapes through a hole 20 mm in diameter in the side of a tank, with a water head of 3 m above the hole. Given a coefficient of velocity of 0.97 and a coefficient of reduction of area of 0.64, calculate (i) the velocity of the water jet as it exits the hole and (ii) the quantity of water escaping tonne per hour.
 
 ``` python
+"""
+Orifice Flow Calculator
+
+Calculates the actual velocity and discharge rate of water escaping
+through an orifice under a given head. Uses coefficient of velocity (Cv)
+and coefficient of area (Ca) to account for real flow conditions.
+"""
+
 import math
 
-# Given
-diameter_mm = 20
-diameter_m = diameter_mm / 1000
-radius_m = diameter_m / 2
-h = 3  # m
-Cv = 0.97
-Ca = 0.64
-g = 9.81  # m/s²
-density_water = 1000  # kg/m³
+# ================================
+# INPUT PARAMETERS
+# ================================
 
-# Calculations
-area = math.pi * radius_m ** 2
+orifice_diameter_mm = 20  # Orifice diameter in millimeters
+head_above_orifice_m = 3  # Height of water above orifice in meters
+coefficient_of_velocity = 0.97  # Cv (accounts for velocity reduction)
+coefficient_of_area = 0.64  # Ca (accounts for vena contracta)
+gravitational_acceleration_m_per_s2 = 9.81  # Acceleration due to gravity
+water_density_kg_per_m3 = 1000  # Density of water in kg/m³
 
-v_theoretical = math.sqrt(2 * g * h)
-v_actual = Cv * v_theoretical
+# ================================
+# UNIT CONVERSIONS AND GEOMETRY
+# ================================
 
-volume_flow_actual = Ca * area * v_actual  # m³/s
+# Convert orifice diameter from millimeters to meters
+orifice_diameter_m = orifice_diameter_mm / 1000
 
-mass_flow = density_water * volume_flow_actual  # kg/s
+# Calculate orifice radius
+orifice_radius_m = orifice_diameter_m / 2
 
-mass_per_hour_kg = mass_flow * 3600
-mass_per_hour_tonne = mass_per_hour_kg / 1000
+# Calculate cross-sectional area of orifice
+orifice_area_m2 = math.pi * orifice_radius_m**2
 
-# Output results
-print(f"(i) Actual velocity of the water jet: {v_actual:.3f} m/s")
+# ================================
+# VELOCITY CALCULATIONS
+# ================================
 
-print(f"\n(ii) Quantity of water escaping per hour:")
-print(f"    Volume flow rate: {volume_flow_actual:.6f} m³/s")
-print(f"    Mass flow rate: {mass_flow:.4f} kg/s")
-print(f"    Mass per hour: {mass_per_hour_kg:.4f} kg/hour")
-print(f"    Mass per hour: {mass_per_hour_tonne:.4f} tonnes/hour")
+# Calculate theoretical velocity using Torricelli's theorem: v = √(2gh)
+theoretical_velocity_m_per_s = math.sqrt(
+    2 * gravitational_acceleration_m_per_s2 * head_above_orifice_m
+)
+
+# Calculate actual velocity accounting for friction losses
+actual_velocity_m_per_s = coefficient_of_velocity * theoretical_velocity_m_per_s
+
+# ================================
+# FLOW RATE CALCULATIONS
+# ================================
+
+# Calculate actual volumetric flow rate: Q = Ca · A · v
+# (Ca accounts for contraction of jet at vena contracta)
+volumetric_flow_rate_m3_per_s = (
+    coefficient_of_area * orifice_area_m2 * actual_velocity_m_per_s
+)
+
+# Calculate mass flow rate: ṁ = ρ · Q
+mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+
+# Convert mass flow rate to per-hour basis
+mass_flow_rate_kg_per_hour = mass_flow_rate_kg_per_s * 3600
+
+# Convert mass flow rate to tonnes per hour
+mass_flow_rate_tonnes_per_hour = mass_flow_rate_kg_per_hour / 1000
+
+# ================================
+# OUTPUT RESULTS
+# ================================
+
+print(f"(i) Actual velocity of the water jet: " f"{actual_velocity_m_per_s:.3f} m/s")
+print("\n(ii) Quantity of water escaping per hour:")
+print(f"    Volume flow rate: {volumetric_flow_rate_m3_per_s:.6f} m³/s")
+print(f"    Mass flow rate: {mass_flow_rate_kg_per_s:.4f} kg/s")
+print(f"    Mass per hour: {mass_flow_rate_kg_per_hour:.4f} kg/hour")
+print(f"    Mass per hour: {mass_flow_rate_tonnes_per_hour:.4f} tonnes/hour")
+
 ```
 :::
 
@@ -283,38 +273,82 @@ That is, the volume flow rate is constant for an incompressible fluid.
 A pipe decreases in diameter from 300 mm to 200 mm. Water flows from the larger to the smaller pipe at a constant rate of 18.4 kL/min. Calculate the mass flow rate and the velocities in the larger and smaller pipe.
 
 ``` python
+"""
+Pipe Flow Velocity Calculator
+
+Calculates the mass flow rate and velocities in pipes of different
+diameters carrying water at a constant volumetric flow rate. Uses
+continuity equation to determine flow velocities.
+"""
+
 import math
 
-# Given
-flow_rate_kL_per_min = 18.4   # Volumetric flow rate in kL/min
-diameter_large_mm = 300       # Diameter of larger pipe in mm
-diameter_small_mm = 200       # Diameter of smaller pipe in mm
-density_water = 1000          # Density of water in kg/m³
+# ==================================
+# INPUT PARAMETERS
+# ==================================
 
-# Convert volumetric flow rate to m³/s
-flow_rate_m3_per_s = (flow_rate_kL_per_min / 60)
+volumetric_flow_rate_kl_per_min = 18.4  # Flow rate in kiloliters/min
+large_pipe_diameter_mm = 300  # Diameter of larger pipe in millimeters
+small_pipe_diameter_mm = 200  # Diameter of smaller pipe in millimeters
+water_density_kg_per_m3 = 1000  # Density of water in kg/m³
 
-# Convert diameters to meters and calculate radii
-d1 = diameter_large_mm / 1000  # m
-d2 = diameter_small_mm / 1000  # m
-r1 = d1 / 2
-r2 = d2 / 2
+# ==================================
+# UNIT CONVERSIONS
+# ==================================
 
-# Cross-sectional areas
-A1 = math.pi * r1**2  # m²
-A2 = math.pi * r2**2  # m²
+# Convert volumetric flow rate from kL/min to m³/s
+# (1 kL = 1 m³, and 1 min = 60 s)
+volumetric_flow_rate_m3_per_s = volumetric_flow_rate_kl_per_min / 60
 
-# Velocities
-v1 = flow_rate_m3_per_s / A1  # m/s (larger pipe)
-v2 = flow_rate_m3_per_s / A2  # m/s (smaller pipe)
+# Convert pipe diameters from millimeters to meters
+large_pipe_diameter_m = large_pipe_diameter_mm / 1000
+small_pipe_diameter_m = small_pipe_diameter_mm / 1000
 
-# Mass flow rate
-mass_flow_rate = density_water * flow_rate_m3_per_s  # kg/s
+# Calculate pipe radii
+large_pipe_radius_m = large_pipe_diameter_m / 2
+small_pipe_radius_m = small_pipe_diameter_m / 2
 
-# Output results
-print(f"Mass flow rate: {mass_flow_rate:.4f} kg/s")
-print(f"Velocity in larger pipe (300 mm): {v1:.4f} m/s")
-print(f"Velocity in smaller pipe (200 mm): {v2:.4f} m/s")
+# ==================================
+# CROSS-SECTIONAL AREA CALCULATIONS
+# ==================================
+
+# Calculate cross-sectional area of larger pipe
+large_pipe_area_m2 = math.pi * large_pipe_radius_m**2
+
+# Calculate cross-sectional area of smaller pipe
+small_pipe_area_m2 = math.pi * small_pipe_radius_m**2
+
+# ==================================
+# VELOCITY CALCULATIONS
+# ==================================
+
+# Calculate velocity in larger pipe using continuity equation: v = Q / A
+velocity_large_pipe_m_per_s = volumetric_flow_rate_m3_per_s / large_pipe_area_m2
+
+# Calculate velocity in smaller pipe using continuity equation: v = Q / A
+velocity_small_pipe_m_per_s = volumetric_flow_rate_m3_per_s / small_pipe_area_m2
+
+# ==================================
+# MASS FLOW RATE CALCULATION
+# ==================================
+
+# Calculate mass flow rate using ṁ = ρ · Q
+mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+
+# ==================================
+# OUTPUT RESULTS
+# ==================================
+
+print(f"Mass flow rate: {mass_flow_rate_kg_per_s:.4f} kg/s")
+print(
+    f"Velocity in larger pipe ({large_pipe_diameter_mm} mm): "
+    f"{velocity_large_pipe_m_per_s:.4f} m/s"
+)
+print(
+    f"Velocity in smaller pipe ({small_pipe_diameter_mm} mm): "
+    f"{velocity_small_pipe_m_per_s:.4f} m/s"
+)
+
 ```
 :::
 
@@ -409,39 +443,93 @@ The total head (H) will be a constant throughout a flow system if:
 Consider a simple flow system consisting of a varying cross-section pipe. Water flows through this system at a rate of 2000 L/min. As the pipe increases in elevation from 30 m to 36 m it decreases in diameter from 10 cm to 3.0 cm. If the pressure is 6.5 MPa at the 30 m elevation, what is the pressure at 36 m?
 
 ``` python
+"""
+Energy Equation Pressure Calculator
+
+Calculates the pressure at a higher elevation in a pipe using the energy
+equation. Accounts for changes in velocity, elevation, and pressure between
+two sections of a pipe carrying water.
+"""
+
 import math
 
-# Given
-v_dot_lpm = 2000.0                # Flow rate, L/min
-v_dot = v_dot_lpm / 60000.0       # Convert to m³/s
-d1 = 0.10                         # Diameter at lower section, m
-d2 = 0.03                         # Diameter at higher section, m
-z1 = 30.0                         # Elevation at lower section, m
-z2 = 36.0                         # Elevation at higher section, m
-P1 = 6.5e6                        # Pressure at lower section, Pa
-rho = 1000.0                      # Density of water, kg/m³
+# ===========================================
+# INPUT PARAMETERS
+# ===========================================
 
-# Cross-sectional areas
-A1 = math.pi * (d1 / 2.0)**2
-A2 = math.pi * (d2 / 2.0)**2
+volumetric_flow_rate_l_per_min = 2000.0  # Flow rate in liters per minute
+diameter_lower_section_m = 0.10  # Pipe diameter at lower section in meters
+diameter_upper_section_m = 0.03  # Pipe diameter at upper section in meters
+elevation_lower_section_m = 30.0  # Elevation at lower section in meters
+elevation_upper_section_m = 36.0  # Elevation at upper section in meters
+pressure_lower_section_pa = 6.5e6  # Pressure at lower section in Pascals
+water_density_kg_per_m3 = 1000.0  # Density of water in kg/m³
+gravitational_acceleration_m_per_s2 = 9.81  # Acceleration due to gravity
 
-# Velocities
-c1 = v_dot / A1
-c2 = v_dot / A2
+# ===========================================
+# UNIT CONVERSIONS
+# ===========================================
 
-# Bernoulli's equation to find P2
-P2 = P1 + 0.5 * rho * (c1**2 - c2**2) + rho * g * (z1 - z2)
+# Convert volumetric flow rate from L/min to m³/s
+# (1 L = 0.001 m³, 1 min = 60 s)
+volumetric_flow_rate_m3_per_s = volumetric_flow_rate_l_per_min / 60000.0
 
-# Convert P2 to MPa
-P2_MPa = P2 / 1e6
+# ===========================================
+# CROSS-SECTIONAL AREA CALCULATIONS
+# ===========================================
 
-# Output results
-print(f"Flow rate: {v_dot:.5f} m³/s")
-print(f"Area 1: {A1:.6f} m²")
-print(f"Area 2: {A2:.6f} m²")
-print(f"Velocity 1: {c1:.4f} m/s")
-print(f"Velocity 2: {c2:.4f} m/s")
-print(f"Pressure at 36 m elevation: {P2_MPa:.4f} MPa")
+# Calculate cross-sectional area at lower section
+area_lower_section_m2 = math.pi * (diameter_lower_section_m / 2.0) ** 2
+
+# Calculate cross-sectional area at upper section
+area_upper_section_m2 = math.pi * (diameter_upper_section_m / 2.0) ** 2
+
+# ===========================================
+# VELOCITY CALCULATIONS
+# ===========================================
+
+# Calculate velocity at lower section using continuity equation: v = Q / A
+velocity_lower_section_m_per_s = volumetric_flow_rate_m3_per_s / area_lower_section_m2
+
+# Calculate velocity at upper section using continuity equation: v = Q / A
+velocity_upper_section_m_per_s = volumetric_flow_rate_m3_per_s / area_upper_section_m2
+
+# ===========================================
+# PRESSURE CALCULATION USING ENERGY EQUATION
+# ===========================================
+
+# Apply the energy equation between lower and upper sections:
+# P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂
+# Solving for P₂:
+# P₂ = P₁ + ½ρ(v₁² - v₂²) + ρg(z₁ - z₂)
+
+pressure_upper_section_pa = (
+    pressure_lower_section_pa
+    + 0.5
+    * water_density_kg_per_m3
+    * (velocity_lower_section_m_per_s**2 - velocity_upper_section_m_per_s**2)
+    + water_density_kg_per_m3
+    * gravitational_acceleration_m_per_s2
+    * (elevation_lower_section_m - elevation_upper_section_m)
+)
+
+# Convert pressure to MPa for output
+pressure_upper_section_mpa = pressure_upper_section_pa / 1e6
+
+# ===========================================
+# OUTPUT RESULTS
+# ===========================================
+
+print(f"Flow rate: {volumetric_flow_rate_m3_per_s:.5f} m³/s")
+print(f"Area 1: {area_lower_section_m2:.6f} m²")
+print(f"Area 2: {area_upper_section_m2:.6f} m²")
+print(f"Velocity 1: {velocity_lower_section_m_per_s:.4f} m/s")
+print(f"Velocity 2: {velocity_upper_section_m_per_s:.4f} m/s")
+print(
+    f"Pressure at {elevation_upper_section_m} m elevation: "
+    f"{pressure_upper_section_mpa:.4f} MPa"
+)
+
 ```
 :::
 
@@ -473,79 +561,75 @@ A venturi meter (@fig-venturi) measures liquid flow rates in pipelines. The devi
 
 When the entrance and throat areas are known, and the pressure readings (or pressure difference) at these points are measured, Bernoulli's equation can be used to calculate the liquid velocity and flow rate. Typically, a venturi meter is installed horizontally in the pipeline, which simplifies calculations since there is no elevation difference between points (Z~1~ = Z~2~), thus eliminating the height terms.
 
-::: {#exm-fe1}
-Calculate the mass flow rate in kilograms per second through a smooth, horizontal venturi meter with an entrance diameter of 375 mm and a throat diameter of 125 mm, given a pressure difference of 457 mm of water
-
-``` python
-import math
-
-# Given
-D1 = 0.375  # Entrance diameter in meters
-D2 = 0.125  # Throat diameter in meters
-h = 0.457   # Pressure head difference in meters of water
-g = 9.81    # Gravitational acceleration in m/s²
-rho = 1000  # Density of water in kg/m³
-
-# Calculate cross-sectional areas
-A1 = math.pi * (D1 / 2)**2
-A2 = math.pi * (D2 / 2)**2
-
-# Compute the squared area ratio (A2/A1)^2
-ratio_squared = (A2 / A1)**2
-
-# Calculate throat velocity c2
-c2 = math.sqrt((2 * g * h) / (1 - ratio_squared))
-
-# Calculate volumetric flow rate v_dot using throat section
-v_dot = A2 * c2
-
-# Calculate mass flow rate
-mass_flow_rate = rho * v_dot
-
-# Output results
-print(f"Entrance area: {A1:.6f} m²")
-print(f"Throat area: {A2:.6f} m²")
-print(f"Throat velocity: {c2:.4f} m/s")
-print(f"Volumetric flow rate: {v_dot:.4f} m³/s")
-print(f"Mass flow rate: {mass_flow_rate:.4f} kg/s")
-```
-:::
-
 ::: {#exm-13_7}
 A horizontal venturi meter has an inlet diameter of 450 mm and a throat diameter of 225 mm. The pressure difference between these two points is equivalent to 381 mm of water. Given the density of fresh water is 1000 kg/m³, calculate the mass flow rate through the meter.
 
 ``` python
+"""
+Venturi Meter Flow Calculator
+
+Calculates the flow rate through a Venturi meter using Bernoulli's
+equation. Determines throat velocity and volumetric/mass flow rates
+from the pressure differential between inlet and throat sections.
+"""
+
 import math
 
-# Given
-D1 = 0.450  # Inlet diameter in meters
-D2 = 0.225  # Throat diameter in meters
-h = 0.381   # Pressure head difference in meters of water
-g = 9.81    # Gravitational acceleration in m/s²
-rho = 1000  # Density of water in kg/m³
+# ===============================================
+# INPUT PARAMETERS
+# ===============================================
 
-# Calculate cross-sectional areas
-A1 = math.pi * (D1 / 2)**2
-A2 = math.pi * (D2 / 2)**2
+inlet_diameter_m = 0.450  # Inlet diameter in meters
+throat_diameter_m = 0.225  # Throat diameter in meters
+pressure_head_difference_m = 0.381  # Pressure head difference in meters
+gravitational_acceleration_m_per_s2 = 9.81  # Acceleration due to gravity
+water_density_kg_per_m3 = 1000  # Density of water in kg/m³
 
-# Compute the squared area ratio (A2/A1)^2
-ratio_squared = (A2 / A1)**2
+# ===============================================
+# CROSS-SECTIONAL AREA CALCULATIONS
+# ===============================================
 
-# Calculate throat velocity c2
-c2 = math.sqrt((2 * g * h) / (1 - ratio_squared))
+# Calculate cross-sectional area at inlet
+inlet_area_m2 = math.pi * (inlet_diameter_m / 2) ** 2
 
-# Calculate volumetric flow rate v_dot using throat section
-v_dot = A2 * c2
+# Calculate cross-sectional area at throat
+throat_area_m2 = math.pi * (throat_diameter_m / 2) ** 2
 
-# Calculate mass flow rate
-mass_flow_rate = rho * v_dot
+# ===============================================
+# VELOCITY CALCULATION USING BERNOULLI'S EQUATION
+# ===============================================
 
-# Output results
-print(f"Entrance area: {A1:.6f} m²")
-print(f"Throat area: {A2:.6f} m²")
-print(f"Throat velocity: {c2:.4f} m/s")
-print(f"Volumetric flow rate: {v_dot:.4f} m³/s")
-print(f"Mass flow rate: {mass_flow_rate:.4f} kg/s")
+# Compute the squared area ratio (A_throat / A_inlet)²
+area_ratio_squared = (throat_area_m2 / inlet_area_m2) ** 2
+
+# Calculate throat velocity using Bernoulli's equation for a Venturi meter:
+# c₂ = √[2gh / (1 - (A₂/A₁)²)]
+# where h is the pressure head difference
+throat_velocity_m_per_s = math.sqrt(
+    (2 * gravitational_acceleration_m_per_s2 * pressure_head_difference_m)
+    / (1 - area_ratio_squared)
+)
+
+# ===============================================
+# FLOW RATE CALCULATIONS
+# ===============================================
+
+# Calculate volumetric flow rate using Q = A · v at throat section
+volumetric_flow_rate_m3_per_s = throat_area_m2 * throat_velocity_m_per_s
+
+# Calculate mass flow rate using ṁ = ρ · Q
+mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+
+# ===============================================
+# OUTPUT RESULTS
+# ===============================================
+
+print(f"Entrance area: {inlet_area_m2:.6f} m²")
+print(f"Throat area: {throat_area_m2:.6f} m²")
+print(f"Throat velocity: {throat_velocity_m_per_s:.4f} m/s")
+print(f"Volumetric flow rate: {volumetric_flow_rate_m3_per_s:.4f} m³/s")
+print(f"Mass flow rate: {mass_flow_rate_kg_per_s:.4f} kg/s")
+
 ```
 :::
 
@@ -553,122 +637,79 @@ print(f"Mass flow rate: {mass_flow_rate:.4f} kg/s")
 A 300 mm diameter pipe has a venturi meter with a throat diameter of 100 mm. A U-tube gauge filled with water and mercury measures a pressure head difference of 250 mm between the inlet and throat. The meter coefficient is 0.95. Using the density of water (1000 kg/m³), calculate the discharge rate through the pipe in m³/s.
 
 ``` python
+"""
+Venturi Meter with Mercury Manometer Calculator
+
+Calculates the actual discharge through a Venturi meter using a mercury
+manometer to measure pressure difference. Accounts for the coefficient
+of discharge and converts mercury column height to equivalent water head.
+"""
+
 import math
 
-# -----------------------------
-# Given data
-# -----------------------------
-D1 = 0.3  # Inlet diameter in meters
-D2 = 0.1  # Throat diameter in meters
-Cd = 0.95  # Coefficient of discharge
-h_mercury = 0.250  # Manometer reading in meters of mercury
-SG = 13.6  # Specific gravity of mercury relative to water
-g = 9.81  # Acceleration due to gravity in m/s²
+# ==================================
+# INPUT PARAMETERS
+# ==================================
 
-# -----------------------------
-# Cross-sectional areas
-# -----------------------------
-A1 = math.pi * (D1**2) / 4  # Area at the inlet
-A2 = math.pi * (D2**2) / 4  # Area at the throat
+inlet_diameter_m = 0.3  # Inlet diameter in meters
+throat_diameter_m = 0.1  # Throat diameter in meters
+coefficient_of_discharge = 0.95  # Discharge coefficient (dimensionless)
+mercury_column_height_m = 0.250  # Manometer reading in meters of mercury
+mercury_specific_gravity = 13.6  # Specific gravity of mercury (water = 1)
+gravitational_acceleration_m_per_s2 = 9.81  # Acceleration due to gravity
 
-# -----------------------------
-# Equivalent water head
-# -----------------------------
-# The difference in water levels (equivalent head) generates
-# a hydrostatic pressure in the connecting legs that counteracts
-# the mercury column. Multiplying by (SG - 1) accounts for the
-# specific gravity of mercury relative to water.
-h_eq = h_mercury * (SG - 1)
+# ==================================
+# CROSS-SECTIONAL AREA CALCULATIONS
+# ==================================
 
-# -----------------------------
-# Diameter ratio
-# -----------------------------
-beta = D2 / D1
+# Calculate cross-sectional area at inlet
+inlet_area_m2 = math.pi * (inlet_diameter_m**2) / 4
 
-# -----------------------------
-# Discharge calculations
-# -----------------------------
-# Theoretical discharge based on the ideal flow equation
-Q_theoretical = A2 * math.sqrt((2 * g * h_eq) / (1 - beta**4))
+# Calculate cross-sectional area at throat
+throat_area_m2 = math.pi * (throat_diameter_m**2) / 4
 
-# Actual discharge accounting for the coefficient of discharge
-Q_actual = Cd * Q_theoretical
+# ==================================
+# EQUIVALENT WATER HEAD CALCULATION
+# ==================================
 
-# -----------------------------
-# Output results
-# -----------------------------
-print(f"Cross-sectional area at inlet (A1): {A1:.4f} m²")
-print(f"Cross-sectional area at throat (A2): {A2:.4f} m²")
-print(f"Equivalent water head (h_eq): {h_eq:.4f} m")
-print(f"Theoretical discharge: {Q_theoretical:.4f} m³/s")
-print(f"Actual discharge: {Q_actual:.4f} m³/s")
-```
-:::
+# Convert mercury column height to equivalent water head
+# The pressure difference measured by mercury must be converted to
+# water equivalent by accounting for the density difference:
+# h_water = h_mercury × (SG_mercury - 1)
+equivalent_water_head_m = mercury_column_height_m * (mercury_specific_gravity - 1)
 
-## Power Required for Pumping Water
+# ==================================
+# DIAMETER RATIO CALCULATION
+# ==================================
 
-The power needed to pump water is the rate at which work is done to increase the fluid’s potential energy by lifting it against gravity, often with friction or other losses.
+# Calculate diameter ratio (beta) for use in discharge equation
+diameter_ratio = throat_diameter_m / inlet_diameter_m
 
-In ideal conditions, the theoretical power $P$ is calculated as
+# ==================================
+# DISCHARGE CALCULATIONS
+# ==================================
 
-$$
-P = \rho g h \dot{v}
-$$
+# Calculate theoretical discharge using Venturi meter equation:
+# Q_theoretical = A₂ × √[2gh / (1 - β⁴)]
+# where β = D₂/D₁ is the diameter ratio
+theoretical_discharge_m3_per_s = throat_area_m2 * math.sqrt(
+    (2 * gravitational_acceleration_m_per_s2 * equivalent_water_head_m)
+    / (1 - diameter_ratio**4)
+)
 
-where $\rho$ is the fluid density, $g$ is gravitational acceleration, $h$ is the total head, and $\dot{v}$ is the volumetric flow rate. This is derived from the mass flow rate $\dot{m} = \rho \dot{v}$.
+# Calculate actual discharge accounting for losses:
+# Q_actual = Cd × Q_theoretical
+actual_discharge_m3_per_s = coefficient_of_discharge * theoretical_discharge_m3_per_s
 
-Actual input power accounts for pump efficiency $\eta$, given by
+# ==================================
+# OUTPUT RESULTS
+# ==================================
 
-$$
-\eta = \frac{P_{\mathrm{output}}}{P_{\mathrm{input}}}
-$$
+print(f"Cross-sectional area at inlet (A1): {inlet_area_m2:.4f} m²")
+print(f"Cross-sectional area at throat (A2): {throat_area_m2:.4f} m²")
+print(f"Equivalent water head (h_eq): {equivalent_water_head_m:.4f} m")
+print(f"Theoretical discharge: {theoretical_discharge_m3_per_s:.4f} m³/s")
+print(f"Actual discharge: {actual_discharge_m3_per_s:.4f} m³/s")
 
-::: {#exm-fe2-3}
-Water is pumped to a height of 20 m at a rate of 12 litres per second. If the pump efficiency is 75%, calculate the input power.
-
-``` python
-# Given
-flow_rate_lps = 12.0    # litres per second
-height = 20.0           # metres
-efficiency = 0.75       
-rho = 1000.0            # density of water in kg/m³
-g = 9.81                # acceleration due to gravity in m/s²
-
-# Calculations
-v_dot = flow_rate_lps / 1000.0                   # volumetric flow rate in m³/s
-m_dot = rho * v_dot                              #  mass flow rate in kg/s
-output_power = m_dot * g * height           # watts
-input_power = output_power / efficiency     # watts
-
-# Result
-print(f"Actual input power (with 75% efficiency): {input_power:.4f} W ({input_power / 1000:.4f} kW)")
-```
-:::
-
-::: {#exm-similar-fe2-3}
-A water pump operates with an actual input power of 3 kW and an overall efficiency of 70%. The pump delivers water at a rate of 12 litres per second. Assuming the power is used solely to increase the gravitational potential energy (negligible velocity and pressure heads), calculate the height (head) to which the water is pumped.
-
-``` python
-# Given
-input_power = 3000.0    # Actual input power in W
-efficiency = 0.70       # Pump efficiency
-flow_rate_lps = 12.0    # Flow rate in litres per second
-rho = 1000.0            # Density of water in kg/m³
-g = 9.81                # Gravitational acceleration in m/s²
-
-# Volumetric flow rate v_dot (m³/s)
-v_dot = flow_rate_lps / 1000.0
-
-# Mass flow rate m_dot (kg/s)
-m_dot = rho * v_dot
-
-# Output power delivered to the water (W)
-output_power = input_power * efficiency
-
-# Head h (m) using P = m_dot * g * h
-h = output_power / (m_dot * g)
-
-# Result
-print(f"Head (height pumped): {h:.2f} m")
 ```
 :::
