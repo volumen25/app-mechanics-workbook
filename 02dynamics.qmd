@@ -115,52 +115,6 @@ print(f"Time to stop: {t_minutes:.2f} minutes")
 ::: {#exm-river}
 A boat is rowed at 6 km/h perpendicular to a river flowing at 4 km/h. The river is 50 meters wide. How far downstream will the boat reach the opposite bank? What is the boat’s actual velocity (magnitude and direction)?
 
-We treat this as vector addition: the boat's rowing velocity across the river and the river's current velocity downstream.
-
-Given
-
--   Boat speed across: $v_b = 6\ \text{km/h}$
-
--   River current speed: $v_c = 4\ \text{km/h}$
-
--   River width: $w = 50\ \text{m}$
-
-Convert speeds to m/s:
-
-$$
-1\ \text{km/h} = \frac{1000}{3600} = 0.277777\ \text{m/s}
-$$
-
-$$
-v_b = 6 \times 0.277777 = 1.6666667\ \text{m/s}
-$$
-
-$$
-v_c = 4 \times 0.277777 = 1.1111111\ \text{m/s}
-$$
-
-Time to cross the river
-
-$$
-t = \frac{w}{v_b} = \frac{50}{1.6666667} = 30\ \text{s}
-$$
-
-Downstream drift
-
-$$
-\text{drift} = v_c \times t = 1.1111111 \times 30 = 33.3333\ \text{m}
-$$
-
-Actual velocity magnitude $$
-v = \sqrt{v_b^2 + v_c^2} = 2.00308\ \text{m/s}
-$$
-
-Direction (downstream from perpendicular)
-
-$$
-\theta = \tan^{-1}\!\left( \frac{v_c}{v_b} \right) = 33.69
-$$
-
 ``` python
 import math
 
@@ -347,7 +301,7 @@ $a = r \alpha$ (linear acceleration $a$ and angular acceleration $\alpha$).
 
 -   $\theta$: Angular displacement, the angle swept by the radius in radians.
 
-## Summary
+### Summary
 
 -   Linear motion is directly proportional to angular motion, with the radius ($r$) acting as the proportionality constant.
 
@@ -894,6 +848,7 @@ print(f"Energy given out:     {dK/1e3:.4f} kJ")
 ```
 :::
 
+````{=html}
 <!-- ::: {#exm-4-11}
 The torque required to turn a flywheel and shaft against friction at the bearings is 34 N m. The mass of the wheel and shaft is 907 kg and the radius of gyration is 381 mm. Assuming frictional resistance to be constant at all speeds, find the number of revolutions the system will turn whilst coming to rest from a speed of 450 rev/min when the driving power is cut out, and also the time taken in coming to rest.
 
@@ -976,6 +931,7 @@ print("Angular acceleration of drum (rad/s^2): {:.4f}".format(alpha))
 print("Torque required at the drum (MN·m): {:.4f}".format(T_total/1e6))
 ```
 ::: -->
+````
 
 ::: {#exm-ex67-6-bird}
 A ship's anchor has a mass of 5 tonnes. Determine the work done in raising the anchor from a depth of 100 m. If the hauling gear is driven by a motor whose output is 80 kW and the efficiency of the haulage is 75%, determine how long the lifting operation takes.
