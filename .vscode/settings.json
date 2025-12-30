@@ -17,6 +17,7 @@
         "angularmomentum",
         "arctan",
         "Asaba",
+        "backmatter",
         "BCIT’s",
         "BPEP",
         "centi",
@@ -38,6 +39,7 @@
         "figsize",
         "firetube",
         "Frisell",
+        "frontmatter",
         "giga",
         "hajer",
         "hecto",
@@ -67,6 +69,7 @@
         "propto",
         "pyplot",
         "qmd",
+        "Remler",
         "revlmin",
         "Rightarrow",
         "Scholes",
@@ -98,6 +101,7 @@
         "waterwalls",
         "workcp",
         "xlabel",
-        "ylabel"
+        "ylabel",
+        "Zotero"
     ]
 }

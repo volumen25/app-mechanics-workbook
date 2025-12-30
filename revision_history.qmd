@@ -1,12 +1,13 @@
 # Revision History
 
-| Version | Date       | Description                         |
-|---------|------------|-------------------------------------|
-| 0.6     | 2025-12-27 | Added formatting support for Python files using the Black formatter. |
-| 0.5     | 2025-11-29 | First draft with all chapters       |
-| 0.4     | 2025-11-05 | Added Chapters 3 & 4                |
-| 0.3     | 2025-10-05 | Added Chapters 1 & 2                |
-| 0.2     | 2025-09-03 | Added formulae section              |
-| 0.1     | 2025-09-01 | Initial development                 |
+| Version | Date       | Description                                      |
+|---------|------------|--------------------------------------------------|
+| 0.7     | 2025-12-29 | Revised frontmatter and backmatter files         |
+| 0.6     | 2025-12-27 | Added Black formatter support for Python files   |
+| 0.5     | 2025-11-29 | Completed first draft of all chapters            |
+| 0.4     | 2025-11-05 | Added Chapters 3 and 4                           |
+| 0.3     | 2025-10-05 | Added Chapters 1 and 2                           |
+| 0.2     | 2025-09-03 | Added formulae section                           |
+| 0.1     | 2025-09-01 | Initial commit / project setup                   |
 
 : Changelog.

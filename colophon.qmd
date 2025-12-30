@@ -1,3 +1,17 @@
 # Colophon {.unnumbered}
 
-This book was typeset with [Quarto](https://quarto.org) v.{{< version >}} using [Pandoc](https://pandoc.org/) for document conversion.
+This book was typeset with [Quarto](https://quarto.org) v.{{< version >}} using the default fonts.
+
+**Technical Notes**
+
+-   Bash: Unix shell used for task automation
+-   Black: Python code formatter
+-   CotEditor: Lightweight text editor for quick edits
+-   macOS: Principal development operating system
+-   Pandoc: Document converter from Markdown to HTML and PDF
+-   Positron: Primary integrated development environment for the project
+-   Python: Primary language for computations
+-   Quarto: Open-source scientific and technical publishing system
+-   Ruff: Fast Python linter and code formatter
+-   uv: Modern Python package manager and resolver
+-   Zotero: Reference management system, integrated with Pandoc for citations
