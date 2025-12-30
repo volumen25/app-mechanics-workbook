@@ -1,22 +1,24 @@
 # Workflow
 
-git pull
-uv sync
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-quarto preview
+git pull uv sync source .venv/bin/activate \# or .venv\Scripts\activate on Windows quarto preview
 
 ## Notes
+
 79-character line width
+
 Descriptive variable names
+
 Insert useful comments
+
 Consistent sectioning and headers
+
 Black-formatted code
 
 ## Fluid Mech Notes
 
-https://kdusling.github.io/teaching/Applied-Fluids/
+<https://kdusling.github.io/teaching/Applied-Fluids/>
 
-https://control.com/textbook/continuous-fluid-flow-measurement/pressure-based-flowmeters/
+<https://control.com/textbook/continuous-fluid-flow-measurement/pressure-based-flowmeters/>
 
 ## QR Code generator
 

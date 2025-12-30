@@ -6,8 +6,6 @@ Hydrodynamics, a branch of fluid mechanics, studies the motion of liquids and th
 
 Volume rate of flow refers to the rate at which a fluid volume passes a given section in a flow stream. Volume rate of flow may also be referred to as capacity of flow, flow rate or discharge. It is generally given in units of volume per unit of time, cubic meters per second (m^3^/s) or liters per second (L/s).
 
-![Volume flow](images/volumeflow.png){width="10.4cm"}
-
 Consider an ideal fluid flow in a pipe of cross-section 'A' (m^2^). For an ideal fluid all the particles move to the right with a velocity of 'C' (m/s). As the fluid flow to the right with a velocity of C m/s, 'C' m of fluid pass section 1 every second. i.e. the volume of fluid passing section-1 every second is A x C.
 
 $$
@@ -23,8 +21,6 @@ Where:
 -   $C$: Mean (average) velocity of the fluid, $\mathrm{m/s}$
 
 Consider a real fluid flowing in the same pipe. Here particle velocity will be a variable across the flow stream.
-
-![Mean velocity](images/volumeflow1.png){width="11.2cm"}
 
 If the mean velocity cm of all the fluid particles could be found, then similar to the ideal fluid.
 
@@ -118,15 +114,12 @@ print(f"  Volumetric flow rate : "
       f"{volumetric_flow_rate_cubic_meters_per_second:.4f} m³/s")
 print(f"  Mass flow rate       : "
       f"{mass_flow_rate_tonnes_per_hour:.4f} tonnes/hour")
-
 ```
 :::
 
 ## Flow Through Valves
 
-Referring to the figure, the area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.
-
-![Flow through valves](images/flow_through_valves.png)
+The area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.
 
 The lift beyond which it would cause no restriction is when the circumferential area of the lift opening is equal to the cross-sectional area of the bore, thus,
 
@@ -186,9 +179,9 @@ print(f"At 45 mm lift: {Q2:.4f} m³/min")
 
 ## Discharge Through an Orifice
 
-When water discharges through an orifice in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.
+When water discharges through an orifice (@fig-OrificePlate) in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.
 
-![Orifice](images/OrificePlate.png){width="8.2cm"}
+![Orifice](images/OrificePlate.png){#fig-OrificePlate width="8cm"}
 
 This yields the theoretical velocity of the jet: $$
 C = \sqrt{2gh}
@@ -202,9 +195,9 @@ Due to viscous effects, the actual velocity is less than the theoretical value. 
 \dot{v}_{\text{velocity-corrected}} = C_v A \sqrt{2gh}
 $$
 
-Downstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta. The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.
+Downstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta (@fig-vena_contracta1). The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.
 
-![Vena contracta](images/vena_contracta.png)
+![Vena contracta](images/vena_contracta1.jpeg){#fig-vena_contracta1 width="8cm"}
 
 The coefficient of contraction, $C_A$, is the ratio of the jet area at the vena contracta to the orifice area: $$
 A_{\text{jet}} = C_A A
@@ -264,9 +257,9 @@ print(f"    Mass per hour: {mass_per_hour_tonne:.4f} tonnes/hour")
 
 ## Continuity Equation
 
-Continuous flow exists in a flow system when the mass flow rate is constant throughout the system. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.
+Continuous flow exists in a flow system when the mass flow rate is constant throughout the system as shown in @fig-continuity. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.
 
-![Continuity equation](images/continuity_equation.png){width="10.2cm"}
+![Continuity equation](images/continuity.svg){#fig-continuity width="9.3cm"}
 
 Since $\dot{m_1} = \dot{m_2}$, therefore
 
@@ -340,13 +333,13 @@ The total energy possessed by a flowing fluid consists of:
 
 Generally in fluid mechanics the change in internal energy is considered to be negligible. Heat energy transfers are usually not considered in fluid mechanics and the frictional heat developed by a flowing fluid is relatively small. Therefore, the internal energy term is omitted from the energy balance.
 
-Consider the flow system shown below. For this system, assume:
+Consider the flow system shown in @fig-continuity1. For this system, assume:
 
 -   an ideal fluid
 -   that there are no energy losses or additions and
 -   steady flow conditions exist.
 
-![Energy equation](images/energy_equation.png){width="9.3cm"}
+![Energy equation](images/continuity1.svg){#fig-continuity1 width="9.3cm"}
 
 From the Law of Conservation of Energy:
 
@@ -415,8 +408,6 @@ The total head (H) will be a constant throughout a flow system if:
 ::: {#exm-energyeq}
 Consider a simple flow system consisting of a varying cross-section pipe. Water flows through this system at a rate of 2000 L/min. As the pipe increases in elevation from 30 m to 36 m it decreases in diameter from 10 cm to 3.0 cm. If the pressure is 6.5 MPa at the 30 m elevation, what is the pressure at 36 m?
 
-![Example](images/energy_equation_exm.png){width="9.4cm"}
-
 ``` python
 import math
 
@@ -476,9 +467,9 @@ Where:
 
 ## Venturi Meter
 
-A venturi meter measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:
+A venturi meter (@fig-venturi) measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:
 
-![Venturi meter](images/venturi.png){width="9.6cm"}
+![Venturi meter](images/venturi.svg){#fig-venturi width="75%"}
 
 When the entrance and throat areas are known, and the pressure readings (or pressure difference) at these points are measured, Bernoulli's equation can be used to calculate the liquid velocity and flow rate. Typically, a venturi meter is installed horizontally in the pipeline, which simplifies calculations since there is no elevation difference between points (Z~1~ = Z~2~), thus eliminating the height terms.
 

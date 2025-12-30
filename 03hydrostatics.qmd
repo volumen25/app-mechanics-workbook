@@ -1,10 +1,14 @@
-# Hydrostatics {#hydrostatics}
+# Hydrostatics {#sec-hydrostatics}
 
 Hydrostatics is the branch of fluid mechanics that studies fluids at rest and the forces and pressures they exert on immersed or containing surfaces. Key principles include Pascal’s law (pressure applied to an enclosed fluid is transmitted undiminished in all directions), Archimedes’ principle (buoyant force on a submerged body equals the weight of displaced fluid), and the hydrostatic pressure distribution in a fluid column, expressed as $p = \rho g h$, where $p$ is gauge pressure, $\rho$ is fluid density, $g$ is gravitational acceleration, and $h$ is depth below the free surface.
 
 ## Pressure Head
 
 In fluid mechanics, pressure head is the height of a fluid column that corresponds to a specific pressure at a given point, assuming the fluid is static. It’s expressed as $h_p = \frac{p}{\rho g}$, where $p$ is the pressure above atmospheric, $\rho$ is the fluid density, and $g$ is the acceleration due to gravity. The unit is typically meters (or feet) of the fluid column. Pressure head represents the potential energy per unit weight due to pressure and is a component of the total hydraulic head, which is the sum of pressure head and elevation head.
+
+![Barometer](images/barometer.svg){#fig-barometer width="50%"}
+
+![U-tube manometer](images/Utube1.svg){#fig-manometer width="75%"}
 
 ## Load On Immersed Surfaces
 
@@ -234,7 +238,6 @@ print(f"Force from water side   : {F_water:8.0f} N  = {F_water/1000:6.1f} kN")
 print()
 print(f"NET THRUST              : {F_net_N:8.0f} N  = {F_net_kN:6.1f} kN")
 print("Direction               : Towards the oil side")
-
 ```
 :::
 
@@ -275,13 +278,14 @@ print(f"Pressure due to oil layer       : {pressure_oil_kPa:.4f} kPa")
 print(f"Pressure due to seawater layer  : {pressure_seawater_kPa:.4f} kPa")
 print(f"Total gauge pressure            : {gauge_pressure_kPa:.4f} kPa")
 print(f"Absolute pressure at the bottom : {absolute_pressure_kPa:.4f} kPa")
-
 ```
 :::
 
 ## Hydraulic Jacks
 
-Hydraulic jacks use Pascal’s law to lift heavy loads with minimal input force. Pascal’s law states that pressure applied to an enclosed fluid is transmitted equally in all directions. In a hydraulic jack, two pistons of different sizes are connected by a confined fluid. Applying an effort force to the smaller piston generates a pressure that is transmitted to the larger piston, producing an output force. Calculations involving hydraulic jacks, such as determining system pressure, required input force, or lifted load, rely on this principle under ideal conditions, neglecting friction and fluid compressibility.
+Hydraulic jacks use Pascal’s law to lift heavy loads with minimal input force. Pascal’s law states that pressure applied to an enclosed fluid is transmitted equally in all directions. In a hydraulic jack as shown in @fig-hyd_jack , two pistons of different sizes are connected by a confined fluid. Applying an effort force to the smaller piston generates a pressure that is transmitted to the larger piston, producing an output force. Calculations involving hydraulic jacks, such as determining system pressure, required input force, or lifted load, rely on this principle under ideal conditions, neglecting friction and fluid compressibility.
+
+![Hydraulic lift](images/hydraulic_lift.svg){#fig-hyd_jack width="75%"}
 
 ::: {#exm-hydraulic-jack-hajer-p2}
 A force of 150 N is transmitted from a piston of 25 mm² to one of 100 mm². Determine the system pressure and the load carried by the larger piston.
@@ -311,7 +315,6 @@ load_large = pressure * area_large  # N
 # -----------------------------
 print(f"System pressure: {pressure:.2f} Pa " f"(or {pressure / 1e6:.1f} MPa)")
 print(f"Load carried by larger piston: {load_large:.1f} N")
-
 ```
 :::
 
@@ -352,6 +355,5 @@ force_small = pressure * area_small  # N
 # -----------------------------
 print(f"System pressure: {pressure:.2f} Pa " f"(or {pressure / 1e6:.3f} MPa)")
 print(f"Ideal force on small plunger: {force_small:.1f} N")
-
 ```
 :::

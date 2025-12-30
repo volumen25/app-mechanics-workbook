@@ -1,4 +1,4 @@
-# Applied Mechanics Formulae
+# Applied Mechanics Formulae {#sec-formulae}
 
 ## Rules of Cosine and Sine
 

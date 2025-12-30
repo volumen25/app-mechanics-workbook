@@ -1,7 +1,5 @@
 # Acknowledgements {.unnumbered}
 
-I would like to thank the colleagues and friends who helped shape this project.  
+I would like to express my sincere thanks to my colleagues and friends for their helpful feedback and kind support during this project. In no particular order, I wish to thank Bill Frisell, Julian Lage, Hirofumi Asaba, and Kenny Vaughan. Any errors or omissions are entirely my own.
 
-Special thanks to their valuable feedback and support.  
-
-Any errors or omissions are my own.
+Last but not least, I am grateful to my wife for her patience and support as I spent our weekends and holidays working on this project.

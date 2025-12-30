@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-14cbc709409b9607cfe384ca3dce8273.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c213800f9ad2c394781badd4e3c4d3bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -498,12 +498,6 @@ window.Quarto = {
 <section id="volume-flow-rate" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="volume-flow-rate"><span class="header-section-number">4.1</span> Volume Flow Rate</h2>
 <p>Volume rate of flow refers to the rate at which a fluid volume passes a given section in a flow stream. Volume rate of flow may also be referred to as capacity of flow, flow rate or discharge. It is generally given in units of volume per unit of time, cubic meters per second (m<sup>3</sup>/s) or liters per second (L/s).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/volumeflow.png" class="img-fluid figure-img" style="width:10.4cm"></p>
-<figcaption>Volume flow</figcaption>
-</figure>
-</div>
 <p>Consider an ideal fluid flow in a pipe of cross-section ‘A’ (m<sup>2</sup>). For an ideal fluid all the particles move to the right with a velocity of ‘C’ (m/s). As the fluid flow to the right with a velocity of C m/s, ‘C’ m of fluid pass section 1 every second. i.e.&nbsp;the volume of fluid passing section-1 every second is A x C.</p>
 <p><span class="math display">\[
 \dot{v} = A \cdot C
@@ -515,12 +509,6 @@ window.Quarto = {
 <li><p><span class="math inline">\(C\)</span>: Mean (average) velocity of the fluid, <span class="math inline">\(\mathrm{m/s}\)</span></p></li>
 </ul>
 <p>Consider a real fluid flowing in the same pipe. Here particle velocity will be a variable across the flow stream.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/volumeflow1.png" class="img-fluid figure-img" style="width:11.2cm"></p>
-<figcaption>Mean velocity</figcaption>
-</figure>
-</div>
 <p>If the mean velocity cm of all the fluid particles could be found, then similar to the ideal fluid.</p>
 <p><span class="math display">\[
 Volume\ flow = area\ x\ mean\ velocity
@@ -604,13 +592,7 @@ Volume\ flow = area\ x\ mean\ velocity
 </section>
 <section id="flow-through-valves" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="flow-through-valves"><span class="header-section-number">4.3</span> Flow Through Valves</h2>
-<p>Referring to the figure, the area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/flow_through_valves.png" class="img-fluid figure-img"></p>
-<figcaption>Flow through valves</figcaption>
-</figure>
-</div>
+<p>The area of escape is the annular area of the circumferential opening between the valve and seat, which is the circumference multiplied by the lift.</p>
 <p>The lift beyond which it would cause no restriction is when the circumferential area of the lift opening is equal to the cross-sectional area of the bore, thus,</p>
 <p><span class="math display">\[
 \text{Circumference} \times \text{Lift} = \text{Cross-sectional area}.
@@ -661,11 +643,15 @@ L = \frac{d}{4}.
 </section>
 <section id="discharge-through-an-orifice" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="discharge-through-an-orifice"><span class="header-section-number">4.4</span> Discharge Through an Orifice</h2>
-<p>When water discharges through an orifice in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/OrificePlate.png" class="img-fluid figure-img" style="width:8.2cm"></p>
-<figcaption>Orifice</figcaption>
+<p>When water discharges through an orifice (<a href="#fig-OrificePlate" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>) in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.</p>
+<div id="fig-OrificePlate" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-OrificePlate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/OrificePlate.png" class="img-fluid figure-img" style="width:8cm">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-OrificePlate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Orifice
+</figcaption>
 </figure>
 </div>
 <p>This yields the theoretical velocity of the jet: <span class="math display">\[
@@ -677,11 +663,15 @@ C = \sqrt{2gh}
 <p>Due to viscous effects, the actual velocity is less than the theoretical value. The coefficient of velocity, <span class="math inline">\(C_v\)</span>, is defined as the ratio of actual velocity to theoretical velocity. Thus, the velocity-corrected flow rate is: <span class="math display">\[
 \dot{v}_{\text{velocity-corrected}} = C_v A \sqrt{2gh}
 \]</span></p>
-<p>Downstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta. The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/vena_contracta.png" class="img-fluid figure-img"></p>
-<figcaption>Vena contracta</figcaption>
+<p>Downstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta (<a href="#fig-vena_contracta1" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>). The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.</p>
+<div id="fig-vena_contracta1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vena_contracta1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/vena_contracta1.jpeg" class="img-fluid figure-img" style="width:8cm">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vena_contracta1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Vena contracta
+</figcaption>
 </figure>
 </div>
 <p>The coefficient of contraction, <span class="math inline">\(C_A\)</span>, is the ratio of the jet area at the vena contracta to the orifice area: <span class="math display">\[
@@ -735,11 +725,15 @@ C_d = C_A \cdot C_v
 </section>
 <section id="continuity-equation" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="continuity-equation"><span class="header-section-number">4.5</span> Continuity Equation</h2>
-<p>Continuous flow exists in a flow system when the mass flow rate is constant throughout the system. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/continuity_equation.png" class="img-fluid figure-img" style="width:10.2cm"></p>
-<figcaption>Continuity equation</figcaption>
+<p>Continuous flow exists in a flow system when the mass flow rate is constant throughout the system as shown in <a href="#fig-continuity" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.</p>
+<div id="fig-continuity" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continuity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/continuity.svg" class="img-fluid figure-img" style="width:9.3cm">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: Continuity equation
+</figcaption>
 </figure>
 </div>
 <p>Since <span class="math inline">\(\dot{m_1} = \dot{m_2}\)</span>, therefore</p>
@@ -802,16 +796,20 @@ A_1 \cdot C_1= A_2 \cdot C_2
 <li>pressure energy (flow energy).</li>
 </ul>
 <p>Generally in fluid mechanics the change in internal energy is considered to be negligible. Heat energy transfers are usually not considered in fluid mechanics and the frictional heat developed by a flowing fluid is relatively small. Therefore, the internal energy term is omitted from the energy balance.</p>
-<p>Consider the flow system shown below. For this system, assume:</p>
+<p>Consider the flow system shown in <a href="#fig-continuity1" class="quarto-xref">Figure&nbsp;<span>4.4</span></a>. For this system, assume:</p>
 <ul>
 <li>an ideal fluid</li>
 <li>that there are no energy losses or additions and</li>
 <li>steady flow conditions exist.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/energy_equation.png" class="img-fluid figure-img" style="width:9.3cm"></p>
-<figcaption>Energy equation</figcaption>
+<div id="fig-continuity1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continuity1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/continuity1.svg" class="img-fluid figure-img" style="width:9.3cm">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuity1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Energy equation
+</figcaption>
 </figure>
 </div>
 <p>From the Law of Conservation of Energy:</p>
@@ -859,12 +857,6 @@ H=Z+\frac{C^2}{2g}+\frac{P}{\gamma}
 </ol>
 <div id="exm-energyeq" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.5</strong></span> Consider a simple flow system consisting of a varying cross-section pipe. Water flows through this system at a rate of 2000 L/min. As the pipe increases in elevation from 30 m to 36 m it decreases in diameter from 10 cm to 3.0 cm. If the pressure is 6.5 MPa at the 30 m elevation, what is the pressure at 36 m?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/energy_equation_exm.png" class="img-fluid figure-img" style="width:9.4cm"></p>
-<figcaption>Example</figcaption>
-</figure>
-</div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Given</span></span>
@@ -917,11 +909,15 @@ P_1 + \frac{1}{2} \rho C_1^2 + \rho g h_1 = P_2 + \frac{1}{2} \rho C_2^2 + \rho 
 </section>
 <section id="venturi-meter" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="venturi-meter"><span class="header-section-number">4.8</span> Venturi Meter</h2>
-<p>A venturi meter measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/venturi.png" class="img-fluid figure-img" style="width:9.6cm"></p>
-<figcaption>Venturi meter</figcaption>
+<p>A venturi meter (<a href="#fig-venturi" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>) measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:</p>
+<div id="fig-venturi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-venturi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/venturi.svg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venturi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: Venturi meter
+</figcaption>
 </figure>
 </div>
 <p>When the entrance and throat areas are known, and the pressure readings (or pressure difference) at these points are measured, Bernoulli’s equation can be used to calculate the liquid velocity and flow rate. Typically, a venturi meter is installed horizontally in the pipeline, which simplifies calculations since there is no elevation difference between points (Z<sub>1</sub> = Z<sub>2</sub>), thus eliminating the height terms.</p>
