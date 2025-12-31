@@ -7,7 +7,7 @@
 | 0.5     | 2025-11-29 | Completed first draft of all chapters            |
 | 0.4     | 2025-11-05 | Added Chapters 3 and 4                           |
 | 0.3     | 2025-10-05 | Added Chapters 1 and 2                           |
-| 0.2     | 2025-09-03 | Added formulae section                           |
-| 0.1     | 2025-09-01 | Initial commit / project setup                   |
+| 0.2     | 2025-10-03 | Added formulae section                           |
+| 0.1     | 2025-10-01 | Initial commit / project setup                   |
 
 : Changelog.
