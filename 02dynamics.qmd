@@ -1,331 +1,17 @@
 # Dynamics {#dynamics}
 
-Mechanics is the branch of physics concerned with the motion of bodies and the forces that influence it. This chapter begins with kinematics, the study of motion without reference to its causes, where we describe position, velocity, and acceleration in one and two dimensions. Building on this foundation, we then explore dynamics, examining situations where forces produce acceleration, and present methods for analyzing the resulting motion, including the application of Newton’s laws, energy principles, and momentum conservation.
-
-## Linear Motion Definitions
-
--   $\textbf{Speed} (v)$: The scalar measure of the rate of change of distance. Mathematically, $$
-      v = \frac{d}{t}
-      $$ where (d) is distance and (t) is time.
-
--   $\textbf{Velocity} (\vec{v})$: The vector measure of the rate of change of displacement. It is given by: $$
-      \vec{v} = \frac{\Delta \vec{x}}{\Delta t}
-      $$ where $\Delta \vec{x}$ is the displacement vector and $\Delta t$ is the time interval.
-
--   $\textbf{Acceleration} (\vec{a})$: The rate of change of velocity with respect to time. It is defined as: $$
-      \vec{a} = \frac{\Delta \vec{v}}{\Delta t}
-      $$
-
-::: {#exm-ex2-2}
-A ship's engines are stopped when traveling at a speed of 18 knots, and the ship comes to rest after 20 min. Assuming uniform deceleration, find the deceleration (m/s²) and the distance traveled in nautical miles in that time.
-
-``` python
-import math
-
-# Given
-
-v_knots = 18           # initial speed in knots
-t_minutes = 20         # time to stop in minutes
-kn_to_ms = 0.5144      # conversion factor (m/s per knot)
-nmi_in_m = 1852        # meters in a nautical mile
-
-# Convert units
-
-vi = v_knots * kn_to_ms      # initial speed in m/s
-vf = 0                       # final speed
-t = t_minutes * 60           # seconds
-
-# Deceleration (positive magnitude)
-
-deceleration = (vi - vf) / t     # m/s^2
-
-# Average velocity for uniform deceleration
-
-v_avg = (vi + vf) / 2            # m/s
-
-# Distance traveled
-
-s = v_avg * t                    # meters
-s_nmi = s / nmi_in_m             # nautical miles
-
-print(f"Deceleration: {deceleration:.6f} m/s^2")
-print(f"Distance traveled: {s_nmi:.3f} nautical miles")
-```
-:::
-
-## Equations of Motion (Constant Acceleration)
-
-$$
-\vec{v} = \vec{u} + \vec{a}t
-$$
-
-$$
-\vec{s} = \frac{\vec{u}+\vec{v}}{2}t
-$$
-
-$$
-\vec{s} = \vec{u}t + \frac{1}{2}\vec{a}t^2
-$$
-
-$$
-\vec{v}^2 = \vec{u}^2 + 2\vec{a} \cdot \vec{s}
-$$
-
-where:
-
--   $\vec{u}$: Initial velocity
--   $\vec{v}$: Final velocity
--   $\vec{s}$: Displacement
--   $\vec{a}$: Acceleration
--   $t$: Time
-
-::: {#exm-ex2-6}
-A ship’s propellers are stopped when traveling at 25 knots. From that point, it travels 4 kilometers before coming to a complete stop. Calculate the time it takes to stop in minutes and the average deceleration in m/s².
-
-``` python
-# Given
-
-u_knots = 25          # initial speed in knots
-v_knots = 0           # final speed in knots
-s_m = 4000            # stopping distance in meters
-kn_to_ms = 0.5144     # conversion factor knots to m/s
-
-# Convert to m/s
-
-u = u_knots * kn_to_ms
-v = v_knots * kn_to_ms
-
-# Average deceleration (from s = 1/2*(u+v)*t)
-
-t = (2 * s_m) / (u + v)
-
-# Deceleration using v = u - a*t
-
-a = (u - v) / t        
-
-# Convert time to minutes
-
-t_minutes = t / 60
-
-print(f"Average deceleration: {a:.5f} m/s²")
-print(f"Time to stop: {t_minutes:.2f} minutes")
-```
-:::
-
-::: {#exm-river}
-A boat is rowed at 6 km/h perpendicular to a river flowing at 4 km/h. The river is 50 meters wide. How far downstream will the boat reach the opposite bank? What is the boat’s actual velocity (magnitude and direction)?
-
-``` python
-import math
-
-# Given
-boat_speed_kmh = 6      # km/h (perpendicular to river)
-current_speed_kmh = 4   # km/h (downstream)
-width = 50              # meters (river width)
-
-# Convert speeds to m/s
-
-boat_speed = boat_speed_kmh * 1000 / 3600
-current_speed = current_speed_kmh * 1000 / 3600
-
-# Time to cross
-
-t = width / boat_speed
-
-# Downstream drift
-
-drift = current_speed * t
-
-# Actual velocity (magnitude)
-
-v_actual = math.sqrt(boat_speed**2 + current_speed**2)
-
-# Convert to km/h
-
-v_actual_kmh = v_actual * 3.6
-
-# Direction (downstream from perpendicular)
-
-theta_deg = math.degrees(math.atan(current_speed / boat_speed))
-
-print(f"Time to cross: {t:.2f} s")
-print(f"Downstream drift: {drift:.2f} m")
-print(f"Actual speed: {v_actual:.2f} m/s ({v_actual_kmh:.2f} km/h)")
-print(f"Direction: {theta_deg:.2f} degrees downstream")
-```
-:::
-
-::: {#exm-ships}
-Two ships are moving toward each other in still water. Ship 1 is 310 meters long and traveling at 22 knots, while Ship 2 is 350 meters long and traveling at 19 knots. Calculate the time it takes for the ships to completely pass each other..
-
-``` python
-import math
-
-# Given
-
-length1 = 310   # meters (Ship 1)
-length2 = 350   # meters (Ship 2)
-speed1 = 22     # knots
-speed2 = 19     # knots
-
-# Total distance to be closed (sum of lengths)
-
-distance_m = length1 + length2  # meters
-
-# Convert meters to nautical miles
-
-distance_nm = distance_m / 1852
-
-# Relative (closing) speed in knots
-
-speed_rel = speed1 + speed2
-
-# Time in hours
-
-time_hours = distance_nm / speed_rel
-
-# Convert to seconds
-time_seconds = time_hours * 3600
-
-print(f"Time for the ships to pass each other: {time_seconds:.2f} seconds")
-```
-:::
-
-## Angular Motion Definitions
-
--   $\textbf{Angular Displacement} (\theta)$: The angle through which an object rotates, measured in radians.
-
-    ![](images/angulardisp.png){width="310"}
-
--   $\textbf{Angular Velocity} (\omega)$: The rate of change of angular displacement. Mathematically: $$
-        \omega = \frac{\Delta \theta}{\Delta t}
-        $$ $$
-    \omega (rad/s) =2\pi n \:where\:n=speed\:in\:rev/s
-    $$
-
--   $\textbf{Angular Acceleration} (\alpha)$: The rate of change of angular velocity with respect to time: $$
-         \alpha = \frac{\Delta \omega}{\Delta t}
-         $$
-
-## Equations of Angular Motion (Constant Angular Acceleration)
-
-$$
-\omega_2 = \omega_1 \mp \alpha t
-$$
-
-$$
-\theta = \frac{\omega_1+\omega_2}{2}t
-$$
-
-$$
-\theta = \omega_1 t \mp \frac{1}{2}\alpha t^2 
-$$
-
-$$
-\omega_2^2 = \omega_1^2 \mp 2\alpha \theta
-$$
-
-where:
-
--   $\omega_1$: Initial angular velocity (rad/s)
-
--   $\omega_2$: Final angular velocity (rad/s)
-
--   $\theta$ Angular displacement (rad)
-
--   $\alpha$: Angular acceleration (rad/s^2^)
-
--   $t$: Time (s)
-
-::: {#exm-ex2-10}
-A shaft is rotating at 40 revolutions per minute (rev/min). It is uniformly decelerated at a rate of 0.017 rad/s² for 15 seconds. Calculate: 1. The angular velocity of the shaft at the end of 15 seconds (in rad/s and rev/min). 2. The total number of revolutions completed by the shaft during these 15 seconds.
-
-``` python
-import math
-
-# Given
-
-omega1_rpm = 40 # initial angular speed in rev/min
-alpha = -0.017  # angular acceleration (rad/s^2), (-) for deceleration
-t = 15          # time in seconds
-
-# Convert initial speed to rad/s
-
-omega1 = omega1_rpm * 2 * math.pi / 60  
-
-# Angular velocity after time t
-
-omega2 = omega1 + alpha * t              
-
-# Angular displacement during time t
-
-theta = omega1 * t + 0.5 * alpha * t**2  
-
-# Convert angular displacement to revolutions
-
-revolutions = theta / (2 * math.pi)
-
-# Convert omega2 to rpm
-
-omega2_rpm = omega2 * 60 / (2 * math.pi)
-
-print(f"Final angular velocity: {omega2:.4f} rad/s")
-print(f"Final angular velocity: {omega2_rpm:.4f} rpm")
-print(f"Angular displacement: {revolutions:.4f} revolutions")
-```
-:::
-
-## Relation Between Linear and Angular Motion
-
-The relationship between linear and angular motion is described by the following equations:
-
-$s = r \theta$ (linear displacement $s$ and angular displacement $\theta$).
-
-$v = r \omega$ (linear velocity $v$ and angular velocity $\omega$).
-
-$a = r \alpha$ (linear acceleration $a$ and angular acceleration $\alpha$).
-
-### Variables
-
--   $v$: Linear velocity, the rate of change of linear displacement $(v = \frac{ds}{dt})$.
-
--   $a$: Linear acceleration, the rate of change of linear velocity $(a = \frac{dv}{dt})$.
-
--   $s$: Linear displacement, the distance moved along the circular path.
-
--   $r$: Radius of the circular path.
-
--   $\omega$: Angular velocity, the rate of change of angular displacement $(\omega = \frac{d\theta}{dt})$.
-
--   $\alpha$: Angular acceleration, the rate of change of angular velocity $(\alpha = \frac{d\omega}{dt})$.
-
--   $\theta$: Angular displacement, the angle swept by the radius in radians.
-
-### Summary
-
--   Linear motion is directly proportional to angular motion, with the radius ($r$) acting as the proportionality constant.
-
--   Units for the variables:
-
-    -   $v$: meters per second $(m/s)$,
-
-    -   $a$: meters per second squared $(m/s^2)$,
-
-    -   $s$: meters $(m)$,
-
-    -   $r$: meters $(m)$,
-
-    -   $\omega$: radians per second $(rad/s)$,
-
-    -   $\alpha$: radians per second squared $(rad/s^2)$,
-
-    -   $\theta$: radians ($rad$).
+Dynamics is the branch of mechanics that studies the motion of bodies under the action of forces. This chapter examines situations where forces produce acceleration, and it presents methods for analyzing the resulting motion, including the application of Newton’s laws, energy principles, and momentum conservation.
 
 ## Inertia
 
 Inertia is the property of a body that resists any change in its state of motion and is directly proportional to its mass. It can be understood as a form of “sluggishness” inherent to matter. For an object at rest, a net force is required to set it in motion; the greater the mass, the greater the force needed. Similarly, if an object is already moving, a net force is required to change its speed or direction, and the magnitude of this force is again proportional to the mass.
 
-The term “inertia” is also used in structural mechanics to describe the resistance of a beam’s cross-section to bending, quantified by the second moment of area (see lecture notes on Second Moments).
+::: callout-note
+The tendency of an object to resist any change in its motion. An object with greater mass has greater inertia (it is “harder to start or stop”).
+
+-   In **Naval Architecture**, the *moment of inertia* (units: m⁴) is a measure of resistance to bending (related to stiffness/deflection of beams and hull girders).
+-   In **angular motion and physics**, the *moment of inertia* (units: kg·m²) is a measure of resistance to angular acceleration (rotational inertia).
+:::
 
 ## Momentum
 
@@ -351,29 +37,6 @@ Momentum is the product of an object’s mass and its velocity and quantifies th
     \vec{F}_{\text{action}} = -\vec{F}_{\text{reaction}}
     $$
 
-::: {#exm-3-1}
-Find the accelerating force required to increase the velocity of a body which has a mass of 20 kg from 30 m/s to 70 m/s in 4 s.
-
-``` python
-# Given
-
-m = 20           # mass in kg
-u = 30           # initial velocity in m/s
-v = 70           # final velocity in m/s
-t = 4            # time in seconds
-
-# Calculate acceleration
-
-a = (v - u) / t
-
-# Calculate force
-
-F = m * a
-
-print(f"Acceleration: {a:.2f} m/s²")
-print(f"Accelerating force: {F:.2f} N")
-```
-:::
 
 ::: {#exm-3-2}
 A lift is supported by a steel wire rope, the total mass of the lift and contents is 750 kg. Find the tension in the wire rope, in newtons, when the lift is (i) moving at constant velocity, (ii) moving upwards and accelerating at 1.2 m/s^2^, (iii) moving upwards and retarding at 1.2 m/s^2^
@@ -424,28 +87,6 @@ The law of conservation of linear momentum states that, in a closed system with 
 
 In the absence of external forces, linear momentum is neither created nor destroyed; it is conserved. This is known as the law of conservation of linear momentum.
 
-::: {#exm-3-5}
-A hand hammer with a head mass of 0.8 kg strikes a chisel at 9 m/s and comes to rest in 1/250 seconds. Calculate the average force exerted during the blow.
-
-``` python
-# Given
-
-m = 0.8               # kg
-u = 9                 # m/s (initial velocity)
-v = 0                 # m/s (final velocity)
-t = 1/250             # s (time to come to rest)
-
-# Change in momentum
-
-delta_p = m * (v - u)
-
-# Average force
-
-F_avg = delta_p / t
-
-print(f"Average force during the blow: {F_avg:.4f} N")
-```
-:::
 
 ::: {#exm-3-6}
 A jet of fresh water, 20 mm in diameter, emerges horizontally from a nozzle at a speed of 21 m/s and strikes a stationary vertical plate normally. Assuming no splashback (i.e., the water comes to rest upon impact with no velocity component normal to the plate after striking), calculate: (a) the mass flow rate of water leaving the nozzle (in kg/s), and (b) the force exerted by the jet on the plate. The density of fresh water is 1000 kg/m³.
@@ -480,7 +121,6 @@ Angular momentum is the moment of linear momentum about a chosen point or axis. 
 
 More broadly, angular momentum measures the rotational motion of a system. For extended bodies, its evaluation depends on both the distance of mass elements from the axis (the first moment of position) and how the mass is distributed throughout the object—the moment of inertia, or second moment of mass.
 
-![Angular momentum](images/angularmomentum.png){width="4cm"}
 
 Given **linear velocity** $\vec{v}$ and **angular velocity** $\omega$:
 
@@ -543,9 +183,24 @@ In angular motion and physics, the moment of inertia (kg·m²) is a measure of r
 
 ## The Radius of Gyration
 
-The radius of gyration is a geometric property of a rigid body or mass distribution that describes how the mass is distributed relative to an axis of rotation. It represents the effective distance from the axis at which the entire mass could be concentrated while producing the same moment of inertia as the actual distributed mass.
+A geometric property of a rigid body that indicates how the mass is distributed relative to a specified axis of rotation. It is defined such that:
 
-In simpler terms, a smaller radius of gyration means the mass is closer to the axis, which is good for reducing inertia in rotating machinery. This is desirable in applications like engine crankshafts or turbine rotors where rapid changes in speed are required. A larger radius of gyration means the mass is farther from the axis, like a hollow cylinder has a larger k than a solid cylinder of the same mass and outer radius. This is beneficial when energy storage is needed (e.g., flywheels).
+$$I = m k^2$$
+
+where\
+- $I$ = moment of inertia (kg·m²)\
+- $m$ = total mass (kg)\
+- $k$ = radius of gyration (m)
+
+::: callout-note
+-   **Smaller** $k$ → mass is concentrated closer to the axis → **lower** rotational inertia\
+    → easier/faster to speed up or slow down rotation\
+    (e.g., engine crankshafts, turbine rotors, figure skater pulling arms in).
+
+-   **Larger** $k$ → mass is distributed farther from the axis → **higher** rotational inertia\
+    → better for storing rotational energy\
+    (e.g., flywheels; a hollow cylinder has a larger $k$ than a solid cylinder of the same mass and outer radius).
+:::
 
 ::: {#exm-3-9}
 A flywheel of mass 500 kg and radius of gyration 1.2 m is running at 300 rev/min. By means of a clutch, this flywheel is suddenly connected to another flywheel, mass 2000 kg and radius of gyration 0.6 m, initially at rest. Calculate their common speed of rotation after engagement.
@@ -582,8 +237,6 @@ print(f"Final angular velocity (rpm): {rpm_f:.4f}")
 :::
 
 ## Turning Moment
-
-![Turning moment](images/turningmoment.png){width="4cm" height="3.3cm"}
 
 We know the relation between linear acceleration $a$ and angular acceleration $\alpha$:
 
@@ -639,36 +292,6 @@ Where:
 -   $I$ is the moment of inertia in $kg·m²$.
 -   $\alpha$: Angular acceleration in $rad/s^2$.
 
-::: {#exm-3-10}
-The mass of a flywheel is 175 kg and its radius of gyration is 380 mm. Find the torque required to attain a speed of 500 rev/min from rest in 30 s.
-
-``` python
-import math
-
-# Given
-m = 175                 # mass in kg
-k = 0.38                # radius of gyration in m
-rpm_final = 500         # final speed
-t = 30                  # time in seconds
-
-# Moment of inertia
-I = m * k**2
-
-# Convert rpm → rad/s
-omega_final = (rpm_final * 2 * math.pi) / 60
-
-# Angular acceleration
-alpha = omega_final / t
-
-# Torque
-tau = I * alpha
-
-print(f"Moment of inertia I (kg·m^2): {I:.4f}")
-print(f"Final angular velocity ω (rad/s): {omega_final:.4f}")
-print(f"Angular acceleration α (rad/s^2): {alpha:.4f}")
-print(f"Required torque τ (N·m): {tau:.4f}")
-```
-:::
 
 ::: {#exm-3-11}
 The torque to overcome frictional and other resistances of a turbine is 317 N m and may be considered constant for all speeds. The mass of the rotating parts is 1.59 t and the radius of gyration is 0.686 m. If the gas is cut off when the turbine is running free of load at 1920 rev/min, find the time it will take to come to rest and the number of revolutions turned during that time.
@@ -703,11 +326,7 @@ print(f"revolutions:          {revs:.4f}")
 
 ## Power by Torque
 
-![A rotating mechanism.](images/powerbytorque.png){width="4cm"}
-
-Consider a force $F$ applied at a radius $r$ on a rotating mechanism, as shown above.
-
-The work done in one revolution is the product of the force and the circumference. Therefore:
+Consider a force $F$ applied at a radius $r$ on a rotating mechanism. The work done in one revolution is the product of the force and the circumference. Therefore:
 
 $$
 W = F \cdot 2 \pi r
@@ -737,65 +356,48 @@ Where:
 -   $\tau$ is the torque in newton-meters (Nm), and
 -   $\omega$ is the angular velocity in radians per second (rad/s).
 
-::: {#exm-4-4}
-The mean torque in a propeller shaft is 2.26 x 10^5^ Nm when running at 140 rpm. Find the power transmitted.
+::: {#exm-fe1-3}
+A vessel has a displacement of 1000 tonnes. It is being pulled up the horizontal dry dock by a steel cable, which is being wound onto a power-driven capstan. The capstan drum has a mass of 4.5 tonnes, an effective diameter of 3.1 m, and a radius of gyration of 1 m. The coefficient of friction between the vessel and the dock can be assumed constant at 0.6. The ship velocity increases uniformly from 0.1 m/s to 0.3 m/s in 30 seconds during the operation. Calculate:
+
+A. The angular acceleration of the capstan drum.\
+B. The torque required at the capstan drum.
 
 ``` python
-import math
 
 # Given
 
-T = 2.26e5      # Nm
-rpm = 140
+m_ship = 1000 * 1000           # tonnes to kg
+m_drum = 4.5 * 1000            # tonnes to kg
+diameter = 3.1                 # m
+r = diameter / 2               # effective radius
+k = 1.0                        # radius of gyration in m
+mu = 0.6                       # friction coefficient
+g = 9.81                       # m/s^2
 
-omega = rpm * 2 * math.pi / 60
-P = T * omega
+v_initial = 0.1                # m/s
+v_final = 0.3                  # m/s
+t = 30                         # s
 
-print(f"Angular speed (rad/s): {omega:.4f}")
-print(f"Power (W): {P:.4f}")
-print(f"Power (MW): {P/1e6:.4f}")
-```
-:::
+# Linear acceleration of the ship
+a = (v_final - v_initial) / t
 
-::: {#exm-4-6}
-One gear wheel with 100 teeth of 6 mm pitch running at 250 rev/min drives another which has 50 teeth. If the power transmitted is 0.5 kW, find the driving force on the teeth and the speed of the driven wheel.
+# Angular acceleration of the drum
+alpha = a / r
 
-``` python
-import math
+# Drum moment of inertia
+I = m_drum * k**2
 
-# Given
+# Forces and torques
+F_friction = mu * m_ship * g
+F_accel_ship = m_ship * a
+T_friction = F_friction * r
+T_accel_ship = F_accel_ship * r
+T_accel_drum = I * alpha
 
-N1 = 100          # teeth on driving wheel
-N2 = 50           # teeth on driven wheel
-pitch = 0.006     # circular pitch (m)
-n1 = 250          # driving rpm
-P = 0.5e3         # power in watts
+T_total = T_friction + T_accel_ship + T_accel_drum
 
-# Pitch diameter of driving wheel
-
-D1 = (N1 * pitch) / math.pi
-r1 = D1 / 2
-
-# Angular speed of driving wheel
-
-omega1 = n1 * 2 * math.pi / 60
-
-# Torque on driving wheel
-
-T = P / omega1
-
-# Tangential driving force
-
-F = T / r1
-
-# Driven wheel speed
-
-n2 = n1 * (N1 / N2)
-
-print(f"Pitch diameter D1 (m): {D1:.4f}")
-print(f"Torque T (N·m): {T:.4f}")
-print(f"Tangential force F (N): {F:.4f}")
-print(f"Driven wheel speed n2 (rpm): {n2:.4f}")
+print("Angular acceleration of drum (rad/s^2): {:.4f}".format(alpha))
+print("Torque required at the drum (MN·m): {:.4f}".format(T_total/1e6))
 ```
 :::
 
@@ -848,7 +450,6 @@ print(f"Energy given out:     {dK/1e3:.4f} kJ")
 ```
 :::
 
-````{=html}
 <!-- ::: {#exm-4-11}
 The torque required to turn a flywheel and shaft against friction at the bearings is 34 N m. The mass of the wheel and shaft is 907 kg and the radius of gyration is 381 mm. Assuming frictional resistance to be constant at all speeds, find the number of revolutions the system will turn whilst coming to rest from a speed of 450 rev/min when the driving power is cut out, and also the time taken in coming to rest.
 
@@ -886,155 +487,4 @@ print(f"Time to stop: {t:.4f} s ({t/60:.4f} min)")
 print(f"Number of revolutions: {revs:.4f} rev")
 ```
 :::
-
-::: {#exm-fe1-3}
-A vessel has a displacement of 1000 tonnes. It is being pulled up the horizontal dry dock by a steel cable, which is being wound onto a power-driven capstan. The capstan drum has a mass of 4.5 tonnes, an effective diameter of 3.1 m, and a radius of gyration of 1 m. The coefficient of friction between the vessel and the dock can be assumed constant at 0.6. The ship velocity increases uniformly from 0.1 m/s to 0.3 m/s in 30 seconds during the operation. Calculate:
-
-A. The angular acceleration of the capstan drum.\
-B. The torque required at the capstan drum.
-
-``` python
-
-# Given
-
-m_ship = 1000 * 1000           # tonnes to kg
-m_drum = 4.5 * 1000            # tonnes to kg
-diameter = 3.1                 # m
-r = diameter / 2               # effective radius
-k = 1.0                        # radius of gyration in m
-mu = 0.6                       # friction coefficient
-g = 9.81                       # m/s^2
-
-v_initial = 0.1                # m/s
-v_final = 0.3                  # m/s
-t = 30                         # s
-
-# Linear acceleration of the ship
-a = (v_final - v_initial) / t
-
-# Angular acceleration of the drum
-alpha = a / r
-
-# Drum moment of inertia
-I = m_drum * k**2
-
-# Forces and torques
-F_friction = mu * m_ship * g
-F_accel_ship = m_ship * a
-T_friction = F_friction * r
-T_accel_ship = F_accel_ship * r
-T_accel_drum = I * alpha
-
-T_total = T_friction + T_accel_ship + T_accel_drum
-
-print("Angular acceleration of drum (rad/s^2): {:.4f}".format(alpha))
-print("Torque required at the drum (MN·m): {:.4f}".format(T_total/1e6))
-```
-::: -->
-````
-
-::: {#exm-ex67-6-bird}
-A ship's anchor has a mass of 5 tonnes. Determine the work done in raising the anchor from a depth of 100 m. If the hauling gear is driven by a motor whose output is 80 kW and the efficiency of the haulage is 75%, determine how long the lifting operation takes.
-
-``` python
-# Given
-
-m_anchor = 5 * 1000        # tonnes to kg
-depth = 100                # m
-g = 9.81                   # m/s^2
-
-motor_power = 80_000       # W
-efficiency = 0.75          # 75%
-
-# Work done lifting the anchor
-
-work_done = m_anchor * g * depth
-
-# Effective power available for lifting
-
-useful_power = motor_power * efficiency
-
-# Time required
-
-time_seconds = work_done / useful_power
-
-print("Work done in lifting the anchor (MJ): {:.4f}".format(work_done/1e6))
-print("Time required (s): {:.4f}".format(time_seconds))
-```
-:::
-
-## Summary of Key Terms
-
-### Inertia
-
-The tendency of an object to resist any change in its motion. An object with greater mass has greater inertia (it is “harder to start or stop”).
-
--   In **Naval Architecture**, the *moment of inertia* (units: m⁴) is a measure of resistance to bending (related to stiffness/deflection of beams and hull girders).
--   In **angular motion and physics**, the *moment of inertia* (units: kg·m²) is a measure of resistance to angular acceleration (rotational inertia).
-
-### Linear Momentum (p)
-
-Momentum is the “quantity of motion” an object has. It is calculated as:
-
-$$p = m v$$
-
-where\
-- $p$ = linear momentum (kg·m/s)\
-- $m$ = mass (kg)\
-- $v$ = velocity (m/s)
-
-Momentum is a **vector quantity** (it has both magnitude and direction).
-
-### Newton’s Laws of Motion
-
-#### First Law (Law of Inertia)
-
-An object will stay at rest or keep moving in a straight line at constant speed unless an unbalanced (net) external force acts on it.
-
-#### Second Law (Law of Acceleration)
-
-The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.
-
-$$F_{\text{net}} = m a \quad \text{or} \quad a = \frac{F_{\text{net}}}{m}$$
-
-#### Third Law (Action-Reaction)
-
-Whenever two objects interact, they exert equal and opposite forces on each other.\
-“For every action force, there is an equal and opposite reaction force.”
-
-### Conservation of Linear Momentum
-
-If no external forces act on a system (or if the external forces cancel out), the total momentum of the system stays constant.
-
-In collisions or explosions:
-
-**Total momentum before = Total momentum after**
-
-Example: When two objects collide and stick together or bounce apart, the momentum lost by one is exactly gained by the other, so the total remains the same.
-
-### Angular Momentum
-
-The rotational equivalent of linear momentum. It describes how much “rotational motion” a spinning or orbiting object has.
-
-Angular momentum depends on mass, speed, and distance from the axis of rotation.
-
-### Radius of Gyration (k)
-
-A geometric property of a rigid body that indicates how the mass is distributed relative to a specified axis of rotation. It is defined such that:
-
-$$I = m k^2$$
-
-where\
-- $I$ = moment of inertia (kg·m²)\
-- $m$ = total mass (kg)\
-- $k$ = radius of gyration (m)
-
-#### Practical Examples for Radius of Gyration
-
--   **Smaller** $k$ → mass is concentrated closer to the axis → **lower** rotational inertia\
-    → easier/faster to speed up or slow down rotation\
-    (e.g., engine crankshafts, turbine rotors, figure skater pulling arms in).
-
--   **Larger** $k$ → mass is distributed farther from the axis → **higher** rotational inertia\
-    → better for storing rotational energy\
-    (e.g., flywheels; a hollow cylinder has a larger $k$ than a solid cylinder of the same mass and outer radius).
+ -->
