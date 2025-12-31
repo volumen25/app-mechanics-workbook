@@ -1,6 +1,25 @@
 # Workflow
 
-git pull uv sync source .venv/bin/activate \# or .venv\Scripts\activate on Windows quarto preview
+``` txt
+git pull
+
+uv sync
+
+source .venv/bin/activate # on macOS
+
+.venv\Scripts\activate # on Windows
+
+quarto preview
+```
+
+``` txt
+uv init                 # create pyproject.toml
+uv add numpy            # add dependency → TOML + lock change
+uv remove numpy         # remove dependency → TOML + lock change
+uv lock                 # resolve versions → lock change only
+uv sync                 # enforce lock → install/remove packages
+uv update numpy         # update package → lock change
+```
 
 ## Notes
 
