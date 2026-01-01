@@ -26,7 +26,7 @@ book:
   #     Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
   chapters:    
     # - dedication.qmd         
-    # - attributions.qmd     
+    - attributions.qmd     
     - index.qmd            
     # - acknowledgements.qmd    
     - study_guide.qmd        
