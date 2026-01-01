@@ -42,26 +42,63 @@ Momentum is the product of an object’s mass and its velocity and quantifies th
 A lift is supported by a steel wire rope, the total mass of the lift and contents is 750 kg. Find the tension in the wire rope, in newtons, when the lift is (i) moving at constant velocity, (ii) moving upwards and accelerating at 1.2 m/s^2^, (iii) moving upwards and retarding at 1.2 m/s^2^
 
 ``` python
-# Given
+"""
+Elevator Cable Tension Calculator
 
-m = 750          # mass in kg
-g = 9.81         # gravitational acceleration in m/s^2
+Calculates the tension in an elevator cable under different motion
+conditions: constant velocity, upward acceleration, and upward
+deceleration. Uses Newton's second law (F = ma).
+"""
 
-# Accelerations for each case
+# ==============================================
+# INPUT PARAMETERS
+# ==============================================
 
-a_constant = 0
-a_up_accel = 1.2
-a_up_decel = -1.2
+elevator_mass_kg = 750  # Mass of elevator in kilograms
+gravitational_acceleration_m_per_s2 = 9.81  # Acceleration due to gravity
 
-# Tension calculations
+# Accelerations for different motion conditions
+acceleration_constant_velocity_m_per_s2 = 0  # No acceleration
+acceleration_upward_m_per_s2 = 1.2  # Upward acceleration
+acceleration_deceleration_m_per_s2 = -1.2  # Upward deceleration (negative)
 
-T_constant = m * (g + a_constant)
-T_up_accel = m * (g + a_up_accel)
-T_up_decel = m * (g + a_up_decel)
+# ==============================================
+# TENSION CALCULATIONS USING NEWTON'S SECOND LAW
+# ==============================================
 
-print(f"Tension at constant velocity: {T_constant:.4f} N")
-print(f"Tension during upward acceleration: {T_up_accel:.4f} N")
-print(f"Tension during upward deceleration: {T_up_decel:.4f} N")
+# For an elevator, the cable tension is given by:
+# T = m(g + a)
+# where:
+# - m is the mass
+# - g is gravitational acceleration
+# - a is the net acceleration (positive upward, negative downward)
+
+# Case 1: Constant velocity (a = 0)
+# Cable tension equals the weight of the elevator
+tension_constant_velocity_n = elevator_mass_kg * (
+    gravitational_acceleration_m_per_s2 + acceleration_constant_velocity_m_per_s2
+)
+
+# Case 2: Upward acceleration (a > 0)
+# Cable tension is greater than weight due to upward acceleration
+tension_upward_acceleration_n = elevator_mass_kg * (
+    gravitational_acceleration_m_per_s2 + acceleration_upward_m_per_s2
+)
+
+# Case 3: Upward deceleration (a < 0)
+# Cable tension is less than weight due to deceleration
+tension_upward_deceleration_n = elevator_mass_kg * (
+    gravitational_acceleration_m_per_s2 + acceleration_deceleration_m_per_s2
+)
+
+# ==============================================
+# OUTPUT RESULTS
+# ==============================================
+
+print(f"Tension at constant velocity: {tension_constant_velocity_n:.4f} N")
+print(f"Tension during upward acceleration: " f"{tension_upward_acceleration_n:.4f} N")
+print(f"Tension during upward deceleration: " f"{tension_upward_deceleration_n:.4f} N")
+
 ```
 :::
 
@@ -92,26 +129,55 @@ In the absence of external forces, linear momentum is neither created nor destro
 A jet of fresh water, 20 mm in diameter, emerges horizontally from a nozzle at a speed of 21 m/s and strikes a stationary vertical plate normally. Assuming no splashback (i.e., the water comes to rest upon impact with no velocity component normal to the plate after striking), calculate: (a) the mass flow rate of water leaving the nozzle (in kg/s), and (b) the force exerted by the jet on the plate. The density of fresh water is 1000 kg/m³.
 
 ``` python
+"""
+Jet Impact Force Calculator
+
+Calculates the force exerted by a water jet impacting a flat plate.
+Uses the momentum equation to determine the force based on mass flow
+rate and jet velocity.
+"""
+
 import math
 
-# Given
+# ===============================================
+# INPUT PARAMETERS
+# ===============================================
 
-d = 0.02          # diameter in meters
-v = 21            # jet speed in m/s
-rho = 1000        # density of water in kg/m^3
+jet_diameter_m = 0.02  # Diameter of water jet in meters
+jet_velocity_m_per_s = 21  # Velocity of water jet in m/s
+water_density_kg_per_m3 = 1000  # Density of water in kg/m³
 
-# Mass flow rate
+# ===============================================
+# CROSS-SECTIONAL AREA AND FLOW RATE CALCULATIONS
+# ===============================================
 
-A = math.pi * (d**2) / 4        # cross-sectional area
-v_dot = A * v                   # volumetric flow rate
-m_dot = rho * v_dot             # mass flow rate
+# Calculate cross-sectional area of the jet
+jet_cross_sectional_area_m2 = math.pi * (jet_diameter_m**2) / 4
 
-# Force on the plate
+# Calculate volumetric flow rate using Q = A × v
+volumetric_flow_rate_m3_per_s = jet_cross_sectional_area_m2 * jet_velocity_m_per_s
 
-F = m_dot * v                   # momentum change
+# Calculate mass flow rate using ṁ = ρ × Q
+mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
 
-print(f"Mass flow rate (kg/s): {m_dot:.4f}")
-print(f"Force on plate (N): {F:.4f}")
+# ===============================================
+# FORCE CALCULATION USING MOMENTUM EQUATION
+# ===============================================
+
+# Calculate force on the plate using the momentum equation:
+# F = ṁ × Δv
+# For a jet hitting a flat plate normally and deflecting at 90°,
+# the change in velocity in the normal direction equals the jet velocity:
+# F = ṁ × v
+force_on_plate_n = mass_flow_rate_kg_per_s * jet_velocity_m_per_s
+
+# ===============================================
+# OUTPUT RESULTS
+# ===============================================
+
+print(f"Mass flow rate (kg/s): {mass_flow_rate_kg_per_s:.4f}")
+print(f"Force on plate (N): {force_on_plate_n:.4f}")
+
 ```
 :::
 
@@ -206,33 +272,79 @@ where\
 A flywheel of mass 500 kg and radius of gyration 1.2 m is running at 300 rev/min. By means of a clutch, this flywheel is suddenly connected to another flywheel, mass 2000 kg and radius of gyration 0.6 m, initially at rest. Calculate their common speed of rotation after engagement.
 
 ``` python
+"""
+Angular Momentum Conservation Calculator
+
+Calculates the final angular velocity when two rotating bodies are coupled
+together. Uses conservation of angular momentum to determine the combined
+system's rotation speed.
+"""
+
 import math
 
-# Given data
+# =================================
+# INPUT PARAMETERS
+# =================================
 
-m1, k1 = 500, 1.2
-m2, k2 = 2000, 0.6
-rpm1 = 300
+# Body 1 (initially rotating)
+mass_body1_kg = 500  # Mass of body 1 in kilograms
+radius_of_gyration_body1_m = 1.2  # Radius of gyration in meters
+initial_angular_velocity_body1_rpm = 300  # Initial speed in rpm
 
-# Moments of inertia
+# Body 2 (initially stationary)
+mass_body2_kg = 2000  # Mass of body 2 in kilograms
+radius_of_gyration_body2_m = 0.6  # Radius of gyration in meters
 
-I1 = m1 * k1**2
-I2 = m2 * k2**2
+# =================================
+# MOMENT OF INERTIA CALCULATIONS
+# =================================
 
-# Convert rpm to rad/s
+# Calculate moment of inertia for body 1 using I = m × k²
+# where k is the radius of gyration
+moment_of_inertia_body1_kg_m2 = mass_body1_kg * radius_of_gyration_body1_m**2
 
-omega1 = (rpm1 / 60) * 2 * math.pi
+# Calculate moment of inertia for body 2
+moment_of_inertia_body2_kg_m2 = mass_body2_kg * radius_of_gyration_body2_m**2
 
-# Conservation of angular momentum
+# =================================
+# UNIT CONVERSION
+# =================================
 
-omega_f = (I1 * omega1) / (I1 + I2)
+# Convert initial angular velocity from rpm to rad/s
+# ω (rad/s) = (rpm / 60) × 2π
+initial_angular_velocity_body1_rad_per_s = (
+    (initial_angular_velocity_body1_rpm / 60) * 2 * math.pi
+)
 
-# Convert rad/s to rpm
+# =================================
+# ANGULAR MOMENTUM CONSERVATION
+# =================================
 
-rpm_f = (omega_f / (2 * math.pi)) * 60
+# Apply conservation of angular momentum:
+# L_initial = L_final
+# I₁ω₁ = (I₁ + I₂)ω_f
+# Solving for final angular velocity:
+# ω_f = (I₁ω₁) / (I₁ + I₂)
 
-print(f"Final angular velocity (rad/s): {omega_f:.4f}")
-print(f"Final angular velocity (rpm): {rpm_f:.4f}")
+final_angular_velocity_rad_per_s = (
+    moment_of_inertia_body1_kg_m2 * initial_angular_velocity_body1_rad_per_s
+) / (moment_of_inertia_body1_kg_m2 + moment_of_inertia_body2_kg_m2)
+
+# =================================
+# UNIT CONVERSION FOR OUTPUT
+# =================================
+
+# Convert final angular velocity from rad/s to rpm
+# rpm = (ω / 2π) × 60
+final_angular_velocity_rpm = (final_angular_velocity_rad_per_s / (2 * math.pi)) * 60
+
+# =================================
+# OUTPUT RESULTS
+# =================================
+
+print(f"Final angular velocity (rad/s): " f"{final_angular_velocity_rad_per_s:.4f}")
+print(f"Final angular velocity (rpm): {final_angular_velocity_rpm:.4f}")
+
 ```
 :::
 
@@ -297,30 +409,85 @@ Where:
 The torque to overcome frictional and other resistances of a turbine is 317 N m and may be considered constant for all speeds. The mass of the rotating parts is 1.59 t and the radius of gyration is 0.686 m. If the gas is cut off when the turbine is running free of load at 1920 rev/min, find the time it will take to come to rest and the number of revolutions turned during that time.
 
 ``` python
+"""
+Rotational Deceleration Calculator
+
+Calculates the time and number of revolutions required to bring a
+rotating body to rest under a constant braking torque. Uses rotational
+kinematics and dynamics equations.
+"""
+
 import math
 
-# Given
+# =================================
+# INPUT PARAMETERS
+# =================================
 
-tau = 317.0           # N·m
-m = 1.59 * 1000       # kg
-k = 0.686             # m
-rpm0 = 1920.0         # rev/min
+braking_torque_n_m = 317.0  # Braking torque in Newton-meters
+rotating_mass_kg = 1.59 * 1000  # Mass of rotating body in kilograms
+radius_of_gyration_m = 0.686  # Radius of gyration in meters
+initial_angular_velocity_rpm = 1920.0  # Initial rotational speed in rpm
 
+# =================================
+# MOMENT OF INERTIA CALCULATION
+# =================================
 
-I = m * k**2
-omega0 = (rpm0 / 60.0) * 2.0 * math.pi   # rad/s
-alpha = tau / I                          # rad/s^2
-t = omega0 / alpha                       # s
-theta = 0.5 * omega0 * t                 # rad
-revs = theta / (2.0 * math.pi)
+# Calculate moment of inertia using I = m × k²
+# where k is the radius of gyration
+moment_of_inertia_kg_m2 = rotating_mass_kg * radius_of_gyration_m**2
 
+# =================================
+# UNIT CONVERSION
+# =================================
 
-print(f"I (kg·m^2):           {I:.4f}")
-print(f"omega0 (rad/s):       {omega0:.4f}")
-print(f"alpha (rad/s^2):      {alpha:.6f}")
-print(f"time to stop (s):     {t:.4f}")
-print(f"time to stop (min):   {t/60:.4f}")
-print(f"revolutions:          {revs:.4f}")
+# Convert initial angular velocity from rpm to rad/s
+# ω (rad/s) = (rpm / 60) × 2π
+initial_angular_velocity_rad_per_s = (
+    (initial_angular_velocity_rpm / 60.0) * 2.0 * math.pi
+)
+
+# =================================
+# ANGULAR DECELERATION CALCULATION
+# =================================
+
+# Calculate angular deceleration using τ = I × α
+# Solving for α: α = τ / I
+# (negative because it's deceleration, but using magnitude here)
+angular_deceleration_rad_per_s2 = braking_torque_n_m / moment_of_inertia_kg_m2
+
+# =================================
+# TIME TO STOP CALCULATION
+# =================================
+
+# Calculate time to stop using ω_f = ω_0 - αt
+# With ω_f = 0 (comes to rest): t = ω_0 / α
+time_to_stop_s = initial_angular_velocity_rad_per_s / angular_deceleration_rad_per_s2
+
+# Convert time to minutes
+time_to_stop_min = time_to_stop_s / 60.0
+
+# =================================
+# ANGULAR DISPLACEMENT CALCULATION
+# =================================
+
+# Calculate total angular displacement using θ = ω_0t - ½αt²
+# Or equivalently: θ = ½ω_0t (when final velocity is zero)
+angular_displacement_rad = 0.5 * initial_angular_velocity_rad_per_s * time_to_stop_s
+
+# Convert angular displacement from radians to revolutions
+number_of_revolutions = angular_displacement_rad / (2.0 * math.pi)
+
+# =================================
+# OUTPUT RESULTS
+# =================================
+
+print(f"I (kg·m²):           {moment_of_inertia_kg_m2:.4f}")
+print(f"omega0 (rad/s):       {initial_angular_velocity_rad_per_s:.4f}")
+print(f"alpha (rad/s²):      {angular_deceleration_rad_per_s2:.6f}")
+print(f"time to stop (s):     {time_to_stop_s:.4f}")
+print(f"time to stop (min):   {time_to_stop_min:.4f}")
+print(f"revolutions:          {number_of_revolutions:.4f}")
+
 ```
 :::
 
@@ -363,41 +530,105 @@ A. The angular acceleration of the capstan drum.\
 B. The torque required at the capstan drum.
 
 ``` python
+"""
+Ship Mooring Drum Torque Calculator
 
-# Given
+Calculates the torque required at a mooring drum to accelerate a ship
+from initial to final velocity. Accounts for friction forces, ship
+acceleration, and drum rotational inertia.
+"""
 
-m_ship = 1000 * 1000           # tonnes to kg
-m_drum = 4.5 * 1000            # tonnes to kg
-diameter = 3.1                 # m
-r = diameter / 2               # effective radius
-k = 1.0                        # radius of gyration in m
-mu = 0.6                       # friction coefficient
-g = 9.81                       # m/s^2
+# ===============================
+# INPUT PARAMETERS
+# ===============================
 
-v_initial = 0.1                # m/s
-v_final = 0.3                  # m/s
-t = 30                         # s
+ship_mass_tonnes = 1000  # Mass of ship in tonnes
+drum_mass_tonnes = 4.5  # Mass of drum in tonnes
+drum_diameter_m = 3.1  # Diameter of drum in meters
+drum_radius_of_gyration_m = 1.0  # Radius of gyration in meters
+friction_coefficient = 0.6  # Coefficient of friction (dimensionless)
+gravitational_acceleration_m_per_s2 = 9.81  # Acceleration due to gravity
+ship_initial_velocity_m_per_s = 0.1  # Initial velocity in m/s
+ship_final_velocity_m_per_s = 0.3  # Final velocity in m/s
+acceleration_time_s = 30  # Time duration in seconds
 
-# Linear acceleration of the ship
-a = (v_final - v_initial) / t
+# ===============================
+# UNIT CONVERSIONS
+# ===============================
 
-# Angular acceleration of the drum
-alpha = a / r
+# Convert masses from tonnes to kilograms
+ship_mass_kg = ship_mass_tonnes * 1000
+drum_mass_kg = drum_mass_tonnes * 1000
 
-# Drum moment of inertia
-I = m_drum * k**2
+# Calculate effective radius of drum (rope wraps at outer surface)
+drum_effective_radius_m = drum_diameter_m / 2
 
-# Forces and torques
-F_friction = mu * m_ship * g
-F_accel_ship = m_ship * a
-T_friction = F_friction * r
-T_accel_ship = F_accel_ship * r
-T_accel_drum = I * alpha
+# ===============================
+# ACCELERATION CALCULATIONS
+# ===============================
 
-T_total = T_friction + T_accel_ship + T_accel_drum
+# Calculate linear acceleration of the ship using a = Δv / Δt
+ship_linear_acceleration_m_per_s2 = (
+    ship_final_velocity_m_per_s - ship_initial_velocity_m_per_s
+) / acceleration_time_s
 
-print("Angular acceleration of drum (rad/s^2): {:.4f}".format(alpha))
-print("Torque required at the drum (MN·m): {:.4f}".format(T_total/1e6))
+# Calculate angular acceleration of the drum using α = a / r
+drum_angular_acceleration_rad_per_s2 = (
+    ship_linear_acceleration_m_per_s2 / drum_effective_radius_m
+)
+
+# ===============================
+# MOMENT OF INERTIA CALCULATION
+# ===============================
+
+# Calculate drum moment of inertia using I = m × k²
+drum_moment_of_inertia_kg_m2 = drum_mass_kg * drum_radius_of_gyration_m**2
+
+# ===============================
+# FORCE CALCULATIONS
+# ===============================
+
+# Calculate friction force between ship and water: F_f = μ × m × g
+friction_force_n = (
+    friction_coefficient * ship_mass_kg * gravitational_acceleration_m_per_s2
+)
+
+# Calculate force required to accelerate the ship: F = m × a
+ship_acceleration_force_n = ship_mass_kg * ship_linear_acceleration_m_per_s2
+
+# ===============================
+# TORQUE CALCULATIONS
+# ===============================
+
+# Torque required to overcome friction: T_f = F_f × r
+torque_friction_n_m = friction_force_n * drum_effective_radius_m
+
+# Torque required to accelerate the ship linearly: T_s = F_s × r
+torque_ship_acceleration_n_m = ship_acceleration_force_n * drum_effective_radius_m
+
+# Torque required to accelerate the drum rotationally: T_d = I × α
+torque_drum_acceleration_n_m = (
+    drum_moment_of_inertia_kg_m2 * drum_angular_acceleration_rad_per_s2
+)
+
+# Total torque required at the drum
+total_torque_n_m = (
+    torque_friction_n_m + torque_ship_acceleration_n_m + torque_drum_acceleration_n_m
+)
+
+# Convert total torque to meganewton-meters for output
+total_torque_mn_m = total_torque_n_m / 1e6
+
+# ===============================
+# OUTPUT RESULTS
+# ===============================
+
+print(
+    f"Angular acceleration of drum (rad/s²): "
+    f"{drum_angular_acceleration_rad_per_s2:.4f}"
+)
+print(f"Torque required at the drum (MN·m): {total_torque_mn_m:.4f}")
+
 ```
 :::
 
@@ -430,61 +661,73 @@ $$
 The radius of gyration of the flywheel of a shearing machine is 0.46 m and its mass is 750 kg. Find the kinetic energy stored in it when running at 120 rev/min. If the speed falls to 100 rev/min during the cutting stroke, find the kinetic energy given out by the wheel.
 
 ``` python
+"""
+Rotational Kinetic Energy Calculator
+
+Calculates the rotational kinetic energy of a rotating body at different
+angular velocities and determines the energy released during deceleration.
+"""
+
 import math
 
-m = 750
-k = 0.46
-I = m * k**2
+# ===============================
+# INPUT PARAMETERS
+# ===============================
 
-omega1 = 120 * 2 * math.pi / 60
-omega2 = 100 * 2 * math.pi / 60
+rotating_mass_kg = 750  # Mass of rotating body in kilograms
+radius_of_gyration_m = 0.46  # Radius of gyration in meters
+initial_angular_velocity_rpm = 120  # Initial rotational speed in rpm
+final_angular_velocity_rpm = 100  # Final rotational speed in rpm
 
-K1 = 0.5 * I * omega1**2
-K2 = 0.5 * I * omega2**2
-dK = K1 - K2
+# ===============================
+# MOMENT OF INERTIA CALCULATION
+# ===============================
 
-print(f"I (kg·m^2):           {I:.4f}")
-print(f"KE at 120 rpm:        {K1/1e3:.4f} kJ")
-print(f"KE at 100 rpm:        {K2/1e3:.4f} kJ")
-print(f"Energy given out:     {dK/1e3:.4f} kJ")
+# Calculate moment of inertia using I = m × k²
+# where k is the radius of gyration
+moment_of_inertia_kg_m2 = rotating_mass_kg * radius_of_gyration_m**2
+
+# ===============================
+# UNIT CONVERSIONS
+# ===============================
+
+# Convert initial angular velocity from rpm to rad/s
+# ω (rad/s) = (rpm / 60) × 2π
+initial_angular_velocity_rad_per_s = initial_angular_velocity_rpm * 2 * math.pi / 60
+
+# Convert final angular velocity from rpm to rad/s
+final_angular_velocity_rad_per_s = final_angular_velocity_rpm * 2 * math.pi / 60
+
+# ===============================
+# KINETIC ENERGY CALCULATIONS
+# ===============================
+
+# Calculate initial rotational kinetic energy using KE = ½Iω²
+initial_kinetic_energy_j = (
+    0.5 * moment_of_inertia_kg_m2 * initial_angular_velocity_rad_per_s**2
+)
+
+# Calculate final rotational kinetic energy
+final_kinetic_energy_j = (
+    0.5 * moment_of_inertia_kg_m2 * final_angular_velocity_rad_per_s**2
+)
+
+# Calculate energy released (change in kinetic energy)
+energy_released_j = initial_kinetic_energy_j - final_kinetic_energy_j
+
+# Convert energies from Joules to kilojoules
+initial_kinetic_energy_kj = initial_kinetic_energy_j / 1e3
+final_kinetic_energy_kj = final_kinetic_energy_j / 1e3
+energy_released_kj = energy_released_j / 1e3
+
+# ===============================
+# OUTPUT RESULTS
+# ===============================
+
+print(f"I:                    {moment_of_inertia_kg_m2:.4f} kg·m²")
+print(f"KE at 120 rpm:        {initial_kinetic_energy_kj:.4f} kJ")
+print(f"KE at 100 rpm:        {final_kinetic_energy_kj:.4f} kJ")
+print(f"Energy given out:     {energy_released_kj:.4f} kJ")
+
 ```
 :::
-
-<!-- ::: {#exm-4-11}
-The torque required to turn a flywheel and shaft against friction at the bearings is 34 N m. The mass of the wheel and shaft is 907 kg and the radius of gyration is 381 mm. Assuming frictional resistance to be constant at all speeds, find the number of revolutions the system will turn whilst coming to rest from a speed of 450 rev/min when the driving power is cut out, and also the time taken in coming to rest.
-
-``` python
-import math
-
-# Given
-
-T = 34         # N·m (frictional torque)
-m = 907        # kg
-k = 0.381      # m
-rpm0 = 450     # rev/min
-
-# Moment of inertia
-
-I = m * k**2
-
-# Initial angular speed in rad/s
-
-omega0 = rpm0 * 2 * math.pi / 60
-
-# Angular deceleration
-
-alpha = T / I
-
-# Time to stop
-
-t = omega0 / alpha
-
-# Number of revolutions
-
-revs = (rpm0 / 2 ) * t
-
-print(f"Time to stop: {t:.4f} s ({t/60:.4f} min)")
-print(f"Number of revolutions: {revs:.4f} rev")
-```
-:::
- -->
