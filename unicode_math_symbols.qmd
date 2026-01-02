@@ -1,0 +1,82 @@
+# Unicode Math Symbols {#sec-unicode}
+
+## Examples
+
+``` text
+Area = 25 m²  
+Volume = 3.2 m³  
+Density of water = 1000 kg/m³
+Angle = 45°  
+Angular speed = 12 s⁻¹
+Law of sines:
+T1 / sin(θ1) = T2 / sin(θ2) = W / sin(θ3)
+Law of cosines:
+cos(θ_p) = (J² + T² - P²) / (2·J·T)
+```
+
+## Kinematics & Dynamics
+
+| Symbol  | Meaning                  |
+|---------|--------------------------|
+| x, y, z | Position coordinates     |
+| r       | Position vector / radius |
+| v       | Velocity                 |
+| a       | Acceleration             |
+| ω       | Angular velocity         |
+| α       | Angular acceleration     |
+| θ       | Angular position         |
+| t       | Time                     |
+
+## Forces, Moments & Energy
+
+| Symbol | Meaning          |
+|--------|------------------|
+| F      | Force            |
+| M      | Moment           |
+| T      | Torque           |
+| W      | Work             |
+| U      | Strain energy    |
+| P      | Power            |
+| L      | Angular momentum |
+| p      | Linear momentum  |
+
+## Fluids
+
+| Symbol | Meaning                    |
+|--------|----------------------------|
+| ρ      | Density                    |
+| μ      | Dynamic viscosity          |
+| ν      | Kinematic viscosity        |
+| p      | Pressure                   |
+| h      | Head                       |
+| Q      | Volumetric flow rate       |
+| A      | Cross-sectional area       |
+| v      | Flow velocity              |
+| g      | Gravitational acceleration |
+
+## Stress & Material Properties
+
+| Symbol | Meaning         |
+|--------|-----------------|
+| σ      | Normal stress   |
+| τ      | Shear stress    |
+| ε      | Normal strain   |
+| γ      | Shear strain    |
+| E      | Young’s modulus |
+| G      | Shear modulus   |
+| ν      | Poisson’s ratio |
+
+## Math Symbols
+
+| Symbol | Name             | Unicode | Typical use          |
+|--------|------------------|---------|----------------------|
+| √      | Square root      | U+221A  | Roots                |
+| ∑      | Summation        | U+2211  | Series               |
+| ∫      | Integral         | U+222B  | Calculus             |
+| ∞      | Infinity         | U+221E  | Limits               |
+| ≤      | Less or equal    | U+2264  | Inequalities         |
+| ≥      | Greater or equal | U+2265  | Inequalities         |
+| ≠      | Not equal        | U+2260  | Constraints          |
+| →      | Right arrow      | U+2192  | Mappings             |
+| ⟂      | Perpendicular    | U+27C2  | Geometry             |
+| ⌀      | Diameter         | U+2300  | Engineering drawings |
