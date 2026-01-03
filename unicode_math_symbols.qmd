@@ -1,82 +1,74 @@
 # Unicode Math Symbols {#sec-unicode}
 
-## Examples
+## Python Script Comment Snippets
 
 ``` text
 Area = 25 m²  
 Volume = 3.2 m³  
-Density of water = 1000 kg/m³
+Density of water = 1000 kg/m³  
 Angle = 45°  
-Angular speed = 12 s⁻¹
+Angular speed = 12 s⁻¹  
+
 Law of sines:
-T1 / sin(θ1) = T2 / sin(θ2) = W / sin(θ3)
+T₁ / sin(θ₁) = T₂ / sin(θ₂) = W / sin(θ₃)
+
 Law of cosines:
-cos(θ_p) = (J² + T² - P²) / (2·J·T)
+cos(θₚ) = (J² + T² − P²) / (2·J·T)
+
+Energy equation:
+P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂
 ```
-
-## Kinematics & Dynamics
-
-| Symbol  | Meaning                  |
-|---------|--------------------------|
-| x, y, z | Position coordinates     |
-| r       | Position vector / radius |
-| v       | Velocity                 |
-| a       | Acceleration             |
-| ω       | Angular velocity         |
-| α       | Angular acceleration     |
-| θ       | Angular position         |
-| t       | Time                     |
-
-## Forces, Moments & Energy
-
-| Symbol | Meaning          |
-|--------|------------------|
-| F      | Force            |
-| M      | Moment           |
-| T      | Torque           |
-| W      | Work             |
-| U      | Strain energy    |
-| P      | Power            |
-| L      | Angular momentum |
-| p      | Linear momentum  |
-
-## Fluids
-
-| Symbol | Meaning                    |
-|--------|----------------------------|
-| ρ      | Density                    |
-| μ      | Dynamic viscosity          |
-| ν      | Kinematic viscosity        |
-| p      | Pressure                   |
-| h      | Head                       |
-| Q      | Volumetric flow rate       |
-| A      | Cross-sectional area       |
-| v      | Flow velocity              |
-| g      | Gravitational acceleration |
-
-## Stress & Material Properties
-
-| Symbol | Meaning         |
-|--------|-----------------|
-| σ      | Normal stress   |
-| τ      | Shear stress    |
-| ε      | Normal strain   |
-| γ      | Shear strain    |
-| E      | Young’s modulus |
-| G      | Shear modulus   |
-| ν      | Poisson’s ratio |
 
 ## Math Symbols
 
-| Symbol | Name             | Unicode | Typical use          |
-|--------|------------------|---------|----------------------|
-| √      | Square root      | U+221A  | Roots                |
-| ∑      | Summation        | U+2211  | Series               |
-| ∫      | Integral         | U+222B  | Calculus             |
-| ∞      | Infinity         | U+221E  | Limits               |
-| ≤      | Less or equal    | U+2264  | Inequalities         |
-| ≥      | Greater or equal | U+2265  | Inequalities         |
-| ≠      | Not equal        | U+2260  | Constraints          |
-| →      | Right arrow      | U+2192  | Mappings             |
-| ⟂      | Perpendicular    | U+27C2  | Geometry             |
-| ⌀      | Diameter         | U+2300  | Engineering drawings |
+| Symbol | Name                  | SI Units |
+|--------|-----------------------|----------|
+| √      | Square root           | —        |
+| ∑      | Summation             | —        |
+| ∫      | Integral              | —        |
+| ∞      | Infinity              | —        |
+| ≤      | Less than or equal    | —        |
+| ≥      | Greater than or equal | —        |
+| ≠      | Not equal             | —        |
+| ⟂      | Perpendicular         | —        |
+| ⌀      | Diameter              | m        |
+
+: Math Symbols
+
+## Kinematics & Dynamics
+
+| Symbol | Meaning              | SI Units |
+|--------|----------------------|----------|
+| ω      | Angular velocity     | rad·s⁻¹  |
+| α      | Angular acceleration | rad·s⁻²  |
+| θ      | Angular position     | rad      |
+
+: Kinematics & Dynamics
+
+## Fluids
+
+| Symbol | Meaning              | SI Units |
+|--------|----------------------|----------|
+| ρ      | Density              | kg·m⁻³   |
+| μ      | Dynamic viscosity    | Pa·s     |
+| ν      | Kinematic viscosity  | m²·s⁻¹   |
+| p      | Pressure             | Pa       |
+| h      | Head                 | m        |
+| ṁ      | Mass flow rate       | kg·s⁻¹   |
+| v̇      | Volumetric flow rate | m³·s⁻¹   |
+
+: Fluids
+
+## Stress & Material Properties
+
+| Symbol | Meaning         | SI Units |
+|--------|-----------------|----------|
+| σ      | Normal stress   | Pa       |
+| τ      | Shear stress    | Pa       |
+| ε      | Normal strain   | —        |
+| γ      | Shear strain    | —        |
+| E      | Young’s modulus | Pa       |
+| G      | Shear modulus   | Pa       |
+| ν      | Poisson’s ratio | —        |
+
+: Stress & Material Properties

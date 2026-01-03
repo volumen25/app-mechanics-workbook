@@ -38,7 +38,7 @@ Output: `Rudolf Diesel was born in 1858.`
 The following table illustrates common f-string formatting options for the `print()` function:
 
 | Format | Code | Example | Output |
-|-----------------|-----------------|---------------------|-----------------|
+|------------------|------------------|-------------------|------------------|
 | **Round to 2 decimals** | `f"{x:.2f}"` | `print(f"{3.1415:.2f}")` | `3.14` |
 | **Round to whole number** | `f"{x:.0f}"` | `print(f"{3.9:.0f}")` | `4` |
 | **Thousands separator** | `f"{x:,.2f}"` | `print(f"{1234.567:,.2f}")` | `1,234.57` |
@@ -311,7 +311,7 @@ Logarithm of 100 with base 10 is: 2.0
 
 ## Python Style Guide
 
-Adhere to [PEP 8](%5BPEP%208%5D(https://peps.python.org/pep-0008/)) as the primary style guide. This document outlines the coding conventions for Python code in the core standard library of the main Python distribution.
+Adhere to [PEP 8](https://peps.python.org/pep-0008/) as the primary style guide. This document outlines the coding conventions for Python code in the core standard library of the main Python distribution.
 
 -   Employ descriptive names for variables and functions. Avoid abbreviations or single-letter names unless they are widely conventional (e.g., i as a loop index).
 
@@ -322,6 +322,8 @@ Adhere to [PEP 8](%5BPEP%208%5D(https://peps.python.org/pep-0008/)) as the prima
 -   Include meaningful inline comments where necessary to explain the purpose and intent of the code, particularly for complex logic.
 
 Many modern Python projects enhance PEP 8 compliance by employing [Black](https://black.readthedocs.io/en/stable/), the uncompromising code formatter. Black applies a deterministic style that is a strict subset of PEP 8, with a default line length of 88 characters for improved readability on contemporary displays. It can be configured to use 79 characters if required.
+
+> Code is read far more often than it is written. - Guido van Rossum, creator of the Python programming language.
 
 The following scripts illustrate the earlier examples in accordance with PEP 8 guidelines:
 
