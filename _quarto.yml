@@ -45,6 +45,7 @@ book:
   appendices:
     - formulae.qmd
     - greek_letters.qmd
+    # - script_template.qmd
     # - unicode_math_symbols.qmd
     # - revision_history.qmd  
 
