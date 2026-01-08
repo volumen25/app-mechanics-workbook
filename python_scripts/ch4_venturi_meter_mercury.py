@@ -1,3 +1,4 @@
+# !/usr/bin/env python3
 """
 Venturi Meter with Mercury Manometer Calculator
 
@@ -37,7 +38,9 @@ throat_area_m2 = math.pi * (throat_diameter_m**2) / 4
 # The pressure difference measured by mercury must be converted to
 # water equivalent by accounting for the density difference:
 # h_water = h_mercury × (SG_mercury - 1)
-equivalent_water_head_m = mercury_column_height_m * (mercury_specific_gravity - 1)
+equivalent_water_head_m = mercury_column_height_m * (
+    mercury_specific_gravity - 1
+)
 
 # ==================================
 # DIAMETER RATIO CALCULATION
@@ -60,14 +63,17 @@ theoretical_discharge_m3_per_s = throat_area_m2 * math.sqrt(
 
 # Calculate actual discharge accounting for losses:
 # Q_actual = Cd × Q_theoretical
-actual_discharge_m3_per_s = coefficient_of_discharge * theoretical_discharge_m3_per_s
+actual_discharge_m3_per_s = (
+    coefficient_of_discharge * theoretical_discharge_m3_per_s
+)
 
 # ==================================
 # OUTPUT RESULTS
 # ==================================
 
-print(f"Cross-sectional area at inlet (A1): {inlet_area_m2:.4f} m²")
-print(f"Cross-sectional area at throat (A2): {throat_area_m2:.4f} m²")
+print("=== Actual Discharge Through a Venturi Meter ===")
+print(f"Cross-sectional area at inlet (A1): {inlet_area_m2:.4f} m2")
+print(f"Cross-sectional area at throat (A2): {throat_area_m2:.4f} m2")
 print(f"Equivalent water head (h_eq): {equivalent_water_head_m:.4f} m")
-print(f"Theoretical discharge: {theoretical_discharge_m3_per_s:.4f} m³/s")
-print(f"Actual discharge: {actual_discharge_m3_per_s:.4f} m³/s")
+print(f"Theoretical discharge: {theoretical_discharge_m3_per_s:.4f} m3/s")
+print(f"Actual discharge: {actual_discharge_m3_per_s:.4f} m3/s")

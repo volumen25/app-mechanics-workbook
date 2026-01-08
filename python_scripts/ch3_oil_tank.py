@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Oil Tank Hydrostatic Load Calculator
 
@@ -64,15 +65,15 @@ force_bottom_plate_kn = force_bottom_plate_n / 1000
 
 print("=== Hydrostatic Loads on Oil Tank ===")
 print(
-    f"Tank dimensions       : {tank_length_m} m × {tank_width_m} m × "
-    f"{tank_height_m} m (L×W×H)"
+    f"Tank dimensions         : {tank_length_m} m x {tank_width_m} m x "
+    f"{tank_height_m} m"
 )
 print(f"Oil rise in sounding pipe : {sounding_pipe_height_m} m")
-print(f"Oil density           : {oil_density_kg_per_m3} kg/m³")
+print(f"Oil density           : {oil_density_kg_per_m3} kg/m3")
 print()
 print(
-    f"End plate (one wall)  : {end_plate_height_m} m high × "
-    f"{end_plate_width_m} m wide = {end_plate_area_m2} m²"
+    f"End plate (one wall)    : {end_plate_height_m} m high x "
+    f"{end_plate_width_m} m wide = {end_plate_area_m2} m2"
 )
 print(
     f"Horizontal load on one end plate : {force_end_plate_n:,.0f} N = "
@@ -80,10 +81,10 @@ print(
 )
 print()
 print(
-    f"Bottom plate          : {tank_length_m} m × {tank_width_m} m = "
-    f"{bottom_plate_area_m2} m²"
+    f"Bottom plate            : {tank_length_m} m x {tank_width_m} m = "
+    f"{bottom_plate_area_m2} m2"
 )
 print(
-    f"Vertical load on bottom          : {force_bottom_plate_n:,.0f} N = "
+    f"Vertical load on bottom : {force_bottom_plate_n:,.0f} N = "
     f"{force_bottom_plate_kn:.0f} kN"
 )

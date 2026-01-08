@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Hydrostatic Thrust Calculator for Gate
 
@@ -70,6 +71,7 @@ print(
     f"{force_high_side_n:.0f} N"
 )
 print(
-    f"Force from lower side  ({water_depth_low_side_m} m): " f"{force_low_side_n:.0f} N"
+    f"Force from lower side  ({water_depth_low_side_m} m): "
+    f"{force_low_side_n:.0f} N"
 )
 print(f"Net horizontal thrust on gate: {net_thrust_n:.0f} N")

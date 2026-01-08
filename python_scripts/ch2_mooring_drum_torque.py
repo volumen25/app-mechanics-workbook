@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Ship Mooring Drum Torque Calculator
 
@@ -72,7 +73,9 @@ ship_acceleration_force_n = ship_mass_kg * ship_linear_acceleration_m_per_s2
 torque_friction_n_m = friction_force_n * drum_effective_radius_m
 
 # Torque required to accelerate the ship linearly: T_s = F_s × r
-torque_ship_acceleration_n_m = ship_acceleration_force_n * drum_effective_radius_m
+torque_ship_acceleration_n_m = (
+    ship_acceleration_force_n * drum_effective_radius_m
+)
 
 # Torque required to accelerate the drum rotationally: T_d = I × α
 torque_drum_acceleration_n_m = (
@@ -81,7 +84,9 @@ torque_drum_acceleration_n_m = (
 
 # Total torque required at the drum
 total_torque_n_m = (
-    torque_friction_n_m + torque_ship_acceleration_n_m + torque_drum_acceleration_n_m
+    torque_friction_n_m
+    + torque_ship_acceleration_n_m
+    + torque_drum_acceleration_n_m
 )
 
 # Convert total torque to meganewton-meters for output
@@ -91,8 +96,9 @@ total_torque_mn_m = total_torque_n_m / 1e6
 # OUTPUT RESULTS
 # ===============================
 
+print("=== Mooring Drum Torque Calculation ===")
 print(
-    f"Angular acceleration of drum (rad/s²): "
-    f"{drum_angular_acceleration_rad_per_s2:.4f}"
+    f"Angular acceleration of drum: "
+    f"{drum_angular_acceleration_rad_per_s2:.4f} rad/s2"
 )
-print(f"Torque required at the drum (MN·m): {total_torque_mn_m:.4f}")
+print(f"Torque required at the drum: {total_torque_mn_m:.4f} MNm")

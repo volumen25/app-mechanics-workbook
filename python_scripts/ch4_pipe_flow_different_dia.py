@@ -1,3 +1,4 @@
+# !/usr/bin/env python3
 """
 Pipe Flow Velocity Calculator
 
@@ -48,22 +49,29 @@ small_pipe_area_m2 = math.pi * small_pipe_radius_m**2
 # ==================================
 
 # Calculate velocity in larger pipe using continuity equation: v = Q / A
-velocity_large_pipe_m_per_s = volumetric_flow_rate_m3_per_s / large_pipe_area_m2
+velocity_large_pipe_m_per_s = (
+    volumetric_flow_rate_m3_per_s / large_pipe_area_m2
+)
 
 # Calculate velocity in smaller pipe using continuity equation: v = Q / A
-velocity_small_pipe_m_per_s = volumetric_flow_rate_m3_per_s / small_pipe_area_m2
+velocity_small_pipe_m_per_s = (
+    volumetric_flow_rate_m3_per_s / small_pipe_area_m2
+)
 
 # ==================================
 # MASS FLOW RATE CALCULATION
 # ==================================
 
 # Calculate mass flow rate using ṁ = ρ · Q
-mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+mass_flow_rate_kg_per_s = (
+    water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+)
 
 # ==================================
 # OUTPUT RESULTS
 # ==================================
 
+print("=== Mass Flow and Velocity Calculations ===")
 print(f"Mass flow rate: {mass_flow_rate_kg_per_s:.4f} kg/s")
 print(
     f"Velocity in larger pipe ({large_pipe_diameter_mm} mm): "

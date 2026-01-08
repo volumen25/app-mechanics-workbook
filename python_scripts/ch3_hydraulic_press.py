@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Hydraulic Press Calculator
 
@@ -41,6 +42,7 @@ system_pressure_mpa = system_pressure_pa / 1e6
 # OUTPUT RESULTS
 # ===============================
 
+print("=== Hydraulic Press Calculation ===")
 print(
     f"System pressure: {system_pressure_pa:.2f} Pa "
     f"(or {system_pressure_mpa:.1f} MPa)"

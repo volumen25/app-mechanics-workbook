@@ -1,3 +1,4 @@
+# !/usr/bin/env python3
 """
 Venturi Meter Flow Calculator
 
@@ -51,14 +52,17 @@ throat_velocity_m_per_s = math.sqrt(
 volumetric_flow_rate_m3_per_s = throat_area_m2 * throat_velocity_m_per_s
 
 # Calculate mass flow rate using ṁ = ρ · Q
-mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+mass_flow_rate_kg_per_s = (
+    water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+)
 
 # ===============================================
 # OUTPUT RESULTS
 # ===============================================
 
-print(f"Entrance area: {inlet_area_m2:.6f} m²")
-print(f"Throat area: {throat_area_m2:.6f} m²")
+print("=== Flow Rate Through a Venturi Meter ===")
+print(f"Entrance area: {inlet_area_m2:.6f} m2")
+print(f"Throat area: {throat_area_m2:.6f} m2")
 print(f"Throat velocity: {throat_velocity_m_per_s:.4f} m/s")
-print(f"Volumetric flow rate: {volumetric_flow_rate_m3_per_s:.4f} m³/s")
+print(f"Volumetric flow rate: {volumetric_flow_rate_m3_per_s:.4f} m3/s")
 print(f"Mass flow rate: {mass_flow_rate_kg_per_s:.4f} kg/s")

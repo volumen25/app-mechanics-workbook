@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Sling Tension Calculator
 
@@ -8,16 +9,16 @@ an isosceles triangle.
 
 import math
 
-# =============================================================================
+# ================
 # INPUT PARAMETERS
-# =============================================================================
+# ================
 
 vertical_load_kn = 45  # Total vertical load in kilonewtons
 sling_angle_degrees = 50  # Angle each sling makes with horizontal
 
-# =============================================================================
+# ================
 # CALCULATIONS
-# =============================================================================
+# ================
 
 # Convert angle from degrees to radians for trigonometric functions
 sling_angle_radians = math.radians(sling_angle_degrees)
@@ -28,8 +29,9 @@ sling_angle_radians = math.radians(sling_angle_degrees)
 # where T is tension in each sling, θ is angle, W is vertical load
 tension_per_sling_kn = vertical_load_kn / (2 * math.sin(sling_angle_radians))
 
-# =============================================================================
+# ================
 # OUTPUT RESULTS
-# =============================================================================
+# ================
 
+print("=== Sling Tension Calculation ===")
 print(f"Tension in each sling: {tension_per_sling_kn:.4f} kN")

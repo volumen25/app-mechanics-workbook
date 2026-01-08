@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Rope Tension Calculator (Law of Sines)
 
@@ -7,20 +8,22 @@ The system forms a triangle where the angles and load are known.
 
 import math
 
-# =============================================================================
+# =================
 # INPUT PARAMETERS
-# =============================================================================
+# =================
 
 vertical_load_kn = 25  # Total vertical load in kilonewtons
 angle_opposite_rope2_deg = 32  # Angle opposite to tension T2 (degrees)
 angle_opposite_rope1_deg = 42  # Angle opposite to tension T1 (degrees)
 
 # Calculate the third angle of the triangle (angles sum to 180°)
-angle_opposite_load_deg = 180 - (angle_opposite_rope2_deg + angle_opposite_rope1_deg)
+angle_opposite_load_deg = 180 - (
+    angle_opposite_rope2_deg + angle_opposite_rope1_deg
+)
 
-# =============================================================================
+# =================
 # CALCULATIONS
-# =============================================================================
+# =================
 
 # Convert all angles from degrees to radians for trigonometric functions
 angle_opposite_rope2_rad = math.radians(angle_opposite_rope2_deg)
@@ -45,9 +48,10 @@ tension_rope2_kn = (
     / math.sin(angle_opposite_load_rad)
 )
 
-# =============================================================================
+# =================
 # OUTPUT RESULTS
-# =============================================================================
+# =================
 
+print("=== Rope Tension Calculation ===")
 print(f"Tension in rope 1: {tension_rope1_kn:.4f} kN")
 print(f"Tension in rope 2: {tension_rope2_kn:.4f} kN")

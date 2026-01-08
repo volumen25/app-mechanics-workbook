@@ -1,3 +1,4 @@
+# !/usr/bin/env python3
 """
 Please replace this text with a concise description of the script’s purpose.
 For example, you can type in:
@@ -37,7 +38,7 @@ pipe_cross_sectional_area_m2 = math.pi * pipe_radius_m**2
 # ==============================
 
 # Calculate volumetric flow rate
-# Restrict line length to a maximum of 79 characters 
+# Restrict line length to a maximum of 79 characters
 # to ensure compatibility with print media and prevent horizontal overflow.
 volumetric_flow_rate_m3_per_s = (
     pipe_cross_sectional_area_m2 * oil_velocity_m_per_s
@@ -56,8 +57,8 @@ mass_flow_rate_tonnes_per_hour = mass_flow_rate_kg_per_s * 3600 / 1000
 # OUTPUT RESULTS
 # ==============================
 
-print("---Pipe Flow Calculation Results---")
-print(f"Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m³/s")
+print("=== Pipe Flow Calculations ===")
+print(f"Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m3/s")
 print(
     f"Mass flow rate       : {mass_flow_rate_tonnes_per_hour:.4f} "
     f"tonnes/hour"

@@ -21,6 +21,14 @@ uv sync                 # enforce lock → install/remove packages
 uv update numpy         # update package → lock change
 ```
 
+``` txt
+# !/usr/bin/env python3
+```
+
+``` txt
+uv run black . --line-length 79
+```
+
 ## Notes
 
 79-character line width
@@ -41,13 +49,14 @@ Black-formatted code
 
 ## QR Code generator
 
-https://gratisqr.com/
+<https://gratisqr.com/>
 
 ### Callouts
 
 To cross-reference a callout, add an ID attribute that starts with the appropriate callout prefix (see Table 1). You can then reference the callout using the usual \@ syntax. For example, here we add the ID #tip-example to the callout, and then refer back to it:
 
 ::: {#tip-example .callout-tip}
+
 ## Cross-Referencing a Tip
 
 Add an ID starting with `#tip-` to reference a tip.
@@ -88,7 +97,7 @@ $$
 \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2}
 \frac{\partial^{2} \mathrm C}{\partial \mathrm S^2}
   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =
-  \mathrm r \mathrm C 
+  \mathrm r \mathrm C
 $$ {#eq-black-scholes}
 
 ## Theorems and Proofs

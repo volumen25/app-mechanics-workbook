@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Jet Impact Force Calculator
 
@@ -24,10 +25,14 @@ water_density_kg_per_m3 = 1000  # Density of water in kg/m³
 jet_cross_sectional_area_m2 = math.pi * (jet_diameter_m**2) / 4
 
 # Calculate volumetric flow rate using Q = A × v
-volumetric_flow_rate_m3_per_s = jet_cross_sectional_area_m2 * jet_velocity_m_per_s
+volumetric_flow_rate_m3_per_s = (
+    jet_cross_sectional_area_m2 * jet_velocity_m_per_s
+)
 
 # Calculate mass flow rate using ṁ = ρ × Q
-mass_flow_rate_kg_per_s = water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+mass_flow_rate_kg_per_s = (
+    water_density_kg_per_m3 * volumetric_flow_rate_m3_per_s
+)
 
 # ===============================================
 # FORCE CALCULATION USING MOMENTUM EQUATION
@@ -44,5 +49,6 @@ force_on_plate_n = mass_flow_rate_kg_per_s * jet_velocity_m_per_s
 # OUTPUT RESULTS
 # ===============================================
 
-print(f"Mass flow rate (kg/s): {mass_flow_rate_kg_per_s:.4f}")
-print(f"Force on plate (N): {force_on_plate_n:.4f}")
+print("=== Jet Impact Force ===")
+print(f"Mass flow rate: {mass_flow_rate_kg_per_s:.4f} kg/s")
+print(f"Force on plate: {force_on_plate_n:.4f} N")

@@ -1,3 +1,4 @@
+# !/usr/bin/env python3
 """
 Energy Equation Pressure Calculator
 
@@ -44,10 +45,14 @@ area_upper_section_m2 = math.pi * (diameter_upper_section_m / 2.0) ** 2
 # ===========================================
 
 # Calculate velocity at lower section using continuity equation: v = Q / A
-velocity_lower_section_m_per_s = volumetric_flow_rate_m3_per_s / area_lower_section_m2
+velocity_lower_section_m_per_s = (
+    volumetric_flow_rate_m3_per_s / area_lower_section_m2
+)
 
 # Calculate velocity at upper section using continuity equation: v = Q / A
-velocity_upper_section_m_per_s = volumetric_flow_rate_m3_per_s / area_upper_section_m2
+velocity_upper_section_m_per_s = (
+    volumetric_flow_rate_m3_per_s / area_upper_section_m2
+)
 
 # ===========================================
 # PRESSURE CALCULATION USING ENERGY EQUATION
@@ -75,9 +80,10 @@ pressure_upper_section_mpa = pressure_upper_section_pa / 1e6
 # OUTPUT RESULTS
 # ===========================================
 
-print(f"Flow rate: {volumetric_flow_rate_m3_per_s:.5f} m³/s")
-print(f"Area 1: {area_lower_section_m2:.6f} m²")
-print(f"Area 2: {area_upper_section_m2:.6f} m²")
+print("=== Energy Equation Calculations ===")
+print(f"Flow rate: {volumetric_flow_rate_m3_per_s:.5f} m3/s")
+print(f"Area 1: {area_lower_section_m2:.6f} m2")
+print(f"Area 2: {area_upper_section_m2:.6f} m2")
 print(f"Velocity 1: {velocity_lower_section_m_per_s:.4f} m/s")
 print(f"Velocity 2: {velocity_upper_section_m_per_s:.4f} m/s")
 print(

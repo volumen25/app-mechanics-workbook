@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Hydrostatic Load Calculator
 
@@ -49,7 +50,7 @@ hydrostatic_force_mn = hydrostatic_force_kn / 1000
 print("=== Hydrostatic Load on Bulkhead ===")
 print(f"Bulkhead width         : {bulkhead_width_m} m")
 print(f"Water depth            : {water_depth_m} m")
-print(f"Submerged area         : {submerged_area_m2:.1f} m²")
+print(f"Submerged area         : {submerged_area_m2:.1f} m2")
 print(f"Depth of centroid      : {centroid_depth_m} m")
 print(
     f"Total water load       : {hydrostatic_force_kn:,.0f} kN  "

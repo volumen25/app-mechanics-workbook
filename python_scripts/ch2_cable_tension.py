@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
 """
-Elevator Cable Tension Calculator
+Cable Tension Calculator
 
 Calculates the tension in an elevator cable under different motion
 conditions: constant velocity, upward acceleration, and upward
@@ -32,7 +33,8 @@ acceleration_deceleration_m_per_s2 = -1.2  # Upward deceleration (negative)
 # Case 1: Constant velocity (a = 0)
 # Cable tension equals the weight of the elevator
 tension_constant_velocity_n = elevator_mass_kg * (
-    gravitational_acceleration_m_per_s2 + acceleration_constant_velocity_m_per_s2
+    gravitational_acceleration_m_per_s2
+    + acceleration_constant_velocity_m_per_s2
 )
 
 # Case 2: Upward acceleration (a > 0)
@@ -51,6 +53,13 @@ tension_upward_deceleration_n = elevator_mass_kg * (
 # OUTPUT RESULTS
 # ==============================================
 
+print("=== Cable Tension Calculation ===")
 print(f"Tension at constant velocity: {tension_constant_velocity_n:.4f} N")
-print(f"Tension during upward acceleration: " f"{tension_upward_acceleration_n:.4f} N")
-print(f"Tension during upward deceleration: " f"{tension_upward_deceleration_n:.4f} N")
+print(
+    f"Tension during upward acceleration: "
+    f"{tension_upward_acceleration_n:.4f} N"
+)
+print(
+    f"Tension during upward deceleration: "
+    f"{tension_upward_deceleration_n:.4f} N"
+)
