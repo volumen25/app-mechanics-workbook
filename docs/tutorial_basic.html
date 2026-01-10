@@ -468,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <p>To follow this tutorial, the easiest way to get started is by using a web-based Python environment. This lets you write and run Python code right in your browser; no downloads or setup needed. I recommend <a href="https://python-fiddle.com/">python-fiddle.com</a>, an easy-to-use online editor that lets you experiment with Python instantly and solve your problem sets effortlessly.</p>
-<p>If you prefer working on your own computer, make sure you have <a href="https://www.python.org/downloads/">Python</a> (version 3.10 or later) installed. Python works on Windows, macOS, and Linux. You’ll also need a text editor or an Integrated Development Environment (IDE) to write your code. I recommend <a href="https://positron.posit.co/">Positron</a>, a beginner-friendly IDE with a built-in terminal, though other editors like VS Code or PyCharm are also good options.</p>
+<p>If you prefer working on your own computer, make sure you have <a href="https://www.python.org/downloads/">Python</a> (version 3.14 or later) installed. Python works on Windows, macOS, and Linux. You’ll also need a text editor or an Integrated Development Environment (IDE) to write your code. I recommend <a href="https://positron.posit.co/">Positron</a>, a beginner-friendly IDE with a built-in terminal, though other editors like VS Code or PyCharm are also good options.</p>
 </section>
 <section id="basic-syntax" class="level2">
 <h2 class="anchored" data-anchor-id="basic-syntax">Basic Syntax</h2>
@@ -740,6 +740,9 @@ Logarithm of 100 with base 10 is: 2.0</code></pre>
 </section>
 <section id="python-style-guide" class="level2">
 <h2 class="anchored" data-anchor-id="python-style-guide">Python Style Guide</h2>
+<blockquote class="blockquote">
+<p>Code is read far more often than it is written. — Guido van Rossum, creator of the Python programming language.</p>
+</blockquote>
 <p>Adhere to <a href="https://peps.python.org/pep-0008/">PEP 8</a> as the primary style guide. This document outlines the coding conventions for Python code in the core standard library of the main Python distribution.</p>
 <ul>
 <li><p>Employ descriptive names for variables and functions. Avoid abbreviations or single-letter names unless they are widely conventional (e.g., i as a loop index).</p></li>
@@ -748,9 +751,6 @@ Logarithm of 100 with base 10 is: 2.0</code></pre>
 <li><p>Include meaningful inline comments where necessary to explain the purpose and intent of the code, particularly for complex logic.</p></li>
 </ul>
 <p>Many modern Python projects enhance PEP 8 compliance by employing <a href="https://black.readthedocs.io/en/stable/">Black</a>, the uncompromising code formatter. Black applies a deterministic style that is a strict subset of PEP 8, with a default line length of 88 characters for improved readability on contemporary displays. It can be configured to use 79 characters if required.</p>
-<blockquote class="blockquote">
-<p>Code is read far more often than it is written. - Guido van Rossum, creator of the Python programming language.</p>
-</blockquote>
 <p>The following scripts illustrate the earlier examples in accordance with PEP 8 guidelines:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">Degrees-Radians Conversion</span></span>
