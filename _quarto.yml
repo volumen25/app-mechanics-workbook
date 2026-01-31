@@ -14,7 +14,7 @@ book:
   author: "Serhat Beyenir"
   date: "2026-02-01" #today or last-modified
   date-format: "D MMMM YYYY"
-  cover-image: cover_qr.png
+  # cover-image: cover_qr.png
   sidebar:
     align: left
     style: floating
@@ -25,10 +25,9 @@ book:
     right: |
       Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
   chapters:    
-    - dedication.qmd         
-    - attributions.qmd     
-    - index.qmd            
-    - acknowledgements.qmd    
+    - dedication.qmd                     
+    - acknowledgements.qmd   
+    - index.qmd  
     - study_guide.qmd        
     - tutorial_basic.qmd
 
@@ -40,12 +39,13 @@ book:
 
     # Back Matter
     - references.qmd
+    - attributions.qmd    
     - colophon.qmd
     - author.qmd
   appendices:
+    - script_template.qmd
     - formulae.qmd
     - greek_letters.qmd
-    - script_template.qmd
     # - unicode_math_symbols.qmd
     # - revision_history.qmd  
 
@@ -55,6 +55,7 @@ csl: apa.csl
 
 format:
   html:
+    cover-image: cover_qr.png
     toc: true
     collapse: true
     theme:
@@ -73,19 +74,15 @@ format:
     include-in-header:
       text: |
         \usepackage{makeidx}
+        \usepackage{graphicx}
         \makeindex
-    include-before-body:
-      text: |
-        \clearpage
-        \vfill
-        \begin{center}
-        {\small
-        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).\\[0.5em]
-        Full text available at \href{https://creativecommons.org/licenses/by-sa/4.0/}{https://creativecommons.org/licenses/by-sa/4.0/}.
-        }
-        \end{center}
-        \vfill
-        \clearpage
+        \usepackage{titling}
+        \pretitle{\begin{center}\Huge\bfseries}
+        \posttitle{\par\end{center}\vspace{0.5em}}
+        \preauthor{\begin{center}\large}
+        \postauthor{\end{center}}
+        \predate{\begin{center}\large}
+        \postdate{\par\end{center}\vfill\begin{center}\includegraphics[width=0.25\textwidth]{cover_qr.png}\\[1em]{\small This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).\\[0.5em]Full text available at \href{https://creativecommons.org/licenses/by-sa/4.0/}{https://creativecommons.org/licenses/by-sa/4.0/}.}\end{center}\vfill}
     include-after-body:
       text: |
         \clearpage

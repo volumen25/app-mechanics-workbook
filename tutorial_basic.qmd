@@ -137,7 +137,12 @@ To exit, type:
 exit()
 ```
 
-Alternatively, use: - **Ctrl+D** (macOS/Linux) - **Ctrl+Z** then Enter (Windows)
+Alternatively, use: 
+
+- **Ctrl+D** (macOS/Linux)\
+- **Ctrl+Z** (Windows)\
+
+then **Enter**. 
 
 ## Control Flow
 
