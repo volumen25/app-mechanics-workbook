@@ -464,7 +464,7 @@
     "href": "colophon.html",
     "title": "Colophon",
     "section": "",
-    "text": "This book was typeset with Quarto 1.8.26 using the default fonts.\nTechnical Notes\nThe following tools and technologies were used in the preparation of this book:\n\nPython: Primary language for computations\nuv: Modern Python package manager and resolver\nRuff: Fast Python linter and code formatter\nBlack: Python code formatter\nCotEditor: Lightweight text editor for quick edits\nPositron: Primary integrated development environment for the project\nQuarto: Open-source scientific and technical publishing system\nPandoc: Document converter from Markdown to HTML and PDF\nTeX Live: Full LaTeX distribution used for PDF rendering via Quarto\nZotero: Reference management system, integrated with Pandoc for citations\nmacOS: Principal development operating system",
+    "text": "This book was typeset with Quarto 1.8.27 using the default fonts.\nTechnical Notes\nThe following tools and technologies were used in the preparation of this book:\n\nPython: Primary language for computations\nuv: Modern Python package manager and resolver\nRuff: Fast Python linter and code formatter\nBlack: Python code formatter\nBash: Unix shell used for task automation\nCotEditor: Lightweight text editor for quick edits\nPositron: Primary integrated development environment for the project\nQuarto: Open-source scientific and technical publishing system\nPandoc: Document converter from Markdown to HTML and PDF\nTeX Live: Full LaTeX distribution used for PDF rendering via Quarto\nZotero: Reference management system, integrated with Pandoc for citations\nmacOS: Principal development operating system",
     "crumbs": [
       "Colophon"
     ]

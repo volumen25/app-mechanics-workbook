@@ -10,6 +10,7 @@ The following tools and technologies were used in the preparation of this book:
 -   uv: Modern Python package manager and resolver
 -   Ruff: Fast Python linter and code formatter
 -   Black: Python code formatter
+-   Bash: Unix shell used for task automation
 -   CotEditor: Lightweight text editor for quick edits
 -   Positron: Primary integrated development environment for the project
 -   Quarto: Open-source scientific and technical publishing system
