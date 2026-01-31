@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix B — Greek Letters – Applied Mechanics Tutorial</title>
+<title>Colophon – Applied Mechanics Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./script_template.html" rel="next">
-<link href="./formulae.html" rel="prev">
+<link href="./author.html" rel="next">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,35 +75,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -278,7 +249,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./formulae.html">Appendices</a></li><li class="breadcrumb-item"><a href="./greek_letters.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Greek Letters</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./colophon.html">Colophon</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -375,7 +346,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./colophon.html" class="sidebar-item-text sidebar-link">
+  <a href="./colophon.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Colophon</span></a>
   </div>
 </li>
@@ -402,7 +373,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./greek_letters.html" class="sidebar-item-text sidebar-link active">
+  <a href="./greek_letters.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Greek Letters</span></span></a>
   </div>
 </li>
@@ -426,9 +397,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./formulae.html">Appendices</a></li><li class="breadcrumb-item"><a href="./greek_letters.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Greek Letters</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Appendix B — Greek Letters</h1>
+<h1 class="title">Colophon</h1>
 </div>
 
 
@@ -445,224 +416,22 @@ window.Quarto = {
 </header>
 
 
-<p>The following tables present the names of Greek letters and selected symbols commonly used in engineering courses, ensuring precise reference and avoiding reliance on informal descriptors such as “squiggle.”</p>
-<table class="caption-top table">
-<caption>Greek letters.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Lower Case</th>
-<th style="text-align: center;">Upper Case</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\alpha\)</span></td>
-<td style="text-align: center;">A</td>
-<td style="text-align: left;">alpha</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\beta\)</span></td>
-<td style="text-align: center;">B</td>
-<td style="text-align: left;">beta</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\gamma\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Gamma\)</span></td>
-<td style="text-align: left;">gamma</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\delta\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Delta\)</span></td>
-<td style="text-align: left;">delta</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\epsilon\)</span></td>
-<td style="text-align: center;">E</td>
-<td style="text-align: left;">epsilon</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\zeta\)</span></td>
-<td style="text-align: center;">Z</td>
-<td style="text-align: left;">zeta</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\eta\)</span></td>
-<td style="text-align: center;">E</td>
-<td style="text-align: left;">eta</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Theta\)</span></td>
-<td style="text-align: left;">theta</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\iota\)</span></td>
-<td style="text-align: center;">I</td>
-<td style="text-align: left;">iota</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\kappa\)</span></td>
-<td style="text-align: center;">K</td>
-<td style="text-align: left;">kappa</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\lambda\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Lambda\)</span></td>
-<td style="text-align: left;">lambda</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\mu\)</span></td>
-<td style="text-align: center;">M</td>
-<td style="text-align: left;">mu</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\nu\)</span></td>
-<td style="text-align: center;">N</td>
-<td style="text-align: left;">nu</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\xi\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Xi\)</span></td>
-<td style="text-align: left;">xi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\omicron\)</span></td>
-<td style="text-align: center;">O</td>
-<td style="text-align: left;">omicron</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\pi\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Pi\)</span></td>
-<td style="text-align: left;">pi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\rho\)</span></td>
-<td style="text-align: center;">P</td>
-<td style="text-align: left;">rho</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\sigma\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: left;">sigma</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\tau\)</span></td>
-<td style="text-align: center;">T</td>
-<td style="text-align: left;">tau</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\upsilon\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Upsilon\)</span></td>
-<td style="text-align: left;">upsilon</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\phi\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Phi\)</span></td>
-<td style="text-align: left;">phi</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\chi\)</span></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: left;">chi</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\psi\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Psi\)</span></td>
-<td style="text-align: left;">psi</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\omega\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\Omega\)</span></td>
-<td style="text-align: left;">omega</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<caption>Commonly used symbols in engineering courses.</caption>
-<colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Symbol</th>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Use</th>
-<th style="text-align: left;">Course</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\Delta\)</span></td>
-<td style="text-align: left;">Delta</td>
-<td style="text-align: left;">Change</td>
-<td style="text-align: left;">Thermodynamics</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\Delta\)</span></td>
-<td style="text-align: left;">Delta</td>
-<td style="text-align: left;">Displacement</td>
-<td style="text-align: left;">Naval Architecture</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\nabla\)</span></td>
-<td style="text-align: left;">Nabla</td>
-<td style="text-align: left;">Volume</td>
-<td style="text-align: left;">Naval Architecture</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\Sigma\)</span></td>
-<td style="text-align: left;">Sigma</td>
-<td style="text-align: left;">Sum</td>
-<td style="text-align: left;">Thermodynamics, Naval Architecture, Applied Mechanics</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\sigma\)</span></td>
-<td style="text-align: left;">Sigma</td>
-<td style="text-align: left;">Stress</td>
-<td style="text-align: left;">Thermodynamics, Applied Mechanics</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\epsilon\)</span></td>
-<td style="text-align: left;">Epsilon</td>
-<td style="text-align: left;">Modulus of elasticity</td>
-<td style="text-align: left;">Thermodynamics, Applied Mechanics</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\eta\)</span></td>
-<td style="text-align: left;">Eta</td>
-<td style="text-align: left;">Efficiency</td>
-<td style="text-align: left;">Thermodynamics</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\mu\)</span></td>
-<td style="text-align: left;">Mu</td>
-<td style="text-align: left;">Friction</td>
-<td style="text-align: left;">Thermodynamics, Applied Mechanics</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\omega\)</span></td>
-<td style="text-align: left;">Omega</td>
-<td style="text-align: left;">Angular velocity</td>
-<td style="text-align: left;">Thermodynamics, Applied Mechanics</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\rho\)</span></td>
-<td style="text-align: left;">Rho</td>
-<td style="text-align: left;">Density</td>
-<td style="text-align: left;">Thermodynamics, Naval Architecture</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\tau\)</span></td>
-<td style="text-align: left;">Tau</td>
-<td style="text-align: left;">Torque</td>
-<td style="text-align: left;">Thermodynamics, Applied Mechanics</td>
-</tr>
-</tbody>
-</table>
+<p>This book was typeset with <a href="https://quarto.org">Quarto</a> 1.8.26 using the default fonts.</p>
+<p><strong>Technical Notes</strong></p>
+<p>The following tools and technologies were used in the preparation of this book:</p>
+<ul>
+<li>Python: Primary language for computations</li>
+<li>uv: Modern Python package manager and resolver</li>
+<li>Ruff: Fast Python linter and code formatter</li>
+<li>Black: Python code formatter</li>
+<li>CotEditor: Lightweight text editor for quick edits</li>
+<li>Positron: Primary integrated development environment for the project</li>
+<li>Quarto: Open-source scientific and technical publishing system</li>
+<li>Pandoc: Document converter from Markdown to HTML and PDF</li>
+<li>TeX Live: Full LaTeX distribution used for PDF rendering via Quarto</li>
+<li>Zotero: Reference management system, integrated with Pandoc for citations</li>
+<li>macOS: Principal development operating system</li>
+</ul>
 
 
 
@@ -1082,13 +851,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./formulae.html" class="pagination-link" aria-label="Applied Mechanics Formulae">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Applied Mechanics Formulae</span></span>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./script_template.html" class="pagination-link" aria-label="Script Template">
-        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Script Template</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./author.html" class="pagination-link" aria-label="Author">
+        <span class="nav-page-text">Author</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

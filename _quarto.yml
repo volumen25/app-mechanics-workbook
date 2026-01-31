@@ -11,8 +11,8 @@ book:
   title: "Applied Mechanics Tutorial"
   subtitle: "A Concise Introduction to Computational Tools"
   downloads: [pdf]
-  #author: "Serhat Beyenir"
-  #date: today #today or last-modified
+  author: "Serhat Beyenir"
+  date: "2026-02-01" #today or last-modified
   date-format: "D MMMM YYYY"
   cover-image: cover_qr.png
   sidebar:
@@ -20,15 +20,15 @@ book:
     style: floating
     collapse-level: 2
     pinned: false
-  # page-footer:
-  #   left: © 2026 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-  #   right: |
-  #     Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
+  page-footer:
+    left: © 2026 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    right: |
+      Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
   chapters:    
     - dedication.qmd         
     - attributions.qmd     
     - index.qmd            
-    # - acknowledgements.qmd    
+    - acknowledgements.qmd    
     - study_guide.qmd        
     - tutorial_basic.qmd
 
@@ -40,12 +40,12 @@ book:
 
     # Back Matter
     - references.qmd
-    # - colophon.qmd
+    - colophon.qmd
     - author.qmd
   appendices:
     - formulae.qmd
     - greek_letters.qmd
-    # - script_template.qmd
+    - script_template.qmd
     # - unicode_math_symbols.qmd
     # - revision_history.qmd  
 

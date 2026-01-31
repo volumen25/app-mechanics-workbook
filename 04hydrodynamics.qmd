@@ -249,7 +249,7 @@ print(f"    Mass per hour: {mass_flow_rate_tonnes_per_hour:.4f} tonnes/hour")
 
 Continuous flow exists in a flow system when the mass flow rate is constant throughout the system as shown in @fig-continuity. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.
 
-![Continuity equation](images/continuity.svg){#fig-continuity width="9.3cm"}
+![Continuity equation](images/continuity_equation.png){#fig-continuity width="9.3cm"}
 
 Since $\dot{m_1} = \dot{m_2}$, therefore
 

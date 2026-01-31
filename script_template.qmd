@@ -1,8 +1,11 @@
 # Script Template
 
-Please use the following template to write your code or build your own template that suits your purpose. Adhering to these guidelines will ensure your work is professional and readable. As Python creator Guido van Rossum once noted, code is read far more frequently than it is written. 
+Students are encouraged to use the following template to write their code or build their own template that suits the purpose. Adhering to these guidelines will ensure the final work is professional and readable. As Python creator Guido van Rossum once noted, code is read far more frequently than it is written.
+
+
 
 ```python
+#!/usr/bin/env python3
 """
 Please replace this text with a concise description of the script’s purpose.
 For example, you can type in:
@@ -22,7 +25,7 @@ import math
 pipe_internal_diameter_mm = 75.0  # Use descriptive variable names with units
 oil_velocity_m_per_s = 1.2  # Include meaningful inline comments
 oil_relative_density = 0.9  # Include meaningful inline comments
-water_density_kg_per_m3 = 1000.0  # Density of water in kg/m³
+water_density_kg_per_m3 = 1000.0  # Density of water in kg/m^3
 
 # ==============================
 # UNIT CONVERSIONS AND GEOMETRY
@@ -62,7 +65,7 @@ mass_flow_rate_tonnes_per_hour = mass_flow_rate_kg_per_s * 3600 / 1000
 # ==============================
 
 print("---Pipe Flow Calculation Results---")
-print(f"Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m³/s")
+print(f"Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m^3/s")
 print(
     f"Mass flow rate       : {mass_flow_rate_tonnes_per_hour:.4f} "
     f"tonnes/hour"

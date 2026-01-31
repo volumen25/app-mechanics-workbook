@@ -1,5 +1,9 @@
 # Acknowledgements {.unnumbered}
 
-I would like to express my sincere thanks to my colleagues and friends for their helpful feedback and kind support during this project. In no particular order, I wish to thank Michele Bridge and her team, Bill Frisell, Emily Remler, Julian Lage, and Hirofumi Asaba. Any errors or omissions are entirely my own.
+I wish to thank Russell Oye, Michele Bridge, and her team for their support in getting started with this project. I would like to express my sincere thanks to my students for their honest feedback during this project, as well as to my colleague Natalie Twohey for reviewing the text. Any errors or omissions are my own.
 
 Last but not least, I am grateful to my wife for her patience and support as I spent our weekends and holidays working on this project.
+
+Serhat Beyenir\
+North Vancouver\
+2026-02-01
