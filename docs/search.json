@@ -24,7 +24,7 @@
     "href": "acknowledgements.html",
     "title": "Acknowledgements",
     "section": "",
-    "text": "I wish to thank Russell Oye, Michele Bridge, and her team for their support in getting started with this project. I would like to express my sincere thanks to my students for their honest feedback during this project, as well as to my colleague Natalie Twohey for reviewing the text. Any errors or omissions are my own.\nLast but not least, I am grateful to my wife for her patience and support as I spent our weekends and holidays working on this project.\nSerhat Beyenir\nNorth Vancouver\n2026-02-01",
+    "text": "I wish to thank Russell Oye, Michele Bridge, and her team for their support of my proposal, Beyond the Calculator: Hands-On Learning with Computational Tools, and for encouraging me to get this project started.\nI would also like to express my sincere thanks to my students for their honest feedback throughout this project, as well as to my colleague Natalie Twohey for reviewing the text and Python scripts. Any errors or omissions are my own.\nLast but not least, I am grateful to my wife for her patience and support while I spent our weekends and holidays working on this project.\nSerhat Beyenir\nNorth Vancouver\n2026-02-01",
     "crumbs": [
       "Acknowledgements"
     ]
@@ -454,7 +454,7 @@
     "href": "attributions.html",
     "title": "Attributions",
     "section": "",
-    "text": "This book incorporates figures from the following sources:\n\nFigures in the 3  Hydrostatics and 4  Hydrodynamics chapters are sourced from the Applied Fluid Mechanics Online Textbook.\nFigures in the Appendix B — Applied Mechanics Formulae section, including centroids and second moments of area, are adapted from the Wikipedia pages on Centroids and Second moments of area.",
+    "text": "This book incorporates figures from the following sources:\n\nFigures in 3  Hydrostatics and 4  Hydrodynamics are sourced from the Applied Fluid Mechanics Online Textbook.\nFigures in the Appendix B — Applied Mechanics Formulae section, including centroids and second moments of area, are adapted from the Wikipedia pages on Centroids and Second moments of area.",
     "crumbs": [
       "Attributions"
     ]
@@ -464,7 +464,7 @@
     "href": "colophon.html",
     "title": "Colophon",
     "section": "",
-    "text": "This book was typeset with Quarto 1.8.27 using the default fonts.\nTechnical Notes\nThe following tools and technologies were used in the preparation of this book:\n\nPython: Primary language for computations\nuv: Modern Python package manager and resolver\nRuff: Fast Python linter and code formatter\nBlack: Python code formatter\nBash: Unix shell used for task automation\nCotEditor: Lightweight text editor for quick edits\nPositron: Primary integrated development environment for the project\nQuarto: Open-source scientific and technical publishing system\nPandoc: Document converter from Markdown to HTML and PDF\nTeX Live: Full LaTeX distribution used for PDF rendering via Quarto\nZotero: Reference management system, integrated with Pandoc for citations\nmacOS: Principal development operating system",
+    "text": "This book was typeset with Quarto 1.8.27 using the default fonts.\nTechnical Notes\nThe following tools and technologies were used in the preparation of this book:\n\nPython: Primary language for computations\nuv: Modern Python package manager and resolver\nRuff: Fast Python linter and code formatter\nBlack: Python code formatter\nBash: Unix shell for task automation\nmacOS: Main development operating system",
     "crumbs": [
       "Colophon"
     ]

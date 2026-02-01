@@ -6,29 +6,34 @@ project:
 
 website:
   favicon: favicon.ico
-  
+
 book:
   title: "Applied Mechanics Tutorial"
   subtitle: "A Concise Introduction to Computational Tools"
-  downloads: [pdf]
   author: "Serhat Beyenir"
-  date: "2026-02-01" #today or last-modified
+  date: "2026-02-01" # today or last-modified
   date-format: "D MMMM YYYY"
+  downloads: [pdf]
+
   # cover-image: cover_qr.png
+
   sidebar:
     align: left
     style: floating
     collapse-level: 2
     pinned: false
+
   page-footer:
     left: © 2026 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
     right: |
-      Built with <a href="https://quarto.org"> Quarto {{< version >}}</a>
-  chapters:    
-    - dedication.qmd                     
-    - acknowledgements.qmd   
-    - index.qmd  
-    - study_guide.qmd        
+      Built with <a href="https://quarto.org">Quarto {{< version >}}</a>
+
+  chapters:
+    # Front Matter
+    - dedication.qmd
+    - acknowledgements.qmd
+    - index.qmd
+    - study_guide.qmd
     - tutorial_basic.qmd
 
     # Main Matter
@@ -39,16 +44,16 @@ book:
 
     # Back Matter
     - references.qmd
-    - attributions.qmd    
+    - attributions.qmd
     - colophon.qmd
     - author.qmd
+
   appendices:
     - script_template.qmd
     - formulae.qmd
     - greek_letters.qmd
     # - unicode_math_symbols.qmd
-    # - revision_history.qmd  
-
+    # - revision_history.qmd
 
 bibliography: references.bib
 csl: apa.csl
@@ -61,6 +66,7 @@ format:
     theme:
       light: cosmo
       dark: solar
+
   pdf:
     pdf-engine: xelatex
     documentclass: book
@@ -77,12 +83,29 @@ format:
         \usepackage{graphicx}
         \makeindex
         \usepackage{titling}
+
         \pretitle{\begin{center}\Huge\bfseries}
-        \posttitle{\par\end{center}\vspace{0.5em}}
+        \posttitle{\par\end{center}\vspace{0.75em}}
+
         \preauthor{\begin{center}\large}
         \postauthor{\end{center}}
+
         \predate{\begin{center}\large}
-        \postdate{\par\end{center}\vfill\begin{center}\includegraphics[width=0.25\textwidth]{cover_qr.png}\\[1em]{\small This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).\\[0.5em]Full text available at \href{https://creativecommons.org/licenses/by-sa/4.0/}{https://creativecommons.org/licenses/by-sa/4.0/}.}\end{center}\vfill}
+        \postdate{%
+          \par\end{center}
+          \vspace*{\fill}
+          \begin{center}
+            \includegraphics[width=0.25\textwidth]{cover_qr.png}\\[1em]
+            {\small
+              This work is licensed under a Creative Commons
+              Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).\\[0.5em]
+              Full text available at
+              \href{https://creativecommons.org/licenses/by-sa/4.0/}{https://creativecommons.org/licenses/by-sa/4.0/}.
+            }
+          \end{center}
+          \vspace*{1cm}
+        }
+
     include-after-body:
       text: |
         \clearpage

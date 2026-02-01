@@ -10,11 +10,5 @@ The following tools and technologies were used in the preparation of this book:
 -   uv: Modern Python package manager and resolver
 -   Ruff: Fast Python linter and code formatter
 -   Black: Python code formatter
--   Bash: Unix shell used for task automation
--   CotEditor: Lightweight text editor for quick edits
--   Positron: Primary integrated development environment for the project
--   Quarto: Open-source scientific and technical publishing system
--   Pandoc: Document converter from Markdown to HTML and PDF
--   TeX Live: Full LaTeX distribution used for PDF rendering via Quarto
--   Zotero: Reference management system, integrated with Pandoc for citations
--   macOS: Principal development operating system
+-   Bash: Unix shell for task automation
+-   macOS: Main development operating system
