@@ -1,6 +1,6 @@
 # Hydrostatics {#sec-hydrostatics}
 
-Hydrostatics is the branch of fluid mechanics that studies fluids at rest and the forces and pressures they exert on immersed or containing surfaces. Key principles include Pascal’s law (pressure applied to an enclosed fluid is transmitted undiminished in all directions), Archimedes’ principle (buoyant force on a submerged body equals the weight of displaced fluid), and the hydrostatic pressure distribution in a fluid column, expressed as $p = \rho g h$, where $p$ is gauge pressure, $\rho$ is fluid density, $g$ is gravitational acceleration, and $h$ is depth below the free surface.
+Hydrostatics\index{Hydrostatics} is the branch of fluid mechanics that studies fluids at rest and the forces and pressures they exert on immersed or containing surfaces. Key principles include Pascal’s law (pressure applied to an enclosed fluid is transmitted undiminished in all directions), Archimedes’ principle (buoyant force on a submerged body equals the weight of displaced fluid), and the hydrostatic pressure distribution in a fluid column, expressed as $p = \rho g h$, where $p$ is gauge pressure, $\rho$ is fluid density, $g$ is gravitational acceleration, and $h$ is depth below the free surface.
 
 ## Pressure Head
 

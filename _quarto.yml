@@ -11,7 +11,7 @@ book:
   title: "Applied Mechanics Tutorial"
   subtitle: "A Concise Introduction to Computational Tools"
   author: "Serhat Beyenir"
-  date: "2026-02-01" # today or last-modified
+  date: "2026-02-05" # today or last-modified
   date-format: "D MMMM YYYY"
   downloads: [pdf]
 
@@ -46,6 +46,7 @@ book:
     - references.qmd
     - attributions.qmd
     - colophon.qmd
+    - revision_history.qmd
     - author.qmd
 
   appendices:
@@ -53,7 +54,6 @@ book:
     - formulae.qmd
     - greek_letters.qmd
     # - unicode_math_symbols.qmd
-    # - revision_history.qmd
 
 bibliography: references.bib
 csl: apa.csl
