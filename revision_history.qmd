@@ -1,4 +1,4 @@
-# Revision History
+# Revision History {.unnumbered}
 
 | Version | Date       | Description                                    |
 |---------|------------|------------------------------------------------|

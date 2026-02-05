@@ -472,11 +472,11 @@
   {
     "objectID": "revision_history.html",
     "href": "revision_history.html",
-    "title": "5  Revision History",
+    "title": "Revision History",
     "section": "",
     "text": "Changelog.\n\n\n\n\n\n\n\nVersion\nDate\nDescription\n\n\n\n\n1.0\n2026-02-05\nFirst official release\n\n\n0.7\n2025-12-29\nRevised frontmatter and backmatter files\n\n\n0.6\n2025-12-27\nAdded Black formatter support for Python files\n\n\n0.5\n2025-11-29\nCompleted first draft of all chapters\n\n\n0.4\n2025-11-05\nAdded Chapters 3 and 4\n\n\n0.3\n2025-10-05\nAdded Chapters 1 and 2\n\n\n0.2\n2025-10-03\nAdded formulae section\n\n\n0.1\n2025-10-01\nInitial commit / project setup",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Revision History</span>"
+      "Revision History"
     ]
   },
   {
