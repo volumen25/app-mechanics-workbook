@@ -1,6 +1,6 @@
 # Colophon {.unnumbered}
 
-This book was typeset with [Quarto](https://quarto.org) {{< version >}} using the default fonts.
+This book was typeset with [Quarto](https://quarto.org) {{< version >}} using XeLaTeX and Latin Modern fonts, with Menlo for code blocks.
 
 **Technical Notes**
 

@@ -11,7 +11,7 @@ book:
   title: "Applied Mechanics Tutorial"
   subtitle: "A Concise Introduction to Computational Tools"
   author: "Serhat Beyenir"
-  date: "2026-02-05" # today or last-modified
+  date: "2026-02-06" # today or last-modified
   date-format: "D MMMM YYYY"
   downloads: [pdf]
 
@@ -46,14 +46,15 @@ book:
     - references.qmd
     - attributions.qmd
     - colophon.qmd
-    - revision_history.qmd
+    # - revision_history.qmd
     - author.qmd
 
   appendices:
     - script_template.qmd
+    # - unicode_math_symbols.qmd
     - formulae.qmd
     - greek_letters.qmd
-    # - unicode_math_symbols.qmd
+
 
 bibliography: references.bib
 csl: apa.csl
@@ -62,11 +63,10 @@ format:
   html:
     cover-image: cover_qr.png
     toc: true
-    collapse: true
+    toc-collapse: true
     theme:
       light: cosmo
       dark: solar
-
   pdf:
     pdf-engine: xelatex
     documentclass: book
@@ -82,14 +82,13 @@ format:
         \usepackage{makeidx}
         \usepackage{graphicx}
         \makeindex
+        \usepackage{fontspec}
+        \setmonofont{Menlo}
         \usepackage{titling}
-
         \pretitle{\begin{center}\Huge\bfseries}
         \posttitle{\par\end{center}\vspace{0.75em}}
-
         \preauthor{\begin{center}\large}
         \postauthor{\end{center}}
-
         \predate{\begin{center}\large}
         \postdate{%
           \par\end{center}
@@ -105,7 +104,6 @@ format:
           \end{center}
           \vspace*{1cm}
         }
-
     include-after-body:
       text: |
         \clearpage

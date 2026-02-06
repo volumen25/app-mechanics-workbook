@@ -464,19 +464,9 @@
     "href": "colophon.html",
     "title": "Colophon",
     "section": "",
-    "text": "This book was typeset with Quarto 1.8.27 using the default fonts.\nTechnical Notes\nThe following tools and technologies were used in the preparation of this book:\n\nPython: Primary language for computations\nuv: Modern Python package manager and resolver\nRuff: Fast Python linter and code formatter\nBlack: Python code formatter\nBash: Unix shell for task automation\nmacOS: Main development operating system",
+    "text": "This book was typeset with Quarto 1.8.27 using XeLaTeX and Latin Modern fonts, with Menlo for code blocks.\nTechnical Notes\nThe following tools and technologies were used in the preparation of this book:\n\nPython: Primary language for computations\nuv: Modern Python package manager and resolver\nRuff: Fast Python linter and code formatter\nBlack: Python code formatter\nBash: Unix shell for task automation\nmacOS: Main development operating system",
     "crumbs": [
       "Colophon"
-    ]
-  },
-  {
-    "objectID": "revision_history.html",
-    "href": "revision_history.html",
-    "title": "Revision History",
-    "section": "",
-    "text": "Changelog.\n\n\n\n\n\n\n\nVersion\nDate\nDescription\n\n\n\n\n1.0\n2026-02-05\nFirst official release\n\n\n0.7\n2025-12-28\nRevised frontmatter and backmatter files\n\n\n0.6\n2025-12-27\nAdded Black formatter support for Python files\n\n\n0.5\n2025-11-29\nCompleted first draft of all chapters\n\n\n0.4\n2025-11-08\nAdded Chapters 3 and 4\n\n\n0.3\n2025-10-19\nAdded Chapters 1 and 2\n\n\n0.2\n2025-10-05\nAdded formulae section\n\n\n0.1\n2025-10-04\nInitial commit / project setup",
-    "crumbs": [
-      "Revision History"
     ]
   },
   {
@@ -494,7 +484,29 @@
     "href": "script_template.html",
     "title": "Appendix A — Script Template",
     "section": "",
-    "text": "Students are encouraged to use the following template to write their code or build their own template that suits the purpose. Adhering to these guidelines will ensure the final work is professional and readable. As Python creator Guido van Rossum once noted, code is read far more frequently than it is written.\n#!/usr/bin/env python3\n\"\"\"\nPlease replace this text with a concise description of the script’s purpose.\nFor example, you can type in:\nDetermines the volumetric and mass flow rates in a pipe carrying oil,\ngiven the internal diameter, fluid velocity, and relative density.\n\"\"\"\n\nimport math\n\n# Organize code with consistent sectioning and\n# clear headers or separators to enhance readability\n\n# ==============================\n# INPUT PARAMETERS\n# ==============================\n\npipe_internal_diameter_mm = 75.0  # Use descriptive variable names with units\noil_velocity_m_per_s = 1.2  # Include meaningful inline comments\noil_relative_density = 0.9  # Include meaningful inline comments\nwater_density_kg_per_m3 = 1000.0  # Density of water in kg/m^3\n\n# ==============================\n# UNIT CONVERSIONS AND GEOMETRY\n# ==============================\n\n# Convert pipe diameter from millimeters to meters\npipe_internal_diameter_m = pipe_internal_diameter_mm / 1000.0\n\n# Calculate pipe radius\npipe_radius_m = pipe_internal_diameter_m / 2.0\n\n# Calculate cross-sectional area of the pipe (circular)\npipe_cross_sectional_area_m2 = math.pi * pipe_radius_m**2\n\n# ==============================\n# FLOW RATE CALCULATIONS\n# ==============================\n\n# Calculate volumetric flow rate\n# Restrict line length to a maximum of 79 characters \n# to ensure compatibility with print media and prevent horizontal overflow.\nvolumetric_flow_rate_m3_per_s = (\n    pipe_cross_sectional_area_m2 * oil_velocity_m_per_s\n)\n\n# Calculate oil density from relative density\noil_density_kg_per_m3 = oil_relative_density * water_density_kg_per_m3\n\n# Calculate mass flow rate\nmass_flow_rate_kg_per_s = oil_density_kg_per_m3 * volumetric_flow_rate_m3_per_s\n\n# Convert mass flow rate to tonnes per hour\nmass_flow_rate_tonnes_per_hour = mass_flow_rate_kg_per_s * 3600 / 1000\n\n# ==============================\n# OUTPUT RESULTS\n# ==============================\n\nprint(\"---Pipe Flow Calculation Results---\")\nprint(f\"Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m^3/s\")\nprint(\n    f\"Mass flow rate       : {mass_flow_rate_tonnes_per_hour:.4f} \"\n    f\"tonnes/hour\"\n)",
+    "text": "A.1 Template\nStudents are encouraged to use the following template to write their code or build their own template that suits the purpose. Adhering to these guidelines will ensure the final work is professional and readable. As Python creator Guido van Rossum once noted, code is read far more frequently than it is written.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Script Template</span>"
+    ]
+  },
+  {
+    "objectID": "script_template.html#template",
+    "href": "script_template.html#template",
+    "title": "Appendix A — Script Template",
+    "section": "",
+    "text": "#!/usr/bin/env python3\n\"\"\"\nPlease replace this text with a concise description of the script’s purpose.\nFor example, you can type in:\nDetermines the volumetric and mass flow rates in a pipe carrying oil,\ngiven the internal diameter, fluid velocity, and relative density.\n\"\"\"\n\nimport math\n\n# Organize code with consistent sectioning and\n# clear headers or separators to enhance readability\n\n# ==============================\n# INPUT PARAMETERS\n# ==============================\n\npipe_internal_diameter_mm = 75.0  # Use descriptive variable names with units\noil_velocity_m_per_s = 1.2  # Include meaningful inline comments\noil_relative_density = 0.9  # Include meaningful inline comments\nwater_density_kg_per_m3 = 1000.0  # Density of water in kg/m^3\n\n# ==============================\n# UNIT CONVERSIONS AND GEOMETRY\n# ==============================\n\n# Convert pipe diameter from millimeters to meters\npipe_internal_diameter_m = pipe_internal_diameter_mm / 1000.0\n\n# Calculate pipe radius\npipe_radius_m = pipe_internal_diameter_m / 2.0\n\n# Calculate cross-sectional area of the pipe (circular)\npipe_cross_sectional_area_m2 = math.pi * pipe_radius_m**2\n\n# ==============================\n# FLOW RATE CALCULATIONS\n# ==============================\n\n# Calculate volumetric flow rate\n# Restrict line length to a maximum of 79 characters \n# to ensure compatibility with print media and prevent horizontal overflow.\nvolumetric_flow_rate_m3_per_s = (\n    pipe_cross_sectional_area_m2 * oil_velocity_m_per_s\n)\n\n# Calculate oil density from relative density\noil_density_kg_per_m3 = oil_relative_density * water_density_kg_per_m3\n\n# Calculate mass flow rate\nmass_flow_rate_kg_per_s = oil_density_kg_per_m3 * volumetric_flow_rate_m3_per_s\n\n# Convert mass flow rate to tonnes per hour\nmass_flow_rate_tonnes_per_hour = mass_flow_rate_kg_per_s * 3600 / 1000\n\n# ==============================\n# OUTPUT RESULTS\n# ==============================\n\nprint(\"---Pipe Flow Calculation Results---\")\nprint(f\"Volumetric flow rate : {volumetric_flow_rate_m3_per_s:.4f} m^3/s\")\nprint(\n    f\"Mass flow rate       : {mass_flow_rate_tonnes_per_hour:.4f} \"\n    f\"tonnes/hour\"\n)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Script Template</span>"
+    ]
+  },
+  {
+    "objectID": "script_template.html#python-script-comment-snippets",
+    "href": "script_template.html#python-script-comment-snippets",
+    "title": "Appendix A — Script Template",
+    "section": "A.2 Python Script Comment Snippets",
+    "text": "A.2 Python Script Comment Snippets\nArea = 25 m²  \nVolume = 3.2 m³  \nDensity of water = 1000 kg/m³  \nAngle = 45°  \nAngular speed = 12 s⁻¹  \n\nArea = π·r²  \n\nLaw of sines:\nT₁ / sin(θ₁) = T₂ / sin(θ₂) = W / sin(θ₃)\n\nLaw of cosines:\ncos(θ) = (a² + b² − c²) / (2ab)\ncos(θₚ) = (J² + T² − P²) / (2·J·T)\n\nEnergy equation:\nP₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Script Template</span>"

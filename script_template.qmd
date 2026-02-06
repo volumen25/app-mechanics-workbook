@@ -2,7 +2,7 @@
 
 Students are encouraged to use the following template to write their code or build their own template that suits the purpose. Adhering to these guidelines will ensure the final work is professional and readable. As Python creator Guido van Rossum once noted, code is read far more frequently than it is written.
 
-
+## Template
 
 ```python
 #!/usr/bin/env python3
@@ -71,4 +71,26 @@ print(
     f"tonnes/hour"
 )
 
+```
+
+## Python Script Comment Snippets
+
+``` txt
+Area = 25 m²  
+Volume = 3.2 m³  
+Density of water = 1000 kg/m³  
+Angle = 45°  
+Angular speed = 12 s⁻¹  
+
+Area = π·r²  
+
+Law of sines:
+T₁ / sin(θ₁) = T₂ / sin(θ₂) = W / sin(θ₃)
+
+Law of cosines:
+cos(θ) = (a² + b² − c²) / (2ab)
+cos(θₚ) = (J² + T² − P²) / (2·J·T)
+
+Energy equation:
+P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂
 ```
