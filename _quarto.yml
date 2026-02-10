@@ -11,7 +11,7 @@ book:
   title: "Applied Mechanics Tutorial"
   subtitle: "A Concise Introduction to Computational Tools"
   author: "Serhat Beyenir"
-  date: "2026-02-06" # today or last-modified
+  date: "2026-02-08" # today or last-modified
   date-format: "D MMMM YYYY"
   downloads: [pdf]
 
