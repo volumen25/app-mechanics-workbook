@@ -1,0 +1,138 @@
+---
+title: "Two-Mass Disc — Balancing Centrifugal Forces"
+format:
+  # html:
+  #   toc: true
+  #   number-sections: true
+  #   theme: cosmo
+  #   code-fold: true
+  pdf:
+    toc: false
+    number-sections: false
+    geometry: margin=2.5cm
+---
+
+## Ex. 5.9
+
+Two masses are fixed at right angles on a rotating disc:
+
+- Mass 1: **3 kg** at **125 mm** radius
+- Mass 2: **4 kg** at **150 mm** radius
+
+Find the radius and angular position at which to fix a **7 kg** balance mass
+to equalise the centrifugal forces.
+
+---
+
+## Given Data
+
+| Symbol | Description | Value |
+|--------|-------------|-------|
+| $m_1$ | Mass 1 | 3 kg |
+| $r_1$ | Radius of mass 1 | 125 mm = 0.125 m |
+| $\theta_1$ | Angular position of mass 1 | 0° (reference) |
+| $m_2$ | Mass 2 | 4 kg |
+| $r_2$ | Radius of mass 2 | 150 mm = 0.150 m |
+| $\theta_2$ | Angular position of mass 2 | 90° |
+| $m_b$ | Balance mass | 7 kg |
+
+---
+
+## Concept
+
+Since centrifugal force $F = mr\omega^2$ and $\omega^2$ is common to all
+masses, balancing the centrifugal forces reduces to balancing the
+**$mr$ (mass–radius) products** as vectors.
+
+The balance mass must produce an $m_b r_b$ vector equal and opposite to the
+**vector sum** of $m_1 r_1$ and $m_2 r_2$.
+
+---
+
+## Mass–Radius Products
+
+$$u_1 = m_1 r_1 = 3 \times 0.125 = 0.375 \ \text{kg·m}$$
+
+$$u_2 = m_2 r_2 = 4 \times 0.150 = 0.600 \ \text{kg·m}$$
+
+---
+
+## Resultant Unbalance Vector
+
+Resolving into Cartesian components (mass 1 along 0°, mass 2 along 90°):
+
+$$U_x = u_1 \cos 0° + u_2 \cos 90° = 0.375 + 0 = 0.375 \ \text{kg·m}$$
+
+$$U_y = u_1 \sin 0° + u_2 \sin 90° = 0 + 0.600 = 0.600 \ \text{kg·m}$$
+
+### Magnitude
+
+$$U = \sqrt{U_x^2 + U_y^2} = \sqrt{0.375^2 + 0.600^2} = \sqrt{0.140625 + 0.360000}$$
+
+$$\boxed{U = \sqrt{0.500625} = 0.7075 \ \text{kg·m}}$$
+
+### Direction of Resultant
+
+$$\phi = \arctan\!\left(\frac{U_y}{U_x}\right)
+       = \arctan\!\left(\frac{0.600}{0.375}\right)
+       = \arctan(1.6)
+       = 57.99° \approx 58.0° \ \text{from mass 1}$$
+
+---
+
+## Balance Mass Radius
+
+The balance mass must be placed **opposite** the resultant:
+
+$$m_b \, r_b = U \implies r_b = \frac{U}{m_b} = \frac{0.7075}{7}$$
+
+$$\boxed{r_b = 0.1011 \ \text{m} = 101.1 \ \text{mm}}$$
+
+### Angular Position
+
+$$\theta_b = \phi + 180° = 58.0° + 180° = 238.0° \ \text{from mass 1}$$
+
+---
+
+## Summary
+
+| Quantity | Value |
+|---------|-------|
+| $m_1 r_1$ | 0.375 kg·m at 0° |
+| $m_2 r_2$ | 0.600 kg·m at 90° |
+| Resultant unbalance $U$ | 0.7075 kg·m at 58.0° |
+| Balance mass radius $r_b$ | **101.1 mm** |
+| Balance mass position $\theta_b$ | **238.0° from mass 1** |
+
+The 7 kg balance mass is placed at **101.1 mm** radius and **238°** from
+mass 1 (i.e. 148° past mass 2 in the same rotational sense).
+
+---
+
+## Verification (Python)
+
+```python
+import numpy as np
+
+# Given
+m1, r1, theta1 = 3,   0.125, np.radians(0)
+m2, r2, theta2 = 4,   0.150, np.radians(90)
+m_b             = 7
+
+# mr vectors
+u1 = m1 * r1 * np.array([np.cos(theta1), np.sin(theta1)])
+u2 = m2 * r2 * np.array([np.cos(theta2), np.sin(theta2)])
+
+U     = u1 + u2
+U_mag = np.linalg.norm(U)
+phi   = np.degrees(np.arctan2(U[1], U[0]))
+
+print(f"u1 = {m1*r1:.4f} kg·m  at {np.degrees(theta1):.1f}°")
+print(f"u2 = {m2*r2:.4f} kg·m  at {np.degrees(theta2):.1f}°")
+print(f"\nResultant U  = {U_mag:.4f} kg·m  at {phi:.2f}°")
+
+r_b     = U_mag / m_b
+theta_b = phi + 180
+print(f"\nBalance mass radius      = {r_b*1000:.2f} mm")
+print(f"Balance mass position    = {theta_b:.2f}° from mass 1")
+```
