@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>4&nbsp; Hydrodynamics – Applied Mechanics Tutorial</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./03hydrostatics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c213800f9ad2c394781badd4e3c4d3bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-bce977a10065f1546ac742a2ca57dec9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -111,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -596,7 +598,7 @@ Volume\ flow = area\ x\ mean\ velocity
 </section>
 <section id="discharge-through-an-orifice" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="discharge-through-an-orifice"><span class="header-section-number">4.3</span> Discharge Through an Orifice</h2>
-<p>When water discharges through an orifice (<a href="#fig-OrificePlate" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>) in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.</p>
+<p>When water discharges through an orifice (<a href="#fig-OrificePlate" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-OrificePlate</span></a>) in the side of a tank, the potential energy associated with the height of the water surface above the orifice is converted into kinetic energy of the efflux.</p>
 <div id="fig-OrificePlate" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-OrificePlate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -616,7 +618,7 @@ C = \sqrt{2gh}
 <p>Due to viscous effects, the actual velocity is less than the theoretical value. The coefficient of velocity, <span class="math inline">\(C_v\)</span>, is defined as the ratio of actual velocity to theoretical velocity. Thus, the velocity-corrected flow rate is: <span class="math display">\[
 \dot{v}_{\text{velocity-corrected}} = C_v A \sqrt{2gh}
 \]</span></p>
-<p>Downstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta (<a href="#fig-vena_contracta1" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>). The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.</p>
+<p>Downstream of a sharp-edged orifice, the jet contracts due to streamline curvature, forming a vena contracta (<a href="#fig-vena_contracta1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-vena_contracta1</span></a>). The vena contracta refers to the narrowest cross-section of a fluid jet shortly downstream of an orifice or nozzle, where the streamlines converge, resulting in the smallest area, maximum velocity, and minimum pressure.</p>
 <div id="fig-vena_contracta1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vena_contracta1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -720,7 +722,7 @@ C_d = C_A \cdot C_v
 </section>
 <section id="continuity-equation" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="continuity-equation"><span class="header-section-number">4.4</span> Continuity Equation</h2>
-<p>Continuous flow exists in a flow system when the mass flow rate is constant throughout the system as shown in <a href="#fig-continuity" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.</p>
+<p>Continuous flow exists in a flow system when the mass flow rate is constant throughout the system as shown in <a href="#fig-continuity" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-continuity</span></a>. If in the diagram below, the mass flow rate at 1 is equal to that at 2, then continuity exists.</p>
 <div id="fig-continuity" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-continuity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -834,7 +836,7 @@ A_1 \cdot C_1= A_2 \cdot C_2
 <li>pressure energy (flow energy).</li>
 </ul>
 <p>Generally in fluid mechanics the change in internal energy is considered to be negligible. Heat energy transfers are usually not considered in fluid mechanics and the frictional heat developed by a flowing fluid is relatively small. Therefore, the internal energy term is omitted from the energy balance.</p>
-<p>Consider the flow system shown in <a href="#fig-continuity1" class="quarto-xref">Figure&nbsp;<span>4.4</span></a>. For this system, assume:</p>
+<p>Consider the flow system shown in <a href="#fig-continuity1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-continuity1</span></a>. For this system, assume:</p>
 <ul>
 <li>an ideal fluid</li>
 <li>that there are no energy losses or additions and</li>
@@ -1000,7 +1002,7 @@ P_1 + \frac{1}{2} \rho C_1^2 + \rho g h_1 = P_2 + \frac{1}{2} \rho C_2^2 + \rho 
 </section>
 <section id="venturi-meter" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="venturi-meter"><span class="header-section-number">4.7</span> Venturi Meter</h2>
-<p>A venturi meter (<a href="#fig-venturi" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>) measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:</p>
+<p>A venturi meter (<a href="#fig-venturi" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-venturi</span></a>) measures liquid flow rates in pipelines. The device features a pipe section that narrows in the middle (called the throat) and widens at both ends, as shown below:</p>
 <div id="fig-venturi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-venturi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1595,7 +1597,7 @@ Figure&nbsp;4.5: Venturi meter
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://quarto.org">Quarto 1.8.27</a></p>
+<p>Built with <a href="https://quarto.org">Quarto 1.9.36</a></p>
 </div>
   </div>
 </footer>
