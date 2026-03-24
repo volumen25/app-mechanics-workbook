@@ -112,5 +112,9 @@
         "xlabel",
         "ylabel",
         "Zotero"
-    ]
+    ],
+    "editor.fontFamily": "'JetBrains Mono', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontVariations": true,
+    "editor.fontWeight": "normal"
 }
