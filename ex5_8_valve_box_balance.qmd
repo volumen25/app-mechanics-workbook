@@ -1,0 +1,123 @@
+---
+title: "Valve-Box Casting"
+format:
+#   html:
+#     toc: true
+#     number-sections: true
+#     theme: cosmo
+#     code-fold: true
+  pdf:
+    toc: false
+    number-sections: false
+    geometry: margin=2.5cm
+---
+
+## Ex. 5.8
+
+A valve-box casting of mass **27 kg** is secured to a lathe faceplate with its centre of gravity at **90 mm** radially and **114 mm** axially from the faceplate surface.
+
+1.  Find the radius at which to fix a **12.75 kg** counterbalance.
+2.  Given the counterbalance CG is **76 mm** axially from the faceplate, find the **unbalanced couple** at **200 rpm**.
+
+------------------------------------------------------------------------
+
+## Given Data
+
+| Symbol | Description                                | Value            |
+|--------|--------------------------------------------|------------------|
+| $m_1$  | Casting mass                               | 27 kg            |
+| $r_1$  | Casting CG — radial distance               | 90 mm = 0.09 m   |
+| $a_1$  | Casting CG — axial distance from faceplate | 114 mm = 0.114 m |
+| $m_2$  | Counterbalance mass                        | 12.75 kg         |
+| $a_2$  | Counterbalance CG — axial distance         | 76 mm = 0.076 m  |
+| $N$    | Rotational speed                           | 200 rpm          |
+
+------------------------------------------------------------------------
+
+## Concepts
+
+**Static balance** requires the resultant radial force to be zero — the $mr$ products of all masses must sum to zero.
+
+**Dynamic balance** additionally requires the resultant couple (moment) to be zero — the $mr \cdot a$ products must also sum to zero. If they do not, a rotating couple remains even when the system is statically balanced.
+
+------------------------------------------------------------------------
+
+## Part 1 — Radius of Counterbalance
+
+The counterbalance is positioned diametrically opposite the casting (180°) to cancel the radial force. For static balance:
+
+$$m_1 r_1 = m_2 r_2$$
+
+$$r_2 = \frac{m_1 r_1}{m_2} = \frac{27 \times 0.09}{12.75}$$
+
+$$\boxed{r_2 = 0.1906 \ \text{m} = 190.6 \ \text{mm}}$$
+
+------------------------------------------------------------------------
+
+## Part 2 — Unbalanced Couple
+
+### Couple Contributions
+
+Taking moments about the faceplate surface, each mass generates a couple equal to its $mr$ product multiplied by its axial distance $a$.
+
+$$C_1 = m_1 r_1 a_1 = 27 \times 0.09 \times 0.114 = 0.27702 \ \text{kg·m}^2$$
+
+$$C_2 = m_2 r_2 a_2 = 12.75 \times 0.1906 \times 0.076 = 0.18468 \ \text{kg·m}^2$$
+
+Because the counterbalance is at 180° from the casting, the two couples act in **opposite senses** about the faceplate. Since the axial positions differ, they do not cancel:
+
+$$\Delta C = C_1 - C_2 = 0.27702 - 0.18468 = 0.09234 \ \text{kg·m}^2$$
+
+### Angular Velocity
+
+$$\omega = \frac{2\pi N}{60} = \frac{2\pi \times 200}{60} = 20.94 \ \text{rad/s}$$
+
+### Unbalanced Couple
+
+$$\boxed{M = \Delta C \cdot \omega^2 = 0.09234 \times 20.94^2 \approx 40.5 \ \text{N·m}}$$
+
+This couple causes the spindle to experience a rocking moment at every revolution, requiring bearing reactions to resist it.
+
+------------------------------------------------------------------------
+
+## Summary
+
+| Quantity                         | Value         |
+|----------------------------------|---------------|
+| Counterbalance radius $r_2$      | **190.6 mm**  |
+| Net unbalanced couple $\Delta C$ | 0.09234 kg·m² |
+| Angular velocity $\omega$        | 20.94 rad/s   |
+| Unbalanced couple $M$            | **40.5 N·m**  |
+
+> **Note:** To eliminate the couple entirely, the counterbalance would need to be repositioned axially so that $m_1 r_1 a_1 = m_2 r_2 a_2$, i.e. placed at $a_2 = 114 \text{ mm}$ from the faceplate — but that is not possible here given the fixed geometry.
+
+------------------------------------------------------------------------
+
+## Verification (Python)
+
+```python
+import numpy as np
+
+# Given
+m1, r1, a1 = 27,    0.090, 0.114   # casting
+m2,      a2 = 12.75, 0.076          # counterbalance
+N           = 200                   # rpm
+
+# Part 1 — static balance radius
+r2 = (m1 * r1) / m2
+print(f"Counterbalance radius r2 = {r2*1000:.2f} mm")
+
+# Part 2 — couple imbalance
+C1 = m1 * r1 * a1
+C2 = m2 * r2 * a2
+delta_C = C1 - C2
+print(f"\nC1 (casting)        = {C1:.5f} kg·m²")
+print(f"C2 (counterbalance) = {C2:.5f} kg·m²")
+print(f"Net couple ΔC       = {delta_C:.5f} kg·m²")
+
+# Angular velocity and dynamic couple
+omega = 2 * np.pi * N / 60
+M = delta_C * omega**2
+print(f"\nω  = {omega:.4f} rad/s")
+print(f"Unbalanced couple M = {M:.2f} N·m")
+```

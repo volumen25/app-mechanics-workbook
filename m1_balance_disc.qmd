@@ -1,0 +1,143 @@
+---
+title: "Out-of-Balance Disc"
+format:
+#   html:
+#     toc: true
+#     number-sections: true
+#     theme: cosmo
+#     code-fold: true
+  pdf:
+    toc: false
+    number-sections: false
+    geometry: margin=2.5cm
+---
+
+## Example
+
+Two identical holes are drilled in a uniform circular disc at a radius of **400 mm** from the axis. The total mass of material removed is **187.5 g**. The holes are spaced **90° apart** and the disc rotates at **1000 rpm**.
+
+1.  Calculate the resultant out-of-balance force.
+2.  Determine the magnitude and angular position of a corrective mass placed at a radius of **250 mm** to fully balance the disc.
+
+------------------------------------------------------------------------
+
+## Given Data
+
+| Symbol           | Description              | Value               |
+|------------------|--------------------------|---------------------|
+| $r$              | Hole radius from axis    | 400 mm = 0.4 m      |
+| $m_\text{total}$ | Total mass removed       | 187.5 g = 0.1875 kg |
+| $\theta$         | Angular spacing of holes | 90°                 |
+| $N$              | Rotational speed         | 1000 rpm            |
+| $r_b$            | Balancing mass radius    | 250 mm = 0.25 m     |
+
+Each hole represents an equal share of the removed material:
+
+$$m = \frac{m_\text{total}}{2} = \frac{0.1875}{2} = 0.09375 \ \text{kg}$$
+
+------------------------------------------------------------------------
+
+## Angular Velocity
+
+$$\omega = \frac{2\pi N}{60} = \frac{2\pi \times 1000}{60} = 104.72 \ \text{rad/s}$$
+
+------------------------------------------------------------------------
+
+## Resultant Out-of-Balance
+
+### Mass–Radius Vectors
+
+Removing material creates an effective **unbalance** equivalent to two negative masses. Place hole 1 at 0° and hole 2 at 90°.
+
+$$\vec{u}_1 = mr\,\hat{e}_{0°}
+  = 0.09375 \times 0.4 \ \text{kg·m at } 0°
+  = 0.0375 \ \text{kg·m at } 0°$$
+
+$$\vec{u}_2 = mr\,\hat{e}_{90°}
+  = 0.09375 \times 0.4 \ \text{kg·m at } 90°
+  = 0.0375 \ \text{kg·m at } 90°$$
+
+### Vector Sum (Cartesian components)
+
+$$U_x = 0.0375\cos 0° + 0.0375\cos 90° = 0.0375 + 0 = 0.0375 \ \text{kg·m}$$
+
+$$U_y = 0.0375\sin 0° + 0.0375\sin 90° = 0 + 0.0375 = 0.0375 \ \text{kg·m}$$
+
+### Resultant Magnitude
+
+$$U = \sqrt{U_x^2 + U_y^2}
+    = \sqrt{0.0375^2 + 0.0375^2}
+    = 0.0375\sqrt{2}
+    = 0.05303 \ \text{kg·m}$$
+
+### Direction
+
+The resultant bisects the 90° angle between the two holes:
+
+$$\phi = \arctan\!\left(\frac{U_y}{U_x}\right)
+       = \arctan(1) = 45° \text{ from hole 1}$$
+
+### Out-of-Balance Force
+
+$$\boxed{F = U\,\omega^2 = 0.05303 \times 104.72^2 \approx 581 \ \text{N}}$$
+
+------------------------------------------------------------------------
+
+## Balancing Mass
+
+To restore equilibrium the corrective mass must produce an equal and **opposite** $mr$ vector — i.e. at **225° from hole 1** (45° + 180°).
+
+$$m_b \, r_b = U \implies m_b = \frac{U}{r_b} = \frac{0.05303}{0.25}$$
+
+$$\boxed{m_b = 0.2121 \ \text{kg} \approx 212 \ \text{g}}$$
+
+Placed at a radius of **250 mm** and at **225° from hole 1** (i.e. diametrically opposite the resultant unbalance vector).
+
+------------------------------------------------------------------------
+
+## Summary
+
+| Quantity                        | Value                         |
+|---------------------------------|-------------------------------|
+| Angular velocity $\omega$       | 104.72 rad/s                  |
+| Resultant unbalance $U = mr$    | 0.05303 kg·m                  |
+| Direction of unbalance          | 45° from hole 1               |
+| Out-of-balance force $F$        | **581 N**                     |
+| Corrective mass $m_b$ at 250 mm | **212 g at 225° from hole 1** |
+
+------------------------------------------------------------------------
+
+## Verification (Python)
+
+```python
+import numpy as np
+
+# Given
+m_each   = 0.1875 / 2          # kg, mass per hole
+r        = 0.400                # m, hole radius
+N        = 1000                 # rpm
+r_b      = 0.250                # m, balance radius
+theta    = np.radians(90)       # hole spacing
+
+# Angular velocity
+omega = 2 * np.pi * N / 60
+print(f"ω = {omega:.4f} rad/s")
+
+# mr vectors
+u1 = m_each * r * np.array([np.cos(0),     np.sin(0)])
+u2 = m_each * r * np.array([np.cos(theta), np.sin(theta)])
+
+U_vec = u1 + u2
+U_mag = np.linalg.norm(U_vec)
+U_angle = np.degrees(np.arctan2(U_vec[1], U_vec[0]))
+print(f"Resultant mr = {U_mag:.5f} kg·m at {U_angle:.1f}°")
+
+# Out-of-balance force
+F = U_mag * omega**2
+print(f"Out-of-balance force F = {F:.1f} N")
+
+# Balancing mass
+m_b = U_mag / r_b
+balance_angle = U_angle + 180
+print(f"Corrective mass = {m_b*1000:.1f} g at {balance_angle:.1f}° from hole 1")
+```
