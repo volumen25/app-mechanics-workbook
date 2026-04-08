@@ -1,0 +1,136 @@
+---
+title: "Stresses in Thin-Walled Cylinders"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    geometry: margin=2.5cm
+    fontsize: 11pt
+    colorlinks: true
+---
+
+## Introduction
+
+A **thin-walled cylinder** is one in which the wall thickness $t$ is small relative to the internal radius $r$, typically satisfying:
+
+$$\frac{t}{r} \leq \frac{1}{20} \qquad \text{equivalently} \qquad \frac{2t}{d} \leq \frac{1}{20}$$
+
+where $d = 2r$ is the internal diameter. When subjected to internal gauge pressure $p$, two principal stresses develop in the wall:
+
+- **Longitudinal (axial) stress** $\sigma_L$ — acts parallel to the cylinder axis
+- **Circumferential (hoop) stress** $\sigma_C$ — acts perpendicular to the axis, around the circumference
+
+Both are tensile for internal pressure. The wall is assumed thin enough that each stress is **uniform through the thickness**.
+
+------------------------------------------------------------------------
+
+## Longitudinal Stress
+
+Internal pressure acts on the **end caps**, producing a net axial force that tries to burst the cylinder lengthwise. The wall cross-section at any transverse cut must resist this force.
+
+### Derivation
+
+Take an imaginary cut perpendicular to the axis. The bursting force on the end cap is:
+
+$$F_{\text{burst}} = p \cdot \frac{\pi d^2}{4} = p \cdot \pi r^2$$
+
+The resisting area of the thin wall at the cut is:
+
+$$A_{\text{wall}} = \pi d \cdot t = 2\pi r \cdot t$$
+
+Force equilibrium $\sigma_L \cdot A_{\text{wall}} = F_{\text{burst}}$ gives:
+
+$$\sigma_L \cdot \pi d t = p \cdot \frac{\pi d^2}{4}$$
+
+$$\boxed{\sigma_L = \frac{pd}{4t} = \frac{pr}{2t}}$$
+
+------------------------------------------------------------------------
+
+## Circumferential (Hoop) Stress
+
+Internal pressure acts radially outward on the curved wall, trying to split the cylinder along a longitudinal seam. The wall either side of an imaginary longitudinal cut must resist this bursting force.
+
+### Derivation
+
+Take an imaginary cut along the full length $L$ of the cylinder, splitting it into two half-shells. The bursting force acting on the projected rectangular area of one half-shell is:
+
+$$F_{\text{burst}} = p \cdot d \cdot L = p \cdot 2r \cdot L$$
+
+The resisting area is the two wall strips exposed by the cut (one on each side):
+
+$$A_{\text{wall}} = 2 \cdot t \cdot L$$
+
+Force equilibrium $\sigma_C \cdot A_{\text{wall}} = F_{\text{burst}}$ gives:
+
+$$\sigma_C \cdot 2tL = p \cdot dL$$
+
+$$\boxed{\sigma_C = \frac{pd}{2t} = \frac{pr}{t}}$$
+
+------------------------------------------------------------------------
+
+## Summary of Formulae
+
+Both stresses expressed in terms of internal **radius** $r$ and internal **diameter** $d = 2r$:
+
+| Stress                     | Using radius     | Using diameter   |
+|----------------------------|------------------|------------------|
+| Longitudinal $\sigma_L$    | $\dfrac{pr}{2t}$ | $\dfrac{pd}{4t}$ |
+| Circumferential $\sigma_C$ | $\dfrac{pr}{t}$  | $\dfrac{pd}{2t}$ |
+
+The circumferential stress is always **twice** the longitudinal stress:
+
+$$\sigma_C = 2\,\sigma_L$$
+
+### Practical consequence
+
+Because $\sigma_C > \sigma_L$, pressurised cylinders fail preferentially by splitting along a **longitudinal seam** (driven by hoop stress), not across the axis. Design must therefore be governed by $\sigma_C$.
+
+------------------------------------------------------------------------
+
+## Conditions and Assumptions
+
+The above formulae apply under the following conditions:
+
+1.  **Closed ends** — longitudinal stress requires end caps. An open tube has $\sigma_L \approx 0$.
+2.  **Thin wall** — $t/r \leq 1/20$. Use Lamé's equations for thick-walled cylinders.
+3.  **Uniform internal pressure** $p$ acting on all internal surfaces.
+4.  **No bending or external loads** — pure internal pressure only.
+
+------------------------------------------------------------------------
+
+## Worked Example
+
+**Problem:** A closed cylindrical pressure vessel has an internal diameter of 400 mm and a wall thickness of 8 mm. Internal gauge pressure is 3 MPa. Determine both the longitudinal and circumferential stresses.
+
+**Given:**
+
+- $d = 400\ \text{mm} = 0.4\ \text{m}$ $\Rightarrow$ $r = 200\ \text{mm} = 0.2\ \text{m}$
+- $t = 8\ \text{mm} = 0.008\ \text{m}$
+- $p = 3\ \text{MPa} = 3 \times 10^6\ \text{Pa}$
+
+**Check thin-wall criterion:**
+
+$$\frac{t}{r} = \frac{8}{200} = 0.04 \leq 0.05 \quad \checkmark$$
+
+**Longitudinal stress** (using diameter form):
+
+$$\sigma_L = \frac{pd}{4t} = \frac{3 \times 10^6 \times 0.4}{4 \times 0.008} = \frac{1{,}200{,}000}{0.032} = 37.5\ \text{MPa}$$
+
+**Circumferential stress** (using diameter form):
+
+$$\sigma_C = \frac{pd}{2t} = \frac{3 \times 10^6 \times 0.4}{2 \times 0.008} = \frac{1{,}200{,}000}{0.016} = 75\ \text{MPa}$$
+
+**Verification:** $\sigma_C = 2 \times \sigma_L = 2 \times 37.5 = 75\ \text{MPa}$ $\checkmark$
+
+The vessel wall experiences a longitudinal stress of **37.5 MPa** and a circumferential stress of **75 MPa**. The circumferential stress governs design.
+
+------------------------------------------------------------------------
+
+## Note on Reed's Volumes
+
+Some references (including certain editions of Reed's Marine Engineering) label these stresses with the formulae **reversed** — attributing $pd/2t$ to longitudinal and $pd/4t$ to circumferential stress. This is **incorrect** by the standard derivation above. The physical argument is straightforward:
+
+- The end cap presents area $\pi d^2 / 4$ to the pressure — a **smaller** force, hence **smaller** stress: this is $\sigma_L$.
+- The projected side area $d \times L$ is larger — a **bigger** force, hence **larger** stress: this is $\sigma_C$.
+
+The factor-of-two relationship $\sigma_C = 2\,\sigma_L$ is a robust check: if a reference's two formulae for a cylinder don't satisfy it, a labelling error is likely present.
